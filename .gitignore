@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+build/
+dist/
+*.egg-info/
+.radar-cache/
+coverage.xml
+.coverage
+artifacts/release-evidence/generated/
+corpus/collection-queue.json
+corpus/index.sqlite3

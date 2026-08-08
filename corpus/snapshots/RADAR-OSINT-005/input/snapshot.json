@@ -1,0 +1,114 @@
+{
+  "attribution": {
+    "candidate_induced": null,
+    "confidence": "inconclusive",
+    "evidence_tier": "UNLABELED",
+    "first_bad": null,
+    "intentionality": "unknown",
+    "owner_project": null,
+    "owner_repository": null,
+    "rationale": "Gold resolution evidence is hidden from inference.",
+    "responsible_layer": "unknown"
+  },
+  "case_id": "RADAR-OSINT-005",
+  "cutoff": "2026-03-29T00:00:00Z",
+  "downstream_subject": {
+    "package": null,
+    "repository": "https://github.com/pydata/xarray",
+    "repository_full_name": "pydata/xarray",
+    "revision": "unknown-revision",
+    "source_signal": "https://github.com/pydata/xarray/issues/11268",
+    "test_command_digest": null
+  },
+  "environments": {
+    "candidate": {
+      "dependency_snapshot_digest": null,
+      "notes": null,
+      "runtime": null,
+      "variables": {}
+    },
+    "common": {
+      "architecture": "unknown",
+      "container_digest": null,
+      "dependency_snapshot_digest": null,
+      "locale": null,
+      "network_policy": "unknown",
+      "os": "public CI",
+      "runner": "unknown",
+      "timezone": "UTC"
+    },
+    "control": {
+      "dependency_snapshot_digest": null,
+      "notes": null,
+      "runtime": null,
+      "variables": {}
+    },
+    "resolution_mode": "unknown"
+  },
+  "evidence": [
+    {
+      "available_before_cutoff": true,
+      "collected_at": "2026-03-29T00:00:00Z",
+      "digest": null,
+      "evidence_id": "E-RADAR_OSINT_005",
+      "kind": "issue",
+      "notes": "Seed-manifest source reference; public content must be independently collected before a headline result.",
+      "uri": "https://github.com/pydata/xarray/issues/11268"
+    }
+  ],
+  "evidence_ids": [
+    "E-RADAR_OSINT_005"
+  ],
+  "experiments": [],
+  "failure": {
+    "exception_or_tool": null,
+    "fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "message_template": "Initial pandas deprecation wave later changed into a NumPy setup-time deprecation that stopped issue updates.",
+    "phase": "runtime",
+    "symbol": null,
+    "test_identifiers": []
+  },
+  "hypotheses": [],
+  "outcomes": {
+    "candidate": {
+      "attempts": 1,
+      "duration_seconds": null,
+      "evidence_ids": [
+        "E-RADAR_OSINT_005"
+      ],
+      "exit_code": null,
+      "status": "fail",
+      "workflow_run": null
+    },
+    "control": {
+      "attempts": 1,
+      "duration_seconds": null,
+      "evidence_ids": [
+        "E-RADAR_OSINT_005"
+      ],
+      "exit_code": null,
+      "status": "pass",
+      "workflow_run": null
+    }
+  },
+  "schema_version": "0.1",
+  "upstream_change": {
+    "candidate": {
+      "artifact_digest": null,
+      "artifact_uri": null,
+      "revision": null,
+      "version": "candidate"
+    },
+    "control": {
+      "artifact_digest": null,
+      "artifact_uri": null,
+      "revision": null,
+      "version": "control"
+    },
+    "ecosystem": "public Python ecosystem",
+    "event_type": "unknown",
+    "kind": "library",
+    "project": "pydata/xarray",
+    "repository": "https://github.com/pydata/xarray"
+  }
+}

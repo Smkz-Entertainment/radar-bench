@@ -1,0 +1,134 @@
+{
+  "attribution": {
+    "candidate_induced": null,
+    "confidence": "inconclusive",
+    "evidence_tier": "UNLABELED",
+    "first_bad": null,
+    "intentionality": "unknown",
+    "owner_project": null,
+    "owner_repository": null,
+    "rationale": "Gold resolution evidence is hidden from inference.",
+    "responsible_layer": "unknown"
+  },
+  "case_id": "RADAR-OSINT-008",
+  "cutoff": "2024-03-13T00:00:00Z",
+  "downstream_subject": {
+    "package": null,
+    "repository": "https://github.com/scikit-learn/scikit-learn",
+    "repository_full_name": "MNE-Python -> scikit-learn -> SciPy -> OpenBLAS",
+    "revision": "unknown-revision",
+    "source_signal": "https://github.com/scikit-learn/scikit-learn/issues/28625",
+    "test_command_digest": null
+  },
+  "environments": {
+    "candidate": {
+      "dependency_snapshot_digest": null,
+      "notes": null,
+      "runtime": null,
+      "variables": {}
+    },
+    "common": {
+      "architecture": "unknown",
+      "container_digest": null,
+      "dependency_snapshot_digest": null,
+      "locale": null,
+      "network_policy": "unknown",
+      "os": "public CI",
+      "runner": "unknown",
+      "timezone": "UTC"
+    },
+    "control": {
+      "dependency_snapshot_digest": null,
+      "notes": null,
+      "runtime": null,
+      "variables": {}
+    },
+    "resolution_mode": "unknown"
+  },
+  "evidence": [
+    {
+      "available_before_cutoff": true,
+      "collected_at": "2024-03-13T00:00:00Z",
+      "digest": null,
+      "evidence_id": "E-RADAR_OSINT_008",
+      "kind": "issue",
+      "notes": "Seed-manifest source reference; public content must be independently collected before a headline result.",
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/28625"
+    }
+  ],
+  "evidence_ids": [
+    "E-RADAR_OSINT_008"
+  ],
+  "experiments": [
+    {
+      "evidence_ids": [
+        "E-RADAR_OSINT_008"
+      ],
+      "experiment_id": "X-RADAR_OSINT_008",
+      "intervention": "Run a bounded control/candidate comparison with the environment held stable.",
+      "proposed_by": "human",
+      "question": "Does a controlled intervention distinguish the candidate from the control?",
+      "result_summary": "Curator manifest records a causal or resolution-grade signal; details remain linked public evidence.",
+      "status": "supported"
+    }
+  ],
+  "failure": {
+    "exception_or_tool": null,
+    "fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "message_template": "Windows ArgKmin hang traveled through three Python projects before exact attribution to OpenBLAS 0.3.26.",
+    "phase": "runtime",
+    "symbol": null,
+    "test_identifiers": []
+  },
+  "hypotheses": [
+    {
+      "description": "Windows ArgKmin hang traveled through three Python projects before exact attribution to OpenBLAS 0.3.26.",
+      "experiment_ids": [],
+      "hypothesis_id": "H-RADAR_OSINT_008",
+      "proposed_by": "human",
+      "status": "supported"
+    }
+  ],
+  "outcomes": {
+    "candidate": {
+      "attempts": 1,
+      "duration_seconds": null,
+      "evidence_ids": [
+        "E-RADAR_OSINT_008"
+      ],
+      "exit_code": null,
+      "status": "fail",
+      "workflow_run": null
+    },
+    "control": {
+      "attempts": 1,
+      "duration_seconds": null,
+      "evidence_ids": [
+        "E-RADAR_OSINT_008"
+      ],
+      "exit_code": null,
+      "status": "pass",
+      "workflow_run": null
+    }
+  },
+  "schema_version": "0.1",
+  "upstream_change": {
+    "candidate": {
+      "artifact_digest": null,
+      "artifact_uri": null,
+      "revision": null,
+      "version": "candidate"
+    },
+    "control": {
+      "artifact_digest": null,
+      "artifact_uri": null,
+      "revision": null,
+      "version": "control"
+    },
+    "ecosystem": "public Python ecosystem",
+    "event_type": "unknown",
+    "kind": "library",
+    "project": "MNE-Python -> scikit-learn -> SciPy -> OpenBLAS",
+    "repository": "https://github.com/OpenMathLib/OpenBLAS"
+  }
+}

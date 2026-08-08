@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ecosystem-radar/experiment-plan-v0.1.schema.json",
+  "title": "Radar ExperimentPlan v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "plan_id", "case_id", "question", "hypothesis", "control", "candidate", "source_revision", "commands", "environment_allowlist", "limits", "expected_outputs", "risk_classification", "status", "result_evidence_ids"],
+  "properties": {
+    "schema_version": {"const": "0.1"}, "plan_id": {"type": "string", "pattern": "^PLAN-[A-Z0-9._:-]+$"}, "case_id": {"type": "string", "minLength": 3}, "question": {"type": "string", "minLength": 1, "maxLength": 4000}, "hypothesis": {"type": "string", "minLength": 1, "maxLength": 4000},
+    "control": {"type": "object", "additionalProperties": false, "required": ["identifier"], "properties": {"identifier": {"type": "string", "minLength": 1}, "revision": {"type": ["string", "null"]}}},
+    "candidate": {"type": "object", "additionalProperties": false, "required": ["identifier"], "properties": {"identifier": {"type": "string", "minLength": 1}, "revision": {"type": ["string", "null"]}}},
+    "source_revision": {"type": "string", "minLength": 1}, "commands": {"type": "array", "minItems": 1, "maxItems": 50, "items": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}},
+    "environment_allowlist": {"type": "array", "items": {"type": "string", "pattern": "^[A-Z_][A-Z0-9_]*$"}, "uniqueItems": true},
+    "limits": {"type": "object", "additionalProperties": false, "required": ["network_policy", "cpu_seconds", "memory_mb", "processes", "disk_mb", "timeout_seconds", "output_mb"], "properties": {"network_policy": {"enum": ["denied", "registry_only", "restricted"]}, "cpu_seconds": {"type": "integer", "minimum": 1, "maximum": 86400}, "memory_mb": {"type": "integer", "minimum": 16, "maximum": 1048576}, "processes": {"type": "integer", "minimum": 1, "maximum": 256}, "disk_mb": {"type": "integer", "minimum": 1, "maximum": 1048576}, "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 86400}, "output_mb": {"type": "integer", "minimum": 1, "maximum": 10240}}},
+    "expected_outputs": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}, "risk_classification": {"enum": ["low", "medium", "high", "unsafe"]}, "status": {"enum": ["planned", "dry_run", "running", "completed", "failed", "rejected"]}, "result_evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}
+  }
+}

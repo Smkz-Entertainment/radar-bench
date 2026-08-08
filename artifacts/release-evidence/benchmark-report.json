@@ -1,0 +1,55 @@
+{
+  "exploratory": true,
+  "metrics": {
+    "candidate_induced_precision": {
+      "denominator": 8,
+      "numerator": 8,
+      "value": 1.0
+    },
+    "candidate_induced_recall": {
+      "denominator": 9,
+      "numerator": 8,
+      "value": 0.8888888888888888
+    },
+    "confusion": {
+      "downstream_project->upstream_runtime_or_library": 2,
+      "external_service_or_data->external_service_or_data": 1,
+      "multiple_layers->upstream_runtime_or_library": 2,
+      "packaging_or_artifact->packaging_or_artifact": 1,
+      "shared_dependency->upstream_runtime_or_library": 1,
+      "unknown->flaky_or_nondeterministic": 1,
+      "unknown->unknown": 1,
+      "upstream_runtime_or_library->upstream_runtime_or_library": 3
+    },
+    "counts": {
+      "confirmed_predictions": 8,
+      "gold_confirmed": 9,
+      "high_layer_predictions": 0,
+      "invalid": 0,
+      "negative_cases": 3,
+      "predictions": 12,
+      "valid": 12
+    },
+    "false_upstream_accusation_rate": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "high_confidence_layer_precision": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "invalid_prediction_rate": {
+      "denominator": 12,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "negative_case_abstention_recall": {
+      "denominator": 3,
+      "numerator": 2,
+      "value": 0.6666666666666666
+    }
+  },
+  "protocol_version": "0.1"
+}

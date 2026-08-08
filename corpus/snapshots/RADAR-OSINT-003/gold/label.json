@@ -1,0 +1,18 @@
+{
+  "attribution": {
+    "candidate_induced": false,
+    "confidence": "medium",
+    "evidence_tier": "A",
+    "first_bad": null,
+    "intentionality": "unknown",
+    "owner_project": null,
+    "owner_repository": null,
+    "rationale": "Seed-corpus curation record derived from the manifest; full public collection and temporal review remain explicit release evidence requirements.",
+    "responsible_layer": "external_service_or_data"
+  },
+  "case_id": "RADAR-OSINT-003",
+  "evidence_ids": [],
+  "resolution": {
+    "status": "unknown"
+  }
+}

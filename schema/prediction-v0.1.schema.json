@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ecosystem-radar/prediction-v0.1.schema.json",
+  "title": "Radar Prediction v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "case_id", "verdict", "candidate_induced", "responsible_layer", "owner_repository", "owner_project", "owner_candidates", "intentionality", "first_bad", "confidence", "rationale", "evidence_ids", "recommended_next_experiment", "provider", "provider_version", "created_at"],
+  "properties": {
+    "schema_version": {"const": "0.1"}, "case_id": {"type": "string", "minLength": 3},
+    "verdict": {"enum": ["confirmed_regression", "not_candidate_induced", "inconclusive"]}, "candidate_induced": {"type": ["boolean", "null"]},
+    "responsible_layer": {"enum": ["upstream_runtime_or_library", "shared_dependency", "downstream_project", "dependency_resolution", "packaging_or_artifact", "external_service_or_data", "ci_or_infrastructure", "flaky_or_nondeterministic", "multiple_layers", "unknown"]},
+    "owner_repository": {"type": ["string", "null"], "format": "uri"}, "owner_project": {"type": ["string", "null"]},
+    "owner_candidates": {"type": "array", "maxItems": 20, "items": {"type": "object", "additionalProperties": false, "required": ["rank", "repository", "project", "evidence_ids"], "properties": {"rank": {"type": "integer", "minimum": 1}, "repository": {"type": ["string", "null"], "format": "uri"}, "project": {"type": ["string", "null"]}, "evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}}}},
+    "intentionality": {"enum": ["expected_break", "unexpected_regression", "unknown", "not_applicable"]},
+    "first_bad": {"oneOf": [{"type": "null"}, {"type": "object", "additionalProperties": false, "required": ["kind", "value"], "properties": {"kind": {"enum": ["version", "revision", "pull_request", "range", "exact"]}, "value": {"type": "string", "minLength": 1}}}]},
+    "confidence": {"enum": ["confirmed", "high", "medium", "low", "inconclusive"]}, "rationale": {"type": "string", "minLength": 1, "maxLength": 8000},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "recommended_next_experiment": {"oneOf": [{"type": "null"}, {"type": "object", "additionalProperties": false, "required": ["kind", "question"], "properties": {"kind": {"enum": ["ab", "pin", "bisect", "repeat", "network_check", "inspect", "other"]}, "question": {"type": "string", "minLength": 1}, "commands": {"type": "array", "items": {"type": "array", "items": {"type": "string"}}}}}]},
+    "provider": {"enum": ["deterministic", "local_model", "codex", "imported"]}, "provider_version": {"type": "string", "minLength": 1}, "created_at": {"type": "string", "format": "date-time"},
+    "cost": {"oneOf": [{"type": "null"}, {"type": "object", "additionalProperties": false, "properties": {"input_tokens": {"type": "integer", "minimum": 0}, "output_tokens": {"type": "integer", "minimum": 0}, "currency": {"type": "string"}, "amount": {"type": "number", "minimum": 0}, "wall_clock_seconds": {"type": "number", "minimum": 0}}}]}
+  }
+}

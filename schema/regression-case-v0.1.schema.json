@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ecosystem-radar/regression-case-v0.1.schema.json",
+  "title": "RegressionCase v0.1",
+  "description": "Evidence-first record for attributing a downstream regression to an exact upstream change.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "case_id", "lifecycle", "upstream_change", "downstream_subject", "environments", "outcomes", "evidence", "experiments", "attribution", "provenance", "privacy"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "case_id": {"type": "string", "pattern": "^[A-Z0-9][A-Z0-9._:-]{2,127}$"},
+    "title": {"type": "string", "minLength": 1, "maxLength": 300},
+    "summary": {"type": "string", "maxLength": 4000},
+    "lifecycle": {"$ref": "#/$defs/lifecycle"},
+    "upstream_change": {"$ref": "#/$defs/upstreamChange"},
+    "downstream_subject": {"$ref": "#/$defs/downstream"},
+    "environments": {"$ref": "#/$defs/environments"},
+    "outcomes": {"$ref": "#/$defs/outcomes"},
+    "failure": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/failure"}]},
+    "hypotheses": {"type": "array", "maxItems": 100, "items": {"$ref": "#/$defs/hypothesis"}},
+    "experiments": {"type": "array", "maxItems": 200, "items": {"$ref": "#/$defs/experiment"}},
+    "evidence": {"type": "array", "minItems": 1, "maxItems": 500, "items": {"$ref": "#/$defs/evidence"}},
+    "attribution": {"$ref": "#/$defs/attribution"},
+    "related_cases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true, "maxItems": 1000},
+    "resolution": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/resolution"}]},
+    "provenance": {"$ref": "#/$defs/provenance"},
+    "privacy": {"$ref": "#/$defs/privacy"}
+  },
+  "$defs": {
+    "lifecycle": {"type": "object", "additionalProperties": false, "required": ["state", "observed_at", "updated_at"], "properties": {
+      "state": {"enum": ["observation", "reproduced", "paired_regression", "confounders_checked", "attributed", "resolved", "inconclusive", "retracted"]},
+      "observed_at": {"type": "string", "format": "date-time"}, "updated_at": {"type": "string", "format": "date-time"}, "closed_at": {"type": ["string", "null"], "format": "date-time"}
+    }},
+    "softwareRef": {"type": "object", "additionalProperties": false, "properties": {
+      "version": {"type": ["string", "null"], "maxLength": 200}, "revision": {"type": ["string", "null"], "maxLength": 128}, "artifact_uri": {"type": ["string", "null"], "format": "uri"}, "artifact_digest": {"type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$"}
+    }, "anyOf": [{"required": ["version"]}, {"required": ["revision"]}, {"required": ["artifact_digest"]}]},
+    "upstreamChange": {"type": "object", "additionalProperties": false, "required": ["kind", "ecosystem", "project", "control", "candidate"], "properties": {
+      "kind": {"enum": ["runtime", "library", "compiler", "framework", "operating_system", "protocol", "build_tool", "artifact_pipeline", "internal_platform", "other"]}, "ecosystem": {"type": "string", "minLength": 1, "maxLength": 80}, "project": {"type": "string", "minLength": 1, "maxLength": 200}, "repository": {"type": ["string", "null"], "format": "uri"}, "event_type": {"enum": ["release", "prerelease", "nightly", "commit", "pull_request", "artifact_availability", "configuration_change", "unknown"]}, "control": {"$ref": "#/$defs/softwareRef"}, "candidate": {"$ref": "#/$defs/softwareRef"}
+    }},
+    "downstream": {"type": "object", "additionalProperties": false, "required": ["repository", "revision"], "properties": {
+      "repository": {"type": "string", "format": "uri"}, "repository_full_name": {"type": ["string", "null"], "maxLength": 300}, "revision": {"type": "string", "minLength": 7, "maxLength": 128}, "package": {"type": ["string", "null"], "maxLength": 200}, "test_command_digest": {"type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$"}, "source_signal": {"type": ["string", "null"], "format": "uri"}
+    }},
+    "environment": {"type": "object", "additionalProperties": false, "required": ["os", "architecture"], "properties": {
+      "os": {"type": "string", "minLength": 1, "maxLength": 200}, "architecture": {"type": "string", "minLength": 1, "maxLength": 80}, "runner": {"type": ["string", "null"], "maxLength": 300}, "container_digest": {"type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$"}, "dependency_snapshot_digest": {"type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$"}, "locale": {"type": ["string", "null"], "maxLength": 100}, "timezone": {"type": ["string", "null"], "maxLength": 100}, "network_policy": {"enum": ["denied", "registry_only", "restricted", "unrestricted", "unknown"]}
+    }},
+    "environmentDelta": {"type": "object", "additionalProperties": false, "properties": {"runtime": {"type": ["string", "null"], "maxLength": 200}, "dependency_snapshot_digest": {"type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$"}, "variables": {"type": "object", "additionalProperties": {"type": "string", "maxLength": 2000}, "maxProperties": 200}, "notes": {"type": ["string", "null"], "maxLength": 2000}}},
+    "environments": {"type": "object", "additionalProperties": false, "required": ["resolution_mode", "common", "control", "candidate"], "properties": {"resolution_mode": {"enum": ["frozen_causal", "realistic_resolution", "both", "unknown"]}, "common": {"$ref": "#/$defs/environment"}, "control": {"$ref": "#/$defs/environmentDelta"}, "candidate": {"$ref": "#/$defs/environmentDelta"}}},
+    "outcome": {"type": "object", "additionalProperties": false, "required": ["status", "attempts"], "properties": {"status": {"enum": ["pass", "fail", "error", "timeout", "not_run", "unknown"]}, "attempts": {"type": "integer", "minimum": 0, "maximum": 1000}, "duration_seconds": {"type": ["number", "null"], "minimum": 0}, "exit_code": {"type": ["integer", "null"]}, "workflow_run": {"type": ["string", "null"], "format": "uri"}, "evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}}},
+    "outcomes": {"type": "object", "additionalProperties": false, "required": ["control", "candidate"], "properties": {"control": {"$ref": "#/$defs/outcome"}, "candidate": {"$ref": "#/$defs/outcome"}}},
+    "failure": {"type": "object", "additionalProperties": false, "required": ["phase", "fingerprint"], "properties": {"phase": {"enum": ["resolution", "install", "build", "import", "collection", "test", "runtime", "shutdown", "artifact_availability", "external_service", "infrastructure", "unknown"]}, "exception_or_tool": {"type": ["string", "null"], "maxLength": 300}, "message_template": {"type": ["string", "null"], "maxLength": 2000}, "symbol": {"type": ["string", "null"], "maxLength": 500}, "fingerprint": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}, "test_identifiers": {"type": "array", "items": {"type": "string", "maxLength": 1000}, "maxItems": 200, "uniqueItems": true}}},
+    "hypothesis": {"type": "object", "additionalProperties": false, "required": ["hypothesis_id", "description", "proposed_by", "status"], "properties": {"hypothesis_id": {"type": "string", "pattern": "^H-[A-Z0-9._:-]+$"}, "description": {"type": "string", "minLength": 1, "maxLength": 4000}, "proposed_by": {"enum": ["deterministic", "codex", "local_model", "human", "imported"]}, "status": {"enum": ["untested", "supported", "rejected", "inconclusive"]}, "experiment_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}}},
+    "experiment": {"type": "object", "additionalProperties": false, "required": ["experiment_id", "question", "intervention", "status", "evidence_ids"], "properties": {"experiment_id": {"type": "string", "pattern": "^X-[A-Z0-9._:-]+$"}, "question": {"type": "string", "minLength": 1, "maxLength": 4000}, "intervention": {"type": "string", "minLength": 1, "maxLength": 8000}, "status": {"enum": ["planned", "running", "supported", "rejected", "inconclusive", "unsafe"]}, "result_summary": {"type": ["string", "null"], "maxLength": 8000}, "evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}, "proposed_by": {"enum": ["deterministic", "codex", "local_model", "human", "imported"]}}},
+    "evidence": {"type": "object", "additionalProperties": false, "required": ["evidence_id", "kind", "uri", "collected_at"], "properties": {"evidence_id": {"type": "string", "pattern": "^E-[A-Z0-9._:-]+$"}, "kind": {"enum": ["issue", "pull_request", "commit", "workflow_run", "log", "test_report", "environment_manifest", "dependency_graph", "reproducer", "release_note", "documentation", "attestation", "maintainer_confirmation", "other"]}, "uri": {"type": "string", "format": "uri"}, "digest": {"type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$"}, "collected_at": {"type": "string", "format": "date-time"}, "available_before_cutoff": {"type": "boolean"}, "notes": {"type": ["string", "null"], "maxLength": 2000}}},
+    "attribution": {"type": "object", "additionalProperties": false, "required": ["candidate_induced", "responsible_layer", "intentionality", "evidence_tier", "confidence", "rationale"], "properties": {"candidate_induced": {"type": ["boolean", "null"]}, "responsible_layer": {"enum": ["upstream_runtime_or_library", "shared_dependency", "downstream_project", "dependency_resolution", "packaging_or_artifact", "external_service_or_data", "ci_or_infrastructure", "flaky_or_nondeterministic", "multiple_layers", "unknown"]}, "owner_repository": {"type": ["string", "null"], "format": "uri"}, "owner_project": {"type": ["string", "null"], "maxLength": 300}, "intentionality": {"enum": ["expected_break", "unexpected_regression", "unknown", "not_applicable"]}, "first_bad": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/firstBad"}]}, "evidence_tier": {"enum": ["A", "B", "C", "UNLABELED"]}, "confidence": {"enum": ["confirmed", "high", "medium", "low", "inconclusive"]}, "rationale": {"type": "string", "minLength": 1, "maxLength": 8000}}},
+    "firstBad": {"type": "object", "additionalProperties": false, "required": ["exact"], "properties": {"version": {"type": ["string", "null"]}, "revision": {"type": ["string", "null"]}, "range_start": {"type": ["string", "null"]}, "range_end": {"type": ["string", "null"]}, "exact": {"type": "boolean"}}},
+    "resolution": {"type": "object", "additionalProperties": false, "required": ["status"], "properties": {"status": {"enum": ["unresolved", "workaround", "fixed", "reverted", "not_a_bug", "expired", "unknown"]}, "issue": {"type": ["string", "null"], "format": "uri"}, "pull_request": {"type": ["string", "null"], "format": "uri"}, "revision": {"type": ["string", "null"]}, "version": {"type": ["string", "null"]}, "verified_by_rerun": {"type": ["boolean", "null"]}, "notes": {"type": ["string", "null"], "maxLength": 4000}}},
+    "provenance": {"type": "object", "additionalProperties": false, "required": ["collector", "collected_at", "source_snapshot_cutoff"], "properties": {"collector": {"type": "string", "minLength": 1, "maxLength": 300}, "collector_version": {"type": ["string", "null"], "maxLength": 100}, "collected_at": {"type": "string", "format": "date-time"}, "source_snapshot_cutoff": {"type": "string", "format": "date-time"}, "workflow_revision": {"type": ["string", "null"]}, "attestation_uri": {"type": ["string", "null"], "format": "uri"}, "record_digest": {"type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$"}}},
+    "privacy": {"type": "object", "additionalProperties": false, "required": ["visibility", "raw_logs_shared", "source_code_shared", "redactions"], "properties": {"visibility": {"enum": ["public", "private", "anonymized", "embargoed"]}, "raw_logs_shared": {"type": "boolean"}, "source_code_shared": {"type": "boolean"}, "redactions": {"type": "array", "items": {"type": "string", "maxLength": 500}, "maxItems": 100}}}
+  }
+}

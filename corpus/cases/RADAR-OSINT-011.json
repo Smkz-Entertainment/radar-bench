@@ -1,0 +1,139 @@
+{
+  "attribution": {
+    "candidate_induced": true,
+    "confidence": "medium",
+    "evidence_tier": "B",
+    "first_bad": null,
+    "intentionality": "unknown",
+    "owner_project": null,
+    "owner_repository": null,
+    "rationale": "Seed-corpus curation record derived from the manifest; full public collection and temporal review remain explicit release evidence requirements.",
+    "responsible_layer": "packaging_or_artifact"
+  },
+  "case_id": "RADAR-OSINT-011",
+  "downstream_subject": {
+    "package": null,
+    "repository": "https://github.com/scikit-learn/scikit-learn",
+    "repository_full_name": "uxarray -> scikit-learn nightly wheel pipeline -> Cython",
+    "revision": "unknown-revision",
+    "source_signal": "https://github.com/scikit-learn/scikit-learn/issues/34458",
+    "test_command_digest": null
+  },
+  "environments": {
+    "candidate": {
+      "dependency_snapshot_digest": null,
+      "notes": null,
+      "runtime": null,
+      "variables": {}
+    },
+    "common": {
+      "architecture": "unknown",
+      "container_digest": null,
+      "dependency_snapshot_digest": null,
+      "locale": null,
+      "network_policy": "unknown",
+      "os": "public CI",
+      "runner": "unknown",
+      "timezone": "UTC"
+    },
+    "control": {
+      "dependency_snapshot_digest": null,
+      "notes": null,
+      "runtime": null,
+      "variables": {}
+    },
+    "resolution_mode": "unknown"
+  },
+  "evidence": [
+    {
+      "available_before_cutoff": true,
+      "collected_at": "2026-07-10T00:00:00Z",
+      "digest": null,
+      "evidence_id": "E-RADAR_OSINT_011",
+      "kind": "issue",
+      "notes": "Seed-manifest source reference; public content must be independently collected before a headline result.",
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/34458"
+    }
+  ],
+  "experiments": [],
+  "failure": {
+    "exception_or_tool": null,
+    "fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "message_template": "Nightly wheel uploads silently stopped after persistent build failures; a downstream project later opened a duplicate issue.",
+    "phase": "artifact_availability",
+    "symbol": null,
+    "test_identifiers": []
+  },
+  "hypotheses": [],
+  "lifecycle": {
+    "closed_at": null,
+    "observed_at": "2026-07-10T00:00:00Z",
+    "state": "resolved",
+    "updated_at": "2026-07-10T00:00:00Z"
+  },
+  "outcomes": {
+    "candidate": {
+      "attempts": 1,
+      "duration_seconds": null,
+      "evidence_ids": [
+        "E-RADAR_OSINT_011"
+      ],
+      "exit_code": null,
+      "status": "fail",
+      "workflow_run": null
+    },
+    "control": {
+      "attempts": 1,
+      "duration_seconds": null,
+      "evidence_ids": [
+        "E-RADAR_OSINT_011"
+      ],
+      "exit_code": null,
+      "status": "pass",
+      "workflow_run": null
+    }
+  },
+  "privacy": {
+    "raw_logs_shared": false,
+    "redactions": [
+      "No raw logs or secrets are included; source URLs are references only."
+    ],
+    "source_code_shared": false,
+    "visibility": "public"
+  },
+  "provenance": {
+    "attestation_uri": null,
+    "collected_at": "2026-08-08T13:08:23.491614Z",
+    "collector": "Radar seed manifest",
+    "collector_version": "0.1",
+    "record_digest": null,
+    "source_snapshot_cutoff": "2026-07-10T00:00:00Z",
+    "workflow_revision": null
+  },
+  "related_cases": [],
+  "resolution": {
+    "status": "unknown"
+  },
+  "schema_version": "0.1",
+  "summary": "Nightly wheel uploads silently stopped after persistent build failures; a downstream project later opened a duplicate issue.",
+  "title": "artifact availability and build pipeline failure",
+  "upstream_change": {
+    "candidate": {
+      "artifact_digest": null,
+      "artifact_uri": null,
+      "revision": null,
+      "version": "candidate"
+    },
+    "control": {
+      "artifact_digest": null,
+      "artifact_uri": null,
+      "revision": null,
+      "version": "control"
+    },
+    "ecosystem": "public Python ecosystem",
+    "event_type": "unknown",
+    "kind": "library",
+    "project": "uxarray -> scikit-learn nightly wheel pipeline -> Cython",
+    "repository": null
+  }
+}

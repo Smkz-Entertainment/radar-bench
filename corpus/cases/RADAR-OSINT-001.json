@@ -1,0 +1,139 @@
+{
+  "attribution": {
+    "candidate_induced": true,
+    "confidence": "medium",
+    "evidence_tier": "B",
+    "first_bad": null,
+    "intentionality": "unknown",
+    "owner_project": null,
+    "owner_repository": null,
+    "rationale": "Seed-corpus curation record derived from the manifest; full public collection and temporal review remain explicit release evidence requirements.",
+    "responsible_layer": "multiple_layers"
+  },
+  "case_id": "RADAR-OSINT-001",
+  "downstream_subject": {
+    "package": null,
+    "repository": "https://github.com/dask/dask",
+    "repository_full_name": "dask/dask",
+    "revision": "unknown-revision",
+    "source_signal": "https://github.com/dask/dask/issues/10089",
+    "test_command_digest": null
+  },
+  "environments": {
+    "candidate": {
+      "dependency_snapshot_digest": null,
+      "notes": null,
+      "runtime": null,
+      "variables": {}
+    },
+    "common": {
+      "architecture": "unknown",
+      "container_digest": null,
+      "dependency_snapshot_digest": null,
+      "locale": null,
+      "network_policy": "unknown",
+      "os": "public CI",
+      "runner": "unknown",
+      "timezone": "UTC"
+    },
+    "control": {
+      "dependency_snapshot_digest": null,
+      "notes": null,
+      "runtime": null,
+      "variables": {}
+    },
+    "resolution_mode": "unknown"
+  },
+  "evidence": [
+    {
+      "available_before_cutoff": true,
+      "collected_at": "2023-03-19T00:00:00Z",
+      "digest": null,
+      "evidence_id": "E-RADAR_OSINT_001",
+      "kind": "issue",
+      "notes": "Seed-manifest source reference; public content must be independently collected before a headline result.",
+      "uri": "https://github.com/dask/dask/issues/10089"
+    }
+  ],
+  "experiments": [],
+  "failure": {
+    "exception_or_tool": null,
+    "fingerprint": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "message_template": "One long-lived bot issue accumulated pandas deprecations, local Dask failures, and changing upstream behavior.",
+    "phase": "runtime",
+    "symbol": null,
+    "test_identifiers": []
+  },
+  "hypotheses": [],
+  "lifecycle": {
+    "closed_at": null,
+    "observed_at": "2023-03-19T00:00:00Z",
+    "state": "resolved",
+    "updated_at": "2023-03-19T00:00:00Z"
+  },
+  "outcomes": {
+    "candidate": {
+      "attempts": 1,
+      "duration_seconds": null,
+      "evidence_ids": [
+        "E-RADAR_OSINT_001"
+      ],
+      "exit_code": null,
+      "status": "fail",
+      "workflow_run": null
+    },
+    "control": {
+      "attempts": 1,
+      "duration_seconds": null,
+      "evidence_ids": [
+        "E-RADAR_OSINT_001"
+      ],
+      "exit_code": null,
+      "status": "pass",
+      "workflow_run": null
+    }
+  },
+  "privacy": {
+    "raw_logs_shared": false,
+    "redactions": [
+      "No raw logs or secrets are included; source URLs are references only."
+    ],
+    "source_code_shared": false,
+    "visibility": "public"
+  },
+  "provenance": {
+    "attestation_uri": null,
+    "collected_at": "2026-08-08T13:08:23.484612Z",
+    "collector": "Radar seed manifest",
+    "collector_version": "0.1",
+    "record_digest": null,
+    "source_snapshot_cutoff": "2023-03-19T00:00:00Z",
+    "workflow_revision": null
+  },
+  "related_cases": [],
+  "resolution": {
+    "status": "unknown"
+  },
+  "schema_version": "0.1",
+  "summary": "One long-lived bot issue accumulated pandas deprecations, local Dask failures, and changing upstream behavior.",
+  "title": "nightly upstream dependency CI",
+  "upstream_change": {
+    "candidate": {
+      "artifact_digest": null,
+      "artifact_uri": null,
+      "revision": null,
+      "version": "candidate"
+    },
+    "control": {
+      "artifact_digest": null,
+      "artifact_uri": null,
+      "revision": null,
+      "version": "control"
+    },
+    "ecosystem": "public Python ecosystem",
+    "event_type": "unknown",
+    "kind": "library",
+    "project": "dask/dask",
+    "repository": null
+  }
+}

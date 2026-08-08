@@ -1,0 +1,46 @@
+{
+  "exploratory": true,
+  "gates": {
+    "candidate_induced_regression_precision": {
+      "status": "not_evaluable",
+      "threshold": 0.95,
+      "value": null
+    },
+    "clean_reproducer_success": {
+      "status": "not_evaluable",
+      "threshold": 0.95,
+      "value": null
+    },
+    "false_upstream_accusation_rate": {
+      "status": "not_evaluable",
+      "threshold": 0.01,
+      "value": null
+    },
+    "first_bad_localization_accuracy": {
+      "status": "not_evaluable",
+      "threshold": 0.9,
+      "value": null
+    },
+    "high_confidence_layer_precision": {
+      "status": "not_evaluable",
+      "threshold": 0.95,
+      "value": null
+    },
+    "known_cause_retrieval": {
+      "status": "not_evaluable",
+      "threshold": 0.95,
+      "value": null
+    },
+    "negative_case_abstention_recall": {
+      "status": "fail",
+      "threshold": 0.95,
+      "value": 0.6666666666666666
+    },
+    "temporal_citation_validity": {
+      "status": "not_evaluable",
+      "threshold": 1.0,
+      "value": null
+    }
+  },
+  "recommendation": "Do not treat the seed set as production evidence."
+}

@@ -1,0 +1,16 @@
+{
+  "decisions": {
+    "E-RADAR_OSINT_008": "explicitly attested and timestamped no later than Tcut"
+  },
+  "evidence": [
+    {
+      "available_before_cutoff": true,
+      "collected_at": "2024-03-13T00:00:00Z",
+      "digest": null,
+      "evidence_id": "E-RADAR_OSINT_008",
+      "kind": "issue",
+      "notes": "Seed-manifest source reference; public content must be independently collected before a headline result.",
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/28625"
+    }
+  ]
+}

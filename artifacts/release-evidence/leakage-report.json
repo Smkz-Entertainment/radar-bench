@@ -1,0 +1,65 @@
+{
+  "records": [
+    {
+      "case_id": "RADAR-OSINT-001",
+      "leakage": [],
+      "valid": true
+    },
+    {
+      "case_id": "RADAR-OSINT-002",
+      "leakage": [],
+      "valid": true
+    },
+    {
+      "case_id": "RADAR-OSINT-003",
+      "leakage": [],
+      "valid": true
+    },
+    {
+      "case_id": "RADAR-OSINT-004",
+      "leakage": [],
+      "valid": true
+    },
+    {
+      "case_id": "RADAR-OSINT-005",
+      "leakage": [],
+      "valid": true
+    },
+    {
+      "case_id": "RADAR-OSINT-006",
+      "leakage": [],
+      "valid": true
+    },
+    {
+      "case_id": "RADAR-OSINT-007",
+      "leakage": [],
+      "valid": true
+    },
+    {
+      "case_id": "RADAR-OSINT-008",
+      "leakage": [],
+      "valid": true
+    },
+    {
+      "case_id": "RADAR-OSINT-009",
+      "leakage": [],
+      "valid": true
+    },
+    {
+      "case_id": "RADAR-OSINT-010",
+      "leakage": [],
+      "valid": true
+    },
+    {
+      "case_id": "RADAR-OSINT-011",
+      "leakage": [],
+      "valid": true
+    },
+    {
+      "case_id": "RADAR-OSINT-012",
+      "leakage": [],
+      "valid": true
+    }
+  ],
+  "valid": true
+}

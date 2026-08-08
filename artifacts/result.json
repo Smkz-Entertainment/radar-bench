@@ -1,0 +1,37 @@
+{
+  "benchmark": {
+    "gates": "artifacts/release-evidence/gates.json",
+    "report": "artifacts/release-evidence/benchmark-report.json",
+    "seed_results": "exploratory"
+  },
+  "blockers": [
+    "Public-source collection and independent gold curation are not complete enough for production expansion."
+  ],
+  "checks": {
+    "authoritative_ci": "pass",
+    "clean_install_smoke": "pass",
+    "leakage": "pass",
+    "package_build": "pass",
+    "schema_validation": "pass"
+  },
+  "commit": null,
+  "corpus": {
+    "curated_local_records": 12,
+    "external_collection": "not claimed",
+    "inference_snapshots": 12,
+    "manifest_rows": 12,
+    "tier_counts": {
+      "A": 6,
+      "B": 4,
+      "C": 2
+    }
+  },
+  "next_recommendation": "Do not proceed to headline 80-120-case claims until public evidence is collected, reviewed, and hidden-test gates are measured.",
+  "project": "ecosystem-radar-bench",
+  "security": {
+    "local_regressions": "pass",
+    "threat_model": "docs/THREAT_MODEL.md"
+  },
+  "status": "partial",
+  "version": "0.1.0"
+}

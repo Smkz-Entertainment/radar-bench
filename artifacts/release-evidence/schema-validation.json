@@ -1,0 +1,65 @@
+{
+  "records": [
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-001.json",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-002.json",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-003.json",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-004.json",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-005.json",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-006.json",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-007.json",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-008.json",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-009.json",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-010.json",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-011.json",
+      "valid": true
+    },
+    {
+      "errors": [],
+      "path": "C:\\Projects\\Radar\\corpus\\cases\\RADAR-OSINT-012.json",
+      "valid": true
+    }
+  ],
+  "valid": true
+}

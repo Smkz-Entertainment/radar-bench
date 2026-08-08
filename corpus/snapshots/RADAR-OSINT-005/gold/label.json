@@ -1,0 +1,18 @@
+{
+  "attribution": {
+    "candidate_induced": true,
+    "confidence": "medium",
+    "evidence_tier": "B",
+    "first_bad": null,
+    "intentionality": "unknown",
+    "owner_project": "pydata/xarray",
+    "owner_repository": "https://github.com/pydata/xarray",
+    "rationale": "Seed-corpus curation record derived from the manifest; full public collection and temporal review remain explicit release evidence requirements.",
+    "responsible_layer": "multiple_layers"
+  },
+  "case_id": "RADAR-OSINT-005",
+  "evidence_ids": [],
+  "resolution": {
+    "status": "unknown"
+  }
+}

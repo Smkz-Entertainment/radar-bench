@@ -1,0 +1,18 @@
+{
+  "attribution": {
+    "candidate_induced": true,
+    "confidence": "medium",
+    "evidence_tier": "A",
+    "first_bad": null,
+    "intentionality": "unknown",
+    "owner_project": "scikit-learn/scikit-learn",
+    "owner_repository": "https://github.com/scikit-learn/scikit-learn",
+    "rationale": "Seed-corpus curation record derived from the manifest; full public collection and temporal review remain explicit release evidence requirements.",
+    "responsible_layer": "upstream_runtime_or_library"
+  },
+  "case_id": "RADAR-OSINT-007",
+  "evidence_ids": [],
+  "resolution": {
+    "status": "unknown"
+  }
+}

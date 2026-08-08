@@ -1,0 +1,16 @@
+{
+  "decisions": {
+    "E-RADAR_OSINT_002": "explicitly attested and timestamped no later than Tcut"
+  },
+  "evidence": [
+    {
+      "available_before_cutoff": true,
+      "collected_at": "2022-01-27T00:00:00Z",
+      "digest": null,
+      "evidence_id": "E-RADAR_OSINT_002",
+      "kind": "issue",
+      "notes": "Seed-manifest source reference; public content must be independently collected before a headline result.",
+      "uri": "https://github.com/pydata/xarray/issues/6197"
+    }
+  ]
+}

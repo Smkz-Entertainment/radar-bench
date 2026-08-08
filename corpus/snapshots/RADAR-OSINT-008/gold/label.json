@@ -1,0 +1,18 @@
+{
+  "attribution": {
+    "candidate_induced": true,
+    "confidence": "medium",
+    "evidence_tier": "A",
+    "first_bad": null,
+    "intentionality": "unknown",
+    "owner_project": "OpenMathLib/OpenBLAS",
+    "owner_repository": "https://github.com/OpenMathLib/OpenBLAS",
+    "rationale": "Seed-corpus curation record derived from the manifest; full public collection and temporal review remain explicit release evidence requirements.",
+    "responsible_layer": "shared_dependency"
+  },
+  "case_id": "RADAR-OSINT-008",
+  "evidence_ids": [],
+  "resolution": {
+    "status": "unknown"
+  }
+}
