@@ -17,6 +17,12 @@ temporal snapshots and leakage scanning; pytest/JUnit/GitHub failure
 normalization; deterministic baseline rules; scoring/gates; safe provider
 interfaces; and a 12-row public seed manifest with status-marked local records.
 
+The v0.2 validation milestone is separate from that frozen foundation. It adds
+a 100-slot adversarial admission plan, independent-gold admission rules,
+confounded-change abstention, calibration metrics, and exact provider-lane
+ablation accounting. The plan contains zero admitted gold cases until later
+public evidence satisfies the admission protocol.
+
 There is no dashboard, GitHub write integration, notification system,
 arbitrary-repository executor, hosted service, billing, repair generator, or
 credential-requiring model integration.
@@ -49,6 +55,13 @@ See [docs/BENCHMARK_PROTOCOL.md](docs/BENCHMARK_PROTOCOL.md),
 [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md), and
 [docs/DATA_GOVERNANCE.md](docs/DATA_GOVERNANCE.md).
 
+Validate the v0.2 plan without treating planned records as gold:
+
+```text
+radar-bench validate-v02-corpus
+radar-bench baseline corpus/snapshots/RADAR-OSINT-008 --v02
+```
+
 ## Seed corpus status
 
 All 12 manifest rows have local, schema-valid, status-marked curation records.
@@ -61,4 +74,3 @@ temporal review, and a larger holdout.
 
 Code is Apache-2.0. Third-party repositories and linked evidence retain their
 own terms.
-

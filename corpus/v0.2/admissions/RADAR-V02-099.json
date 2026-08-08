@@ -1,0 +1,22 @@
+{
+  "admission_id": "ADMIT-RADAR-V02-099",
+  "admission_state": "planned",
+  "audit": {
+    "created_at": "2026-08-08T00:00:00Z",
+    "derived_by": "osint_protocol",
+    "last_reviewed_at": "2026-08-08T00:00:00Z",
+    "review_status": "unreviewed",
+    "reviewer": null
+  },
+  "candidate_category": "ambiguous_inconclusive",
+  "case_id": "RADAR-V02-099",
+  "gold_derivation": "not_started",
+  "gold_label": null,
+  "independent_evidence": [],
+  "negative_control": true,
+  "negative_control_type": "worker_crash",
+  "schema_version": "0.2",
+  "source_cutoff": "2026-08-08T00:00:00Z",
+  "source_urls": [],
+  "target_split": "hidden_test"
+}

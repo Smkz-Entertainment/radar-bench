@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ecosystem-radar/corpus-admission-v0.2.schema.json",
+  "title": "Radar Corpus Admission v0.2",
+  "description": "Admission record that keeps planned cases separate from independently grounded gold.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "admission_id", "case_id", "candidate_category", "negative_control", "admission_state", "target_split", "source_cutoff", "source_urls", "gold_derivation", "independent_evidence", "audit"],
+  "properties": {
+    "schema_version": {"const": "0.2"},
+    "admission_id": {"type": "string", "pattern": "^ADMIT-[A-Z0-9._:-]+$"},
+    "case_id": {"type": "string", "pattern": "^RADAR-[A-Z0-9._:-]+$"},
+    "candidate_category": {"enum": ["true_upstream_regression", "downstream_incompatibility", "dependency_transitive_failure", "resolution_artifact_failure", "ci_infrastructure_failure", "flaky_nondeterministic", "expected_breaking_change", "ambiguous_inconclusive"]},
+    "negative_control": {"type": "boolean"},
+    "negative_control_type": {"enum": ["dead_external_url", "github_outage", "wheel_missing", "dns_failure", "worker_crash", "random_timeout", "known_flaky", "baseline_broken", "resolver_drift", "platform_infrastructure", "expired_certificate", "fixture_disappearance", "incorrect_xfail", "none"]},
+    "admission_state": {"enum": ["planned", "collected", "candidate", "admitted", "rejected", "blocked"]},
+    "target_split": {"enum": ["development", "validation", "hidden_test"]},
+    "source_cutoff": {"type": "string", "format": "date-time"},
+    "source_urls": {"type": "array", "items": {"type": "string", "format": "uri"}, "uniqueItems": true},
+    "gold_derivation": {"enum": ["not_started", "independent_public_evidence", "insufficient_evidence", "retracted"]},
+    "independent_evidence": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["evidence_id", "kind", "uri", "published_at", "available_after_cutoff", "role"], "properties": {"evidence_id": {"type": "string", "pattern": "^G-[A-Z0-9._:-]+$"}, "kind": {"enum": ["maintainer_confirmation", "linked_fix", "revert", "first_bad_commit", "release_note", "post_fix_recovery", "issue", "pull_request", "commit", "workflow_run", "other"]}, "uri": {"type": "string", "format": "uri"}, "published_at": {"type": "string", "format": "date-time"}, "available_after_cutoff": {"type": "boolean"}, "role": {"enum": ["causal", "resolution", "first_bad", "post_fix", "context"]}, "digest": {"type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$"}, "notes": {"type": ["string", "null"], "maxLength": 2000}}}, "maxItems": 50},
+    "gold_label": {"oneOf": [{"type": "null"}, {"type": "object", "additionalProperties": false, "required": ["candidate_induced", "responsible_layer", "should_abstain"], "properties": {"candidate_induced": {"type": ["boolean", "null"]}, "responsible_layer": {"type": "string"}, "should_abstain": {"type": "boolean"}, "confounded": {"type": "boolean"}, "first_bad": {"type": ["string", "null"]}}}]},
+    "audit": {"type": "object", "additionalProperties": false, "required": ["created_at", "last_reviewed_at", "derived_by", "review_status"], "properties": {"created_at": {"type": "string", "format": "date-time"}, "last_reviewed_at": {"type": "string", "format": "date-time"}, "derived_by": {"enum": ["osint_protocol", "human_review", "imported" ]}, "review_status": {"enum": ["unreviewed", "independently_reviewed", "rejected", "retracted"]}, "reviewer": {"type": ["string", "null"]}}}
+  }
+}

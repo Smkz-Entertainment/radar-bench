@@ -1,0 +1,20 @@
+{
+  "distribution": {
+    "ambiguous_inconclusive": 10,
+    "ci_infrastructure_failure": 10,
+    "dependency_transitive_failure": 15,
+    "downstream_incompatibility": 15,
+    "expected_breaking_change": 5,
+    "flaky_nondeterministic": 10,
+    "resolution_artifact_failure": 10,
+    "true_upstream_regression": 25
+  },
+  "gold_cases_admitted": 0,
+  "gold_labels_created_by_evaluated_agent": 0,
+  "negative_controls": 45,
+  "next_action": "collect public sources and admit only independently grounded records",
+  "protocol_version": "0.2",
+  "source_urls_collected": 0,
+  "status": "planning_only",
+  "total_target_cases": 100
+}

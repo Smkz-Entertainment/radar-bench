@@ -11,7 +11,10 @@ from typing import Any, cast
 
 from radar_bench import __version__
 from radar_bench.baseline.engine import predict
+from radar_bench.baseline.engine import predict_v02
 from radar_bench.config import project_root
+from radar_bench.corpus.admission import admission_summary, validate_admission
+from radar_bench.evaluation.ablation import compare_lanes
 from radar_bench.errors import ExternalBlocked, RadarError, ValidationError
 from radar_bench.evaluation.gates import evaluate_gates
 from radar_bench.evaluation.reports import markdown_report, write_json
@@ -116,6 +119,46 @@ def command_validate_corpus(args: argparse.Namespace) -> int:
     return EXIT_OK if not errors else EXIT_INVALID
 
 
+def command_validate_admission(args: argparse.Namespace) -> int:
+    path = Path(args.path).resolve()
+    try:
+        record = json.loads(path.read_text(encoding="utf-8"))
+        errors = validate_admission(record, root=_root())
+    except (OSError, ValueError, ValidationError) as exc:
+        errors = [str(exc)]
+    result = {"path": str(path), "valid": not errors, "errors": errors}
+    _json(result) if args.json else print(
+        "VALID" if not errors else "INVALID\n" + "\n".join(errors)
+    )
+    return EXIT_OK if not errors else EXIT_INVALID
+
+
+def command_validate_v02_corpus(args: argparse.Namespace) -> int:
+    directory = _root() / "corpus" / "v0.2" / "admissions"
+    records: list[dict[str, Any]] = []
+    errors: list[str] = []
+    for path in sorted(directory.glob("*.json")):
+        try:
+            record = json.loads(path.read_text(encoding="utf-8"))
+            record_errors = validate_admission(record, root=_root())
+            records.append(record)
+        except (OSError, ValueError, ValidationError) as exc:
+            record = {}
+            record_errors = [str(exc)]
+        errors.extend(f"{path.name}: {error}" for error in record_errors)
+    summary = admission_summary(records)
+    plan_path = _root() / "corpus" / "v0.2" / "plan.json"
+    if plan_path.exists():
+        plan = json.loads(plan_path.read_text(encoding="utf-8"))
+        if summary["records"] != plan.get("total_target_cases"):
+            errors.append("v0.2 plan count does not match admission records")
+        if summary["admitted_gold"] != plan.get("gold_cases_admitted"):
+            errors.append("v0.2 plan gold count does not match admission records")
+    output = {"valid": not errors, "summary": summary, "errors": errors}
+    _json(output)
+    return EXIT_OK if not errors else EXIT_INVALID
+
+
 def command_collect(args: argparse.Namespace) -> int:
     try:
         if args.manifest:
@@ -184,7 +227,11 @@ def _load_packet(value: str) -> dict[str, Any]:
 
 
 def command_baseline(args: argparse.Namespace) -> int:
-    result = predict(_load_packet(args.value))
+    result = (
+        predict_v02(_load_packet(args.value))
+        if args.v02
+        else predict(_load_packet(args.value))
+    )
     errors = validate_prediction(result)
     if errors:
         _json({"valid": False, "errors": errors, "prediction": result})
@@ -251,19 +298,33 @@ def command_evaluate(args: argparse.Namespace) -> int:
 def command_ablation(args: argparse.Namespace) -> int:
     labels = _labels()
     lanes: dict[str, dict[str, Any]] = {}
+    prediction_lanes: dict[str, list[dict[str, Any]]] = {}
     for name, value in (
         ("deterministic", args.deterministic),
         ("local_model", args.local),
         ("codex", args.codex),
     ):
         if value:
-            lanes[name] = score(load_predictions(Path(value)), labels)
-    _json(
-        {
-            "lanes": lanes,
-            "qualification": "requires a measured gain and <=0.005 added false high-confidence blame; prose quality does not qualify",
-        }
-    )
+            predictions = load_predictions(Path(value))
+            prediction_lanes[name] = predictions
+            lanes[name] = score(predictions, labels)
+    if any(
+        value.get("schema_version") == "0.2"
+        for lane in prediction_lanes.values()
+        for value in lane
+    ):
+        accounting: dict[str, list[dict[str, Any]]] = {}
+        if args.accounting:
+            payload = json.loads(Path(args.accounting).read_text(encoding="utf-8"))
+            accounting = payload.get("lanes", payload)
+        _json(compare_lanes(prediction_lanes, labels, accounting))
+    else:
+        _json(
+            {
+                "lanes": lanes,
+                "qualification": "requires a measured gain and <=0.005 added false high-confidence blame; prose quality does not qualify",
+            }
+        )
     return EXIT_OK
 
 
@@ -316,6 +377,12 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("validate-corpus")
     p.add_argument("--json", action="store_true")
     p.set_defaults(function=command_validate_corpus)
+    p = sub.add_parser("validate-admission")
+    p.add_argument("path")
+    p.add_argument("--json", action="store_true")
+    p.set_defaults(function=command_validate_admission)
+    p = sub.add_parser("validate-v02-corpus")
+    p.set_defaults(function=command_validate_v02_corpus)
     p = sub.add_parser("collect")
     group = p.add_mutually_exclusive_group(required=True)
     group.add_argument("--issue")
@@ -340,6 +407,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(function=command_normalize)
     p = sub.add_parser("baseline")
     p.add_argument("value")
+    p.add_argument("--v02", action="store_true")
     p.add_argument("--json", action="store_true")
     p.set_defaults(function=command_baseline)
     p = sub.add_parser("export-inference")
@@ -358,6 +426,7 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("deterministic")
     p.add_argument("local")
     p.add_argument("codex")
+    p.add_argument("--accounting")
     p.set_defaults(function=command_ablation)
     p = sub.add_parser("gates")
     p.add_argument("path")

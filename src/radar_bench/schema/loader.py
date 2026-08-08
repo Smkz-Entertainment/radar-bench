@@ -12,7 +12,10 @@ from radar_bench.schema.validator import assert_valid
 SCHEMAS = {
     "case": "regression-case-v0.1.schema.json",
     "prediction": "prediction-v0.1.schema.json",
+    "prediction_v02": "prediction-v0.2.schema.json",
     "experiment": "experiment-plan-v0.1.schema.json",
+    "admission_v02": "corpus-admission-v0.2.schema.json",
+    "ablation_v02": "ablation-record-v0.2.schema.json",
 }
 
 

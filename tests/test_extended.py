@@ -9,12 +9,16 @@ from pathlib import Path
 from urllib.error import HTTPError, URLError
 
 from radar_bench import cli
+from radar_bench.baseline.engine import predict_v02
 from radar_bench.baseline.rules import apply_rules
 from radar_bench.config import cache_root, project_root, schema_root
+from radar_bench.corpus.admission import admission_summary, validate_admission
 from radar_bench.errors import ExternalBlocked, SecurityError, ValidationError
+from radar_bench.evaluation.ablation import compare_lanes
 from radar_bench.evaluation.gates import evaluate_gates
 from radar_bench.evaluation.reports import markdown_report
 from radar_bench.evaluation.scoring import load_predictions, score
+from radar_bench.evaluation.v02 import score_v02
 from radar_bench.github.client import GitHubClient, _next_link
 from radar_bench.github.collector import collect_url
 from radar_bench.github.temporal import classify_temporal
@@ -254,6 +258,215 @@ class EvaluationAndStorage(unittest.TestCase):
             queue = root / "queue.json"
             mark_queue_item(queue, "x", status="blocked", detail="offline")
             self.assertEqual(load_queue(queue)["items"]["x"]["status"], "blocked")
+
+
+class V02Validation(unittest.TestCase):
+    def _prediction(self, case_id: str, *, abstain: bool) -> dict:
+        return make_prediction(
+            schema_version="0.2",
+            case_id=case_id,
+            verdict="confounded_change" if abstain else "confirmed_regression",
+            candidate_induced=None if abstain else True,
+            responsible_layer="multiple_layers"
+            if abstain
+            else "upstream_runtime_or_library",
+            confidence="inconclusive" if abstain else "medium",
+            confidence_score=0.2 if abstain else 0.65,
+            evidence_classes=["REPRODUCED"],
+            rationale="v0.2 test prediction",
+            evidence_ids=["E-TEST"],
+            provider="deterministic",
+            provider_version="0.2.0",
+            experiments_requested=1 if abstain else 0,
+            experiments_useful=0,
+            usage={
+                "input_tokens": None,
+                "output_tokens": None,
+                "amount": None,
+                "currency": None,
+                "wall_clock_seconds": None,
+            },
+        )
+
+    def test_v02_metrics_gates_and_calibration(self):
+        predictions = [
+            self._prediction("RADAR-TEST-001", abstain=False),
+            self._prediction("RADAR-TEST-002", abstain=True),
+        ]
+        for value in predictions:
+            self.assertEqual(validate_prediction(value), [])
+            value["_valid"] = True
+        labels = {
+            "RADAR-TEST-001": {
+                "candidate_induced": True,
+                "responsible_layer": "upstream_runtime_or_library",
+                "should_abstain": False,
+            },
+            "RADAR-TEST-002": {
+                "candidate_induced": None,
+                "responsible_layer": "multiple_layers",
+                "should_abstain": True,
+            },
+        }
+        report = score_v02(predictions, labels)
+        self.assertEqual(report["protocol_version"], "0.2")
+        self.assertEqual(report["metrics"]["abstention_recall"]["value"], 1.0)
+        self.assertIsNotNone(report["metrics"]["calibration"]["brier_score"])
+        gates = evaluate_gates(report)
+        self.assertEqual(
+            gates["gates"]["false_high_confidence_upstream_accusations"]["status"],
+            "pass",
+        )
+
+    def test_v02_confounded_change_is_safe_abstention(self):
+        packet_value = {
+            "case_id": "RADAR-TEST-CONFOUNDED",
+            "evidence_ids": ["E-TEST"],
+            "outcomes": {
+                "control": {"status": "pass", "attempts": 1},
+                "candidate": {"status": "fail", "attempts": 1},
+            },
+            "failure": {
+                "phase": "test",
+                "fingerprint": "sha256:" + "1" * 64,
+                "message_template": "Python 3.16 installed a different transitive dependency",
+            },
+            "environments": {
+                "control": {
+                    "runtime": "3.15",
+                    "dependency_snapshot_digest": "sha256:" + "2" * 64,
+                    "variables": {},
+                },
+                "candidate": {
+                    "runtime": "3.16",
+                    "dependency_snapshot_digest": "sha256:" + "3" * 64,
+                    "variables": {},
+                },
+            },
+            "upstream_change": {"candidate": {"version": "1"}, "project": "test"},
+        }
+        prediction = predict_v02(packet_value)
+        self.assertEqual(prediction["verdict"], "confounded_change")
+        self.assertIsNone(prediction["candidate_induced"])
+        self.assertEqual(validate_prediction(prediction), [])
+
+    def test_v02_admission_plan_is_not_gold(self):
+        plan = json.loads(
+            (ROOT / "corpus" / "v0.2" / "admissions" / "RADAR-V02-001.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(validate_admission(plan, root=ROOT), [])
+        self.assertEqual(admission_summary([plan])["admitted_gold"], 0)
+        self.assertEqual(
+            json.loads(
+                (ROOT / "corpus" / "v0.2" / "plan.json").read_text(encoding="utf-8")
+            )["total_target_cases"],
+            100,
+        )
+
+    def _admitted_record(self) -> dict:
+        record = json.loads(
+            (ROOT / "corpus" / "v0.2" / "admissions" / "RADAR-V02-001.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        record.update(
+            {
+                "admission_state": "admitted",
+                "source_urls": ["https://github.com/example/project/issues/1"],
+                "gold_derivation": "independent_public_evidence",
+                "gold_label": {
+                    "candidate_induced": True,
+                    "responsible_layer": "upstream_runtime_or_library",
+                    "should_abstain": False,
+                    "confounded": False,
+                    "first_bad": "1.2.0",
+                },
+                "audit": {
+                    "created_at": "2026-08-08T00:00:00Z",
+                    "last_reviewed_at": "2026-08-08T00:00:00Z",
+                    "derived_by": "osint_protocol",
+                    "review_status": "independently_reviewed",
+                    "reviewer": "osint-review",
+                },
+                "independent_evidence": [
+                    {
+                        "evidence_id": "G-RADAR-V02-001-CAUSE",
+                        "kind": "maintainer_confirmation",
+                        "uri": "https://github.com/example/project/issues/2",
+                        "published_at": "2026-08-09T00:00:00Z",
+                        "available_after_cutoff": True,
+                        "role": "causal",
+                        "digest": None,
+                        "notes": None,
+                    },
+                    {
+                        "evidence_id": "G-RADAR-V02-001-FIX",
+                        "kind": "post_fix_recovery",
+                        "uri": "https://github.com/example/project/pull/3",
+                        "published_at": "2026-08-10T00:00:00Z",
+                        "available_after_cutoff": True,
+                        "role": "post_fix",
+                        "digest": None,
+                        "notes": None,
+                    },
+                ],
+            }
+        )
+        return record
+
+    def test_v02_admission_requires_independent_resolution(self):
+        record = self._admitted_record()
+        self.assertEqual(validate_admission(record, root=ROOT), [])
+        bad = json.loads(json.dumps(record))
+        bad["independent_evidence"][0]["published_at"] = "2026-08-08T00:00:00Z"
+        bad["independent_evidence"][1]["evidence_id"] = bad["independent_evidence"][0][
+            "evidence_id"
+        ]
+        bad["independent_evidence"][1]["role"] = "context"
+        bad["negative_control"] = True
+        bad["negative_control_type"] = "none"
+        bad["gold_label"]["should_abstain"] = False
+        errors = validate_admission(bad, root=ROOT)
+        self.assertGreaterEqual(len(errors), 4)
+        non_admitted = json.loads(json.dumps(record))
+        non_admitted["admission_state"] = "candidate"
+        self.assertTrue(validate_admission(non_admitted, root=ROOT))
+        self.assertTrue(validate_admission({}, root=ROOT))
+
+    def test_v02_metric_edge_cases_and_first_bad(self):
+        prediction = self._prediction("RADAR-TEST-003", abstain=False)
+        prediction["confidence_score"] = 0.95
+        prediction["evidence_classes"] = ["REPRODUCED"]
+        prediction["first_bad"] = {"kind": "version", "value": "1.2.0"}
+        prediction["_valid"] = True
+        labels = {
+            "RADAR-TEST-003": {
+                "candidate_induced": False,
+                "responsible_layer": "external_service_or_data",
+                "first_bad": {"version": "1.2.0"},
+            }
+        }
+        report = score_v02([prediction], labels)
+        self.assertEqual(report["metrics"]["unsupported_confident_claims"]["value"], 1)
+        self.assertEqual(
+            report["metrics"]["first_bad_localization_accuracy"]["value"], 1.0
+        )
+
+    def test_v02_ablation_requires_measured_lift(self):
+        deterministic = [self._prediction("RADAR-TEST-001", abstain=False)]
+        codex = [self._prediction("RADAR-TEST-001", abstain=False)]
+        for values in (deterministic, codex):
+            values[0]["_valid"] = True
+        labels = {
+            "RADAR-TEST-001": {
+                "candidate_induced": True,
+                "responsible_layer": "upstream_runtime_or_library",
+            }
+        }
+        result = compare_lanes({"deterministic": deterministic, "codex": codex}, labels)
+        self.assertFalse(result["codex_incremental_value"]["qualifies"])
 
 
 class GithubAndNormalization(unittest.TestCase):
@@ -508,6 +721,34 @@ class ProvidersAndCli(unittest.TestCase):
                 0,
             )
             self.assertEqual(cli.main(["validate-corpus", "--json"]), 0)
+            self.assertEqual(
+                cli.main(
+                    [
+                        "validate-admission",
+                        str(
+                            ROOT
+                            / "corpus"
+                            / "v0.2"
+                            / "admissions"
+                            / "RADAR-V02-001.json"
+                        ),
+                        "--json",
+                    ]
+                ),
+                0,
+            )
+            self.assertEqual(cli.main(["validate-v02-corpus"]), 0)
+            self.assertEqual(
+                cli.main(
+                    [
+                        "baseline",
+                        str(ROOT / "corpus" / "snapshots" / "RADAR-OSINT-008"),
+                        "--v02",
+                        "--json",
+                    ]
+                ),
+                0,
+            )
             self.assertEqual(cli.main(["build-snapshot", "RADAR-OSINT-004"]), 0)
             self.assertEqual(
                 cli.main(["check-leakage", "RADAR-OSINT-004", "--json"]), 0
@@ -516,6 +757,23 @@ class ProvidersAndCli(unittest.TestCase):
             self.assertEqual(
                 cli.main(
                     ["export-inference", "RADAR-OSINT-004", "--output", str(exported)]
+                ),
+                0,
+            )
+            v02_prediction_path = Path(directory) / "v02-predictions.jsonl"
+            v02_prediction_path.write_text(
+                json.dumps(V02Validation()._prediction("RADAR-TEST-001", abstain=False))
+                + "\n",
+                encoding="utf-8",
+            )
+            self.assertEqual(
+                cli.main(
+                    [
+                        "ablation",
+                        str(v02_prediction_path),
+                        str(v02_prediction_path),
+                        str(v02_prediction_path),
+                    ]
                 ),
                 0,
             )

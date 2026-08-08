@@ -1,9 +1,8 @@
 # Status
 
-Status is partial until the complete local suite, package smoke test, and
-public-source curation gates have run. The seed records are deliberately
-status-marked and do not claim that manifest links alone constitute verified
-gold evidence.
+v0.1 is frozen as a passing local engineering foundation. v0.2 is a research
+milestone and remains partial until an independently grounded corpus clears the
+attribution and abstention gates. Planned records do not count as gold.
 
 ## Decisions
 
@@ -12,6 +11,12 @@ gold evidence.
 - The standard-library HTTP client is read-only and rejects non-GitHub hosts.
 - Gold evidence is stored separately and inference loaders refuse gold paths.
 - Unsupported attributions abstain instead of guessing an owner.
+- `confounded_change` is a v0.2 abstention outcome when candidate and control
+  differ but runtime, dependency, resolver, or environment variables also
+  changed.
+- Evidence classes are ordered `OBSERVED`, `REPRODUCED`,
+  `CAUSALLY_SUPPORTED`, `CONFIRMED`; numeric confidence is accompanied by
+  calibration evidence.
 
 ## Known limitations
 
@@ -21,4 +26,7 @@ gold evidence.
 - The custom validator deliberately implements the repository's JSON Schema
   subset; external schema-hosting and production-scale corpus expansion remain
   future work.
-
+- The v0.2 corpus has 100 planned admission slots and zero admitted gold cases.
+- Local-model and Codex lanes have accounting and comparison contracts, but no
+  provider is credited with incremental value until the same hidden cases are
+  scored and costed across all lanes.

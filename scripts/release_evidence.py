@@ -107,6 +107,16 @@ def main() -> int:
 
         lines.append(json.dumps(predict(packet), sort_keys=True))
     write(predictions_path, "\n".join(lines) + "\n")
+    predictions_v02_path = EVIDENCE / "baseline-v02-seed.jsonl"
+    v02_lines = []
+    for snapshot in sorted(
+        (ROOT / "corpus" / "snapshots").glob("*/input/snapshot.json")
+    ):
+        packet = json.loads(snapshot.read_text(encoding="utf-8"))
+        from radar_bench.baseline.engine import predict_v02
+
+        v02_lines.append(json.dumps(predict_v02(packet), sort_keys=True))
+    write(predictions_v02_path, "\n".join(v02_lines) + "\n")
     evaluation = subprocess.run(
         [
             sys.executable,
@@ -128,6 +138,54 @@ def main() -> int:
     report = json.loads(
         (EVIDENCE / "benchmark-report.json").read_text(encoding="utf-8")
     )
+    evaluation_v02 = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "radar_bench.cli",
+            "evaluate",
+            str(predictions_v02_path),
+            "--output",
+            str(EVIDENCE / "benchmark-v02-report.json"),
+        ],
+        cwd=ROOT,
+        env=env,
+        text=True,
+        capture_output=True,
+        check=False,
+        shell=False,
+    )
+    write(EVIDENCE / "benchmark-v02-report.md", evaluation_v02.stdout)
+    report_v02 = json.loads(
+        (EVIDENCE / "benchmark-v02-report.json").read_text(encoding="utf-8")
+    )
+    gates_v02 = subprocess.run(
+        [
+            sys.executable,
+            "-m",
+            "radar_bench.cli",
+            "gates",
+            str(EVIDENCE / "benchmark-v02-report.json"),
+            "--json",
+        ],
+        cwd=ROOT,
+        env=env,
+        text=True,
+        capture_output=True,
+        check=False,
+        shell=False,
+    )
+    write(EVIDENCE / "v02-gates.json", json.loads(gates_v02.stdout))
+    v02_plan = subprocess.run(
+        [sys.executable, "-m", "radar_bench.cli", "validate-v02-corpus"],
+        cwd=ROOT,
+        env=env,
+        text=True,
+        capture_output=True,
+        check=False,
+        shell=False,
+    )
+    write(EVIDENCE / "v02-corpus-plan.json", json.loads(v02_plan.stdout))
     gates = subprocess.run(
         [
             sys.executable,
@@ -188,6 +246,8 @@ def main() -> int:
         {
             "authoritative_ci_returncode": ci.returncode,
             "benchmark": report.get("metrics", {}),
+            "benchmark_v02": report_v02.get("metrics", {}),
+            "v02_corpus_plan_returncode": v02_plan.returncode,
         },
     )
     commit = (
@@ -204,6 +264,7 @@ def main() -> int:
     result = {
         "project": "ecosystem-radar-bench",
         "version": "0.1.0",
+        "validation_milestone": "0.2",
         "status": "partial",
         "commit": commit,
         "checks": {
@@ -225,6 +286,13 @@ def main() -> int:
             "report": "artifacts/release-evidence/benchmark-report.json",
             "gates": "artifacts/release-evidence/gates.json",
         },
+        "validation_v02": {
+            "corpus_plan": "artifacts/release-evidence/v02-corpus-plan.json",
+            "deterministic_report": "artifacts/release-evidence/benchmark-v02-report.json",
+            "gates": "artifacts/release-evidence/v02-gates.json",
+            "gold_cases_admitted": 0,
+            "ablation": "not_run; exact hidden cases and local/Codex lanes are not yet available",
+        },
         "security": {
             "threat_model": "docs/THREAT_MODEL.md",
             "local_regressions": "pass",
@@ -232,12 +300,12 @@ def main() -> int:
         "blockers": [
             "Public-source collection and independent gold curation are not complete enough for production expansion."
         ],
-        "next_recommendation": "Do not proceed to headline 80-120-case claims until public evidence is collected, reviewed, and hidden-test gates are measured.",
+        "next_recommendation": "Populate the v0.2 admission plan with independently grounded public evidence, then run the exact hidden-case deterministic/local-model/Codex ablation before product work.",
     }
     write(ROOT / "artifacts" / "result.json", result)
     write(
         ROOT / "artifacts" / "final-report.md",
-        "# Final implementation report\n\n## Status\n\nThe local v0.1 foundation is implemented and its offline checks/package smoke test pass. The seed metrics are exploratory only; public-source collection and independent gold curation remain incomplete.\n\n## Evidence\n\n- Authoritative CI: `artifacts/release-evidence/authoritative-ci.json`\n- Schema and temporal reports: `artifacts/release-evidence/schema-validation.json`, `artifacts/release-evidence/leakage-report.json`\n- Baseline seed report: `artifacts/release-evidence/benchmark-report.json` and `.md`\n- Future product gates: `artifacts/release-evidence/gates.json`\n- Package hashes and clean install: `artifacts/release-evidence/package-hashes.json`, `clean-install-smoke.txt`\n\n## Recommendation\n\nThe safety foundation is suitable for continued curation work, but evidence does not support claiming production-quality 80-120-case benchmark accuracy yet.\n",
+        "# Final implementation report\n\n## Status\n\nThe v0.1 engineering foundation is frozen and its local checks/package smoke test pass. v0.2 Attribution Validation is implemented as a research harness: its 100 planned slots and deterministic seed metrics are exploratory, with zero admitted independent gold cases.\n\n## Evidence\n\n- Authoritative CI: `artifacts/release-evidence/authoritative-ci.json`\n- v0.1 schema and temporal reports: `artifacts/release-evidence/schema-validation.json`, `artifacts/release-evidence/leakage-report.json`\n- v0.1 baseline report: `artifacts/release-evidence/benchmark-report.json` and `.md`\n- v0.2 corpus plan: `artifacts/release-evidence/v02-corpus-plan.json`\n- v0.2 deterministic report and gates: `artifacts/release-evidence/benchmark-v02-report.json`, `benchmark-v02-report.md`, `v02-gates.json`\n- Package hashes and clean install: `artifacts/release-evidence/package-hashes.json`, `clean-install-smoke.txt`\n\n## Recommendation\n\nDo not claim production attribution or build user-facing Radar integrations. First populate and independently admit the adversarial corpus, require zero false high-confidence upstream accusations, and run the deterministic/local-model/Codex ablation on the exact same hidden cases.\n",
     )
     return 0
 

@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 from radar_bench.evaluation.metrics import calculate_metrics
+from radar_bench.evaluation.v02 import score_v02
 from radar_bench.models.prediction import validate_prediction
 
 
@@ -51,6 +52,8 @@ def load_predictions(
 def score(
     predictions: list[dict[str, Any]], labels: dict[str, dict[str, Any]]
 ) -> dict[str, Any]:
+    if any(item.get("schema_version") == "0.2" for item in predictions):
+        return score_v02(predictions, labels)
     return {
         "protocol_version": "0.1",
         "exploratory": True,

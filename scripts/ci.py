@@ -72,6 +72,15 @@ def main() -> int:
     if corpus.returncode != 0:
         print(json.dumps(results, indent=2))
         return corpus.returncode
+    v02_corpus = run("validate-v02-corpus", check=False)
+    results["v02_corpus_plan"] = {
+        "status": "pass" if v02_corpus.returncode == 0 else "fail",
+        "output": v02_corpus.stdout,
+        "error": v02_corpus.stderr,
+    }
+    if v02_corpus.returncode != 0:
+        print(json.dumps(results, indent=2))
+        return v02_corpus.returncode
     tests = subprocess.run(
         [
             PYTHON,

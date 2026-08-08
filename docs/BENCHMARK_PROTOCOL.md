@@ -1,4 +1,4 @@
-# Radar Attribution Benchmark Protocol v0.1
+# Radar Attribution Benchmark Protocol v0.1 / v0.2 validation addendum
 
 The benchmark evaluates attribution from public evidence without later
 resolution history. It is not a repair benchmark. Correct outcomes include an
@@ -45,6 +45,29 @@ first-bad >=.90 where artifacts exist, clean reproducer >=.95, known-cause
 retrieval >=.95, and temporally valid citations = 1.00. Seed results do not
 establish these production claims.
 
+## v0.2 admission and safety gates
+
+The v0.2 corpus target is 100 cases with this deliberate distribution: 25 true
+upstream regressions, 15 downstream incompatibilities, 15 dependency or
+transitive failures, 10 resolution/artifact failures, 10 CI/infrastructure
+failures, 10 flaky or nondeterministic cases, 5 expected breaking changes, and
+10 ambiguous cases. The repository contains the plan only; it currently has
+zero admitted gold cases.
+
+Gold labels must be derived from later public evidence independent of the
+evaluated agent. Admission requires temporal metadata, causal evidence, and a
+resolution or post-fix signal. Cases without that evidence remain outside the
+gold set.
+
+The v0.2 verdict set adds `confounded_change`. It means the candidate/control
+difference is observed, but multiple relevant variables changed and causal
+ownership cannot safely be assigned. It is an abstention outcome.
+
+Numeric confidence is accompanied by evidence classes: `OBSERVED`,
+`REPRODUCED`, `CAUSALLY_SUPPORTED`, and `CONFIRMED`. Calibration is reported
+with reliability bins, expected calibration error, and Brier score. The first
+evaluation set requires zero false high-confidence upstream accusations.
+
 ## Provider ablation
 
 Run deterministic, deterministic plus local/open model, and deterministic plus
@@ -52,4 +75,3 @@ Codex lanes when predictions exist. Codex qualifies only with a measured
 owner-accuracy, experiment-efficiency, or resolved-case gain and no more than
 0.5 percentage points added false high-confidence blame. Better prose is not a
 qualifying result.
-
