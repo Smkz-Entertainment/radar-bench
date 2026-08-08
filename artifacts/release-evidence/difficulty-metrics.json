@@ -1,0 +1,18 @@
+{
+  "metrics": {},
+  "planned_counts": {
+    "D1": 24,
+    "D2": 24,
+    "D3": 24,
+    "D4": 24,
+    "D5": 24
+  },
+  "scored_counts": {
+    "D1": 0,
+    "D2": 0,
+    "D3": 0,
+    "D4": 0,
+    "D5": 0
+  },
+  "status": "not_evaluable_without_admitted_labels"
+}

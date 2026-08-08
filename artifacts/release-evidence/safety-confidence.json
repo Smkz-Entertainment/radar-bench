@@ -1,0 +1,14 @@
+{
+  "admitted_safety_cases": 0,
+  "claim": "eligible only after at least the required independently admitted cases",
+  "eligible_for_safety_claim": false,
+  "failures": 0,
+  "interpretation": "No safety claim is made; planned cases are not a sample.",
+  "observed_failure_rate": null,
+  "one_sided_upper_95_failure_rate": null,
+  "planned_safety_cases": 300,
+  "required_trials": 300,
+  "scored_safety_cases": 0,
+  "trials": 0,
+  "zero_failures": false
+}

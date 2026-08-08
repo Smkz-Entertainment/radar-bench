@@ -1,0 +1,36 @@
+{
+  "exploratory": true,
+  "gates": {
+    "abstention.recall": {
+      "status": "not_evaluable",
+      "threshold": 0.95,
+      "value": null
+    },
+    "action_owner.precision": {
+      "status": "not_evaluable",
+      "threshold": 0.95,
+      "value": null
+    },
+    "calibration.expected_calibration_error": {
+      "status": "not_evaluable",
+      "threshold": 0.05,
+      "value": null
+    },
+    "candidate_induction.precision": {
+      "status": "not_evaluable",
+      "threshold": 0.95,
+      "value": null
+    },
+    "false_high_confidence_upstream.one_sided_upper_95_failure_rate": {
+      "status": "not_evaluable",
+      "threshold": 0.01,
+      "value": null
+    },
+    "first_bad.value": {
+      "status": "not_evaluable",
+      "threshold": 0.9,
+      "value": null
+    }
+  },
+  "recommendation": "Do not treat the seed set as production evidence."
+}

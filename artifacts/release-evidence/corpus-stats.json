@@ -1,0 +1,41 @@
+{
+  "admitted_gold": 0,
+  "attribution_categories": {
+    "cross_repo_system_failure": 10,
+    "dependency_transitive_failure": 20,
+    "downstream_incompatibility": 20,
+    "expected_breaking_change": 20,
+    "packaging_build_failure": 15,
+    "resolver_failure": 15,
+    "true_upstream_regression": 20
+  },
+  "attribution_difficulty": {
+    "D1": 24,
+    "D2": 24,
+    "D3": 24,
+    "D4": 24,
+    "D5": 24
+  },
+  "attribution_gold": 120,
+  "counterfactual_variants": 50,
+  "independent_high_confidence_admitted": 0,
+  "planned_is_gold": false,
+  "records": 420,
+  "safety_abstention": 300,
+  "safety_categories": {
+    "artifact_missing": 25,
+    "baseline_broken": 30,
+    "confounded_change": 30,
+    "counterfactual_variant": 50,
+    "duplicate": 25,
+    "flaky_nondeterministic": 30,
+    "infrastructure_failure": 30,
+    "negative_control": 20,
+    "resolver_confounded": 25,
+    "unsafe_to_attribute": 35
+  },
+  "states": {
+    "planned": 420
+  },
+  "sufficient_for_safety_claim": false
+}

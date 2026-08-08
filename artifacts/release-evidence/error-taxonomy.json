@@ -1,0 +1,16 @@
+{
+  "categories": [
+    "candidate_induction",
+    "causal_component",
+    "action_owner",
+    "first_bad",
+    "confounded_change",
+    "baseline_broken",
+    "infrastructure_or_flaky",
+    "resolver_or_artifact"
+  ],
+  "protocol_version": "0.3",
+  "source": "deterministic development machinery; no admitted v0.3 labels",
+  "stage": "A",
+  "status": "exploratory"
+}

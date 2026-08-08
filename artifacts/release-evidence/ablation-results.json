@@ -1,0 +1,52 @@
+{
+  "exploratory": true,
+  "lanes": {
+    "codex": {
+      "error": "lane requires an unavailable local model or credential",
+      "experiments_requested": 0,
+      "experiments_useful": 0,
+      "input_manifest_digest": "sha256:e29964fd37943d955f26d66e370146d0c569c1bdeea33b8a15767670474cf255",
+      "lane": "codex",
+      "metrics": {},
+      "network_policy": "denied",
+      "run_id": "ABL-V03-CODEX",
+      "schema_version": "0.3",
+      "scored_cases": 0,
+      "status": "blocked_external",
+      "unsupported_confident_claims": 0
+    },
+    "deterministic": {
+      "error": "no independently admitted labeled cases",
+      "experiments_requested": 0,
+      "experiments_useful": 0,
+      "input_manifest_digest": "sha256:e29964fd37943d955f26d66e370146d0c569c1bdeea33b8a15767670474cf255",
+      "lane": "deterministic",
+      "metrics": {},
+      "network_policy": "denied",
+      "run_id": "ABL-V03-DETERMINISTIC",
+      "schema_version": "0.3",
+      "scored_cases": 0,
+      "status": "not_run",
+      "unsupported_confident_claims": 0
+    },
+    "local_model": {
+      "error": "lane requires an unavailable local model or credential",
+      "experiments_requested": 0,
+      "experiments_useful": 0,
+      "input_manifest_digest": "sha256:e29964fd37943d955f26d66e370146d0c569c1bdeea33b8a15767670474cf255",
+      "lane": "local_model",
+      "metrics": {},
+      "network_policy": "denied",
+      "run_id": "ABL-V03-LOCAL-MODEL",
+      "schema_version": "0.3",
+      "scored_cases": 0,
+      "status": "blocked_external",
+      "unsupported_confident_claims": 0
+    }
+  },
+  "protocol_version": "0.3",
+  "qualification": {
+    "rule": "permanent role requires measurable difficult-case or efficiency lift with no safety worsening",
+    "status": "blocked_until_same_hidden_cases_are_scored"
+  }
+}

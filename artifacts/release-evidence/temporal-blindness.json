@@ -1,0 +1,19 @@
+{
+  "boundary": "portable capability boundary plus network-denied repository client",
+  "candidate_allowed_root": "C:\\Users\\samis\\AppData\\Local\\Temp\\tmp2u7skc0s\\candidate",
+  "candidate_cannot_enumerate_gold": true,
+  "candidate_cannot_read_gold": true,
+  "candidate_output_digest": "sha256:6c27411dd0082ea95645e64c655e9c31a71c2f6d378bc8d50891d74ecfd17743",
+  "candidate_snapshot_digest": "sha256:ba7987d32a8f36362759e3af7508e6118a3373578f7bb2569ccc5fb65ffd0ef5",
+  "caveat": "An OS-level sandbox for arbitrary third-party native code is not claimed by this local harness.",
+  "environment_digest": "sha256:827b4734cd4d80111f797c67f0e73c9a766654654f3242093b05c6bd0b61fdfe",
+  "gold_packet_digest": "sha256:c332a53f36de6048c6a018da81e94b0946c49b21a92f720bd4ac0c804f5d2338",
+  "gold_readable_by_candidate": false,
+  "implementation_commit": "1ae88c95e54f14d1808b0c48a90dc30223d3fef8",
+  "network_policy": "denied",
+  "run_id": "BLIND-V03-LOCAL",
+  "schema_version": "0.3",
+  "scorer_process": "separate_post_cutoff_process",
+  "scorer_separate_from_candidate": true,
+  "status": "pass"
+}

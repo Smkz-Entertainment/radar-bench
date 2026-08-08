@@ -5,7 +5,10 @@
     "seed_results": "exploratory"
   },
   "blockers": [
-    "Public-source collection and independent gold curation are not complete enough for production expansion."
+    "The v0.3 attribution corpus has zero independently admitted gold cases; planned records are not evidence.",
+    "The v0.3 safety set has zero scored cases, so no zero-failure safety claim is permitted.",
+    "Hidden temporal-blind evaluation and post-cutoff independent scoring are not run.",
+    "Local-model and Codex lanes are blocked_external because no approved credentials or credits are available."
   ],
   "checks": {
     "authoritative_ci": "pass",
@@ -14,7 +17,7 @@
     "package_build": "pass",
     "schema_validation": "pass"
   },
-  "commit": "d990d79193bb27be9948ff7a1c563152f695c4bc",
+  "commit": "1ae88c95e54f14d1808b0c48a90dc30223d3fef8",
   "corpus": {
     "curated_local_records": 12,
     "external_collection": "not claimed",
@@ -26,20 +29,36 @@
       "C": 2
     }
   },
-  "next_recommendation": "Populate the v0.2 admission plan with independently grounded public evidence, then run the exact hidden-case deterministic/local-model/Codex ablation before product work.",
+  "decision": "PARTIAL",
+  "next_recommendation": "Curate and independently review the v0.3 public cases, freeze hashes before labels reach any candidate, then run the hidden deterministic/local-model/Codex comparison.",
+  "production_ready": false,
   "project": "ecosystem-radar-bench",
   "security": {
     "local_regressions": "pass",
     "threat_model": "docs/THREAT_MODEL.md"
   },
   "status": "partial",
-  "validation_milestone": "0.2",
+  "validation_milestone": "0.3",
   "validation_v02": {
     "ablation": "not_run; exact hidden cases and local/Codex lanes are not yet available",
     "corpus_plan": "artifacts/release-evidence/v02-corpus-plan.json",
     "deterministic_report": "artifacts/release-evidence/benchmark-v02-report.json",
     "gates": "artifacts/release-evidence/v02-gates.json",
     "gold_cases_admitted": 0
+  },
+  "validation_v03": {
+    "ablation": "artifacts/release-evidence/ablation-results.json",
+    "attribution_gold_planned": 120,
+    "corpus_stats": "artifacts/release-evidence/corpus-stats.json",
+    "counterfactuals_planned": 50,
+    "difficulty_metrics": "artifacts/release-evidence/difficulty-metrics.json",
+    "freeze_manifest": "artifacts/release-evidence/v03-freeze-manifest.json",
+    "gates": "artifacts/release-evidence/v03-gates.json",
+    "gold_cases_admitted": 0,
+    "hidden_evaluation": "not_run",
+    "safety_cases_planned": 300,
+    "safety_confidence": "artifacts/release-evidence/safety-confidence.json",
+    "temporal_blindness": "artifacts/release-evidence/temporal-blindness.json"
   },
   "version": "0.1.0"
 }

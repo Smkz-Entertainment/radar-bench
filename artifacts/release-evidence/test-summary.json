@@ -153,5 +153,8 @@
       "wall_clock_seconds": 0.0
     }
   },
-  "v02_corpus_plan_returncode": 0
+  "v02_corpus_plan_returncode": 0,
+  "v03_admitted_records": 0,
+  "v03_corpus_plan_returncode": 0,
+  "v03_planned_records": 420
 }

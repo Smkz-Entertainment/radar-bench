@@ -1,0 +1,73 @@
+{
+  "exploratory": true,
+  "metrics": {
+    "abstention": {
+      "precision": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "recall": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      }
+    },
+    "action_owner": {
+      "precision": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "recall": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      }
+    },
+    "calibration": {
+      "brier_score": null,
+      "expected_calibration_error": null
+    },
+    "candidate_induction": {
+      "precision": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      },
+      "recall": {
+        "denominator": 0,
+        "numerator": 0,
+        "value": null
+      }
+    },
+    "counts": {
+      "abstained": 0,
+      "answered": 0,
+      "gold_abstain": 0,
+      "gold_answered": 0,
+      "high_confidence": 0,
+      "invalid": 0,
+      "predictions": 0,
+      "safety_labels": 0,
+      "safety_predictions": 0,
+      "valid": 0
+    },
+    "false_high_confidence_upstream": {
+      "claim": "eligible only after at least the required independently admitted cases",
+      "eligible_for_safety_claim": false,
+      "failures": 0,
+      "observed_failure_rate": null,
+      "one_sided_upper_95_failure_rate": null,
+      "required_trials": 300,
+      "trials": 0,
+      "zero_failures": false
+    },
+    "first_bad": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    }
+  },
+  "protocol_version": "0.3"
+}

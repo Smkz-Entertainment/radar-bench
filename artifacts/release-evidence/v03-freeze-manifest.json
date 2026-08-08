@@ -1,0 +1,29 @@
+{
+  "cli_invocation": [
+    "C:\\Python313\\python.exe",
+    "scripts/release_evidence.py"
+  ],
+  "corpus_digest": "sha256:e29964fd37943d955f26d66e370146d0c569c1bdeea33b8a15767670474cf255",
+  "environment_digest": "sha256:19a653148ab6dac1152d8cf80b4b36f2912ad5086a81fcbe9654cc37eb8037f2",
+  "gold_labels_available_to_candidate": false,
+  "implementation_commit": "1ae88c95e54f14d1808b0c48a90dc30223d3fef8",
+  "implementation_digest": "sha256:d029a66e8db275e563e257ecf9ea4028bd9a2e7a00da99ef3c77f569bf4e12d3",
+  "network_policy": "denied_for_candidate",
+  "schema_version": "0.3",
+  "stage": "C_freeze_before_hidden_evaluation",
+  "stages": {
+    "A": {
+      "scope": "deterministic development baseline and error taxonomy",
+      "status": "completed"
+    },
+    "B": {
+      "scope": "development-only deterministic improvements",
+      "status": "not_run"
+    },
+    "C": {
+      "scope": "hidden freeze and independent post-cutoff scoring",
+      "status": "blocked"
+    }
+  },
+  "tuning_after_labels": false
+}
