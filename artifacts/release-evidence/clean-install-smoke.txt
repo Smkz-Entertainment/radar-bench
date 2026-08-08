@@ -1,10 +1,10 @@
 usage: radar-bench [-h]
-                   {doctor,validate-case,validate-corpus,collect,build-snapshot,check-leakage,normalize-failure,baseline,export-inference,import-predictions,evaluate,ablation,gates,plan} ...
+                   {doctor,validate-case,validate-corpus,validate-admission,validate-v02-corpus,collect,build-snapshot,check-leakage,normalize-failure,baseline,export-inference,import-predictions,evaluate,ablation,gates,plan} ...
 
 Evidence-first downstream failure attribution benchmark
 
 positional arguments:
-  {doctor,validate-case,validate-corpus,collect,build-snapshot,check-leakage,normalize-failure,baseline,export-inference,import-predictions,evaluate,ablation,gates,plan}
+  {doctor,validate-case,validate-corpus,validate-admission,validate-v02-corpus,collect,build-snapshot,check-leakage,normalize-failure,baseline,export-inference,import-predictions,evaluate,ablation,gates,plan}
 
 options:
   -h, --help            show this help message and exit

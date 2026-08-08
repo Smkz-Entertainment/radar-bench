@@ -12,4 +12,3 @@ This report is exploratory and does not estimate production accuracy.
 | invalid_prediction_rate | 0.0 (0/12) |
 | evidence_citation_validity | 1.0 (12/12) |
 | temporal_citation_validity | 1.0 (12/12) |
-

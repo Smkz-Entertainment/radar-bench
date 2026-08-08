@@ -1,0 +1,23 @@
+{
+  "errors": [],
+  "summary": {
+    "admitted_gold": 0,
+    "categories": {
+      "ambiguous_inconclusive": 10,
+      "ci_infrastructure_failure": 10,
+      "dependency_transitive_failure": 15,
+      "downstream_incompatibility": 15,
+      "expected_breaking_change": 5,
+      "flaky_nondeterministic": 10,
+      "resolution_artifact_failure": 10,
+      "true_upstream_regression": 25
+    },
+    "independently_derived": 0,
+    "planned_is_gold": false,
+    "records": 100,
+    "states": {
+      "planned": 100
+    }
+  },
+  "valid": true
+}

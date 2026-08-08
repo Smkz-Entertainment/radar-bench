@@ -14,7 +14,7 @@
     "package_build": "pass",
     "schema_validation": "pass"
   },
-  "commit": "f1a66fc356bc57c3877d419b0b9f9361e0e70388",
+  "commit": "d990d79193bb27be9948ff7a1c563152f695c4bc",
   "corpus": {
     "curated_local_records": 12,
     "external_collection": "not claimed",
@@ -26,12 +26,20 @@
       "C": 2
     }
   },
-  "next_recommendation": "Do not proceed to headline 80-120-case claims until public evidence is collected, reviewed, and hidden-test gates are measured.",
+  "next_recommendation": "Populate the v0.2 admission plan with independently grounded public evidence, then run the exact hidden-case deterministic/local-model/Codex ablation before product work.",
   "project": "ecosystem-radar-bench",
   "security": {
     "local_regressions": "pass",
     "threat_model": "docs/THREAT_MODEL.md"
   },
   "status": "partial",
+  "validation_milestone": "0.2",
+  "validation_v02": {
+    "ablation": "not_run; exact hidden cases and local/Codex lanes are not yet available",
+    "corpus_plan": "artifacts/release-evidence/v02-corpus-plan.json",
+    "deterministic_report": "artifacts/release-evidence/benchmark-v02-report.json",
+    "gates": "artifacts/release-evidence/v02-gates.json",
+    "gold_cases_admitted": 0
+  },
   "version": "0.1.0"
 }
