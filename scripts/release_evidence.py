@@ -14,6 +14,7 @@ from setuptools.build_meta import build_sdist, build_wheel
 
 ROOT = Path(__file__).resolve().parents[1]
 EVIDENCE = ROOT / "artifacts" / "release-evidence"
+sys.path.insert(0, str(ROOT / "src"))
 
 
 def write(path: Path, value: str | dict) -> None:
@@ -23,6 +24,7 @@ def write(path: Path, value: str | dict) -> None:
         if isinstance(value, str)
         else json.dumps(value, indent=2, sort_keys=True) + "\n",
         encoding="utf-8",
+        newline="\n",
     )
 
 

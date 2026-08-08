@@ -94,6 +94,7 @@ def build_snapshot(
         + case["case_id"]
         + "\n\nInput evidence is the evaluated snapshot. Gold evidence is curator-only and must not be loaded by inference providers.\n",
         encoding="utf-8",
+        newline="\n",
     )
     return {
         "case_id": case["case_id"],
@@ -139,5 +140,7 @@ def _filter_experiments(
 
 def _write(path: Path, value: Any) -> None:
     path.write_text(
-        json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+        json.dumps(value, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+        newline="\n",
     )

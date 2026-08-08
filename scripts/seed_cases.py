@@ -220,6 +220,7 @@ def main() -> None:
             (target / f"{row['case_id']}.json").write_text(
                 json.dumps(make_case(row), indent=2, sort_keys=True) + "\n",
                 encoding="utf-8",
+                newline="\n",
             )
 
 
