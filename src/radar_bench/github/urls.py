@@ -34,6 +34,8 @@ def parse_github_url(value: str) -> GitHubResource:
     owner, repo = parts[0], parts[1]
     if any(ch in owner + repo for ch in "\\\x00") or repo.endswith(".git"):
         repo = repo[:-4]
+    if len(parts) == 2:
+        return GitHubResource(owner, repo, "repository")
     if len(parts) >= 4 and parts[2] in {"issues", "pull", "commit", "releases"}:
         kind = {
             "pull": "pull_request",
@@ -101,4 +103,6 @@ def api_url(resource: GitHubResource) -> str:
             if resource.suffix
             else f"{base}/releases"
         )
+    if resource.kind == "repository":
+        return base
     return f"{base}/tags/{resource.suffix}"

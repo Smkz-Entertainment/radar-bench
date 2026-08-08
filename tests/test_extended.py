@@ -271,6 +271,10 @@ class GithubAndNormalization(unittest.TestCase):
             "https://api.github.com/repos/a/b/releases/tags/v1",
         )
         self.assertEqual(
+            api_url(parse_github_url("https://github.com/a/b")),
+            "https://api.github.com/repos/a/b",
+        )
+        self.assertEqual(
             parse_github_url("https://github.com/a/b/tree/main").kind, "tag"
         )
         self.assertEqual(
