@@ -134,7 +134,7 @@ def main() -> int:
         check=False,
         shell=False,
     )
-    write(EVIDENCE / "benchmark-report.md", evaluation.stdout)
+    write(EVIDENCE / "benchmark-report.md", evaluation.stdout.rstrip() + "\n")
     report = json.loads(
         (EVIDENCE / "benchmark-report.json").read_text(encoding="utf-8")
     )
@@ -155,7 +155,10 @@ def main() -> int:
         check=False,
         shell=False,
     )
-    write(EVIDENCE / "benchmark-v02-report.md", evaluation_v02.stdout)
+    write(
+        EVIDENCE / "benchmark-v02-report.md",
+        evaluation_v02.stdout.rstrip() + "\n",
+    )
     report_v02 = json.loads(
         (EVIDENCE / "benchmark-v02-report.json").read_text(encoding="utf-8")
     )
