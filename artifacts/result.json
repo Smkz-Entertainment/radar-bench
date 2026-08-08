@@ -14,7 +14,7 @@
     "package_build": "pass",
     "schema_validation": "pass"
   },
-  "commit": null,
+  "commit": "f1a66fc356bc57c3877d419b0b9f9361e0e70388",
   "corpus": {
     "curated_local_records": 12,
     "external_collection": "not claimed",

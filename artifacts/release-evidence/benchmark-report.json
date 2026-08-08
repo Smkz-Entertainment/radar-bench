@@ -30,6 +30,11 @@
       "predictions": 12,
       "valid": 12
     },
+    "evidence_citation_validity": {
+      "denominator": 12,
+      "numerator": 12,
+      "value": 1.0
+    },
     "false_upstream_accusation_rate": {
       "denominator": 0,
       "numerator": 0,
@@ -49,6 +54,11 @@
       "denominator": 3,
       "numerator": 2,
       "value": 0.6666666666666666
+    },
+    "temporal_citation_validity": {
+      "denominator": 12,
+      "numerator": 12,
+      "value": 1.0
     }
   },
   "protocol_version": "0.1"

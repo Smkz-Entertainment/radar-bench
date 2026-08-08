@@ -37,9 +37,9 @@
       "value": 0.6666666666666666
     },
     "temporal_citation_validity": {
-      "status": "not_evaluable",
+      "status": "pass",
       "threshold": 1.0,
-      "value": null
+      "value": 1.0
     }
   },
   "recommendation": "Do not treat the seed set as production evidence."

@@ -10,4 +10,6 @@ This report is exploratory and does not estimate production accuracy.
 | false_upstream_accusation_rate | None (0/0) |
 | negative_case_abstention_recall | 0.6666666666666666 (2/3) |
 | invalid_prediction_rate | 0.0 (0/12) |
+| evidence_citation_validity | 1.0 (12/12) |
+| temporal_citation_validity | 1.0 (12/12) |
 
