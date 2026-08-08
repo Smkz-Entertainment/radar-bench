@@ -30,6 +30,13 @@ versioned causal ontology, temporal-blind candidate execution, field-level
 metrics, and exact small-sample safety bounds. The checked-in v0.3 records are
 plans with zero admitted labels; they are not benchmark results.
 
+The v0.4 pilot mines real public OSINT into resolution-chain records. Its
+current run admits 20 attribution and 40 safety records, while retaining five
+temporally blocked cases. The deterministic pilot gates require a pivot because
+candidate-induced precision is 0.60 and action-owner precision is 0.00; this is
+not a Radar capability or production-readiness result. Codex and local-model
+lanes are deliberately not run.
+
 There is no dashboard, GitHub write integration, notification system,
 arbitrary-repository executor, hosted service, billing, repair generator, or
 credential-requiring model integration.
@@ -60,6 +67,7 @@ queue records that state instead of claiming completion.
 
 See [docs/BENCHMARK_PROTOCOL.md](docs/BENCHMARK_PROTOCOL.md),
 [docs/V03_GOLD_CORPUS_AND_BLIND_ATTRIBUTION.md](docs/V03_GOLD_CORPUS_AND_BLIND_ATTRIBUTION.md),
+[docs/V04_GOLD_CORPUS_MINING.md](docs/V04_GOLD_CORPUS_MINING.md),
 [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md), and
 [docs/DATA_GOVERNANCE.md](docs/DATA_GOVERNANCE.md).
 
@@ -69,6 +77,7 @@ Validate the v0.2 plan without treating planned records as gold:
 radar-bench validate-v02-corpus
 radar-bench baseline corpus/snapshots/RADAR-OSINT-008 --v02
 radar-bench validate-v03-corpus --json
+radar-bench validate-v04-corpus --json
 radar-bench baseline corpus/snapshots/RADAR-OSINT-008 --v03
 ```
 

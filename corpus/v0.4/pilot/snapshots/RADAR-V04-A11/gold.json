@@ -1,0 +1,19 @@
+{
+  "evidence_ids": [],
+  "gold_level": "Gold-B",
+  "label": {
+    "action_owner_repository": "https://github.com/Cython/Cython",
+    "action_owner_scored": false,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CAUSALLY_SUPPORTED",
+    "first_bad": "cython:3.2.6",
+    "responsible_layer": "shared_dependency",
+    "root_cause_component": "https://github.com/Cython/Cython",
+    "root_cause_mechanism": "dependency_transitive_failure",
+    "should_abstain": false
+  },
+  "record_id": "RADAR-V04-A11",
+  "schema_version": "0.4",
+  "source_cutoff": "2026-07-21T00:00:00Z"
+}

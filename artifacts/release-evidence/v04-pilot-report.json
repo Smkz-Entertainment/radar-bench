@@ -1,0 +1,356 @@
+{
+  "cas_root": "C:\\Projects\\Radar\\.radar-cache\\v04-pilot",
+  "codex": "not_run_by_design",
+  "early_gates": {
+    "checks": {
+      "abstention_recall": {
+        "status": "pass",
+        "threshold": 0.9,
+        "value": 1.0
+      },
+      "action_owner_precision": {
+        "status": "fail",
+        "threshold": 0.7,
+        "value": 0.0
+      },
+      "candidate_induced_precision": {
+        "status": "fail",
+        "threshold": 0.8,
+        "value": 0.6
+      },
+      "false_high_confidence_upstream": {
+        "status": "pass",
+        "threshold": 0,
+        "value": 0
+      }
+    },
+    "continue_mining": false,
+    "interpretation": "These are worth-continuing thresholds, not production gates.",
+    "stage": "pilot-20-40"
+  },
+  "error_taxonomy": {
+    "correct_abstention": 40,
+    "correct_deterministic_attribution": 16,
+    "trigger_correct_owner_wrong": 4
+  },
+  "metrics": {
+    "abstention": {
+      "precision": {
+        "denominator": 40,
+        "numerator": 40,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 40,
+        "numerator": 40,
+        "value": 1.0
+      }
+    },
+    "action_owner": {
+      "field": "action_owner_repository",
+      "precision": {
+        "denominator": 4,
+        "numerator": 0,
+        "value": 0.0
+      },
+      "recall": {
+        "denominator": 4,
+        "numerator": 0,
+        "value": 0.0
+      }
+    },
+    "calibration": {
+      "bins": [
+        {
+          "accuracy": 1.0,
+          "count": 40,
+          "lower": 0.2,
+          "mean_confidence": 0.2,
+          "upper": 0.3
+        },
+        {
+          "accuracy": 0.6,
+          "count": 20,
+          "lower": 0.6,
+          "mean_confidence": 0.65,
+          "upper": 0.7
+        }
+      ],
+      "brier_score": 0.5075000000000001,
+      "evaluated_predictions": 60,
+      "expected_calibration_error": 0.55
+    },
+    "candidate_induction": {
+      "precision": {
+        "denominator": 20,
+        "numerator": 12,
+        "value": 0.6
+      },
+      "recall": {
+        "denominator": 20,
+        "numerator": 12,
+        "value": 0.6
+      }
+    },
+    "causal_component": {
+      "field": "root_cause_component",
+      "precision": {
+        "denominator": 20,
+        "numerator": 20,
+        "value": 1.0
+      },
+      "recall": {
+        "denominator": 20,
+        "numerator": 20,
+        "value": 1.0
+      }
+    },
+    "counts": {
+      "abstained": 40,
+      "answered": 20,
+      "corpus_kind": "v0.4-pilot",
+      "gold_abstain": 40,
+      "gold_answered": 20,
+      "high_confidence": 0,
+      "invalid": 0,
+      "predictions": 60,
+      "safety_labels": 40,
+      "safety_predictions": 40,
+      "valid": 60
+    },
+    "difficulty": {
+      "D1": {
+        "action_owner": {
+          "field": "action_owner_repository",
+          "precision": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "candidate_induction": {
+          "field": "candidate_induced",
+          "precision": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          },
+          "recall": {
+            "denominator": 0,
+            "numerator": 0,
+            "value": null
+          }
+        },
+        "cases": 4
+      },
+      "D2": {
+        "action_owner": {
+          "field": "action_owner_repository",
+          "precision": {
+            "denominator": 4,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "recall": {
+            "denominator": 4,
+            "numerator": 0,
+            "value": 0.0
+          }
+        },
+        "candidate_induction": {
+          "field": "candidate_induced",
+          "precision": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          }
+        },
+        "cases": 17
+      },
+      "D3": {
+        "action_owner": {
+          "field": "action_owner_repository",
+          "precision": {
+            "denominator": 8,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "recall": {
+            "denominator": 8,
+            "numerator": 0,
+            "value": 0.0
+          }
+        },
+        "candidate_induction": {
+          "field": "candidate_induced",
+          "precision": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 8,
+            "numerator": 8,
+            "value": 1.0
+          }
+        },
+        "cases": 16
+      },
+      "D4": {
+        "action_owner": {
+          "field": "action_owner_repository",
+          "precision": {
+            "denominator": 6,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "recall": {
+            "denominator": 6,
+            "numerator": 0,
+            "value": 0.0
+          }
+        },
+        "candidate_induction": {
+          "field": "candidate_induced",
+          "precision": {
+            "denominator": 6,
+            "numerator": 6,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 6,
+            "numerator": 6,
+            "value": 1.0
+          }
+        },
+        "cases": 11
+      },
+      "D5": {
+        "action_owner": {
+          "field": "action_owner_repository",
+          "precision": {
+            "denominator": 2,
+            "numerator": 0,
+            "value": 0.0
+          },
+          "recall": {
+            "denominator": 2,
+            "numerator": 0,
+            "value": 0.0
+          }
+        },
+        "candidate_induction": {
+          "field": "candidate_induced",
+          "precision": {
+            "denominator": 2,
+            "numerator": 2,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 2,
+            "numerator": 2,
+            "value": 1.0
+          }
+        },
+        "cases": 12
+      }
+    },
+    "experiments": {
+      "requested": {
+        "count": 60,
+        "value": 40
+      },
+      "useful": {
+        "count": 60,
+        "value": 0
+      },
+      "useful_ratio": {
+        "value": 0.0
+      }
+    },
+    "false_high_confidence_upstream": {
+      "claim": "eligible only after at least the required independently admitted cases",
+      "eligible_for_safety_claim": false,
+      "failures": 0,
+      "observed_failure_rate": 0.0,
+      "one_sided_upper_95_failure_rate": 0.0721575245055146,
+      "required_trials": 300,
+      "trials": 40,
+      "zero_failures": true
+    },
+    "first_bad": {
+      "denominator": 20,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "unsupported_confident_claims": {
+      "denominator": 60,
+      "numerator": 0,
+      "value": 0
+    },
+    "usage": {
+      "amount": 0.0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "wall_clock_seconds": 0.0
+    }
+  },
+  "network_mutation": "none",
+  "source_count": 83,
+  "summary": {
+    "admitted_attribution": 20,
+    "admitted_safety": 40,
+    "categories": {
+      "artifact_missing": 1,
+      "baseline_broken": 2,
+      "ci_or_infrastructure": 15,
+      "dependency_transitive_failure": 4,
+      "downstream_incompatibility": 2,
+      "duplicate_incident": 1,
+      "expected_breaking_change": 1,
+      "external_service_or_data": 3,
+      "flaky_or_nondeterministic": 8,
+      "packaging_build_failure": 4,
+      "resolver_confounded": 4,
+      "true_upstream_regression": 15,
+      "unsafe_to_attribute": 5
+    },
+    "difficulty": {
+      "D1": 4,
+      "D2": 17,
+      "D3": 16,
+      "D4": 11,
+      "D5": 12
+    },
+    "gold_levels": {
+      "Gold-A": 4,
+      "Gold-B": 16,
+      "Safety-A": 40
+    },
+    "pilot_success": true,
+    "pilot_targets": {
+      "attribution": 20,
+      "safety": 40
+    },
+    "records_examined": 65,
+    "rejection_is_not_failure_metric": true,
+    "rejection_reasons": {
+      "NO_TEMPORAL_BOUNDARY": 5
+    },
+    "states": {
+      "admitted": 60,
+      "blocked": 5
+    }
+  },
+  "validation_errors": []
+}

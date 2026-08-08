@@ -1,0 +1,161 @@
+{
+  "admission_state": "admitted",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:963e8c66b83444f8e180a6cd025a4d57fe8c515d5ef2d5a128719ae08c874cd0",
+    "review_status": "independently_reviewed",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "true_upstream_regression",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:addb7618b6591d002c9343a9b68dd033a7445df04a23cf5b1919aabe96fbdc6e",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A04/candidate.json",
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A04-01"
+    ]
+  },
+  "corpus_kind": "attribution",
+  "difficulty": "D3",
+  "gold_level": "Gold-A",
+  "gold_packet": {
+    "digest": "sha256:002fc0445efd43a6c4e71f8a11b56a249c8e6f5b693b9e49bf72ab5bda87446d",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A04/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A04-02",
+      "V04-RADAR-V04-A04-03",
+      "V04-RADAR-V04-A04-04",
+      "V04-RADAR-V04-A04-05",
+      "V04-RADAR-V04-A04-06",
+      "V04-RADAR-V04-A04-07"
+    ]
+  },
+  "label": {
+    "action_owner_repository": "https://github.com/numpy/numpy",
+    "action_owner_scored": true,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CONFIRMED",
+    "first_bad": "pr:27883",
+    "responsible_layer": "upstream_runtime_or_library",
+    "root_cause_component": "https://github.com/numpy/numpy",
+    "root_cause_mechanism": "true_upstream_regression",
+    "should_abstain": false
+  },
+  "negative_control": false,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-A04",
+  "rejection_reason": null,
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A04-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-19T15:00:00Z",
+      "role": "observation",
+      "snapshot_digest": "sha256:23e4f3fe55ca6fa40b1781765bce4447461c0f0ada47ed01a666f139c9a2d102",
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/30509"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A04-02",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-19T21:18:42Z",
+      "role": "first_bad",
+      "snapshot_digest": "sha256:e87ed5d3063fd171aa7e64761ac51f42045762aef18ae441a9229c1ce65b5cc8",
+      "uri": "https://github.com/numpy/numpy/pull/27883"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A04-03",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-19T21:18:42Z",
+      "role": "causal_intervention",
+      "snapshot_digest": "sha256:f875d631aacca5590cdb178f454b321416ca17bd4cc2cb636514fb18bb88b896",
+      "uri": "https://github.com/numpy/numpy/pull/28043"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A04-04",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-19T21:18:42Z",
+      "role": "reproducer",
+      "snapshot_digest": "sha256:23e4f3fe55ca6fa40b1781765bce4447461c0f0ada47ed01a666f139c9a2d102",
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/30509"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A04-05",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-19T21:18:42Z",
+      "role": "resolution",
+      "snapshot_digest": "sha256:f875d631aacca5590cdb178f454b321416ca17bd4cc2cb636514fb18bb88b896",
+      "uri": "https://github.com/numpy/numpy/pull/28043"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A04-06",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-19T21:18:42Z",
+      "role": "post_fix_recovery",
+      "snapshot_digest": "sha256:d50a1e85ffd6e3c6cbdd95c2db476204c4d16227c6aadbb66903166fa5ee8461",
+      "uri": "https://github.com/numpy/numpy/releases/tag/v2.2.2"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A04-07",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-19T21:18:42Z",
+      "role": "upstream_confirmation",
+      "snapshot_digest": "sha256:f875d631aacca5590cdb178f454b321416ca17bd4cc2cb636514fb18bb88b896",
+      "uri": "https://github.com/numpy/numpy/pull/28043"
+    }
+  ],
+  "source_cutoff": "2024-12-19T20:00:00Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:23e4f3fe55ca6fa40b1781765bce4447461c0f0ada47ed01a666f139c9a2d102",
+      "digest": "sha256:23e4f3fe55ca6fa40b1781765bce4447461c0f0ada47ed01a666f139c9a2d102",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/30509"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:e87ed5d3063fd171aa7e64761ac51f42045762aef18ae441a9229c1ce65b5cc8",
+      "digest": "sha256:e87ed5d3063fd171aa7e64761ac51f42045762aef18ae441a9229c1ce65b5cc8",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/numpy/numpy/pull/27883"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:f875d631aacca5590cdb178f454b321416ca17bd4cc2cb636514fb18bb88b896",
+      "digest": "sha256:f875d631aacca5590cdb178f454b321416ca17bd4cc2cb636514fb18bb88b896",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/numpy/numpy/pull/28043"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:d50a1e85ffd6e3c6cbdd95c2db476204c4d16227c6aadbb66903166fa5ee8461",
+      "digest": "sha256:d50a1e85ffd6e3c6cbdd95c2db476204c4d16227c6aadbb66903166fa5ee8461",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/numpy/numpy/releases/tag/v2.2.2"
+    }
+  ],
+  "t0": "2024-12-19T15:00:00Z"
+}

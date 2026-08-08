@@ -1,0 +1,26 @@
+{
+  "evidence_ids": [
+    "V04-RADAR-V04-A04-02",
+    "V04-RADAR-V04-A04-03",
+    "V04-RADAR-V04-A04-04",
+    "V04-RADAR-V04-A04-05",
+    "V04-RADAR-V04-A04-06",
+    "V04-RADAR-V04-A04-07"
+  ],
+  "gold_level": "Gold-A",
+  "label": {
+    "action_owner_repository": "https://github.com/numpy/numpy",
+    "action_owner_scored": true,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CONFIRMED",
+    "first_bad": "pr:27883",
+    "responsible_layer": "upstream_runtime_or_library",
+    "root_cause_component": "https://github.com/numpy/numpy",
+    "root_cause_mechanism": "true_upstream_regression",
+    "should_abstain": false
+  },
+  "record_id": "RADAR-V04-A04",
+  "schema_version": "0.4",
+  "source_cutoff": "2024-12-19T20:00:00Z"
+}

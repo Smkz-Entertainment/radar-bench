@@ -121,7 +121,15 @@ def calculate_metrics_v03(
             "recall": base["attribution_recall"],
         },
         "causal_component": _field_metric(valid, labels, "root_cause_component"),
-        "action_owner": _field_metric(valid, labels, "action_owner_repository"),
+        "action_owner": _field_metric(
+            valid,
+            {
+                case_id: label
+                for case_id, label in labels.items()
+                if label.get("action_owner_scored", True)
+            },
+            "action_owner_repository",
+        ),
         "first_bad": _first_bad_metric(valid, labels),
     }
     return {

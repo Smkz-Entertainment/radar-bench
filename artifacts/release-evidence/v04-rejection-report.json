@@ -1,0 +1,50 @@
+{
+  "count": 5,
+  "records": [
+    {
+      "admission_state": "blocked",
+      "corpus_kind": "attribution",
+      "reason": "NO_TEMPORAL_BOUNDARY",
+      "record_id": "RADAR-V04-A11",
+      "source_urls": [
+        "https://github.com/scikit-learn/scikit-learn/issues/34525"
+      ]
+    },
+    {
+      "admission_state": "blocked",
+      "corpus_kind": "attribution",
+      "reason": "NO_TEMPORAL_BOUNDARY",
+      "record_id": "RADAR-V04-A12",
+      "source_urls": [
+        "https://github.com/scikit-learn/scikit-learn/issues/34191"
+      ]
+    },
+    {
+      "admission_state": "blocked",
+      "corpus_kind": "attribution",
+      "reason": "NO_TEMPORAL_BOUNDARY",
+      "record_id": "RADAR-V04-A13",
+      "source_urls": [
+        "https://github.com/scipy/scipy/issues/23177"
+      ]
+    },
+    {
+      "admission_state": "blocked",
+      "corpus_kind": "attribution",
+      "reason": "NO_TEMPORAL_BOUNDARY",
+      "record_id": "RADAR-V04-A14",
+      "source_urls": [
+        "https://github.com/scipy/scipy/issues/22436"
+      ]
+    },
+    {
+      "admission_state": "blocked",
+      "corpus_kind": "attribution",
+      "reason": "NO_TEMPORAL_BOUNDARY",
+      "record_id": "RADAR-V04-A16",
+      "source_urls": [
+        "https://github.com/pandas-dev/pandas/issues/66086"
+      ]
+    }
+  ]
+}

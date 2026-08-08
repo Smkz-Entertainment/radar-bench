@@ -1,0 +1,21 @@
+{
+  "evidence_ids": [
+    "V04-RADAR-V04-A18-02"
+  ],
+  "gold_level": "Gold-B",
+  "label": {
+    "action_owner_repository": "https://github.com/matplotlib/matplotlib",
+    "action_owner_scored": false,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CAUSALLY_SUPPORTED",
+    "first_bad": "matplotlib:3.11.0",
+    "responsible_layer": "downstream_project",
+    "root_cause_component": "https://github.com/matplotlib/matplotlib",
+    "root_cause_mechanism": "expected_breaking_change",
+    "should_abstain": false
+  },
+  "record_id": "RADAR-V04-A18",
+  "schema_version": "0.4",
+  "source_cutoff": "2026-06-24T00:00:00Z"
+}

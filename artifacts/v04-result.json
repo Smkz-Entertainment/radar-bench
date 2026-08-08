@@ -1,0 +1,92 @@
+{
+  "decision": "PIVOT_REQUIRED",
+  "early_gates": {
+    "checks": {
+      "abstention_recall": {
+        "status": "pass",
+        "threshold": 0.9,
+        "value": 1.0
+      },
+      "action_owner_precision": {
+        "status": "fail",
+        "threshold": 0.7,
+        "value": 0.0
+      },
+      "candidate_induced_precision": {
+        "status": "fail",
+        "threshold": 0.8,
+        "value": 0.6
+      },
+      "false_high_confidence_upstream": {
+        "status": "pass",
+        "threshold": 0,
+        "value": 0
+      }
+    },
+    "continue_mining": false,
+    "interpretation": "These are worth-continuing thresholds, not production gates.",
+    "stage": "pilot-20-40"
+  },
+  "evidence": {
+    "corpus_stats": "artifacts/release-evidence/v04-corpus-stats.json",
+    "early_gates": "artifacts/release-evidence/v04-early-gates.json",
+    "error_taxonomy": "artifacts/release-evidence/v04-error-taxonomy.json",
+    "pilot_report": "artifacts/release-evidence/v04-pilot-report.json",
+    "rejections": "artifacts/release-evidence/v04-rejection-report.json"
+  },
+  "lanes": {
+    "codex": "not_run_by_design",
+    "deterministic": "run",
+    "local_model": "not_run_by_design"
+  },
+  "pilot": {
+    "admitted_attribution": 20,
+    "admitted_safety": 40,
+    "categories": {
+      "artifact_missing": 1,
+      "baseline_broken": 2,
+      "ci_or_infrastructure": 15,
+      "dependency_transitive_failure": 4,
+      "downstream_incompatibility": 2,
+      "duplicate_incident": 1,
+      "expected_breaking_change": 1,
+      "external_service_or_data": 3,
+      "flaky_or_nondeterministic": 8,
+      "packaging_build_failure": 4,
+      "resolver_confounded": 4,
+      "true_upstream_regression": 15,
+      "unsafe_to_attribute": 5
+    },
+    "difficulty": {
+      "D1": 4,
+      "D2": 17,
+      "D3": 16,
+      "D4": 11,
+      "D5": 12
+    },
+    "gold_levels": {
+      "Gold-A": 4,
+      "Gold-B": 16,
+      "Safety-A": 40
+    },
+    "pilot_success": true,
+    "pilot_targets": {
+      "attribution": 20,
+      "safety": 40
+    },
+    "records_examined": 65,
+    "rejection_is_not_failure_metric": true,
+    "rejection_reasons": {
+      "NO_TEMPORAL_BOUNDARY": 5
+    },
+    "states": {
+      "admitted": 60,
+      "blocked": 5
+    }
+  },
+  "production_ready": false,
+  "project": "ecosystem-radar-bench",
+  "status": "pivot_required",
+  "v03_frozen": true,
+  "validation_milestone": "0.4"
+}

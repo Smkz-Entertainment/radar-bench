@@ -1,0 +1,27 @@
+{
+  "checks": {
+    "abstention_recall": {
+      "status": "pass",
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    "action_owner_precision": {
+      "status": "fail",
+      "threshold": 0.7,
+      "value": 0.0
+    },
+    "candidate_induced_precision": {
+      "status": "fail",
+      "threshold": 0.8,
+      "value": 0.6
+    },
+    "false_high_confidence_upstream": {
+      "status": "pass",
+      "threshold": 0,
+      "value": 0
+    }
+  },
+  "continue_mining": false,
+  "interpretation": "These are worth-continuing thresholds, not production gates.",
+  "stage": "pilot-20-40"
+}

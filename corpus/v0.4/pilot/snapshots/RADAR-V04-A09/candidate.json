@@ -1,0 +1,12 @@
+{
+  "evidence_ids": [
+    "V04-RADAR-V04-A09-01"
+  ],
+  "record_id": "RADAR-V04-A09",
+  "schema_version": "0.4",
+  "source_cutoff": "2024-07-03T00:00:00Z",
+  "source_digests": [
+    "sha256:2519a8d12a41887ad8b648cdd76e2fa972c31cc7ca35db22edd8bd4ba17469dd"
+  ],
+  "t0": "2024-07-01T00:00:00Z"
+}

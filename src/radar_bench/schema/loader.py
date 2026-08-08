@@ -20,6 +20,7 @@ SCHEMAS = {
     "admission_v03": "gold-admission-v0.3.schema.json",
     "blind_run_v03": "blind-run-v0.3.schema.json",
     "ablation_v03": "ablation-record-v0.3.schema.json",
+    "admission_v04": "gold-admission-v0.4.schema.json",
 }
 
 

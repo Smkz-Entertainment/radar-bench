@@ -16,6 +16,7 @@ from radar_bench.baseline.v03 import predict_v03
 from radar_bench.config import project_root
 from radar_bench.corpus.admission import admission_summary, validate_admission
 from radar_bench.corpus.v03 import validate_gold_admission, v03_corpus_summary
+from radar_bench.corpus.v04 import validate_v04_record, v04_summary
 from radar_bench.evaluation.ablation import compare_lanes
 from radar_bench.errors import ExternalBlocked, RadarError, ValidationError
 from radar_bench.evaluation.gates import evaluate_gates
@@ -189,6 +190,28 @@ def command_validate_v03_corpus(args: argparse.Namespace) -> int:
             errors.append("v0.3 counterfactual count is below the required minimum")
     result = {"valid": not errors, "errors": errors, "summary": summary}
     _json(result) if getattr(args, "json", False) else print(json.dumps(result, indent=2, sort_keys=True))
+    return EXIT_OK if not errors else EXIT_INVALID
+
+
+def command_validate_v04_corpus(args: argparse.Namespace) -> int:
+    root = _root() / "corpus" / "v0.4" / "pilot"
+    paths = sorted((root / "records").glob("*.json"))
+    records: list[dict[str, Any]] = []
+    errors: list[str] = []
+    for path in paths:
+        try:
+            record = cast(dict[str, Any], json.loads(path.read_text(encoding="utf-8")))
+            record_errors = validate_v04_record(record, root=_root())
+            errors.extend(f"{path.name}: {error}" for error in record_errors)
+            records.append(record)
+        except (OSError, ValueError, ValidationError) as exc:
+            errors.append(f"{path.name}: {exc}")
+    if not paths:
+        errors.append("v0.4 pilot has no admission records")
+    result = {"valid": not errors, "errors": errors, "summary": v04_summary(records)}
+    _json(result) if getattr(args, "json", False) else print(
+        json.dumps(result, indent=2, sort_keys=True)
+    )
     return EXIT_OK if not errors else EXIT_INVALID
 
 
@@ -426,6 +449,9 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("validate-v03-corpus")
     p.add_argument("--json", action="store_true")
     p.set_defaults(function=command_validate_v03_corpus)
+    p = sub.add_parser("validate-v04-corpus")
+    p.add_argument("--json", action="store_true")
+    p.set_defaults(function=command_validate_v04_corpus)
     p = sub.add_parser("collect")
     group = p.add_mutually_exclusive_group(required=True)
     group.add_argument("--issue")

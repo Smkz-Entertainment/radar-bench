@@ -1,0 +1,70 @@
+{
+  "admission_state": "blocked",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:10878e8884503773f33a96167e7633bc40e7715db7f900abe8fa87be8b9a2e31",
+    "review_status": "blocked",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "true_upstream_regression",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:ed67e7e21385cf58d01ff17f759bc514b4138f35ce0de73c31e3f728b5c9886e",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A12/candidate.json",
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A12-01",
+      "V04-RADAR-V04-A12-02"
+    ]
+  },
+  "corpus_kind": "attribution",
+  "difficulty": "D5",
+  "gold_level": null,
+  "gold_packet": {
+    "digest": "sha256:6aee7a37248c8011ffd05923e658a5d012f4d91e2d1874d0380315171c92c566",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A12/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": []
+  },
+  "label": null,
+  "negative_control": false,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-A12",
+  "rejection_reason": "NO_TEMPORAL_BOUNDARY",
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A12-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2026-06-03T15:16:57Z",
+      "role": "observation",
+      "snapshot_digest": "sha256:360a23496f58ab99ad9a954a6102996ad99ed0a10efd2b8128bf92ef484b9267",
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/34191"
+    },
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A12-02",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2026-06-03T15:16:57Z",
+      "role": "resolution",
+      "snapshot_digest": "sha256:360a23496f58ab99ad9a954a6102996ad99ed0a10efd2b8128bf92ef484b9267",
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/34191"
+    }
+  ],
+  "source_cutoff": "2026-06-04T00:00:00Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:360a23496f58ab99ad9a954a6102996ad99ed0a10efd2b8128bf92ef484b9267",
+      "digest": "sha256:360a23496f58ab99ad9a954a6102996ad99ed0a10efd2b8128bf92ef484b9267",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/34191"
+    }
+  ],
+  "t0": "2026-06-03T15:16:57Z"
+}

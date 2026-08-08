@@ -2,23 +2,20 @@
 
 # Roadmap
 
-v0.1 and v0.2 are frozen. v0.3 is Gold Corpus & Blind Attribution and has one
-purpose: make the benchmark strong enough to falsify Radar on causal ownership
-and safety.
+v0.1 through v0.3 are frozen. v0.4 is Gold Corpus Mining & Admission and has
+one purpose: establish a real, temporally separated corpus before capability
+claims or product work.
 
-The v0.3 sequence is:
+The v0.4 sequence is:
 
-1. Fill the separate 120-case attribution and 300-case safety plans from
-   read-only public evidence; do not let the evaluated agent create labels.
-2. Require the full post-cutoff evidence combination and immutable snapshots
-   before high-confidence admission.
-3. Freeze candidate inputs and implementation hashes before any later gold
-   packet reaches the scorer; prove candidate network/filesystem blindness.
-4. Measure each causal ontology field, difficulty tier, calibration, exact
-   safety bounds, experiments, latency, tokens, and cost.
-5. Run deterministic, local-model, and Codex lanes on the exact same hidden
-   cases. A model earns a permanent role only with difficult-case or
-   efficiency lift and no safety worsening.
+1. Mine and admit the 20/40 pilot through resolution chains and explicit
+   rejection reasons.
+2. Stop on the pilot continuation thresholds when action-owner precision or
+   candidate-induced precision is below its required floor.
+3. Only after a passing deterministic pilot expand to the 50/120 and
+   120/300 stages.
+4. Keep local-model and Codex comparisons out of corpus admission until the
+   temporal and safety contracts are genuinely established.
 
 Only after v0.3 passes should shadow-mode ingestion, a public corpus/dashboard,
 or other user-facing Radar product work be considered. No GitHub bot or

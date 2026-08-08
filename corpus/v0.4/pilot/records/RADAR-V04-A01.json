@@ -1,0 +1,161 @@
+{
+  "admission_state": "admitted",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:8a33df0ddb7906832beb60260f86e33628bdb53e06f69d4615a1dd7d35ea564f",
+    "review_status": "independently_reviewed",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "true_upstream_regression",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:9813b3a51b269d44182f8438d5f7dc9bf4fa63c4b5bdd05c346d28d04925a901",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A01/candidate.json",
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A01-01"
+    ]
+  },
+  "corpus_kind": "attribution",
+  "difficulty": "D2",
+  "gold_level": "Gold-A",
+  "gold_packet": {
+    "digest": "sha256:8cb4f66979375eb9177a3fdd763cf6169491b74436665634d10039bd6d5a8c5b",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A01/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A01-02",
+      "V04-RADAR-V04-A01-03",
+      "V04-RADAR-V04-A01-04",
+      "V04-RADAR-V04-A01-05",
+      "V04-RADAR-V04-A01-06",
+      "V04-RADAR-V04-A01-07"
+    ]
+  },
+  "label": {
+    "action_owner_repository": "https://github.com/scikit-learn/scikit-learn",
+    "action_owner_scored": true,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CONFIRMED",
+    "first_bad": "pr:29458",
+    "responsible_layer": "upstream_runtime_or_library",
+    "root_cause_component": "https://github.com/scikit-learn/scikit-learn",
+    "root_cause_mechanism": "true_upstream_regression",
+    "should_abstain": false
+  },
+  "negative_control": false,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-A01",
+  "rejection_reason": null,
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A01-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-28T22:31:43Z",
+      "role": "observation",
+      "snapshot_digest": "sha256:3167418f35064b7c5f9e7b426bb9aba18d80b0d2d05af321882be1b96dd7b4da",
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/30554"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A01-02",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-30T04:59:42Z",
+      "role": "reproducer",
+      "snapshot_digest": "sha256:3167418f35064b7c5f9e7b426bb9aba18d80b0d2d05af321882be1b96dd7b4da",
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/30554"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A01-03",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-30T04:59:42Z",
+      "role": "first_bad",
+      "snapshot_digest": "sha256:d718a03eabbe9d2dd789489538c8bf900bfcf5007d1107c9ddc6abd704fe3c6d",
+      "uri": "https://github.com/scikit-learn/scikit-learn/pull/29458"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A01-04",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-30T04:59:42Z",
+      "role": "causal_intervention",
+      "snapshot_digest": "sha256:d3bf090600a1256fe69e1ce4d1c503908fa3c4cca4f6112404bf94c32b94155f",
+      "uri": "https://github.com/scikit-learn/scikit-learn/pull/30557"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A01-05",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-30T04:59:42Z",
+      "role": "resolution",
+      "snapshot_digest": "sha256:d3bf090600a1256fe69e1ce4d1c503908fa3c4cca4f6112404bf94c32b94155f",
+      "uri": "https://github.com/scikit-learn/scikit-learn/pull/30557"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A01-06",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-30T04:59:42Z",
+      "role": "post_fix_recovery",
+      "snapshot_digest": "sha256:f2becd0f71e596744988ab725bb198dc183ce9dd5403c6f5ea4e0ac5a33a58d0",
+      "uri": "https://github.com/scikit-learn/scikit-learn/releases/tag/1.6.1"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A01-07",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-30T04:59:42Z",
+      "role": "upstream_confirmation",
+      "snapshot_digest": "sha256:d3bf090600a1256fe69e1ce4d1c503908fa3c4cca4f6112404bf94c32b94155f",
+      "uri": "https://github.com/scikit-learn/scikit-learn/pull/30557"
+    }
+  ],
+  "source_cutoff": "2024-12-30T00:00:00Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:3167418f35064b7c5f9e7b426bb9aba18d80b0d2d05af321882be1b96dd7b4da",
+      "digest": "sha256:3167418f35064b7c5f9e7b426bb9aba18d80b0d2d05af321882be1b96dd7b4da",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/30554"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:d718a03eabbe9d2dd789489538c8bf900bfcf5007d1107c9ddc6abd704fe3c6d",
+      "digest": "sha256:d718a03eabbe9d2dd789489538c8bf900bfcf5007d1107c9ddc6abd704fe3c6d",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/scikit-learn/scikit-learn/pull/29458"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:d3bf090600a1256fe69e1ce4d1c503908fa3c4cca4f6112404bf94c32b94155f",
+      "digest": "sha256:d3bf090600a1256fe69e1ce4d1c503908fa3c4cca4f6112404bf94c32b94155f",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/scikit-learn/scikit-learn/pull/30557"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:f2becd0f71e596744988ab725bb198dc183ce9dd5403c6f5ea4e0ac5a33a58d0",
+      "digest": "sha256:f2becd0f71e596744988ab725bb198dc183ce9dd5403c6f5ea4e0ac5a33a58d0",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/scikit-learn/scikit-learn/releases/tag/1.6.1"
+    }
+  ],
+  "t0": "2024-12-28T22:31:43Z"
+}

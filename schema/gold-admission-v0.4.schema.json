@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ecosystem-radar/gold-admission-v0.4.schema.json",
+  "title": "Radar Gold Admission v0.4 Pilot",
+  "description": "A real-public-incident pilot record with resolution-chain provenance and explicit rejection reasons.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "pilot_stage", "record_id", "corpus_kind", "admission_state", "t0", "source_cutoff", "candidate_category", "difficulty", "negative_control", "gold_level", "source_chain", "source_snapshots", "candidate_snapshot", "gold_packet", "label", "rejection_reason", "audit"],
+  "properties": {
+    "schema_version": {"const": "0.4"},
+    "pilot_stage": {"enum": ["pilot-20-40", "intermediate-50-120", "full-120-300"]},
+    "record_id": {"type": "string", "pattern": "^RADAR-V04-[A-Z0-9._:-]+$"},
+    "corpus_kind": {"enum": ["attribution", "safety"]},
+    "admission_state": {"enum": ["candidate", "admitted", "rejected", "blocked"]},
+    "t0": {"type": "string", "format": "date-time"},
+    "source_cutoff": {"type": "string", "format": "date-time"},
+    "candidate_category": {"enum": ["true_upstream_regression", "expected_breaking_change", "downstream_incompatibility", "dependency_transitive_failure", "packaging_build_failure", "resolver_failure", "cross_repo_system_failure", "external_service_or_data", "ci_or_infrastructure", "flaky_or_nondeterministic", "baseline_broken", "duplicate_incident", "artifact_missing", "resolver_confounded", "unsafe_to_attribute", "unknown"]},
+    "difficulty": {"enum": ["D1", "D2", "D3", "D4", "D5"]},
+    "negative_control": {"type": "boolean"},
+    "gold_level": {"enum": ["Gold-A", "Gold-B", "Safety-A", null]},
+    "source_chain": {"type": "array", "minItems": 1, "maxItems": 30, "items": {"type": "object", "additionalProperties": false, "required": ["evidence_id", "role", "uri", "published_at", "available_after_cutoff", "snapshot_digest", "immutable_source"], "properties": {"evidence_id": {"type": "string", "pattern": "^V04-[A-Z0-9._:-]+$"}, "role": {"enum": ["observation", "downstream_report", "upstream_confirmation", "maintainer_confirmation", "first_bad", "causal_intervention", "reproducer", "resolution", "post_fix_recovery", "infrastructure_signal", "artifact_signal", "context"]}, "uri": {"type": "string", "format": "uri"}, "published_at": {"type": "string", "format": "date-time"}, "available_after_cutoff": {"type": "boolean"}, "snapshot_digest": {"type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$"}, "immutable_source": {"type": "boolean"}, "notes": {"type": ["string", "null"], "maxLength": 2000}}}},
+    "source_snapshots": {"type": "array", "minItems": 1, "items": {"type": "object", "additionalProperties": false, "required": ["uri", "digest", "status", "retrieved_at", "content_digest", "cas_root"], "properties": {"uri": {"type": "string", "format": "uri"}, "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}, "status": {"type": "integer", "minimum": 200, "maximum": 599}, "retrieved_at": {"type": "string", "format": "date-time"}, "content_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}, "cas_root": {"type": "string", "minLength": 1}}}},
+    "candidate_snapshot": {"type": "object", "additionalProperties": false, "required": ["path", "digest", "cutoff_only", "source_evidence_ids"], "properties": {"path": {"type": "string", "minLength": 1}, "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}, "cutoff_only": {"const": true}, "source_evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}}},
+    "gold_packet": {"type": "object", "additionalProperties": false, "required": ["path", "digest", "post_cutoff_only", "scorer_only", "source_evidence_ids"], "properties": {"path": {"type": "string", "minLength": 1}, "digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}, "post_cutoff_only": {"const": true}, "scorer_only": {"const": true}, "source_evidence_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}}},
+    "label": {"oneOf": [{"type": "null"}, {"type": "object", "additionalProperties": false, "required": ["candidate_induced", "responsible_layer", "action_owner_repository", "should_abstain", "first_bad", "action_owner_scored", "attributable_at_tcut", "evidence_class"], "properties": {"candidate_induced": {"type": ["boolean", "null"]}, "responsible_layer": {"enum": ["upstream_runtime_or_library", "shared_dependency", "downstream_project", "dependency_resolution", "packaging_or_artifact", "external_service_or_data", "ci_or_infrastructure", "flaky_or_nondeterministic", "multiple_layers", "unknown"]}, "action_owner_repository": {"type": ["string", "null"], "format": "uri"}, "should_abstain": {"type": "boolean"}, "first_bad": {"type": ["string", "null"]}, "action_owner_scored": {"type": "boolean"}, "attributable_at_tcut": {"type": "boolean"}, "root_cause_component": {"type": ["string", "null"]}, "root_cause_mechanism": {"type": ["string", "null"]}, "evidence_class": {"enum": ["OBSERVED", "REPRODUCED", "CANDIDATE_SPECIFIC", "CONFOUNDED", "CAUSALLY_SUPPORTED", "CONFIRMED"]}}}]},
+    "rejection_reason": {"enum": ["NO_INDEPENDENT_CONFIRMATION", "NO_TEMPORAL_BOUNDARY", "MISSING_CONTROL", "AMBIGUOUS_OWNER", "BROKEN_EXTERNAL_ARTIFACT", "SOURCE_UNAVAILABLE", "DUPLICATE_INCIDENT", "INSUFFICIENT_RESOLUTION_EVIDENCE", null]},
+    "audit": {"type": "object", "additionalProperties": false, "required": ["curated_at", "curator_protocol", "review_status", "reviewer", "record_digest"], "properties": {"curated_at": {"type": "string", "format": "date-time"}, "curator_protocol": {"const": "v0.4-resolution-chain-osint"}, "review_status": {"enum": ["unreviewed", "independently_reviewed", "rejected", "blocked"]}, "reviewer": {"type": "string", "minLength": 1}, "record_digest": {"type": ["string", "null"], "pattern": "^(sha256:[0-9a-f]{64})?$"}}}
+  }
+}

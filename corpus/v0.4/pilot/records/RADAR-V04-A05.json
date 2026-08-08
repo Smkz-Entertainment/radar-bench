@@ -1,0 +1,161 @@
+{
+  "admission_state": "admitted",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:1f18cf69398d5e2bb7ac8c1530595c4d3bae6928a136c346468da60b85b28cb2",
+    "review_status": "independently_reviewed",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "true_upstream_regression",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:0a084588f5330258ff19df9f74c2c3101deaceab0754938b904641a787b8ecff",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A05/candidate.json",
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A05-01"
+    ]
+  },
+  "corpus_kind": "attribution",
+  "difficulty": "D3",
+  "gold_level": "Gold-A",
+  "gold_packet": {
+    "digest": "sha256:f1fcc235488395d38dc2bbc0b61fd9ff71dbc9bbaca9cafd10ed565833ebb60d",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A05/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A05-02",
+      "V04-RADAR-V04-A05-03",
+      "V04-RADAR-V04-A05-04",
+      "V04-RADAR-V04-A05-05",
+      "V04-RADAR-V04-A05-06",
+      "V04-RADAR-V04-A05-07"
+    ]
+  },
+  "label": {
+    "action_owner_repository": "https://github.com/pandas-dev/pandas",
+    "action_owner_scored": true,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CONFIRMED",
+    "first_bad": "commit:15fd7d7",
+    "responsible_layer": "upstream_runtime_or_library",
+    "root_cause_component": "https://github.com/pandas-dev/pandas",
+    "root_cause_mechanism": "true_upstream_regression",
+    "should_abstain": false
+  },
+  "negative_control": false,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-A05",
+  "rejection_reason": null,
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A05-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2023-09-17T00:00:00Z",
+      "role": "observation",
+      "snapshot_digest": "sha256:77b2adf19cd50eb4288ec4c0b120dc1fe330487567bb80836c3b92d7b0ea73a7",
+      "uri": "https://github.com/pandas-dev/pandas/issues/55137"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A05-02",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2023-10-28T18:59:31Z",
+      "role": "first_bad",
+      "snapshot_digest": "sha256:bb80e65904983e4d6ed48cb563d740f29de041ad6de7edd7253f1230a3c3d8a2",
+      "uri": "https://github.com/pandas-dev/pandas/commit/15fd7d7"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A05-03",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2023-10-28T18:59:31Z",
+      "role": "causal_intervention",
+      "snapshot_digest": "sha256:940bc31b970e80ab7999aedee4e5293a074485b2ba683afb008867556e7835f3",
+      "uri": "https://github.com/sciris/sciris/issues/543"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A05-04",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2023-10-28T18:59:31Z",
+      "role": "reproducer",
+      "snapshot_digest": "sha256:77b2adf19cd50eb4288ec4c0b120dc1fe330487567bb80836c3b92d7b0ea73a7",
+      "uri": "https://github.com/pandas-dev/pandas/issues/55137"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A05-05",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2023-10-28T18:59:31Z",
+      "role": "resolution",
+      "snapshot_digest": "sha256:940bc31b970e80ab7999aedee4e5293a074485b2ba683afb008867556e7835f3",
+      "uri": "https://github.com/sciris/sciris/issues/543"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A05-06",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2023-10-28T18:59:31Z",
+      "role": "post_fix_recovery",
+      "snapshot_digest": "sha256:b6dd6b879286f4075b06e0ba3a3e69465a5627f708fd4304ff9b4fd6c9bafd1a",
+      "uri": "https://github.com/pandas-dev/pandas/releases/tag/v2.1.1"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A05-07",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2023-10-28T18:59:31Z",
+      "role": "upstream_confirmation",
+      "snapshot_digest": "sha256:940bc31b970e80ab7999aedee4e5293a074485b2ba683afb008867556e7835f3",
+      "uri": "https://github.com/sciris/sciris/issues/543"
+    }
+  ],
+  "source_cutoff": "2023-09-18T00:00:00Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:77b2adf19cd50eb4288ec4c0b120dc1fe330487567bb80836c3b92d7b0ea73a7",
+      "digest": "sha256:77b2adf19cd50eb4288ec4c0b120dc1fe330487567bb80836c3b92d7b0ea73a7",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/pandas-dev/pandas/issues/55137"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:bb80e65904983e4d6ed48cb563d740f29de041ad6de7edd7253f1230a3c3d8a2",
+      "digest": "sha256:bb80e65904983e4d6ed48cb563d740f29de041ad6de7edd7253f1230a3c3d8a2",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/pandas-dev/pandas/commit/15fd7d7"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:940bc31b970e80ab7999aedee4e5293a074485b2ba683afb008867556e7835f3",
+      "digest": "sha256:940bc31b970e80ab7999aedee4e5293a074485b2ba683afb008867556e7835f3",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/sciris/sciris/issues/543"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:b6dd6b879286f4075b06e0ba3a3e69465a5627f708fd4304ff9b4fd6c9bafd1a",
+      "digest": "sha256:b6dd6b879286f4075b06e0ba3a3e69465a5627f708fd4304ff9b4fd6c9bafd1a",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/pandas-dev/pandas/releases/tag/v2.1.1"
+    }
+  ],
+  "t0": "2023-09-17T00:00:00Z"
+}

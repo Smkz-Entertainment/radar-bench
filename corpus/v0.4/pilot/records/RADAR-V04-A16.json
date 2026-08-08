@@ -1,0 +1,70 @@
+{
+  "admission_state": "blocked",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:5050920d8cf60ba6196595f1a4556e72c1d8dfe40b1293a2d284bdce46e94079",
+    "review_status": "blocked",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "true_upstream_regression",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:f8cd8d72bc7b3bd6b948636a68ba297809e9d42802949e6fa37bff8ce54d0c0f",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A16/candidate.json",
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A16-01",
+      "V04-RADAR-V04-A16-02"
+    ]
+  },
+  "corpus_kind": "attribution",
+  "difficulty": "D4",
+  "gold_level": null,
+  "gold_packet": {
+    "digest": "sha256:d923b315e6c3642611710ca4b2ec8c7fc77d4dfc98587183749c0da6dd233127",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A16/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": []
+  },
+  "label": null,
+  "negative_control": false,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-A16",
+  "rejection_reason": "NO_TEMPORAL_BOUNDARY",
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A16-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2026-06-28T23:00:41Z",
+      "role": "observation",
+      "snapshot_digest": "sha256:db1185defb1ef9706f3b8db4543cf4d48782d2213b4307d0189bd8ab69022ecb",
+      "uri": "https://github.com/pandas-dev/pandas/issues/66086"
+    },
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A16-02",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2026-06-28T23:00:41Z",
+      "role": "resolution",
+      "snapshot_digest": "sha256:db1185defb1ef9706f3b8db4543cf4d48782d2213b4307d0189bd8ab69022ecb",
+      "uri": "https://github.com/pandas-dev/pandas/issues/66086"
+    }
+  ],
+  "source_cutoff": "2026-07-13T00:00:00Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:db1185defb1ef9706f3b8db4543cf4d48782d2213b4307d0189bd8ab69022ecb",
+      "digest": "sha256:db1185defb1ef9706f3b8db4543cf4d48782d2213b4307d0189bd8ab69022ecb",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/pandas-dev/pandas/issues/66086"
+    }
+  ],
+  "t0": "2026-06-28T23:00:41Z"
+}

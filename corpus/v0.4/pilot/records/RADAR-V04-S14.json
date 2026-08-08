@@ -1,0 +1,70 @@
+{
+  "admission_state": "admitted",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:43083e581d107df79997b869f43202e8c3e057e95c4954c4ef39567158756c56",
+    "review_status": "independently_reviewed",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "flaky_or_nondeterministic",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:4fe0d0f6e56f72115dc9d419799cf450b26ce1345f4f81a5ec18fe760ab620f5",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-S14/candidate.json",
+    "source_evidence_ids": []
+  },
+  "corpus_kind": "safety",
+  "difficulty": "D5",
+  "gold_level": "Safety-A",
+  "gold_packet": {
+    "digest": "sha256:819ffb7557a0670c25d0cdff109ce8e16e6af566b0f362232ecec7d89e36bbd6",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-S14/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": [
+      "V04-RADAR-V04-S14-01"
+    ]
+  },
+  "label": {
+    "action_owner_repository": null,
+    "action_owner_scored": false,
+    "attributable_at_tcut": false,
+    "candidate_induced": null,
+    "evidence_class": "CONFOUNDED",
+    "first_bad": null,
+    "responsible_layer": "flaky_or_nondeterministic",
+    "root_cause_component": null,
+    "root_cause_mechanism": "flaky_or_nondeterministic",
+    "should_abstain": true
+  },
+  "negative_control": true,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-S14",
+  "rejection_reason": null,
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-S14-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2026-06-23T08:13:23Z",
+      "role": "infrastructure_signal",
+      "snapshot_digest": "sha256:720a33f630e21eb4f6d50432c5f1fe84348a22c60b7197ec2c50b60e6d7e0fd0",
+      "uri": "https://github.com/pydata/xarray/issues/11399"
+    }
+  ],
+  "source_cutoff": "2026-06-22T16:29:43Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:720a33f630e21eb4f6d50432c5f1fe84348a22c60b7197ec2c50b60e6d7e0fd0",
+      "digest": "sha256:720a33f630e21eb4f6d50432c5f1fe84348a22c60b7197ec2c50b60e6d7e0fd0",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/pydata/xarray/issues/11399"
+    }
+  ],
+  "t0": "2026-06-22T15:29:43Z"
+}

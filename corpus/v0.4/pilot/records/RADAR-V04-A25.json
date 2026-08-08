@@ -1,0 +1,82 @@
+{
+  "admission_state": "admitted",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:d28b0083f0dd86f50e1d4d7f7c32f5b6f46035abd9e290efcb42bfd43462c53c",
+    "review_status": "independently_reviewed",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "true_upstream_regression",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:0ea048f82a97c308a748f2957a54b2923174723dc908b66f87e3479e78ce9da8",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A25/candidate.json",
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A25-01"
+    ]
+  },
+  "corpus_kind": "attribution",
+  "difficulty": "D4",
+  "gold_level": "Gold-B",
+  "gold_packet": {
+    "digest": "sha256:5b5bdbbef218364131e66f589889ca5bd9d685588216ad90a4e0e0272eeac26d",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A25/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A25-02"
+    ]
+  },
+  "label": {
+    "action_owner_repository": "https://github.com/pydata/xarray",
+    "action_owner_scored": false,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CAUSALLY_SUPPORTED",
+    "first_bad": "xarray:0.9",
+    "responsible_layer": "upstream_runtime_or_library",
+    "root_cause_component": "https://github.com/pydata/xarray",
+    "root_cause_mechanism": "true_upstream_regression",
+    "should_abstain": false
+  },
+  "negative_control": false,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-A25",
+  "rejection_reason": null,
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A25-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2017-03-27T11:33:07Z",
+      "role": "observation",
+      "snapshot_digest": "sha256:71c4270d21fa10c7373f248cf2527fa2f89aae08c1db0057e98e487998b4ff02",
+      "uri": "https://github.com/pydata/xarray/issues/1329"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A25-02",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2022-08-10T17:25:20Z",
+      "role": "resolution",
+      "snapshot_digest": "sha256:71c4270d21fa10c7373f248cf2527fa2f89aae08c1db0057e98e487998b4ff02",
+      "uri": "https://github.com/pydata/xarray/issues/1329"
+    }
+  ],
+  "source_cutoff": "2017-03-28T00:00:00Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:71c4270d21fa10c7373f248cf2527fa2f89aae08c1db0057e98e487998b4ff02",
+      "digest": "sha256:71c4270d21fa10c7373f248cf2527fa2f89aae08c1db0057e98e487998b4ff02",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/pydata/xarray/issues/1329"
+    }
+  ],
+  "t0": "2017-03-27T11:33:07Z"
+}

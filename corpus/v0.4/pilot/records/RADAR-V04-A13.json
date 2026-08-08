@@ -1,0 +1,70 @@
+{
+  "admission_state": "blocked",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:c76cd82c67e2521025ffc3c1b3ee7f692e5829727f948c08c1746195e83ae0e2",
+    "review_status": "blocked",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "dependency_transitive_failure",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:79a0f40bdfff16e3aef3240f8f5a5de09a69a14dd76059a6936e55d271459c75",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A13/candidate.json",
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A13-01",
+      "V04-RADAR-V04-A13-02"
+    ]
+  },
+  "corpus_kind": "attribution",
+  "difficulty": "D4",
+  "gold_level": null,
+  "gold_packet": {
+    "digest": "sha256:6fbb7c9d4d0986eecea5112a00a33c8b8a053ee8c32576c63ede36cab65210d2",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A13/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": []
+  },
+  "label": null,
+  "negative_control": false,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-A13",
+  "rejection_reason": "NO_TEMPORAL_BOUNDARY",
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A13-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2025-06-18T09:19:00Z",
+      "role": "observation",
+      "snapshot_digest": "sha256:54fa2338790498dc0ba3c61a9ad48121fd4d188c4057b9981901a5cb6330e16b",
+      "uri": "https://github.com/scipy/scipy/issues/23177"
+    },
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A13-02",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2025-06-18T09:19:00Z",
+      "role": "resolution",
+      "snapshot_digest": "sha256:54fa2338790498dc0ba3c61a9ad48121fd4d188c4057b9981901a5cb6330e16b",
+      "uri": "https://github.com/scipy/scipy/issues/23177"
+    }
+  ],
+  "source_cutoff": "2025-12-30T06:00:00Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:54fa2338790498dc0ba3c61a9ad48121fd4d188c4057b9981901a5cb6330e16b",
+      "digest": "sha256:54fa2338790498dc0ba3c61a9ad48121fd4d188c4057b9981901a5cb6330e16b",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/scipy/scipy/issues/23177"
+    }
+  ],
+  "t0": "2025-06-18T09:19:00Z"
+}

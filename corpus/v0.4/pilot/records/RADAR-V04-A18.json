@@ -1,0 +1,82 @@
+{
+  "admission_state": "admitted",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:1c852d4e5ef257a5d1febdb2ff09cac7397f5df84ab416884336e6931c6bd557",
+    "review_status": "independently_reviewed",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "expected_breaking_change",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:d0e226d8ac6bcda8813fd56ccd448583c812b22f000c0b7150fb110fe7f3f953",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A18/candidate.json",
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A18-01"
+    ]
+  },
+  "corpus_kind": "attribution",
+  "difficulty": "D3",
+  "gold_level": "Gold-B",
+  "gold_packet": {
+    "digest": "sha256:fa36ecb9f8dcdb5c60a186151ce98038e910ddddf684a59affd366d40f08d8ae",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A18/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A18-02"
+    ]
+  },
+  "label": {
+    "action_owner_repository": "https://github.com/matplotlib/matplotlib",
+    "action_owner_scored": false,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CAUSALLY_SUPPORTED",
+    "first_bad": "matplotlib:3.11.0",
+    "responsible_layer": "downstream_project",
+    "root_cause_component": "https://github.com/matplotlib/matplotlib",
+    "root_cause_mechanism": "expected_breaking_change",
+    "should_abstain": false
+  },
+  "negative_control": false,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-A18",
+  "rejection_reason": null,
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A18-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2026-06-23T09:50:49Z",
+      "role": "observation",
+      "snapshot_digest": "sha256:c5b6d7eb31929cbd0bc977137bde8c93673c1060d0e3b53c30a4a607a32a1990",
+      "uri": "https://github.com/matplotlib/matplotlib/issues/31939"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A18-02",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2026-06-24T14:01:53Z",
+      "role": "resolution",
+      "snapshot_digest": "sha256:c5b6d7eb31929cbd0bc977137bde8c93673c1060d0e3b53c30a4a607a32a1990",
+      "uri": "https://github.com/matplotlib/matplotlib/issues/31939"
+    }
+  ],
+  "source_cutoff": "2026-06-24T00:00:00Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:c5b6d7eb31929cbd0bc977137bde8c93673c1060d0e3b53c30a4a607a32a1990",
+      "digest": "sha256:c5b6d7eb31929cbd0bc977137bde8c93673c1060d0e3b53c30a4a607a32a1990",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/matplotlib/matplotlib/issues/31939"
+    }
+  ],
+  "t0": "2026-06-23T09:50:49Z"
+}

@@ -1,0 +1,21 @@
+{
+  "evidence_ids": [
+    "V04-RADAR-V04-S40-01"
+  ],
+  "gold_level": "Safety-A",
+  "label": {
+    "action_owner_repository": null,
+    "action_owner_scored": false,
+    "attributable_at_tcut": false,
+    "candidate_induced": null,
+    "evidence_class": "CONFOUNDED",
+    "first_bad": null,
+    "responsible_layer": "dependency_resolution",
+    "root_cause_component": null,
+    "root_cause_mechanism": "resolver_confounded",
+    "should_abstain": true
+  },
+  "record_id": "RADAR-V04-S40",
+  "schema_version": "0.4",
+  "source_cutoff": "2026-04-07T01:00:00Z"
+}

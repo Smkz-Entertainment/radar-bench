@@ -1,0 +1,25 @@
+{
+  "evidence_ids": [
+    "V04-RADAR-V04-A03-02",
+    "V04-RADAR-V04-A03-03",
+    "V04-RADAR-V04-A03-04",
+    "V04-RADAR-V04-A03-05",
+    "V04-RADAR-V04-A03-06"
+  ],
+  "gold_level": "Gold-B",
+  "label": {
+    "action_owner_repository": "https://github.com/scipy/scipy",
+    "action_owner_scored": false,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CAUSALLY_SUPPORTED",
+    "first_bad": "scipy:1.15.0rc1",
+    "responsible_layer": "shared_dependency",
+    "root_cause_component": "https://github.com/scipy/scipy",
+    "root_cause_mechanism": "dependency_transitive_failure",
+    "should_abstain": false
+  },
+  "record_id": "RADAR-V04-A03",
+  "schema_version": "0.4",
+  "source_cutoff": "2024-12-20T00:00:00Z"
+}

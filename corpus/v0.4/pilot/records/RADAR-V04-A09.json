@@ -1,0 +1,82 @@
+{
+  "admission_state": "admitted",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:1f669c921713a9e3a3ca6002e838d4609cc7a76f642c678821bf6a9427790d70",
+    "review_status": "independently_reviewed",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "packaging_build_failure",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:adf928d3f3800eb1c92a6a18b8e48cd1ba915a04c86ff0ec857e25de63c7610b",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A09/candidate.json",
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A09-01"
+    ]
+  },
+  "corpus_kind": "attribution",
+  "difficulty": "D5",
+  "gold_level": "Gold-B",
+  "gold_packet": {
+    "digest": "sha256:e6e97cd0a0994bde0146611004691e24a5c44f3ce0ed37aaeaf862cdbd6926fe",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A09/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A09-02"
+    ]
+  },
+  "label": {
+    "action_owner_repository": "https://github.com/numpy/numpy",
+    "action_owner_scored": false,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CAUSALLY_SUPPORTED",
+    "first_bad": "meson:f2py",
+    "responsible_layer": "packaging_or_artifact",
+    "root_cause_component": "https://github.com/numpy/numpy",
+    "root_cause_mechanism": "packaging_build_failure",
+    "should_abstain": false
+  },
+  "negative_control": false,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-A09",
+  "rejection_reason": null,
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A09-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-07-01T00:00:00Z",
+      "role": "observation",
+      "snapshot_digest": "sha256:2519a8d12a41887ad8b648cdd76e2fa972c31cc7ca35db22edd8bd4ba17469dd",
+      "uri": "https://github.com/numpy/numpy/issues/28151"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A09-02",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2025-01-24T02:37:30Z",
+      "role": "resolution",
+      "snapshot_digest": "sha256:2519a8d12a41887ad8b648cdd76e2fa972c31cc7ca35db22edd8bd4ba17469dd",
+      "uri": "https://github.com/numpy/numpy/issues/28151"
+    }
+  ],
+  "source_cutoff": "2024-07-03T00:00:00Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:2519a8d12a41887ad8b648cdd76e2fa972c31cc7ca35db22edd8bd4ba17469dd",
+      "digest": "sha256:2519a8d12a41887ad8b648cdd76e2fa972c31cc7ca35db22edd8bd4ba17469dd",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/numpy/numpy/issues/28151"
+    }
+  ],
+  "t0": "2024-07-01T00:00:00Z"
+}

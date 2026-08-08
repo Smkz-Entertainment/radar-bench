@@ -1,0 +1,19 @@
+{
+  "evidence_ids": [],
+  "gold_level": "Gold-B",
+  "label": {
+    "action_owner_repository": "https://github.com/scipy/scipy",
+    "action_owner_scored": false,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CAUSALLY_SUPPORTED",
+    "first_bad": "jax:0.6.2",
+    "responsible_layer": "shared_dependency",
+    "root_cause_component": "https://github.com/scipy/scipy",
+    "root_cause_mechanism": "dependency_transitive_failure",
+    "should_abstain": false
+  },
+  "record_id": "RADAR-V04-A13",
+  "schema_version": "0.4",
+  "source_cutoff": "2025-12-30T06:00:00Z"
+}

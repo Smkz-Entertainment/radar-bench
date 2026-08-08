@@ -1,0 +1,25 @@
+{
+  "evidence_ids": [
+    "V04-RADAR-V04-A02-02",
+    "V04-RADAR-V04-A02-03",
+    "V04-RADAR-V04-A02-04",
+    "V04-RADAR-V04-A02-05",
+    "V04-RADAR-V04-A02-06"
+  ],
+  "gold_level": "Gold-B",
+  "label": {
+    "action_owner_repository": "https://github.com/OpenMathLib/OpenBLAS",
+    "action_owner_scored": false,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CAUSALLY_SUPPORTED",
+    "first_bad": "openblas:0.3.26",
+    "responsible_layer": "shared_dependency",
+    "root_cause_component": "https://github.com/OpenMathLib/OpenBLAS",
+    "root_cause_mechanism": "dependency_transitive_failure",
+    "should_abstain": false
+  },
+  "record_id": "RADAR-V04-A02",
+  "schema_version": "0.4",
+  "source_cutoff": "2024-03-27T00:00:00Z"
+}

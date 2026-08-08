@@ -1,0 +1,150 @@
+{
+  "admission_state": "admitted",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:05fcf78315a6480ff09ca8c2839dc5eb82f4c5e190daa0a483088244d9e0812e",
+    "review_status": "independently_reviewed",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "dependency_transitive_failure",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:3370b3102e2bb893a41a0afc933357a802d998c5af6b3408d48daa4d898f0efb",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A03/candidate.json",
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A03-01"
+    ]
+  },
+  "corpus_kind": "attribution",
+  "difficulty": "D4",
+  "gold_level": "Gold-B",
+  "gold_packet": {
+    "digest": "sha256:1bd40d5d9774dc00eaa0d039db0d00a13cd1ed1a3c3c06a81ee7e0bf9150cc7e",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-A03/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": [
+      "V04-RADAR-V04-A03-02",
+      "V04-RADAR-V04-A03-03",
+      "V04-RADAR-V04-A03-04",
+      "V04-RADAR-V04-A03-05",
+      "V04-RADAR-V04-A03-06"
+    ]
+  },
+  "label": {
+    "action_owner_repository": "https://github.com/scipy/scipy",
+    "action_owner_scored": false,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CAUSALLY_SUPPORTED",
+    "first_bad": "scipy:1.15.0rc1",
+    "responsible_layer": "shared_dependency",
+    "root_cause_component": "https://github.com/scipy/scipy",
+    "root_cause_mechanism": "dependency_transitive_failure",
+    "should_abstain": false
+  },
+  "negative_control": false,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-A03",
+  "rejection_reason": null,
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": false,
+      "evidence_id": "V04-RADAR-V04-A03-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-19T15:36:53Z",
+      "role": "observation",
+      "snapshot_digest": "sha256:3dd8cdfea718e3829b35d5e8f7d5934da54b7857c87724b7618e0cf2850e072f",
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/30512"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A03-02",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-20T11:04:55Z",
+      "role": "upstream_confirmation",
+      "snapshot_digest": "sha256:3866cd5808872eac75aa121d90e6ef7a1f7abaae53cfdea541bdf470e470cff9",
+      "uri": "https://github.com/scipy/scipy/issues/22143"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A03-03",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-20T11:04:55Z",
+      "role": "causal_intervention",
+      "snapshot_digest": "sha256:3866cd5808872eac75aa121d90e6ef7a1f7abaae53cfdea541bdf470e470cff9",
+      "uri": "https://github.com/scipy/scipy/issues/22143"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A03-04",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-20T11:04:55Z",
+      "role": "reproducer",
+      "snapshot_digest": "sha256:3dd8cdfea718e3829b35d5e8f7d5934da54b7857c87724b7618e0cf2850e072f",
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/30512"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A03-05",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-20T11:04:55Z",
+      "role": "resolution",
+      "snapshot_digest": "sha256:9f154946298174062c334b923e70bd845f6efc6d3aa1fc45d81b5c3f3a511dd8",
+      "uri": "https://github.com/scikit-learn/scikit-learn/pull/30515"
+    },
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-A03-06",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2024-12-20T11:04:55Z",
+      "role": "post_fix_recovery",
+      "snapshot_digest": "sha256:5381f14276e77ea51af0572b49b540f4b7e5e08ab15828919cd6a1bf7618da1b",
+      "uri": "https://github.com/scipy/scipy/releases/tag/v1.15.1"
+    }
+  ],
+  "source_cutoff": "2024-12-20T00:00:00Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:3dd8cdfea718e3829b35d5e8f7d5934da54b7857c87724b7618e0cf2850e072f",
+      "digest": "sha256:3dd8cdfea718e3829b35d5e8f7d5934da54b7857c87724b7618e0cf2850e072f",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/scikit-learn/scikit-learn/issues/30512"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:3866cd5808872eac75aa121d90e6ef7a1f7abaae53cfdea541bdf470e470cff9",
+      "digest": "sha256:3866cd5808872eac75aa121d90e6ef7a1f7abaae53cfdea541bdf470e470cff9",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/scipy/scipy/issues/22143"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:9f154946298174062c334b923e70bd845f6efc6d3aa1fc45d81b5c3f3a511dd8",
+      "digest": "sha256:9f154946298174062c334b923e70bd845f6efc6d3aa1fc45d81b5c3f3a511dd8",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/scikit-learn/scikit-learn/pull/30515"
+    },
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:5381f14276e77ea51af0572b49b540f4b7e5e08ab15828919cd6a1bf7618da1b",
+      "digest": "sha256:5381f14276e77ea51af0572b49b540f4b7e5e08ab15828919cd6a1bf7618da1b",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/scipy/scipy/releases/tag/v1.15.1"
+    }
+  ],
+  "t0": "2024-12-19T15:36:53Z"
+}

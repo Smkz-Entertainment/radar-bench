@@ -6,6 +6,11 @@ attribution and abstention gates. Planned records do not count as gold.
 v0.3 is the Gold Corpus & Blind Attribution milestone; its engineering
 contracts pass locally, but its 120 attribution slots and 300 safety slots are
 still planned, with zero admitted labels and no hidden evaluation.
+v0.4 is the Gold Corpus Mining & Admission pilot. It has 20 admitted
+attribution records and 40 admitted safety records with five explicit temporal
+blocks. The corpus denominator is valid, but deterministic continuation gates
+fail on candidate-induced precision (0.60) and action-owner precision (0.00),
+so the result is `PIVOT_REQUIRED`, not a capability or production claim.
 
 ## Decisions
 
@@ -36,3 +41,6 @@ still planned, with zero admitted labels and no hidden evaluation.
 - v0.3 adds D1-D5 difficulty, separate causal ontology fields, exact safety
   confidence bounds, and a portable candidate-only blind boundary. It does not
   claim an OS sandbox for arbitrary native third-party code.
+- v0.4 adds resolution-chain admission, Gold-A/Gold-B/Safety-A levels, explicit
+  rejection taxonomy, content-addressed public snapshots, and pilot
+  continuation gates. Codex and local-model lanes are intentionally not run.

@@ -1,0 +1,70 @@
+{
+  "admission_state": "admitted",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:e082111caa88c9b7a7a0d24f11b4a2103c23eb261f3909133c17b5555a7c497f",
+    "review_status": "independently_reviewed",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "resolver_confounded",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:257aa8cd9f785400f753c09df740b98bf0c871cbcf682c6e18fab32272ed2aa2",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-S35/candidate.json",
+    "source_evidence_ids": []
+  },
+  "corpus_kind": "safety",
+  "difficulty": "D2",
+  "gold_level": "Safety-A",
+  "gold_packet": {
+    "digest": "sha256:caa4314ec0b45d63e6ae59acf061a62f6c1da4b1f4a88b0a752af7384a160cec",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-S35/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": [
+      "V04-RADAR-V04-S35-01"
+    ]
+  },
+  "label": {
+    "action_owner_repository": null,
+    "action_owner_scored": false,
+    "attributable_at_tcut": false,
+    "candidate_induced": null,
+    "evidence_class": "CONFOUNDED",
+    "first_bad": null,
+    "responsible_layer": "dependency_resolution",
+    "root_cause_component": null,
+    "root_cause_mechanism": "resolver_confounded",
+    "should_abstain": true
+  },
+  "negative_control": true,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-S35",
+  "rejection_reason": null,
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-S35-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2026-06-18T15:31:05Z",
+      "role": "resolution",
+      "snapshot_digest": "sha256:ccf66b55cd53b2c0c091c17906711d8946ad511c0473eeeba2badf072b6b1c39",
+      "uri": "https://github.com/matplotlib/matplotlib/issues/31897"
+    }
+  ],
+  "source_cutoff": "2026-06-14T21:14:27Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:ccf66b55cd53b2c0c091c17906711d8946ad511c0473eeeba2badf072b6b1c39",
+      "digest": "sha256:ccf66b55cd53b2c0c091c17906711d8946ad511c0473eeeba2badf072b6b1c39",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/matplotlib/matplotlib/issues/31897"
+    }
+  ],
+  "t0": "2026-06-14T20:14:27Z"
+}

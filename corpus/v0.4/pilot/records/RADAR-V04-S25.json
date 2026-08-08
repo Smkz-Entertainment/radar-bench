@@ -1,0 +1,70 @@
+{
+  "admission_state": "admitted",
+  "audit": {
+    "curated_at": "2026-08-08T23:09:57.914435Z",
+    "curator_protocol": "v0.4-resolution-chain-osint",
+    "record_digest": "sha256:cf7985f8edec07a8757b24eefdbb571bd2fa7e8327e9394932f4a08633c542e2",
+    "review_status": "independently_reviewed",
+    "reviewer": "independent-osint-pass"
+  },
+  "candidate_category": "flaky_or_nondeterministic",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": "sha256:2b92ca2b36199deb9fa2822a46363cccea9e8319705d8a5ab428cc084ce75b68",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-S25/candidate.json",
+    "source_evidence_ids": []
+  },
+  "corpus_kind": "safety",
+  "difficulty": "D5",
+  "gold_level": "Safety-A",
+  "gold_packet": {
+    "digest": "sha256:35105e37ec1d49012288c37ce2e295a6525f8d394dc29ed0199ed61e09b7e3fd",
+    "path": "corpus/v0.4/pilot/snapshots/RADAR-V04-S25/gold.json",
+    "post_cutoff_only": true,
+    "scorer_only": true,
+    "source_evidence_ids": [
+      "V04-RADAR-V04-S25-01"
+    ]
+  },
+  "label": {
+    "action_owner_repository": null,
+    "action_owner_scored": false,
+    "attributable_at_tcut": false,
+    "candidate_induced": null,
+    "evidence_class": "CONFOUNDED",
+    "first_bad": null,
+    "responsible_layer": "flaky_or_nondeterministic",
+    "root_cause_component": null,
+    "root_cause_mechanism": "flaky_or_nondeterministic",
+    "should_abstain": true
+  },
+  "negative_control": true,
+  "pilot_stage": "pilot-20-40",
+  "record_id": "RADAR-V04-S25",
+  "rejection_reason": null,
+  "schema_version": "0.4",
+  "source_chain": [
+    {
+      "available_after_cutoff": true,
+      "evidence_id": "V04-RADAR-V04-S25-01",
+      "immutable_source": true,
+      "notes": null,
+      "published_at": "2026-05-28T12:09:41Z",
+      "role": "infrastructure_signal",
+      "snapshot_digest": "sha256:b98d71fe0b8d22d5e47a7fa65821636e454f6dcd44e79168779abd1a87332d0f",
+      "uri": "https://github.com/numpy/numpy/issues/31512"
+    }
+  ],
+  "source_cutoff": "2026-05-26T15:37:04Z",
+  "source_snapshots": [
+    {
+      "cas_root": ".radar-cache/v04-pilot",
+      "content_digest": "sha256:b98d71fe0b8d22d5e47a7fa65821636e454f6dcd44e79168779abd1a87332d0f",
+      "digest": "sha256:b98d71fe0b8d22d5e47a7fa65821636e454f6dcd44e79168779abd1a87332d0f",
+      "retrieved_at": "2026-08-08T23:09:57.914435Z",
+      "status": 200,
+      "uri": "https://github.com/numpy/numpy/issues/31512"
+    }
+  ],
+  "t0": "2026-05-26T14:37:04Z"
+}

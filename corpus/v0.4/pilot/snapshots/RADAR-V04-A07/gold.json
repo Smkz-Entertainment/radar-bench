@@ -1,0 +1,21 @@
+{
+  "evidence_ids": [
+    "V04-RADAR-V04-A07-02"
+  ],
+  "gold_level": "Gold-B",
+  "label": {
+    "action_owner_repository": "https://github.com/pydata/xarray",
+    "action_owner_scored": false,
+    "attributable_at_tcut": true,
+    "candidate_induced": true,
+    "evidence_class": "CAUSALLY_SUPPORTED",
+    "first_bad": "zarr:3",
+    "responsible_layer": "downstream_project",
+    "root_cause_component": "https://github.com/pydata/xarray",
+    "root_cause_mechanism": "downstream_incompatibility",
+    "should_abstain": false
+  },
+  "record_id": "RADAR-V04-A07",
+  "schema_version": "0.4",
+  "source_cutoff": "2025-01-07T00:00:00Z"
+}
