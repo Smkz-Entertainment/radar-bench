@@ -2,25 +2,24 @@
 
 # Roadmap
 
-v0.1 is frozen. v0.2 is Attribution Validation and has one purpose: determine
-whether Radar meets the attribution and abstention gates on an independently
-derived, temporally clean, adversarial corpus.
+v0.1 and v0.2 are frozen. v0.3 is Gold Corpus & Blind Attribution and has one
+purpose: make the benchmark strong enough to falsify Radar on causal ownership
+and safety.
 
-The v0.2 sequence is:
+The v0.3 sequence is:
 
-1. Fill the 100-slot admission plan from public evidence; do not let the
-   evaluated agent create gold labels.
-2. Overweight negative controls and admit only cases with post-cutoff causal
-   and resolution/post-fix evidence.
-3. Measure attribution precision/recall, abstention precision/recall,
-   first-bad localization, experiments requested/useful, calibration, cost,
-   and unsupported confident claims.
-4. Run deterministic, local-model, and Codex lanes on the exact same hidden
-   cases. Codex must demonstrate measurable lift without adding false
-   high-confidence upstream accusations.
-5. Require zero false high-confidence upstream accusations in the first
-   roughly 100-case evaluation set before product work begins.
+1. Fill the separate 120-case attribution and 300-case safety plans from
+   read-only public evidence; do not let the evaluated agent create labels.
+2. Require the full post-cutoff evidence combination and immutable snapshots
+   before high-confidence admission.
+3. Freeze candidate inputs and implementation hashes before any later gold
+   packet reaches the scorer; prove candidate network/filesystem blindness.
+4. Measure each causal ontology field, difficulty tier, calibration, exact
+   safety bounds, experiments, latency, tokens, and cost.
+5. Run deterministic, local-model, and Codex lanes on the exact same hidden
+   cases. A model earns a permanent role only with difficult-case or
+   efficiency lift and no safety worsening.
 
-Only after v0.2 passes should shadow-mode ingestion, a public corpus/dashboard,
+Only after v0.3 passes should shadow-mode ingestion, a public corpus/dashboard,
 or other user-facing Radar product work be considered. No GitHub bot or
 maintainer-contact integration is planned.

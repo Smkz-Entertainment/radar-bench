@@ -68,6 +68,25 @@ Numeric confidence is accompanied by evidence classes: `OBSERVED`,
 with reliability bins, expected calibration error, and Brier score. The first
 evaluation set requires zero false high-confidence upstream accusations.
 
+## v0.3 Gold Corpus & Blind Attribution
+
+v0.3 keeps the v0.2 plan frozen and introduces two separate corpora: 120
+attribution cases and 300 safety/abstention cases, including at least 50
+counterfactual variants. Planned records, counterfactual source links, and
+exploratory development metrics are never treated as labels.
+
+High-confidence admission is fail-closed. It requires independent post-cutoff
+public evidence covering maintainer/upstream confirmation, first bad,
+causal intervention, minimized reproduction, linked fix/revert, and post-fix
+recovery, plus immutable candidate/gold snapshots and independent review.
+
+The v0.3 candidate boundary is physical and capability-scoped: candidate
+input is cutoff-only, gold is scorer-only, candidate network access is denied,
+and the scorer runs after the candidate output is frozen. Candidate induction,
+causal component, action owner, and first bad are scored independently. Exact
+one-sided binomial bounds are required for safety claims; an empty or small
+sample is not a zero-failure pass.
+
 ## Provider ablation
 
 Run deterministic, deterministic plus local/open model, and deterministic plus

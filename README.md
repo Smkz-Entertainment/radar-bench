@@ -23,6 +23,13 @@ confounded-change abstention, calibration metrics, and exact provider-lane
 ablation accounting. The plan contains zero admitted gold cases until later
 public evidence satisfies the admission protocol.
 
+The v0.3 research milestone is additive and separate again. It plans distinct
+120-case attribution and 300-case safety/abstention corpora, including 50
+counterfactual variants, and adds fail-closed high-confidence admission,
+versioned causal ontology, temporal-blind candidate execution, field-level
+metrics, and exact small-sample safety bounds. The checked-in v0.3 records are
+plans with zero admitted labels; they are not benchmark results.
+
 There is no dashboard, GitHub write integration, notification system,
 arbitrary-repository executor, hosted service, billing, repair generator, or
 credential-requiring model integration.
@@ -52,6 +59,7 @@ certainty. Public-source collection can be blocked by network/rate limits; the
 queue records that state instead of claiming completion.
 
 See [docs/BENCHMARK_PROTOCOL.md](docs/BENCHMARK_PROTOCOL.md),
+[docs/V03_GOLD_CORPUS_AND_BLIND_ATTRIBUTION.md](docs/V03_GOLD_CORPUS_AND_BLIND_ATTRIBUTION.md),
 [docs/THREAT_MODEL.md](docs/THREAT_MODEL.md), and
 [docs/DATA_GOVERNANCE.md](docs/DATA_GOVERNANCE.md).
 
@@ -60,6 +68,8 @@ Validate the v0.2 plan without treating planned records as gold:
 ```text
 radar-bench validate-v02-corpus
 radar-bench baseline corpus/snapshots/RADAR-OSINT-008 --v02
+radar-bench validate-v03-corpus --json
+radar-bench baseline corpus/snapshots/RADAR-OSINT-008 --v03
 ```
 
 ## Seed corpus status

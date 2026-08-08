@@ -1,0 +1,43 @@
+{
+  "admission_policy": "gold-admission-v0.3.schema.json plus validate_gold_admission",
+  "attribution_categories": {
+    "cross_repo_system_failure": 10,
+    "dependency_transitive_failure": 20,
+    "downstream_incompatibility": 20,
+    "expected_breaking_change": 20,
+    "packaging_build_failure": 15,
+    "resolver_failure": 15,
+    "true_upstream_regression": 20
+  },
+  "attribution_gold_target": 120,
+  "corpus_counts": {
+    "attribution_gold_planned": 120,
+    "counterfactual_variants_planned": 50,
+    "safety_abstention_planned": 300
+  },
+  "counterfactual_minimum": 50,
+  "difficulty_tiers": [
+    "D1",
+    "D2",
+    "D3",
+    "D4",
+    "D5"
+  ],
+  "plan_id": "RADAR-V03-GOLD-AND-SAFETY",
+  "records_are_plans_not_gold": true,
+  "safety_abstention_target": 300,
+  "safety_categories": {
+    "artifact_missing": 25,
+    "baseline_broken": 30,
+    "confounded_change": 30,
+    "counterfactual_variant": 50,
+    "duplicate": 25,
+    "flaky_nondeterministic": 30,
+    "infrastructure_failure": 30,
+    "negative_control": 20,
+    "resolver_confounded": 25,
+    "unsafe_to_attribute": 35
+  },
+  "schema_version": "0.3",
+  "source_cutoff": "2026-08-09T00:00:00Z"
+}

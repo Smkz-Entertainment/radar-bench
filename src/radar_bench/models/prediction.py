@@ -6,6 +6,7 @@ from datetime import UTC, datetime
 from typing import Any
 
 from radar_bench.errors import ValidationError
+from radar_bench.models.ontology import ontology_errors
 from radar_bench.schema.loader import validate_json
 
 
@@ -17,7 +18,11 @@ def validate_prediction(
 ) -> list[str]:
     errors: list[str] = []
     schema_kind = (
-        "prediction_v02" if prediction.get("schema_version") == "0.2" else "prediction"
+        "prediction_v03"
+        if prediction.get("schema_version") == "0.3"
+        else "prediction_v02"
+        if prediction.get("schema_version") == "0.2"
+        else "prediction"
     )
     try:
         validate_json(prediction, schema_kind, root)
@@ -44,7 +49,7 @@ def validate_prediction(
             errors.append(
                 "model output cannot upgrade confidence without explicit evidence-rule rationale"
             )
-    if schema_kind == "prediction_v02":
+    if schema_kind in {"prediction_v02", "prediction_v03"}:
         if prediction["verdict"] == "confounded_change":
             if prediction.get("candidate_induced") is not None:
                 errors.append("confounded_change must leave candidate_induced null")
@@ -57,6 +62,17 @@ def validate_prediction(
             errors.append(
                 "confidence_score >= 0.9 requires CAUSALLY_SUPPORTED or CONFIRMED evidence"
             )
+    if schema_kind == "prediction_v03":
+        if prediction["verdict"] == "confounded_change":
+            if prediction.get("evidence_class") != "CONFOUNDED":
+                errors.append("confounded_change requires evidence_class=CONFOUNDED")
+            if prediction.get("candidate_induced") is not None:
+                errors.append("confounded_change must leave candidate_induced null")
+        if prediction.get("evidence_class") == "CONFOUNDED" and not prediction.get(
+            "confounders"
+        ):
+            errors.append("CONFOUNDED predictions require confounders")
+        errors.extend(ontology_errors(prediction))
     return errors
 
 
@@ -72,8 +88,9 @@ def make_prediction(**values: Any) -> dict[str, Any]:
     values.setdefault(
         "created_at", datetime.now(UTC).isoformat().replace("+00:00", "Z")
     )
+    confidence = values.get("confidence")
+    confidence_key = confidence if isinstance(confidence, str) else "inconclusive"
     if schema_version == "0.2":
-        confidence = values.get("confidence", "inconclusive")
         values.setdefault(
             "confidence_score",
             {
@@ -82,9 +99,55 @@ def make_prediction(**values: Any) -> dict[str, Any]:
                 "medium": 0.65,
                 "low": 0.35,
                 "inconclusive": 0.2,
-            }.get(confidence, 0.2),
+            }.get(confidence_key, 0.2),
         )
         values.setdefault("evidence_classes", ["OBSERVED"])
+        values.setdefault(
+            "experiments_requested",
+            1 if values.get("recommended_next_experiment") else 0,
+        )
+        values.setdefault("experiments_useful", 0)
+        values.setdefault(
+            "usage",
+            {
+                "input_tokens": None,
+                "output_tokens": None,
+                "amount": None,
+                "currency": None,
+                "wall_clock_seconds": None,
+            },
+        )
+    if schema_version == "0.3":
+        values.setdefault("trigger_component", None)
+        values.setdefault("trigger_change", None)
+        values.setdefault("manifestation_project", values.get("owner_project"))
+        values.setdefault("manifestation_layer", values.get("responsible_layer"))
+        values.setdefault("root_cause_component", values.get("owner_project"))
+        values.setdefault("root_cause_mechanism", None)
+        values.setdefault("action_owner_repository", values.get("owner_repository"))
+        first_bad = values.get("first_bad")
+        values.setdefault(
+            "first_bad_version_or_revision",
+            first_bad.get("value") if isinstance(first_bad, dict) else first_bad,
+        )
+        values.setdefault("confounders", [])
+        values.setdefault(
+            "evidence_class",
+            "CONFOUNDED"
+            if values.get("verdict") == "confounded_change"
+            else (values.get("evidence_classes") or ["OBSERVED"])[-1],
+        )
+        values.setdefault(
+            "confidence_score",
+            {
+                "confirmed": 0.99,
+                "high": 0.9,
+                "medium": 0.65,
+                "low": 0.35,
+                "inconclusive": 0.2,
+            }.get(confidence_key, 0.2),
+        )
+        values.setdefault("evidence_classes", [values["evidence_class"]])
         values.setdefault(
             "experiments_requested",
             1 if values.get("recommended_next_experiment") else 0,

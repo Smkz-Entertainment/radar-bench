@@ -66,3 +66,53 @@ def compare_lanes(
             "rule": "Codex needs >=0.01 lift on a scored quality metric and may not add false high-confidence upstream accusations.",
         },
     }
+
+
+def v03_lane_plan(
+    input_manifest_digest: str,
+    *,
+    deterministic_scored_cases: int = 0,
+    local_model_available: bool = False,
+    codex_available: bool = False,
+) -> dict[str, Any]:
+    """Describe v0.3 lanes without turning unavailable credentials into passes."""
+
+    def lane(name: str, available: bool, scored: int) -> dict[str, Any]:
+        if not available:
+            status = "blocked_external"
+            error = "lane requires an unavailable local model or credential"
+        elif scored == 0:
+            status = "not_run"
+            error = "no independently admitted labeled cases"
+        else:
+            status = "completed"
+            error = None
+        return {
+            "schema_version": "0.3",
+            "run_id": f"ABL-V03-{name.upper().replace('_', '-')}",
+            "lane": name,
+            "status": status,
+            "input_manifest_digest": input_manifest_digest,
+            "network_policy": "denied",
+            "scored_cases": scored,
+            "metrics": {},
+            "experiments_requested": 0,
+            "experiments_useful": 0,
+            "unsupported_confident_claims": 0,
+            "error": error,
+        }
+
+    lanes = {
+        "deterministic": lane("deterministic", True, deterministic_scored_cases),
+        "local_model": lane("local_model", local_model_available, deterministic_scored_cases),
+        "codex": lane("codex", codex_available, deterministic_scored_cases),
+    }
+    return {
+        "protocol_version": "0.3",
+        "exploratory": True,
+        "lanes": lanes,
+        "qualification": {
+            "status": "blocked_until_same_hidden_cases_are_scored",
+            "rule": "permanent role requires measurable difficult-case or efficiency lift with no safety worsening",
+        },
+    }

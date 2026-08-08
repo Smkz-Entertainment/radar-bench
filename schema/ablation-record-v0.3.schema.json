@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ecosystem-radar/ablation-record-v0.3.schema.json",
+  "title": "Radar Provider Ablation Record v0.3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "run_id", "lane", "status", "input_manifest_digest", "network_policy", "scored_cases", "metrics", "experiments_requested", "experiments_useful", "unsupported_confident_claims", "error"],
+  "properties": {
+    "schema_version": {"const": "0.3"},
+    "run_id": {"type": "string", "pattern": "^ABL-V03-[A-Z0-9._:-]+$"},
+    "lane": {"enum": ["deterministic", "local_model", "codex"]},
+    "status": {"enum": ["completed", "blocked_external", "not_run", "invalid"]},
+    "input_manifest_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "network_policy": {"const": "denied"},
+    "scored_cases": {"type": "integer", "minimum": 0},
+    "metrics": {"type": "object", "additionalProperties": true},
+    "experiments_requested": {"type": "integer", "minimum": 0},
+    "experiments_useful": {"type": "integer", "minimum": 0},
+    "unsupported_confident_claims": {"type": "integer", "minimum": 0},
+    "error": {"type": ["string", "null"], "maxLength": 2000}
+  }
+}

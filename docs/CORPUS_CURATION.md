@@ -24,3 +24,17 @@ resolver drift, worker crashes, flakiness, baseline failures, and other
 confounders should remain abstention material unless later evidence establishes
 another outcome. A confounded case uses `candidate_induced: null` and the
 v0.2 `confounded_change` verdict rather than forcing ownership.
+
+## v0.3 curation boundary
+
+The v0.3 plan is split into `corpus/v0.3/attribution-gold` and
+`corpus/v0.3/safety-abstention`. It contains 120 attribution slots, 300 safety
+slots, and 50 explicitly marked counterfactual variants. These records are
+planned inventory only.
+
+An admitted v0.3 record must carry exact public URLs, post-cutoff immutable
+source snapshots, the complete causal/reproduction/fix/recovery evidence
+combination, physically separate candidate and gold packet digests, and
+independent review. A counterfactual cannot inherit its source positive label;
+it needs its own evidence packet to be admitted. If any requirement is absent,
+the record stays non-admitted and the scorer excludes it.

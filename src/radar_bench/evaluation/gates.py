@@ -29,10 +29,25 @@ V02_GATES = {
     "calibration.expected_calibration_error": (0.05, "lte"),
 }
 
+V03_GATES = {
+    "action_owner.precision": (0.95, "gte"),
+    "candidate_induction.precision": (0.95, "gte"),
+    "abstention.recall": (0.95, "gte"),
+    "false_high_confidence_upstream.one_sided_upper_95_failure_rate": (0.01, "lt"),
+    "first_bad.value": (0.90, "gte"),
+    "calibration.expected_calibration_error": (0.05, "lte"),
+}
+
 
 def evaluate_gates(report: dict[str, Any]) -> dict[str, Any]:
     metrics = report.get("metrics", report)
-    gates = V02_GATES if report.get("protocol_version") == "0.2" else GATES
+    gates = (
+        V03_GATES
+        if report.get("protocol_version") == "0.3"
+        else V02_GATES
+        if report.get("protocol_version") == "0.2"
+        else GATES
+    )
     result: dict[str, Any] = {}
     for name, (threshold, comparator) in gates.items():
         metric: Any = metrics

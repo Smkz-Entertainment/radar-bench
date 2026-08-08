@@ -1,4 +1,4 @@
-"""Authoritative offline CI entry point for the v0.1 foundation."""
+"""Authoritative offline CI entry point for frozen v0.1/v0.2 plus v0.3."""
 
 from __future__ import annotations
 
@@ -81,6 +81,15 @@ def main() -> int:
     if v02_corpus.returncode != 0:
         print(json.dumps(results, indent=2))
         return v02_corpus.returncode
+    v03_corpus = run("validate-v03-corpus", "--json", check=False)
+    results["v03_corpus_plan"] = {
+        "status": "pass" if v03_corpus.returncode == 0 else "fail",
+        "output": v03_corpus.stdout,
+        "error": v03_corpus.stderr,
+    }
+    if v03_corpus.returncode != 0:
+        print(json.dumps(results, indent=2))
+        return v03_corpus.returncode
     tests = subprocess.run(
         [
             PYTHON,

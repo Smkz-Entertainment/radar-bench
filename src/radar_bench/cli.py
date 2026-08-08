@@ -12,13 +12,16 @@ from typing import Any, cast
 from radar_bench import __version__
 from radar_bench.baseline.engine import predict
 from radar_bench.baseline.engine import predict_v02
+from radar_bench.baseline.v03 import predict_v03
 from radar_bench.config import project_root
 from radar_bench.corpus.admission import admission_summary, validate_admission
+from radar_bench.corpus.v03 import validate_gold_admission, v03_corpus_summary
 from radar_bench.evaluation.ablation import compare_lanes
 from radar_bench.errors import ExternalBlocked, RadarError, ValidationError
 from radar_bench.evaluation.gates import evaluate_gates
 from radar_bench.evaluation.reports import markdown_report, write_json
 from radar_bench.evaluation.scoring import load_predictions, score
+from radar_bench.evaluation.v03 import score_v03
 from radar_bench.github.collector import collect_manifest, collect_url
 from radar_bench.models.case import validate_case
 from radar_bench.models.experiment import (
@@ -159,6 +162,36 @@ def command_validate_v02_corpus(args: argparse.Namespace) -> int:
     return EXIT_OK if not errors else EXIT_INVALID
 
 
+def command_validate_v03_corpus(args: argparse.Namespace) -> int:
+    root = _root() / "corpus" / "v0.3"
+    paths = sorted(root.glob("**/admissions/*.json")) + sorted(
+        root.glob("**/counterfactuals/*.json")
+    )
+    records: list[dict[str, Any]] = []
+    errors: list[str] = []
+    for path in paths:
+        try:
+            record = cast(dict[str, Any], json.loads(path.read_text(encoding="utf-8")))
+            record_errors = validate_gold_admission(record, root=_root())
+            errors.extend(f"{path.name}: {error}" for error in record_errors)
+            records.append(record)
+        except (OSError, ValueError, ValidationError) as exc:
+            errors.append(f"{path.name}: {exc}")
+    summary = v03_corpus_summary(records)
+    plan_path = root / "plan.json"
+    if plan_path.exists():
+        plan = json.loads(plan_path.read_text(encoding="utf-8"))
+        if summary["attribution_gold"] != plan["attribution_gold_target"]:
+            errors.append("v0.3 attribution plan count does not match records")
+        if summary["safety_abstention"] != plan["safety_abstention_target"]:
+            errors.append("v0.3 safety plan count does not match records")
+        if summary["counterfactual_variants"] < plan["counterfactual_minimum"]:
+            errors.append("v0.3 counterfactual count is below the required minimum")
+    result = {"valid": not errors, "errors": errors, "summary": summary}
+    _json(result) if getattr(args, "json", False) else print(json.dumps(result, indent=2, sort_keys=True))
+    return EXIT_OK if not errors else EXIT_INVALID
+
+
 def command_collect(args: argparse.Namespace) -> int:
     try:
         if args.manifest:
@@ -227,11 +260,8 @@ def _load_packet(value: str) -> dict[str, Any]:
 
 
 def command_baseline(args: argparse.Namespace) -> int:
-    result = (
-        predict_v02(_load_packet(args.value))
-        if args.v02
-        else predict(_load_packet(args.value))
-    )
+    packet = _load_packet(args.value)
+    result = predict_v03(packet) if args.v03 else predict_v02(packet) if args.v02 else predict(packet)
     errors = validate_prediction(result)
     if errors:
         _json({"valid": False, "errors": errors, "prediction": result})
@@ -292,6 +322,16 @@ def command_evaluate(args: argparse.Namespace) -> int:
     if args.output:
         write_json(Path(args.output), report)
     print(markdown_report(report))
+    return EXIT_OK
+
+
+def command_evaluate_v03(args: argparse.Namespace) -> int:
+    predictions = load_predictions(Path(args.path))
+    labels = cast(dict[str, dict[str, Any]], json.loads(Path(args.labels).read_text(encoding="utf-8")))
+    report = score_v03(predictions, labels, corpus_kind=args.corpus_kind)
+    if args.output:
+        write_json(Path(args.output), report)
+    _json(report)
     return EXIT_OK
 
 
@@ -383,6 +423,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.set_defaults(function=command_validate_admission)
     p = sub.add_parser("validate-v02-corpus")
     p.set_defaults(function=command_validate_v02_corpus)
+    p = sub.add_parser("validate-v03-corpus")
+    p.add_argument("--json", action="store_true")
+    p.set_defaults(function=command_validate_v03_corpus)
     p = sub.add_parser("collect")
     group = p.add_mutually_exclusive_group(required=True)
     group.add_argument("--issue")
@@ -408,6 +451,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("baseline")
     p.add_argument("value")
     p.add_argument("--v02", action="store_true")
+    p.add_argument("--v03", action="store_true")
     p.add_argument("--json", action="store_true")
     p.set_defaults(function=command_baseline)
     p = sub.add_parser("export-inference")
@@ -422,6 +466,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--split", default="seed")
     p.add_argument("--output")
     p.set_defaults(function=command_evaluate)
+    p = sub.add_parser("evaluate-v03")
+    p.add_argument("path")
+    p.add_argument("--labels", required=True)
+    p.add_argument("--corpus-kind", default="attribution_gold")
+    p.add_argument("--output")
+    p.set_defaults(function=command_evaluate_v03)
     p = sub.add_parser("ablation")
     p.add_argument("deterministic")
     p.add_argument("local")

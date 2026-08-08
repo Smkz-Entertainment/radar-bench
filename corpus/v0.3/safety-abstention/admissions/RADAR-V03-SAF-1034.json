@@ -1,0 +1,38 @@
+{
+  "admission_id": "ADMIT-V03-1034",
+  "admission_state": "planned",
+  "audit": {
+    "created_at": "2026-08-08T21:56:30.300803Z",
+    "derived_by": "osint_protocol",
+    "last_reviewed_at": "2026-08-08T21:56:30.300803Z",
+    "record_digest": null,
+    "review_status": "unreviewed",
+    "reviewer": null
+  },
+  "candidate_category": "confounded_change",
+  "candidate_snapshot": {
+    "cutoff_only": true,
+    "digest": null,
+    "path": null
+  },
+  "case_id": "RADAR-V03-SAF-1034",
+  "corpus_kind": "safety_abstention",
+  "counterfactual": false,
+  "derived_from_positive_case_id": null,
+  "difficulty": "D4",
+  "gold_derivation": "not_started",
+  "gold_label": null,
+  "gold_packet": {
+    "digest": null,
+    "path": null,
+    "post_cutoff_only": true,
+    "scorer_only": true
+  },
+  "independent_evidence": [],
+  "negative_control": true,
+  "negative_control_type": "confounded",
+  "schema_version": "0.3",
+  "source_cutoff": "2026-08-09T00:00:00Z",
+  "source_urls": [],
+  "target_split": "hidden_test"
+}

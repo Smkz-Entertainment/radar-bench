@@ -3,6 +3,9 @@
 v0.1 is frozen as a passing local engineering foundation. v0.2 is a research
 milestone and remains partial until an independently grounded corpus clears the
 attribution and abstention gates. Planned records do not count as gold.
+v0.3 is the Gold Corpus & Blind Attribution milestone; its engineering
+contracts pass locally, but its 120 attribution slots and 300 safety slots are
+still planned, with zero admitted labels and no hidden evaluation.
 
 ## Decisions
 
@@ -30,3 +33,6 @@ attribution and abstention gates. Planned records do not count as gold.
 - Local-model and Codex lanes have accounting and comparison contracts, but no
   provider is credited with incremental value until the same hidden cases are
   scored and costed across all lanes.
+- v0.3 adds D1-D5 difficulty, separate causal ontology fields, exact safety
+  confidence bounds, and a portable candidate-only blind boundary. It does not
+  claim an OS sandbox for arbitrary native third-party code.

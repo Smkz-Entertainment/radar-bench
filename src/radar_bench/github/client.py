@@ -44,6 +44,8 @@ class GitHubClient:
     def get_json(
         self, url: str
     ) -> tuple[int, dict[str, Any] | list[Any] | None, dict[str, str]]:
+        if os.environ.get("RADAR_BENCH_NETWORK") == "denied":
+            raise ExternalBlocked("network is disabled during v0.3 blind inference")
         current = url
         for redirect_count in range(3):
             self._check_url(current)
