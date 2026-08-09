@@ -66,3 +66,9 @@ exact environment manifest exists for real execution. See
   holdouts, decoys, counterfactuals, anti-oracle baselines, and freeze
   verification. Its failed gates prevent productization until the oracle is
   repaired and the challenge passes.
+v0.7 replaces replay certification with an executable benchmark. It keeps
+commit `60ccc18` frozen, defines a common experiment capability surface and a
+network-denied sealed-container executor, and currently reports
+`PRODUCT_VALIDATION = BLOCKED_BY_EXECUTABILITY` because the micro-corpus has
+zero independently sealed cases. Historical replay is explicitly rejected as
+certification evidence. See [V07_EXECUTABLE_INVESTIGATION.md](V07_EXECUTABLE_INVESTIGATION.md).

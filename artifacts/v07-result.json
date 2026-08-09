@@ -1,0 +1,118 @@
+{
+  "artifact_paths": [
+    "artifacts/v07-final-report.md",
+    "artifacts/v07-result.json",
+    "artifacts/release-evidence/v07-gates.json",
+    "artifacts/release-evidence/v07-manifest-validation.json",
+    "artifacts/release-evidence/v07-freeze-audit.json",
+    "artifacts/release-evidence/v07-execution-runs.json",
+    "artifacts/release-evidence/v07-preparation-audit.json"
+  ],
+  "decision": "BLOCKED_BY_EXECUTABILITY",
+  "freeze": {
+    "commit_match": true,
+    "current_commit": "60ccc182a6d82ac6dcece5db5096a1ae1a49dea2",
+    "current_digest": "sha256:11098270d0f4ab26277ad2b63208dccf20b0c3300d9a1c54838092b0f9759297",
+    "digest_match": true,
+    "expected_commit": "60ccc18",
+    "expected_digest": "sha256:11098270d0f4ab26277ad2b63208dccf20b0c3300d9a1c54838092b0f9759297",
+    "tuning_performed": false
+  },
+  "gates": {
+    "agentic_causal_investigation": "UNVALIDATED",
+    "checks": {},
+    "decision": "BLOCKED_BY_EXECUTABILITY",
+    "integrity_validated": false,
+    "interpretation": "No sealed independent executable corpus was available; replay evidence was not promoted.",
+    "product_validation": "BLOCKED_BY_EXECUTABILITY"
+  },
+  "hashes": {
+    "frozen_v05_implementation": "sha256:11098270d0f4ab26277ad2b63208dccf20b0c3300d9a1c54838092b0f9759297",
+    "v07_implementation": "sha256:1733007d4f7968a4071666938360542f8fe770e35e10ac351815bc0e9d62e74f"
+  },
+  "metrics": {
+    "action_owner_precision": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "advantage_over_naive": {
+      "value": null
+    },
+    "advantage_over_no_experiment": {
+      "value": null
+    },
+    "candidate_induced_precision": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "cases": 0,
+    "completed_runs": 0,
+    "correct_resolution_or_abstention": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "median_experiments_to_resolution": {
+      "count": 0,
+      "value": null
+    },
+    "naive_resolution": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "no_experiment_resolution": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "premature_owner_accusations": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": 0
+    },
+    "random_resolution": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "safety_abstention_recall": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "useful_experiment_rate": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    }
+  },
+  "preparation": {
+    "case_count": 0,
+    "counts": {},
+    "manifest": "C:\\Projects\\Radar\\corpus\\v0.7\\executable-subset.json",
+    "manifest_validation_errors": [],
+    "reason": "The preparation phase has not sealed any executable cases.",
+    "status": "BLOCKED_BY_EXECUTABILITY"
+  },
+  "project": "ecosystem-radar-bench",
+  "protocol_version": "0.7",
+  "scope": {
+    "candidate_commit": "60ccc18",
+    "case_count": 0,
+    "gold_mounted": false,
+    "historical_replay_certification": "forbidden",
+    "host_platform": "Windows-11-10.0.26200-SP0",
+    "investigator_tuned": false,
+    "network_policy": "denied"
+  },
+  "statuses": {
+    "AGENTIC_CAUSAL_INVESTIGATION": "UNVALIDATED",
+    "PRODUCT_VALIDATION": "BLOCKED_BY_EXECUTABILITY",
+    "REPLAY_ORACLE_CERTIFICATION": "REJECTED",
+    "SAFE_ABSTENTION_MACHINERY": "PROMISING",
+    "V05_INVESTIGATOR": "FROZEN_UNDER_AUDIT"
+  }
+}

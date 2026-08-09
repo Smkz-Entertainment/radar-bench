@@ -1,0 +1,65 @@
+{
+  "metrics": {
+    "action_owner_precision": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "advantage_over_naive": {
+      "value": null
+    },
+    "advantage_over_no_experiment": {
+      "value": null
+    },
+    "candidate_induced_precision": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "cases": 0,
+    "completed_runs": 0,
+    "correct_resolution_or_abstention": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "median_experiments_to_resolution": {
+      "count": 0,
+      "value": null
+    },
+    "naive_resolution": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "no_experiment_resolution": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "premature_owner_accusations": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": 0
+    },
+    "random_resolution": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "safety_abstention_recall": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    },
+    "useful_experiment_rate": {
+      "denominator": 0,
+      "numerator": 0,
+      "value": null
+    }
+  },
+  "naive_runs": [],
+  "no_experiment_runs": [],
+  "random_runs": [],
+  "runs": []
+}

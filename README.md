@@ -53,6 +53,13 @@ anti-oracle baselines. Its current result is
 [docs/V06_BENCHMARK_INTEGRITY.md](docs/V06_BENCHMARK_INTEGRITY.md). The
 failure is a benchmark-integrity finding, not a product capability claim.
 
+The v0.7 Executable Investigation Benchmark is the only certification path
+after v0.6. It keeps commit `60ccc18` frozen and requires actual experiments in
+sealed Linux/x86-64 containers with network denied, gold unmounted, and a
+common capability surface. The checked-in micro-corpus is currently unsealed
+with zero cases, so `PRODUCT_VALIDATION = BLOCKED_BY_EXECUTABILITY`; see
+[docs/V07_EXECUTABLE_INVESTIGATION.md](docs/V07_EXECUTABLE_INVESTIGATION.md).
+
 There is no dashboard, GitHub write integration, notification system,
 arbitrary-repository executor, hosted service, billing, repair generator, or
 credential-requiring model integration.
@@ -99,6 +106,8 @@ radar-bench validate-v05-episodes
 radar-bench baseline corpus/snapshots/RADAR-OSINT-008 --v03
 python scripts/run_v06_integrity.py
 radar-bench validate-v06-integrity
+python scripts/run_v07_executable.py
+radar-bench validate-v07-executable
 ```
 
 ## Seed corpus status

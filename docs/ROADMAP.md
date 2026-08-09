@@ -44,3 +44,17 @@ The v0.6 integrity sequence is:
    instead of fabricating runs.
 4. Stop on any failed or not-evaluable integrity gate. Product implementation
    is blocked until a repaired oracle passes the full challenge.
+
+The v0.7 executable sequence replaces replay certification:
+
+1. Keep the v0.5 investigator at commit `60ccc18` and do not tune it.
+2. Prepare a small, independently sealed micro-corpus of exact control and
+   candidate environments, local artifacts, deterministic reproducers, and
+   evaluator-only gold labels.
+3. Evaluate through one globally supported capability surface in network-denied
+   Linux/x86-64 containers, with no gold or historical discussion mounted.
+4. Run frozen Radar, random/naive baselines, and a no-experiment baseline
+   against the same executor.
+5. If exact execution cannot be reconstructed, record
+   `PRODUCT_VALIDATION = BLOCKED_BY_EXECUTABILITY` and stop. Do not create
+   another replay certification phase or begin product implementation.

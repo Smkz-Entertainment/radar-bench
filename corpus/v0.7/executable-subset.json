@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.7",
+  "manifest_status": "UNSEALED",
+  "evaluation_policy": {
+    "network": "denied",
+    "gold_mounted": false,
+    "historical_evidence_mounted": false,
+    "artifact_policy": "local_only",
+    "shell": false
+  },
+  "capabilities": [
+    "rerun",
+    "change_dependency_version",
+    "freeze_dependency",
+    "bisect_component",
+    "toggle_environment_variable",
+    "run_minimal_test",
+    "inspect_dependency_graph"
+  ],
+  "preparation": {
+    "network_used": "not_performed",
+    "sealed_at": null,
+    "reason": "No exact Linux/x86-64 source, wheel, lockfile, and reproducer bundle has been independently sealed."
+  },
+  "cases": []
+}

@@ -1,0 +1,8 @@
+{
+  "case_count": 0,
+  "counts": {},
+  "manifest": "C:\\Projects\\Radar\\corpus\\v0.7\\executable-subset.json",
+  "manifest_validation_errors": [],
+  "reason": "The preparation phase has not sealed any executable cases.",
+  "status": "BLOCKED_BY_EXECUTABILITY"
+}

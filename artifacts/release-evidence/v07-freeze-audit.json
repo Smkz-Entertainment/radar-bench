@@ -1,0 +1,9 @@
+{
+  "commit_match": true,
+  "current_commit": "60ccc182a6d82ac6dcece5db5096a1ae1a49dea2",
+  "current_digest": "sha256:11098270d0f4ab26277ad2b63208dccf20b0c3300d9a1c54838092b0f9759297",
+  "digest_match": true,
+  "expected_commit": "60ccc18",
+  "expected_digest": "sha256:11098270d0f4ab26277ad2b63208dccf20b0c3300d9a1c54838092b0f9759297",
+  "tuning_performed": false
+}

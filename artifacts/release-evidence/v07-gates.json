@@ -1,0 +1,8 @@
+{
+  "agentic_causal_investigation": "UNVALIDATED",
+  "checks": {},
+  "decision": "BLOCKED_BY_EXECUTABILITY",
+  "integrity_validated": false,
+  "interpretation": "No sealed independent executable corpus was available; replay evidence was not promoted.",
+  "product_validation": "BLOCKED_BY_EXECUTABILITY"
+}

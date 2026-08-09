@@ -123,6 +123,17 @@ def main() -> int:
         if v06_validation.returncode != 0:
             print(json.dumps(results, indent=2))
             return v06_validation.returncode
+    v07_result = ROOT / "artifacts" / "v07-result.json"
+    if v07_result.exists():
+        v07_validation = run("validate-v07-executable", check=False)
+        results["v07_executable"] = {
+            "status": "pass" if v07_validation.returncode == 0 else "fail",
+            "output": v07_validation.stdout,
+            "error": v07_validation.stderr,
+        }
+        if v07_validation.returncode != 0:
+            print(json.dumps(results, indent=2))
+            return v07_validation.returncode
     tests = subprocess.run(
         [
             PYTHON,
