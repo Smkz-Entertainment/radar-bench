@@ -501,10 +501,11 @@ def command_inspect_case(args: argparse.Namespace) -> int:
 
 def command_verify_results(args: argparse.Namespace) -> int:
     path = Path(args.path).resolve()
+    artifact_root = Path(args.artifact_root).resolve() if args.artifact_root else None
     errors: list[str] = []
     try:
         result = cast(dict[str, Any], json.loads(path.read_text(encoding="utf-8")))
-        errors.extend(validate_decisive_suite(_root()).get("errors", []))
+        errors.extend(validate_decisive_suite(_root(), artifact_root=artifact_root).get("errors", []))
         if result.get("schema_version") != "1.0":
             errors.append("result has the wrong schema version")
         if result.get("suite_id") != SUITE_ID:
@@ -696,6 +697,7 @@ def build_parser() -> argparse.ArgumentParser:
     verify.set_defaults(function=command_artifacts_verify)
     p = sub.add_parser("verify-results", help="verify a v1 result against current suite metadata")
     p.add_argument("path")
+    p.add_argument("--artifact-root", help="external directory containing historical wheelhouses")
     p.set_defaults(function=command_verify_results)
     p = sub.add_parser("evaluate-v03")
     p.add_argument("path")

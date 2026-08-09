@@ -9,6 +9,9 @@
 - Published canonical reference metrics without treating them as live runtime evidence.
 - Accepted Docker Desktop when its server engine is Linux/x86-64, independent of the client host OS.
 - Replaced developer-local historical artifact paths with explicit external bundle IDs and a digest-verified `--artifact-root` input.
+- Added the case-agnostic canonical executor harness with one opaque candidate protocol for historical positives and safety twins.
+- Added evaluator-only historical labels and preserved the corrected A03 reproducer separately from the original decisive-run evidence.
+- Reproduced the canonical negative conclusion from a clean clone with network-disabled execution and all five historical runtimes.
 - Documented v0.6 oracle leakage, v0.7 executable falsification, temporal blindness, safety, reproducibility, and case admission.
 
 ## 0.7.0 - 2026-08-09

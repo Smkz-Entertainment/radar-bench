@@ -14,6 +14,11 @@ from radar_bench.execution.v07 import (
     v07_gates,
 )
 from radar_bench.execution.docker_runtime import DockerRuntime, inspect_docker_runtime
+from radar_bench.execution.canonical import (
+    CANONICAL_PROTOCOL_VERSION,
+    CanonicalHarness,
+    validate_candidate_view,
+)
 
 __all__ = [
     "COMMON_CAPABILITIES",
@@ -29,4 +34,7 @@ __all__ = [
     "v07_gates",
     "DockerRuntime",
     "inspect_docker_runtime",
+    "CANONICAL_PROTOCOL_VERSION",
+    "CanonicalHarness",
+    "validate_candidate_view",
 ]

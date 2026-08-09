@@ -262,6 +262,9 @@ class ReleaseHelperTests(unittest.TestCase):
         ), patch(
             "radar_bench.release.reconstruct_historical_cases",
             return_value={"status": "READY", "blockers": [], "cases": []},
+        ), patch(
+            "radar_bench.release.CanonicalHarness.run",
+            return_value={"status": "BLOCKED", "blockers": ["EXECUTOR_HARNESS_UNAVAILABLE"]},
         ):
             result = evaluate_decisive_suite(Path("."))
         self.assertEqual(result["blockers"], ["EXECUTOR_HARNESS_UNAVAILABLE"])

@@ -34,10 +34,24 @@ jobs:
         run: python scripts/ci.py
       - name: Validate decisive suite
         run: python -m radar_bench.cli validate --suite decisive-v1
+      - name: Reconstruct and verify historical artifacts
+        run: |
+          python -m radar_bench.cli artifacts fetch --suite decisive-v1 --output-root "$RUNNER_TEMP/radar-bench-artifacts"
+          python -m radar_bench.cli artifacts verify --suite decisive-v1 --artifact-root "$RUNNER_TEMP/radar-bench-artifacts"
       - name: Run canonical evaluation
-        run: python -m radar_bench.cli evaluate --suite decisive-v1 --output artifacts/v1.0/result.json
+        id: canonical-evaluation
+        continue-on-error: true
+        run: >-
+          python -m radar_bench.cli evaluate --suite decisive-v1
+          --artifact-root "$RUNNER_TEMP/radar-bench-artifacts"
+          --output artifacts/v1.0/result.json
+      - name: Require reproducible canonical conclusion
+        run: >-
+          python -c "import json, pathlib; p=pathlib.Path('artifacts/v1.0/result.json'); r=json.loads(p.read_text(encoding='utf-8')); assert r.get('status') == 'COMPLETED', r.get('status'); assert r.get('release_ready') is True, r.get('decision'); assert r.get('canonical_reproduction', {}).get('status') == 'MATCHED_NEGATIVE_CONCLUSION', r.get('canonical_reproduction')"
       - name: Verify canonical result contract
-        run: python -m radar_bench.cli verify-results artifacts/v1.0/result.json
+        run: >-
+          python -m radar_bench.cli verify-results artifacts/v1.0/result.json
+          --artifact-root "$RUNNER_TEMP/radar-bench-artifacts"
       - name: Build distributions
         run: python -m build
       - name: Verify release diff hygiene

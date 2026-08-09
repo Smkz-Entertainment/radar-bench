@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import os
 import platform
@@ -191,11 +192,21 @@ def _report(
     return "\n".join(lines)
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description="Build the v1.0 release evidence bundle")
+    parser.add_argument(
+        "--artifact-root",
+        help="external directory containing the verified historical wheelhouses",
+    )
+    args = parser.parse_args(argv)
+    artifact_root = Path(args.artifact_root).resolve() if args.artifact_root else None
+    command = ["python", "scripts/build_v1_evidence.py"]
+    if artifact_root is not None:
+        command.extend(["--artifact-root", "<external-artifact-root>"])
     evidence = ROOT / "artifacts" / "v1.0"
-    audit = validate_decisive_suite(ROOT)
-    result = evaluate_decisive_suite(ROOT, command=["python", "scripts/build_v1_evidence.py"])
-    artifact_verification = verify_artifacts(ROOT, SUITE_ID)
+    audit = validate_decisive_suite(ROOT, artifact_root=artifact_root)
+    result = evaluate_decisive_suite(ROOT, command=command, artifact_root=artifact_root)
+    artifact_verification = verify_artifacts(ROOT, SUITE_ID, artifact_root)
     dependency_audit = _dependency_audit()
     quality = _quality_gates()
     checks = {

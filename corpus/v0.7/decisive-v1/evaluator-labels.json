@@ -1,0 +1,51 @@
+{
+  "schema_version": "decisive-v1-evaluator-labels-1",
+  "suite_id": "decisive-v1",
+  "cases": {
+    "RADAR-V07-A01": {
+      "root_cause_component": "https://github.com/pandas-dev/pandas",
+      "action_owner_repository": "https://github.com/pandas-dev/pandas",
+      "candidate_induced": true,
+      "should_abstain": false,
+      "action_owner_scored": true,
+      "semantic_ambiguity": false,
+      "source_record": "RADAR-V04-A05"
+    },
+    "RADAR-V07-A02": {
+      "root_cause_component": "https://github.com/scipy/scipy",
+      "action_owner_repository": "https://github.com/scipy/scipy",
+      "candidate_induced": true,
+      "should_abstain": false,
+      "action_owner_scored": false,
+      "semantic_ambiguity": false,
+      "source_record": "RADAR-V04-A03"
+    },
+    "RADAR-V07-A03": {
+      "root_cause_component": "https://github.com/pandas-dev/pandas",
+      "action_owner_repository": "https://github.com/pandas-dev/pandas",
+      "candidate_induced": true,
+      "should_abstain": false,
+      "action_owner_scored": true,
+      "semantic_ambiguity": true,
+      "source_record": "RADAR-V04-A06"
+    },
+    "RADAR-V07-A04": {
+      "root_cause_component": "https://github.com/pandas-dev/pandas",
+      "action_owner_repository": "https://github.com/pandas-dev/pandas",
+      "candidate_induced": true,
+      "should_abstain": false,
+      "action_owner_scored": false,
+      "semantic_ambiguity": false,
+      "source_record": "RADAR-V04-A21"
+    },
+    "RADAR-V07-A05": {
+      "root_cause_component": "https://github.com/pandas-dev/pandas",
+      "action_owner_repository": "https://github.com/pandas-dev/pandas",
+      "candidate_induced": true,
+      "should_abstain": false,
+      "action_owner_scored": false,
+      "semantic_ambiguity": false,
+      "source_record": "RADAR-V04-A15"
+    }
+  }
+}

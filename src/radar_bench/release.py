@@ -18,6 +18,7 @@ from pathlib import Path
 from typing import Any, Mapping, cast
 
 from radar_bench.errors import ValidationError
+from radar_bench.execution.canonical import CanonicalHarness
 from radar_bench.execution.docker_runtime import inspect_docker_runtime
 from radar_bench.execution.v07 import validate_manifest
 from radar_bench.historical_runtime import (
@@ -31,6 +32,7 @@ from radar_bench.schema.loader import validate_json
 SUITE_ID = "decisive-v1"
 RELEASE_VERSION = "1.0.0"
 SUITE_RELATIVE = Path("corpus/v0.7/decisive-v1/suite.json")
+HISTORICAL_LABELS_RELATIVE = Path("corpus/v0.7/decisive-v1/evaluator-labels.json")
 REFERENCE_RELATIVE = Path("artifacts/v1.0/canonical-results.json")
 HISTORICAL_CASE_COUNT = 5
 SAFETY_CASE_COUNT = 20
@@ -277,6 +279,19 @@ def validate_decisive_suite(
     if {item.get("case_id") for item in historical_results} != HISTORICAL_IDS:
         errors.append("decisive-v1 historical case IDs do not match the five sealed cases")
 
+    historical_labels_path = root / HISTORICAL_LABELS_RELATIVE
+    historical_labels: dict[str, Any] = {}
+    if not historical_labels_path.is_file():
+        errors.append(f"historical evaluator labels are absent: {HISTORICAL_LABELS_RELATIVE}")
+    else:
+        try:
+            historical_labels = _read_json(historical_labels_path)
+        except (OSError, ValueError) as exc:
+            errors.append(f"historical evaluator labels: {exc}")
+    historical_label_cases = historical_labels.get("cases", {})
+    if not isinstance(historical_label_cases, Mapping) or set(historical_label_cases) != HISTORICAL_IDS:
+        errors.append("historical evaluator labels must contain exactly the five sealed cases")
+
     runtime_validation = validate_runtime_recipes(root)
     errors.extend(runtime_validation.get("errors", []))
     runtime_recipe_by_case: dict[str, str] = {}
@@ -410,6 +425,7 @@ def validate_decisive_suite(
             "suite": file_digest(suite_path) if suite_path.is_file() else None,
             "runtime_manifest": file_digest(runtime_path) if runtime_path and runtime_path.is_file() else None,
             "evaluator_labels": file_digest(labels_path) if labels_path and labels_path.is_file() else None,
+            "historical_evaluator_labels": file_digest(historical_labels_path) if historical_labels_path.is_file() else None,
         },
         "baseline_audit": baseline_audit,
         "runtime_recipes": {
@@ -493,6 +509,20 @@ def evaluate_decisive_suite(
         result["error"] = "suite validation failed; no cases executed"
         result["cases"]["blocked_cases"] = _blocked_cases(audit, "INVALID_SUITE")
         return result
+    reasons: list[str] = []
+    reasons.extend(
+        str(item["block_reason"])
+        for item in cast(list[dict[str, Any]], audit["historical"])
+        if item.get("block_reason")
+    )
+    reasons = list(dict.fromkeys(reasons))
+    if reasons:
+        result["cases"]["blocked_cases"] = _blocked_cases(audit, reasons[0])
+        result["blockers"] = reasons
+        result["error"] = "canonical executable evaluation is blocked; missing inputs were not replaced"
+        for baseline in result["baselines"].values():
+            baseline["status"] = "BLOCKED"
+        return result
     runtime = inspect_docker_runtime()
     result["platform"].update(
         {
@@ -503,22 +533,15 @@ def evaluate_decisive_suite(
             "runtime_reason": runtime.reason,
         }
     )
-    reasons: list[str] = []
     if not result["platform"]["canonical_supported"]:
         reasons.append(
             "RUNTIME_UNAVAILABLE"
             if not runtime.available
             else "PLATFORM_UNAVAILABLE"
         )
-    reasons.extend(
-        str(item["block_reason"])
-        for item in cast(list[dict[str, Any]], audit["historical"])
-        if item.get("block_reason")
-    )
-    reasons = list(dict.fromkeys(reasons))
     if reasons:
         result["cases"]["blocked_cases"] = _blocked_cases(audit, reasons[0])
-        result["blockers"] = reasons
+        result["blockers"] = list(dict.fromkeys(reasons))
         result["error"] = "canonical executable evaluation is blocked; missing inputs were not replaced"
         for baseline in result["baselines"].values():
             baseline["status"] = "BLOCKED"
@@ -535,9 +558,37 @@ def evaluate_decisive_suite(
         for baseline in result["baselines"].values():
             baseline["status"] = "BLOCKED"
         return result
-    result["error"] = "investigator and safety execution harness is not enabled for this release evaluator"
-    result["blockers"] = ["EXECUTOR_HARNESS_UNAVAILABLE"]
-    result["cases"]["blocked_cases"] = _blocked_cases(audit, "EXECUTOR_HARNESS_UNAVAILABLE")
+    harness = CanonicalHarness(root, artifact_root).run(historical_runtime)
+    result["harness"] = harness
+    if harness.get("status") != "COMPLETED":
+        result["error"] = "canonical execution harness is blocked; canonical results were not substituted"
+        result["blockers"] = list(harness.get("blockers", [])) or ["EXECUTOR_HARNESS_UNAVAILABLE"]
+        result["cases"]["blocked_cases"] = _blocked_cases(audit, result["blockers"][0])
+        for baseline in result["baselines"].values():
+            baseline["status"] = "BLOCKED"
+        return result
+    scored = cast(dict[str, Any], harness.get("metrics", {}))
+    result["baselines"] = cast(dict[str, Any], scored.get("lanes", {}))
+    result["cases"]["executed"] = HISTORICAL_CASE_COUNT + SAFETY_CASE_COUNT
+    result["cases"]["blocked"] = 0
+    result["cases"]["blocked_cases"] = []
+    result["blockers"] = []
+    result["status"] = "COMPLETED"
+    result["certification"] = "UNSAFE"
+    result["canonical_reproduction"] = {
+        "status": "MATCHED_NEGATIVE_CONCLUSION"
+        if (
+            result["baselines"].get("static-v0.4", {}).get("metrics", {}).get("historical_positive_resolution", {}).get("numerator") == 4
+            and result["baselines"].get("agentic-v0.5-frozen", {}).get("metrics", {}).get("historical_positive_resolution", {}).get("numerator") == 1
+            and result["baselines"].get("agentic-v0.5-frozen", {}).get("metrics", {}).get("safety_abstention_recall", {}).get("numerator") == 20
+            and scored.get("mandatory_case_gates", {}).get("scikit-learn-30512-resolves-to-scipy") is False
+            and scored.get("mandatory_case_gates", {}).get("pandas-45601-keeps-semantic-ambiguity-open") is True
+        )
+        else "RESULT_MISMATCH",
+        "reference_used_as_runtime_evidence": False,
+    }
+    result["release_ready"] = result["canonical_reproduction"]["status"] == "MATCHED_NEGATIVE_CONCLUSION"
+    result["decision"] = "CANONICAL_NEGATIVE_REPRODUCED" if result["release_ready"] else "CANONICAL_RESULT_MISMATCH"
     return result
 
 
