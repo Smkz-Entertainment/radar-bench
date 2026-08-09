@@ -22,6 +22,7 @@ from radar_bench.release import (  # noqa: E402
     evaluate_decisive_suite,
     validate_decisive_suite,
 )
+from radar_bench.artifacts import verify_artifacts  # noqa: E402
 
 
 def _write(path: Path, value: Any) -> None:
@@ -167,6 +168,7 @@ def _report(
         f"- Blocked cases: `{result['cases']['blocked']}`",
         f"- Blockers: `{', '.join(result.get('blockers', [])) or 'none'}`",
         f"- Dependency audit: `{gates['checks']['dependency_audit']['status']}`.",
+        f"- Public artifact catalog: `{gates['checks']['artifact_publication']['status']}` (5 bundles; external verification: `{gates['checks']['artifact_publication']['verification']}`).",
         "",
         "## Quality gates",
         "",
@@ -193,6 +195,7 @@ def main() -> int:
     evidence = ROOT / "artifacts" / "v1.0"
     audit = validate_decisive_suite(ROOT)
     result = evaluate_decisive_suite(ROOT, command=["python", "scripts/build_v1_evidence.py"])
+    artifact_verification = verify_artifacts(ROOT, SUITE_ID)
     dependency_audit = _dependency_audit()
     quality = _quality_gates()
     checks = {
@@ -201,6 +204,16 @@ def main() -> int:
         "candidate_opacity": {"status": "PASS" if audit.get("opacity", {}).get("valid") else "FAIL"},
         "temporal_gold_separation": {"status": "PASS" if audit.get("safety", {}).get("evaluator_labels_outside_runtime") else "FAIL"},
         "canonical_runtime": {"status": "PASS" if result["status"] == "COMPLETED" else "BLOCKED", "reason": result.get("blockers", [])},
+        "artifact_publication": {
+            "status": "PASS"
+            if artifact_verification.get("status") in {"READY", "BLOCKED"}
+            and len(artifact_verification.get("bundles", [])) == 5
+            and bool(artifact_verification.get("catalog_digest"))
+            else "FAIL",
+            "verification": artifact_verification.get("status", "INVALID"),
+            "bundle_count": len(artifact_verification.get("bundles", [])),
+            "redistribution_status": "RECONSTRUCT_ONLY",
+        },
         "clean_worktree": {"status": "PASS" if not _git("status", "--short") else "FAIL"},
         "dependency_audit": dependency_audit,
         "quality_gates": quality,
@@ -234,6 +247,7 @@ def main() -> int:
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "host": {"platform": platform.platform(), "python": platform.python_version()},
         "suite_digests": audit.get("source_digests", {}),
+        "artifact_catalog_digest": artifact_verification.get("catalog_digest"),
         "reference_digest": audit.get("reference_digest"),
         "frozen_baseline_commit": "60ccc18",
     }
@@ -264,6 +278,11 @@ def main() -> int:
         "blocked_cases": result["cases"]["blocked"],
         "status": "INCONCLUSIVE" if result["status"] == "BLOCKED" else "COMPLETED",
         "blockers": result.get("blockers", []),
+        "artifact_catalog": {
+            "status": checks["artifact_publication"]["status"],
+            "verification": checks["artifact_publication"]["verification"],
+            "redistribution_status": "RECONSTRUCT_ONLY",
+        },
         "dependency_audit": checks["dependency_audit"],
     }
     repository_health = {

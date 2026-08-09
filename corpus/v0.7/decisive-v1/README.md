@@ -16,6 +16,13 @@ radar-bench evaluate --suite decisive-v1 --artifact-root /path/to/radar-bench-ar
 
 A clean checkout without that root validates the suite contract but must report historical execution as `ARTIFACT_UNAVAILABLE`. It must never treat `artifacts/v1.0/canonical-results.json` as a live run.
 
+The supported acquisition path is:
+
+```text
+radar-bench artifacts fetch --suite decisive-v1
+radar-bench artifacts verify --suite decisive-v1
+```
+
 Run structural validation with:
 
 ```text

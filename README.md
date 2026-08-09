@@ -40,7 +40,7 @@ The canonical executable suite requires a Linux/x86-64 Docker engine with networ
 
 The suite contains five sealed historical cases and twenty opaque executable safety twins. It evaluates the frozen static v0.4 baseline, a deterministic naïve investigator, and unchanged v0.5 behavior from commit `60ccc18`. Candidate containers have no network, no gold labels, no historical discussion, no host-home mount, and no Docker socket.
 
-Start with [docs/QUICKSTART.md](docs/QUICKSTART.md), then read [docs/DECISIVE_VALIDATION.md](docs/DECISIVE_VALIDATION.md) and [BENCHMARK.md](BENCHMARK.md).
+Start with [docs/QUICKSTART.md](docs/QUICKSTART.md), then read [docs/ARTIFACTS.md](docs/ARTIFACTS.md), [docs/DECISIVE_VALIDATION.md](docs/DECISIVE_VALIDATION.md), and [BENCHMARK.md](BENCHMARK.md).
 
 Maintainer release procedures are in [docs/RELEASING.md](docs/RELEASING.md). GitHub Actions are configured for least-privilege CI, immutable action references, dependency update automation, and draft-only release creation after all gates pass.
 

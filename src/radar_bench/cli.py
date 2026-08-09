@@ -13,6 +13,7 @@ from radar_bench import __version__
 from radar_bench.baseline.engine import predict
 from radar_bench.baseline.engine import predict_v02
 from radar_bench.baseline.v03 import predict_v03
+from radar_bench.artifacts import fetch_artifacts, verify_artifacts
 from radar_bench.config import project_root
 from radar_bench.corpus.admission import admission_summary, validate_admission
 from radar_bench.corpus.v03 import validate_gold_admission, v03_corpus_summary
@@ -444,6 +445,24 @@ def command_evaluate(args: argparse.Namespace) -> int:
     return EXIT_OK
 
 
+def command_artifacts_fetch(args: argparse.Namespace) -> int:
+    output_root = Path(args.output_root).resolve() if args.output_root else None
+    result = fetch_artifacts(_root(), args.suite, output_root)
+    _json(result)
+    if result["status"] == "INVALID":
+        return EXIT_INVALID
+    return EXIT_OK if result["status"] == "READY" else EXIT_EXTERNAL
+
+
+def command_artifacts_verify(args: argparse.Namespace) -> int:
+    artifact_root = Path(args.artifact_root).resolve() if args.artifact_root else None
+    result = verify_artifacts(_root(), args.suite, artifact_root)
+    _json(result)
+    if result["status"] == "INVALID":
+        return EXIT_INVALID
+    return EXIT_OK if result["status"] == "READY" else EXIT_EXTERNAL
+
+
 def command_validate_suite(args: argparse.Namespace) -> int:
     if args.suite != SUITE_ID:
         _json({"valid": False, "errors": [f"unknown suite: {args.suite}"]})
@@ -665,6 +684,16 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--split", default="seed")
     p.add_argument("--output")
     p.set_defaults(function=command_evaluate)
+    p = sub.add_parser("artifacts", help="acquire and verify external benchmark artifacts")
+    artifact_sub = p.add_subparsers(dest="artifacts_command", required=True)
+    fetch = artifact_sub.add_parser("fetch", help="reconstruct exact external artifacts")
+    fetch.add_argument("--suite", required=True)
+    fetch.add_argument("--output-root")
+    fetch.set_defaults(function=command_artifacts_fetch)
+    verify = artifact_sub.add_parser("verify", help="verify external artifacts locally")
+    verify.add_argument("--suite", required=True)
+    verify.add_argument("--artifact-root")
+    verify.set_defaults(function=command_artifacts_verify)
     p = sub.add_parser("verify-results", help="verify a v1 result against current suite metadata")
     p.add_argument("path")
     p.set_defaults(function=command_verify_results)
