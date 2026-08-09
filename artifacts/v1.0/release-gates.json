@@ -1,5 +1,11 @@
 {
   "checks": {
+    "artifact_publication": {
+      "bundle_count": 5,
+      "redistribution_status": "RECONSTRUCT_ONLY",
+      "status": "PASS",
+      "verification": "BLOCKED"
+    },
     "candidate_opacity": {
       "status": "PASS"
     },
@@ -18,7 +24,7 @@
     },
     "quality_gates": {
       "bandit": "PASS",
-      "coverage_percent": 90.16,
+      "coverage_percent": 91.07,
       "mypy": "PASS",
       "pip_audit": "PASS",
       "pytest": "PASS",
@@ -30,7 +36,7 @@
       },
       "status": "PASS",
       "suite_validation": "PASS",
-      "test_count": 88,
+      "test_count": 96,
       "wheel_build": "PASS"
     },
     "reference_present": {
@@ -49,7 +55,7 @@
   "repository": {
     "branch": "agent/docker-engine-public-artifacts",
     "clean": true,
-    "head": "e8701d3fd2b99dbdc76fba5a210ee6c676cd66d3",
+    "head": "93ef2bb5a8264c0acc518283f681d50dc6724258",
     "status_short": []
   },
   "schema_version": "1.0",

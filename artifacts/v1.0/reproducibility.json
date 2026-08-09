@@ -1,4 +1,9 @@
 {
+  "artifact_catalog": {
+    "redistribution_status": "RECONSTRUCT_ONLY",
+    "status": "PASS",
+    "verification": "BLOCKED"
+  },
   "blocked_cases": 25,
   "blockers": [
     "ARTIFACT_UNAVAILABLE"

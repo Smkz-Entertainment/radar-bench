@@ -21,13 +21,14 @@ This bundle records the v1 OSS benchmark boundary. It does not convert a blocked
 - Blocked cases: `25`
 - Blockers: `ARTIFACT_UNAVAILABLE`
 - Dependency audit: `PASS`.
+- Public artifact catalog: `PASS` (5 bundles; external verification: `BLOCKED`).
 
 ## Quality gates
 
-- Commit: `e8701d3fd2b99dbdc76fba5a210ee6c676cd66d3`
+- Commit: `93ef2bb5a8264c0acc518283f681d50dc6724258`
 - Working tree at evidence capture: `CLEAN`
-- Tests: `PASS` (88 collected)
-- Coverage: `90.16%`
+- Tests: `PASS` (96 collected)
+- Coverage: `91.07%`
 - Ruff / mypy / Bandit: `PASS / PASS / PASS`
 - Dependency audit: `PASS`
 - Wheel build: `PASS`
