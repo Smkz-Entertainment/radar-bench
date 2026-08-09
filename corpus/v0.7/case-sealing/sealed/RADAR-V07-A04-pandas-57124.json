@@ -1,0 +1,42 @@
+{
+  "case_id": "RADAR-V07-A04",
+  "status": "LOCALLY_SEALED",
+  "corpus_kind": "attribution",
+  "incident": "pandas #57124",
+  "source_url": "https://github.com/pandas-dev/pandas/issues/57124",
+  "historical_environment": {
+    "reported": "Python 3.11.6, pandas 2.2.0, NumPy 1.26.1, macOS arm64",
+    "replay": "Python 3.10.12, Linux x86_64",
+    "control": "pandas 2.1.4, numpy 1.25.2",
+    "candidate": "pandas 2.2.0, numpy 1.25.2",
+    "cutoff": "2024-01-30T00:00:00Z"
+  },
+  "container": {
+    "image": "mirror.gcr.io/library/python@sha256:63669fd2563fa90b0442fa7b568e66e3667755636cda086d7bcaaa895f66fe39",
+    "network": "none",
+    "read_only_root": true,
+    "architecture": "x86_64"
+  },
+  "artifact_bundle": {
+    "local_path": "C:\\Users\\samis\\AppData\\Local\\Temp\\radar-case-sealing-e6e869d5f1d64055b4ec392e3d5e2f61\\pandas-57124-wheelhouse",
+    "files": {
+      "numpy-1.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "sha256:f08f2e037bba04e707eebf4bc934f1972a315c883a9e0ebfa8a7756eabf9e357",
+      "pandas-2.1.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "sha256:00028e6737c594feac3c2df15636d73ace46b8314d236100b57ed7e4b9ebe8d9",
+      "pandas-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "sha256:20404d2adefe92aed3b38da41d0847a143a09be982a31b85bc7dd565bdba0f4e",
+      "python_dateutil-2.8.2-py2.py3-none-any.whl": "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9",
+      "pytz-2023.3.post1-py2.py3-none-any.whl": "sha256:ce42d816b81b68506614c11e8937d3aa9e41007ceb50bfdcb0749b921bf646c7",
+      "six-1.17.0-py2.py3-none-any.whl": "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "tzdata-2023.3-py2.py3-none-any.whl": "sha256:7e65763eef3120314099b6939b5546db7adce1e7d6f2e179e3df563c70511eda"
+    }
+  },
+  "execution": {
+    "reproducer": "Run the issue's DataFrame.update example under warnings.catch_warnings(record=True); exit 1 iff a FutureWarning is observed.",
+    "fresh_rerun_1": {"control_exit": 0, "candidate_exit": 1, "control_observation": "2.1.4 []", "candidate_observation": "2.2.0 ['FutureWarning']"},
+    "fresh_rerun_2": {"control_exit": 0, "candidate_exit": 1, "control_observation": "2.1.4 []", "candidate_observation": "2.2.0 ['FutureWarning']"},
+    "candidate_gold_mounted": false,
+    "candidate_historical_discussion_mounted": false,
+    "candidate_received_control_output": false,
+    "network_denied_during_install_and_test": true,
+    "observed_candidate_failure": "DataFrame.update emits the FutureWarning described by the issue while the pre-regression control does not."
+  }
+}

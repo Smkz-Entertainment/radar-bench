@@ -1,124 +1,55 @@
-# Ecosystem Radar / Radar Bench
+# Radar Bench 1.0.0
 
-Radar Bench v0.1 is an evidence-first, read-only benchmark foundation for
-asking whether a downstream failure is caused by an upstream change. It stores
-public evidence by digest, reconstructs a T0/Tcut/Tgold boundary, normalizes
-failures deterministically, and evaluates conservative predictions.
+Radar Bench is an evidence-first, executable benchmark for downstream failure investigation. It is an OSS benchmark and research record—not an autonomous attribution product.
 
-This is not an autonomous maintainer-blaming system. A green check does not
-prove universal compatibility, and an unsupported owner claim is a failure.
-Correct abstention is a successful result.
+## Final scientific status
 
-## Scope
+The v0.7 decisive run found real executable safety evidence, but the frozen investigator failed the product hypothesis: it resolved only 1/5 historical positives, missed the required scikit-learn #30512 → SciPy cross-repository case, and did not establish action-owner correctness. The replay oracle was rejected after v0.6 exposed gold leakage.
 
-The release contains canonical RegressionCase, Prediction, and ExperimentPlan
-schemas; semantic validation; a read-only GitHub collector; CAS/SQLite storage;
-temporal snapshots and leakage scanning; pytest/JUnit/GitHub failure
-normalization; deterministic baseline rules; scoring/gates; safe provider
-interfaces; and a 12-row public seed manifest with status-marked local records.
+Therefore:
 
-The v0.2 validation milestone is separate from that frozen foundation. It adds
-a 100-slot adversarial admission plan, independent-gold admission rules,
-confounded-change abstention, calibration metrics, and exact provider-lane
-ablation accounting. The plan contains zero admitted gold cases until later
-public evidence satisfies the admission protocol.
+| Decision | Status |
+|---|---|
+| `EXECUTABLE_CAUSAL_SAFETY` | `VALIDATED_SMALL_N` |
+| `HISTORICAL_ATTRIBUTION_EXECUTABILITY` | `VALIDATED_SMALL_N` |
+| `AGENTIC_CAUSAL_INVESTIGATION` | `FAILED_VALIDATION` |
+| `CROSS_REPOSITORY_ATTRIBUTION_PRODUCT` | `TERMINATED` |
+| `AUTONOMOUS_ATTRIBUTION_MVP` | `DO_NOT_BUILD` |
+| `REPLAY_ORACLE_CERTIFICATION` | `REJECTED` |
+| `RADAR_BENCH` | `VIABLE_OSS_PROJECT` |
 
-The v0.3 research milestone is additive and separate again. It plans distinct
-120-case attribution and 300-case safety/abstention corpora, including 50
-counterfactual variants, and adds fail-closed high-confidence admission,
-versioned causal ontology, temporal-blind candidate execution, field-level
-metrics, and exact small-sample safety bounds. The checked-in v0.3 records are
-plans with zero admitted labels; they are not benchmark results.
+## Quickstart
 
-The v0.4 pilot mines real public OSINT into resolution-chain records. Its
-current run admits 20 attribution and 40 safety records, while retaining five
-temporally blocked cases. The deterministic pilot gates require a pivot because
-candidate-induced precision is 0.60 and action-owner precision is 0.00; this is
-not a Radar capability or production-readiness result. Codex and local-model
-lanes are deliberately not run.
-
-The v0.5 pilot is an additive, replay-first interactive investigation study on
-that frozen 20/40 corpus. It adds temporal-blind InvestigationEpisode and
-experiment contracts, a five-experiment budget, deterministic heuristic
-planning, and auditable replay evidence. Its bounded continuation result is
-reported separately; it does not change the frozen v0.4 `PIVOT_REQUIRED`
-decision or imply production readiness. See
-[docs/V05_INTERACTIVE_REGRESSION_INVESTIGATION.md](docs/V05_INTERACTIVE_REGRESSION_INVESTIGATION.md).
-
-The v0.6 Benchmark Integrity Challenge keeps v0.5 frozen and attacks the
-action space, replay response channel, holdouts, decoys, counterfactuals, and
-anti-oracle baselines. Its current result is
-`V06_BENCHMARK_INTEGRITY = FAILED_VALIDATION` with
-`PRODUCT_IMPLEMENTATION = BLOCKED`; see
-[docs/V06_BENCHMARK_INTEGRITY.md](docs/V06_BENCHMARK_INTEGRITY.md). The
-failure is a benchmark-integrity finding, not a product capability claim.
-
-The v0.7 Executable Investigation Benchmark is the only certification path
-after v0.6. It keeps commit `60ccc18` frozen and requires actual experiments in
-sealed Linux/x86-64 containers with network denied, gold unmounted, and a
-common capability surface. The checked-in micro-corpus is currently unsealed
-with zero cases, so `PRODUCT_VALIDATION = BLOCKED_BY_EXECUTABILITY`; see
-[docs/V07_EXECUTABLE_INVESTIGATION.md](docs/V07_EXECUTABLE_INVESTIGATION.md).
-
-There is no dashboard, GitHub write integration, notification system,
-arbitrary-repository executor, hosted service, billing, repair generator, or
-credential-requiring model integration.
-
-## Installation and quick start
+Install the package in a virtual environment, then validate the public suite:
 
 ```text
-python -m venv .venv
 python -m pip install .
-radar-bench doctor
-radar-bench validate-corpus
-python scripts/ci.py
+radar-bench --version
+radar-bench validate --suite decisive-v1
 ```
 
-The default checks are network-free. Collection is opt-in and read-only:
+The supported evaluation command is:
 
 ```text
-radar-bench collect --issue https://github.com/owner/repo/issues/1 --cutoff 2024-01-01T00:00:00Z --output .radar-cache
+radar-bench evaluate --suite decisive-v1 --output artifacts/v1.0/result.json
 ```
 
-## Safety and evidence
+The canonical executable suite requires Linux/x86-64 and Docker. On another platform—or without the sealed historical wheelhouses—the command fails closed and records the precise blocker. `canonical-results.json` is a reference artifact, never a substitute for execution.
 
-Only evidence explicitly attested as available by Tcut enters an inference
-packet. Gold resolution material is kept separately. Provider output is strict
-JSON data, not instructions, and cannot upgrade confidence by asserting its own
-certainty. Public-source collection can be blocked by network/rate limits; the
-queue records that state instead of claiming completion.
+## decisive-v1
 
-See [docs/BENCHMARK_PROTOCOL.md](docs/BENCHMARK_PROTOCOL.md),
-[docs/V03_GOLD_CORPUS_AND_BLIND_ATTRIBUTION.md](docs/V03_GOLD_CORPUS_AND_BLIND_ATTRIBUTION.md),
-[docs/V04_GOLD_CORPUS_MINING.md](docs/V04_GOLD_CORPUS_MINING.md),
-[docs/THREAT_MODEL.md](docs/THREAT_MODEL.md), and
-[docs/DATA_GOVERNANCE.md](docs/DATA_GOVERNANCE.md).
+The suite contains five sealed historical cases and twenty opaque executable safety twins. It evaluates the frozen static v0.4 baseline, a deterministic naïve investigator, and unchanged v0.5 behavior from commit `60ccc18`. Candidate containers have no network, no gold labels, no historical discussion, no host-home mount, and no Docker socket.
 
-Validate the v0.2 plan without treating planned records as gold:
+Start with [docs/QUICKSTART.md](docs/QUICKSTART.md), then read [docs/DECISIVE_VALIDATION.md](docs/DECISIVE_VALIDATION.md) and [BENCHMARK.md](BENCHMARK.md).
 
-```text
-radar-bench validate-v02-corpus
-radar-bench baseline corpus/snapshots/RADAR-OSINT-008 --v02
-radar-bench validate-v03-corpus --json
-radar-bench validate-v04-corpus --json
-python scripts/run_v05_investigation.py
-radar-bench validate-v05-episodes
-radar-bench baseline corpus/snapshots/RADAR-OSINT-008 --v03
-python scripts/run_v06_integrity.py
-radar-bench validate-v06-integrity
-python scripts/run_v07_executable.py
-radar-bench validate-v07-executable
-```
+Maintainer release procedures are in [docs/RELEASING.md](docs/RELEASING.md). GitHub Actions are configured for least-privilege CI, immutable action references, dependency update automation, and draft-only release creation after all gates pass.
 
-## Seed corpus status
+## Scope and limitations
 
-All 12 manifest rows have local, schema-valid, status-marked curation records.
-They are exploratory and reference public URLs rather than redistributing
-large third-party content. The worked OpenBLAS example is the complete local
-reference record. Headline benchmark claims require independent collection,
-temporal review, and a larger holdout.
+Radar Bench measures reproducibility, temporal blindness, executable safety, and bounded causal reasoning on a small corpus. It makes no population-level accuracy claim, has no production integration, does not post GitHub comments, and does not autonomously modify code. The historical bundles are intentionally not redistributed by this repository; a clean checkout must report their absence rather than silently falling back to replay.
+
+The v0.1–v0.7 research record remains in the repository and is summarized in [docs/RESEARCH_HISTORY.md](docs/RESEARCH_HISTORY.md).
 
 ## License
 
-Code is Apache-2.0. Third-party repositories and linked evidence retain their
-own terms.
+Apache-2.0. Third-party projects and incident sources retain their own copyrights and licenses. See [LICENSE](LICENSE) and [NOTICE](NOTICE).

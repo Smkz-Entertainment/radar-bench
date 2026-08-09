@@ -1,0 +1,82 @@
+{
+  "schema_version": "1.0",
+  "suite_id": "decisive-v1",
+  "release_version": "1.0.0",
+  "platform": {
+    "os": "linux",
+    "architecture": "x86_64",
+    "runtime": "docker",
+    "network": "denied"
+  },
+  "historical_cases": [
+    {
+      "case_id": "RADAR-V07-A01",
+      "incident": "pandas #55137",
+      "manifest": "../case-sealing/sealed/RADAR-V07-A01-pandas-55137.json",
+      "case_type": "HISTORICAL_EXECUTABLE",
+      "runtime_visible": false
+    },
+    {
+      "case_id": "RADAR-V07-A02",
+      "incident": "scikit-learn #30512 / SciPy 1.15 RC",
+      "manifest": "../case-sealing/sealed/RADAR-V07-A02-sklean-30512.json",
+      "case_type": "HISTORICAL_EXECUTABLE",
+      "runtime_visible": false
+    },
+    {
+      "case_id": "RADAR-V07-A03",
+      "incident": "pandas #45601",
+      "manifest": "../case-sealing/sealed/RADAR-V07-A03-pandas-45601.json",
+      "case_type": "HISTORICAL_EXECUTABLE",
+      "runtime_visible": false
+    },
+    {
+      "case_id": "RADAR-V07-A04",
+      "incident": "pandas #57124",
+      "manifest": "../case-sealing/sealed/RADAR-V07-A04-pandas-57124.json",
+      "case_type": "HISTORICAL_EXECUTABLE",
+      "runtime_visible": false
+    },
+    {
+      "case_id": "RADAR-V07-A05",
+      "incident": "pandas #66085",
+      "manifest": "../case-sealing/sealed/RADAR-V07-A05-pandas-66085.json",
+      "case_type": "HISTORICAL_EXECUTABLE",
+      "runtime_visible": false
+    }
+  ],
+  "safety_cases": {
+    "count": 20,
+    "runtime_manifest": "../safety-twins/runtime-manifest.json",
+    "evaluator_labels": "../safety-twins/evaluator-labels.json",
+    "case_type": "CONSTRUCTED_EXECUTABLE_SAFETY",
+    "runtime_visible": false
+  },
+  "baselines": [
+    {
+      "id": "static-v0.4",
+      "kind": "frozen-static-attribution-baseline",
+      "immutable": true,
+      "source": "corpus/v0.4/pilot/predictions.json",
+      "source_digest": "sha256:2a6be06efcd053ed36e1c78623e36881069296bb32e2b9d7091b5a9a6ceba9a7"
+    },
+    {
+      "id": "naive-deterministic",
+      "kind": "simple-naive-deterministic-investigator",
+      "immutable": true,
+      "source": "corpus/v0.7/decisive-run/result.json",
+      "source_digest": "sha256:e21f7c8379899360d52690399315bedba39f9714804d9b38b7a46b5c0f778d9c"
+    },
+    {
+      "id": "agentic-v0.5-frozen",
+      "kind": "frozen-v0.5-investigator",
+      "immutable": true,
+      "source": "git:60ccc18",
+      "source_digest": "sha256:11098270d0f4ab26277ad2b63208dccf20b0c3300d9a1c54838092b0f9759297"
+    }
+  ],
+  "canonical_reference": {
+    "result": "artifacts/v1.0/canonical-results.json",
+    "not_runtime_evidence": true
+  }
+}

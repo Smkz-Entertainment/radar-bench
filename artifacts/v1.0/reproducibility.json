@@ -1,0 +1,17 @@
+{
+  "blocked_cases": 25,
+  "blockers": [
+    "PLATFORM_UNAVAILABLE",
+    "HISTORICAL_BUILD_UNREPRODUCIBLE"
+  ],
+  "dependency_audit": {
+    "output": "",
+    "status": "PASS"
+  },
+  "executed_cases": 0,
+  "network": "denied",
+  "schema_version": "1.0",
+  "status": "INCONCLUSIVE",
+  "suite_id": "decisive-v1",
+  "supported_platform": "Linux x86_64 with Docker"
+}

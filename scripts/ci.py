@@ -12,31 +12,48 @@ ROOT = Path(__file__).resolve().parents[1]
 PYTHON = sys.executable
 
 
-def run(*args: str, check: bool = True) -> subprocess.CompletedProcess:
+def run_process(
+    command: list[str],
+    *,
+    timeout_seconds: int,
+    env: dict[str, str] | None = None,
+    check: bool = False,
+) -> subprocess.CompletedProcess[str]:
+    try:
+        return subprocess.run(
+            command,
+            cwd=ROOT,
+            env=env or os.environ.copy(),
+            text=True,
+            capture_output=True,
+            check=check,
+            shell=False,
+            timeout=timeout_seconds,
+        )
+    except subprocess.TimeoutExpired as exc:
+        stdout = exc.stdout if isinstance(exc.stdout, str) else ""
+        stderr = exc.stderr if isinstance(exc.stderr, str) else ""
+        return subprocess.CompletedProcess(
+            command,
+            124,
+            stdout,
+            f"timed out after {timeout_seconds}s\n{stderr}",
+        )
+
+
+def run(*args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
     command = [PYTHON, "-m", "radar_bench.cli", *args]
     env = os.environ.copy()
     env["PYTHONPATH"] = str(ROOT / "src")
-    return subprocess.run(
-        command,
-        cwd=ROOT,
-        env=env,
-        text=True,
-        capture_output=True,
-        check=check,
-        shell=False,
-    )
+    return run_process(command, timeout_seconds=180, env=env, check=check)
 
 
 def main() -> int:
     results = {}
-    compile_check = subprocess.run(
+    compile_check = run_process(
         [PYTHON, "-m", "compileall", "-q", "src", "scripts"],
-        cwd=ROOT,
+        timeout_seconds=60,
         env={**os.environ, "PYTHONPATH": str(ROOT / "src")},
-        text=True,
-        capture_output=True,
-        check=False,
-        shell=False,
     )
     results["syntax"] = {
         "status": "pass" if compile_check.returncode == 0 else "fail",
@@ -72,6 +89,15 @@ def main() -> int:
     if corpus.returncode != 0:
         print(json.dumps(results, indent=2))
         return corpus.returncode
+    v1_suite = run("validate", "--suite", "decisive-v1", check=False)
+    results["v1_suite"] = {
+        "status": "pass" if v1_suite.returncode == 0 else "fail",
+        "output": v1_suite.stdout,
+        "error": v1_suite.stderr,
+    }
+    if v1_suite.returncode != 0:
+        print(json.dumps(results, indent=2))
+        return v1_suite.returncode
     v02_corpus = run("validate-v02-corpus", check=False)
     results["v02_corpus_plan"] = {
         "status": "pass" if v02_corpus.returncode == 0 else "fail",
@@ -90,6 +116,7 @@ def main() -> int:
     if v03_corpus.returncode != 0:
         print(json.dumps(results, indent=2))
         return v03_corpus.returncode
+    v04_corpus: subprocess.CompletedProcess[str] | None = None
     v04_records = ROOT / "corpus" / "v0.4" / "pilot" / "records"
     if any(v04_records.glob("*.json")):
         v04_corpus = run("validate-v04-corpus", "--json", check=False)
@@ -98,7 +125,7 @@ def main() -> int:
             "output": v04_corpus.stdout,
             "error": v04_corpus.stderr,
         }
-    if v04_corpus.returncode != 0:
+    if v04_corpus is not None and v04_corpus.returncode != 0:
         print(json.dumps(results, indent=2))
         return v04_corpus.returncode
     v05_episodes = ROOT / "artifacts" / "release-evidence" / "investigation-episodes.json"
@@ -134,7 +161,7 @@ def main() -> int:
         if v07_validation.returncode != 0:
             print(json.dumps(results, indent=2))
             return v07_validation.returncode
-    tests = subprocess.run(
+    tests = run_process(
         [
             PYTHON,
             "-m",
@@ -144,12 +171,8 @@ def main() -> int:
             "--cov-report=xml:artifacts/release-evidence/coverage.xml",
             "--cov-fail-under=90",
         ],
-        cwd=ROOT,
+        timeout_seconds=600,
         env={**os.environ, "PYTHONPATH": str(ROOT / "src")},
-        text=True,
-        capture_output=True,
-        check=False,
-        shell=False,
     )
     results["tests"] = {
         "status": "pass" if tests.returncode == 0 else "fail",
@@ -177,14 +200,10 @@ def main() -> int:
         ],
     }
     for name, command in quality_commands.items():
-        quality = subprocess.run(
+        quality = run_process(
             command,
-            cwd=ROOT,
+            timeout_seconds=180,
             env={**os.environ, "PYTHONPATH": str(ROOT / "src")},
-            text=True,
-            capture_output=True,
-            check=False,
-            shell=False,
         )
         status = (
             "pass"
@@ -222,9 +241,10 @@ def main() -> int:
             results["status"] = "fail"
             print(json.dumps(results, indent=2))
             return 3
-    results["status"] = "pass"
+    blocked = any(item.get("status") == "blocked" for item in results.values() if isinstance(item, dict))
+    results["status"] = "blocked" if blocked else "pass"
     print(json.dumps(results, indent=2))
-    return 0
+    return 4 if blocked else 0
 
 
 if __name__ == "__main__":

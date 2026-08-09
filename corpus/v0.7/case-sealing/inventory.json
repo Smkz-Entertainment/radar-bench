@@ -1,0 +1,234 @@
+{
+  "schema_version": "v07-case-sealing-inventory-1",
+  "sprint": "case-sealing",
+  "started_at": "2026-08-09T00:00:00+03:00",
+  "artifact_staging_root": "C:\\Users\\samis\\AppData\\Local\\Temp\\radar-case-sealing-e6e869d5f1d64055b4ec392e3d5e2f61",
+  "container_image": "mirror.gcr.io/library/python@sha256:63669fd2563fa90b0442fa7b568e66e3667755636cda086d7bcaaa895f66fe39",
+  "platform": {
+    "os": "linux",
+    "architecture": "x86_64",
+    "python": "3.10"
+  },
+  "evaluation_controls": {
+    "network": "denied",
+    "gold_mounted": false,
+    "historical_discussion_mounted": false,
+    "control_and_candidate_independent": true,
+    "rerun_from_fresh_containers": true
+  },
+  "admission_target": {
+    "first_batch_attribution": 3,
+    "first_batch_safety": 5,
+    "later_gate_total_sealed": 8,
+    "later_gate_attribution_sealed": 3
+  },
+  "result": {
+    "screened_candidates": 22,
+    "sealed_attribution": 5,
+    "sealed_safety": 0,
+    "rejected": 13,
+    "not_attempted": 4,
+    "status": "BLOCKED_BY_CASE_SEALING",
+    "manifest_promoted": false,
+    "radar_framework_changed": false
+  },
+  "rejection_reason_enum": [
+    "ARTIFACT_UNAVAILABLE",
+    "PLATFORM_UNAVAILABLE",
+    "HISTORICAL_BUILD_UNREPRODUCIBLE",
+    "DEPENDENCY_NOT_ARCHIVED",
+    "NONDETERMINISTIC",
+    "REQUIRES_UNAVAILABLE_HARDWARE"
+  ],
+  "candidates": [
+    {
+      "id": "RADAR-V04-A01",
+      "kind": "attribution",
+      "incident": "scikit-learn #30554",
+      "url": "https://github.com/scikit-learn/scikit-learn/issues/30554",
+      "status": "REJECTED",
+      "rejection_reason": "PLATFORM_UNAVAILABLE",
+      "evidence": "The historical report is macOS 15.2 arm64. The Linux/x86-64 replay with the available downstream wheel produced identical tree thresholds on control and candidate, and the archived wheel metadata required forcing scikit-survival 0.23.1 past its sklearn<1.6 constraint. No portable historical seal was claimed."
+    },
+    {
+      "id": "RADAR-V04-A02",
+      "kind": "attribution",
+      "incident": "scikit-learn #28625 / OpenBLAS",
+      "url": "https://github.com/scikit-learn/scikit-learn/issues/28625",
+      "status": "REJECTED",
+      "rejection_reason": "PLATFORM_UNAVAILABLE",
+      "evidence": "Existing research marks the decisive behavior Windows/OpenBLAS-specific; this sprint target is Linux/x86-64. No attempt was promoted."
+    },
+    {
+      "id": "RADAR-V07-A02",
+      "kind": "attribution",
+      "incident": "scikit-learn #30512 / SciPy 1.15.0rc1",
+      "url": "https://github.com/scikit-learn/scikit-learn/issues/30512",
+      "status": "SEALED",
+      "case_manifest": "sealed/RADAR-V07-A02-sklean-30512.json"
+    },
+    {
+      "id": "RADAR-V04-A04",
+      "kind": "attribution",
+      "incident": "scikit-learn #30509",
+      "url": "https://github.com/scikit-learn/scikit-learn/issues/30509",
+      "status": "REJECTED",
+      "rejection_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+      "evidence": "The primary report is a nightly CI failure with a single test selector and no complete historical dependency closure or standalone reproducer."
+    },
+    {
+      "id": "RADAR-V07-A01",
+      "kind": "attribution",
+      "incident": "pandas #55137",
+      "url": "https://github.com/pandas-dev/pandas/issues/55137",
+      "status": "SEALED",
+      "case_manifest": "sealed/RADAR-V07-A01-pandas-55137.json"
+    },
+    {
+      "id": "RADAR-V07-A03",
+      "kind": "attribution",
+      "incident": "pandas #45601",
+      "url": "https://github.com/pandas-dev/pandas/issues/45601",
+      "status": "SEALED",
+      "case_manifest": "sealed/RADAR-V07-A03-pandas-45601.json"
+    },
+    {
+      "id": "RADAR-V07-A04",
+      "kind": "attribution",
+      "incident": "pandas #57124",
+      "url": "https://github.com/pandas-dev/pandas/issues/57124",
+      "status": "SEALED",
+      "case_manifest": "sealed/RADAR-V07-A04-pandas-57124.json"
+    },
+    {
+      "id": "RADAR-V07-A05",
+      "kind": "attribution",
+      "incident": "pandas #66085",
+      "url": "https://github.com/pandas-dev/pandas/issues/66085",
+      "status": "SEALED",
+      "case_manifest": "sealed/RADAR-V07-A05-pandas-66085.json"
+    },
+    {
+      "id": "RADAR-V04-A07",
+      "kind": "attribution",
+      "incident": "xarray #9922",
+      "url": "https://github.com/pydata/xarray/issues/9922",
+      "status": "REJECTED",
+      "rejection_reason": "DEPENDENCY_NOT_ARCHIVED",
+      "evidence": "The issue is a nightly zarr compatibility matrix failure; the exact nightly resolver state and downstream artifact closure are not archived in the case record."
+    },
+    {
+      "id": "RADAR-V04-A08",
+      "kind": "attribution",
+      "incident": "NumPy #24903",
+      "url": "https://github.com/numpy/numpy/issues/24903",
+      "status": "REJECTED",
+      "rejection_reason": "REQUIRES_UNAVAILABLE_HARDWARE",
+      "evidence": "Existing research identifies specific Sapphire Rapids CPU behavior as decisive."
+    },
+    {
+      "id": "RADAR-V04-A09",
+      "kind": "attribution",
+      "incident": "NumPy #28151",
+      "url": "https://github.com/numpy/numpy/issues/28151",
+      "status": "REJECTED",
+      "rejection_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+      "evidence": "The candidate is a packaging/build failure without a complete sealed historical build toolchain in the v0.4 record."
+    },
+    {
+      "id": "RADAR-V04-A10",
+      "kind": "attribution",
+      "incident": "scikit-learn #33993",
+      "url": "https://github.com/scikit-learn/scikit-learn/issues/33993",
+      "status": "REJECTED",
+      "rejection_reason": "ARTIFACT_UNAVAILABLE",
+      "evidence": "The v0.4 record has metadata and post-cutoff evidence but no locally sealed source/artifact/reproducer bundle."
+    },
+    {
+      "id": "RADAR-V07-S01",
+      "kind": "safety",
+      "incident": "xarray #10709 dead external URL",
+      "url": "https://github.com/pydata/xarray/issues/10709",
+      "status": "REJECTED",
+      "rejection_reason": "ARTIFACT_UNAVAILABLE",
+      "evidence": "The historical report contains the curl failure summary but not the external response, exact xarray revision, or complete dependency/artifact closure needed for an offline historical replay."
+    },
+    {
+      "id": "RADAR-V07-S02",
+      "kind": "safety",
+      "incident": "scikit-learn #34458 missing nightly wheels",
+      "url": "https://github.com/scikit-learn/scikit-learn/issues/34458",
+      "status": "REJECTED",
+      "rejection_reason": "ARTIFACT_UNAVAILABLE",
+      "evidence": "The issue identifies an absent package on the nightly index but does not preserve the exact missing filename, index snapshot, lock state, or corresponding control/candidate environments."
+    },
+    {
+      "id": "RADAR-V07-S04",
+      "kind": "safety",
+      "incident": "scikit-learn #34578 unstable split-impurity test",
+      "url": "https://github.com/scikit-learn/scikit-learn/issues/34578",
+      "status": "REJECTED",
+      "rejection_reason": "NONDETERMINISTIC",
+      "evidence": "The report observes failures for 10 of 100 seeds and explicitly describes the test/code as unstable; no deterministic historical control/candidate distinction is available."
+    },
+    {
+      "id": "RADAR-V07-S08",
+      "kind": "safety",
+      "incident": "scikit-learn #32491 Windows arm64 worker crash",
+      "url": "https://github.com/scikit-learn/scikit-learn/issues/32491",
+      "status": "REJECTED",
+      "rejection_reason": "PLATFORM_UNAVAILABLE",
+      "evidence": "The report is an intermittent Windows arm64 access violation. The Linux/x86-64 sealing host cannot reconstruct the required worker/platform combination."
+    },
+    {
+      "id": "RADAR-V07-S12",
+      "kind": "safety",
+      "incident": "xarray #11268 stale cached pixi lock",
+      "url": "https://github.com/pydata/xarray/issues/11268",
+      "status": "REJECTED",
+      "rejection_reason": "DEPENDENCY_NOT_ARCHIVED",
+      "evidence": "The failure depends on conda-forge/PyPI drift and a historical CI cache; the lock/cache and package-index state are not archived for offline reconstruction."
+    },
+    {
+      "id": "RADAR-V07-S18",
+      "kind": "safety",
+      "incident": "xarray #11330 baseline already broken",
+      "url": "https://github.com/pydata/xarray/issues/11330",
+      "status": "REJECTED",
+      "rejection_reason": "ARTIFACT_UNAVAILABLE",
+      "evidence": "The baseline failure is caused by a stale cached pixi.lock that is not committed; the historical cache artifact is absent, so a fresh offline baseline cannot be sealed."
+    },
+    {
+      "id": "RADAR-V04-S22",
+      "kind": "safety",
+      "incident": "SciPy #24670 resolver confounding",
+      "url": "https://github.com/scipy/scipy/issues/24670",
+      "status": "NOT_ATTEMPTED",
+      "rejection_reason": null
+    },
+    {
+      "id": "RADAR-V04-S33",
+      "kind": "safety",
+      "incident": "SciPy #24406 packaging/build failure",
+      "url": "https://github.com/scipy/scipy/issues/24406",
+      "status": "NOT_ATTEMPTED",
+      "rejection_reason": null
+    },
+    {
+      "id": "RADAR-V04-S35",
+      "kind": "safety",
+      "incident": "Matplotlib #31897 resolver confounding",
+      "url": "https://github.com/matplotlib/matplotlib/issues/31897",
+      "status": "NOT_ATTEMPTED",
+      "rejection_reason": null
+    },
+    {
+      "id": "RADAR-V04-S40",
+      "kind": "safety",
+      "incident": "pandas #65112 resolver confounding",
+      "url": "https://github.com/pandas-dev/pandas/issues/65112",
+      "status": "NOT_ATTEMPTED",
+      "rejection_reason": null
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "suite_id": "decisive-v1",
+  "release_version": "1.0.0",
+  "status": "COMPLETED",
+  "certification": "INCONCLUSIVE",
+  "case_count": 25,
+  "attribution_cases": 5,
+  "safety_cases": 20,
+  "cases": {
+    "requested": 25,
+    "historical": 5,
+    "safety": 20
+  },
+  "not_runtime_evidence": true,
+  "source": "corpus/v0.7/decisive-run/result.json",
+  "historical_run_status": "COMPLETED_WITH_RUNTIME_RETRY_CAVEAT",
+  "frozen_investigator_commit": "60ccc18",
+  "historical_run_manifest_digest": "sha256:0663244669f752cceeeb82bcd56280ef7ddfd71e6af43f28120050d0890d974c",
+  "baselines": {
+    "static-v0.4": {
+      "historical_positive_resolution": {"value": 0.8, "numerator": 4, "denominator": 5},
+      "candidate_induced_correctness": {"value": 1.0, "numerator": 5, "denominator": 5},
+      "action_owner_correctness": {"value": 0.0, "numerator": 0, "denominator": 5},
+      "cross_repository_resolution": {"value": 1.0, "numerator": 1, "denominator": 1},
+      "semantic_ambiguity_handling": {"value": 0.0, "numerator": 0, "denominator": 1},
+      "safety_abstention_recall": {"value": 1.0, "numerator": 20, "denominator": 20},
+      "false_owner_accusation_rate": {"value": 0.0, "numerator": 0, "denominator": 20},
+      "premature_owner_accusations": {"value": 0, "numerator": 0, "denominator": 20},
+      "useful_experiment_rate": {"value": null, "numerator": null, "denominator": 40},
+      "median_substantive_experiments": {"value": 0, "numerator": 0, "denominator": 1}
+    },
+    "naive-deterministic": {
+      "historical_positive_resolution": {"value": 0.0, "numerator": 0, "denominator": 5},
+      "candidate_induced_correctness": {"value": 1.0, "numerator": 5, "denominator": 5},
+      "action_owner_correctness": {"value": 0.0, "numerator": 0, "denominator": 5},
+      "cross_repository_resolution": {"value": 0.0, "numerator": 0, "denominator": 1},
+      "semantic_ambiguity_handling": {"value": 0.0, "numerator": 0, "denominator": 1},
+      "safety_abstention_recall": {"value": 0.5, "numerator": 10, "denominator": 20},
+      "false_owner_accusation_rate": {"value": 0.5, "numerator": 10, "denominator": 20},
+      "premature_owner_accusations": {"value": 10, "numerator": 10, "denominator": 20},
+      "useful_experiment_rate": {"value": 0.725, "numerator": 29, "denominator": 40},
+      "median_substantive_experiments": {"value": 2, "numerator": 2, "denominator": 1}
+    },
+    "agentic-v0.5-frozen": {
+      "historical_positive_resolution": {"value": 0.2, "numerator": 1, "denominator": 5},
+      "candidate_induced_correctness": {"value": 0.8, "numerator": 4, "denominator": 5},
+      "action_owner_correctness": {"value": 0.0, "numerator": 0, "denominator": 5},
+      "cross_repository_resolution": {"value": 0.0, "numerator": 0, "denominator": 1},
+      "semantic_ambiguity_handling": {"value": 1.0, "numerator": 1, "denominator": 1},
+      "safety_abstention_recall": {"value": 1.0, "numerator": 20, "denominator": 20},
+      "false_owner_accusation_rate": {"value": 0.0, "numerator": 0, "denominator": 20},
+      "premature_owner_accusations": {"value": 0, "numerator": 0, "denominator": 20},
+      "useful_experiment_rate": {"value": 0.725, "numerator": 29, "denominator": 40},
+      "median_substantive_experiments": {"value": 2, "numerator": 2, "denominator": 1},
+      "advantage_over_naive_positive_resolution": {"value": 0.2, "numerator": 1, "denominator": 5}
+    }
+  },
+  "mandatory_case_gates": {
+    "scikit-learn-30512-resolves-to-scipy": false,
+    "pandas-45601-keeps-semantic-ambiguity-open": true
+  },
+  "decision": {
+    "EXECUTABLE_CAUSAL_SAFETY": "VALIDATED_SMALL_N",
+    "HISTORICAL_ATTRIBUTION_EXECUTABILITY": "VALIDATED_SMALL_N",
+    "AGENTIC_CAUSAL_INVESTIGATION": "FAILED_DECISIVE_TEST",
+    "CROSS_REPOSITORY_GENERALIZATION": "FAILED_DECISIVE_TEST",
+    "PRODUCT_IMPLEMENTATION": "BLOCKED"
+  }
+}

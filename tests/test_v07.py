@@ -15,6 +15,7 @@ from radar_bench.execution.v07 import (
     COMMON_CAPABILITIES,
     FROZEN_V05_COMMIT,
     HermeticExecutor,
+    MAX_OUTPUT_BYTES,
     adapt_frozen_request,
     evaluate_pilot,
     freeze_audit,
@@ -106,6 +107,18 @@ class V07ExecutableContracts(unittest.TestCase):
             self.assertNotIn("AVAILABLE", json.dumps(response))
             self.assertEqual(run.call_count, 2)
             self.assertIn("--network=none", run.call_args_list[0].args[0])
+            command = run.call_args_list[0].args[0]
+            self.assertIn("--user=65532:65532", command)
+            self.assertIn("--cap-drop=ALL", command)
+
+            with patch(
+                "radar_bench.execution.v07.subprocess.run",
+                return_value=subprocess.CompletedProcess(
+                    [], 0, b"x" * (MAX_OUTPUT_BYTES + 1), b""
+                ),
+            ):
+                oversized = executor.execute({**request, "request_id": "R-LIMIT"})
+            self.assertEqual(oversized["status"], "EXECUTION_ERROR")
 
             with patch("radar_bench.execution.v07.shutil.which", return_value="docker"), patch(
                 "radar_bench.execution.v07.subprocess.run",

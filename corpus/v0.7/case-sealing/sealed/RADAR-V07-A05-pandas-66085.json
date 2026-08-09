@@ -1,0 +1,41 @@
+{
+  "case_id": "RADAR-V07-A05",
+  "status": "LOCALLY_SEALED",
+  "corpus_kind": "attribution",
+  "incident": "pandas #66085",
+  "source_url": "https://github.com/pandas-dev/pandas/issues/66085",
+  "historical_environment": {
+    "reported": "Python 3.13.14, Linux amd64, pandas 3.0.4, numpy 2.4.6",
+    "replay": "Python 3.13 slim, Linux x86_64",
+    "control": "pandas 3.0.3, numpy 2.4.6",
+    "candidate": "pandas 3.0.4, numpy 2.4.6",
+    "cutoff": "2026-06-29T00:00:00Z"
+  },
+  "container": {
+    "image": "mirror.gcr.io/library/python@sha256:9662417aace5ae7b8e2609cce472b72a8958e134ba372808abe9cc1a0c0125e6",
+    "network": "none",
+    "read_only_root": true,
+    "architecture": "x86_64"
+  },
+  "artifact_bundle": {
+    "local_path": "C:\\Users\\samis\\AppData\\Local\\Temp\\radar-case-sealing-e6e869d5f1d64055b4ec392e3d5e2f61\\pandas-66085-wheelhouse",
+    "files": {
+      "numpy-2.4.6-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl": "sha256:a7830bab239b79cda9c08c2da014761cafb48da6150e1da17ac06283f43b6089",
+      "pandas-3.0.3-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl": "sha256:a4eeb6830daf35a71cc09649bd823e2b542dac246cdee9614c6e4bd65028cd6a",
+      "pandas-3.0.4-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl": "sha256:6afa70bd5a24cedf0c983d888f7d48c3ca1bc5fc095d38a3e6277e85f9bd4ab3",
+      "python_dateutil-2.9.0.post0-py2.py3-none-any.whl": "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427",
+      "six-1.17.0-py2.py3-none-any.whl": "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "tzdata-2025.2-py2.py3-none-any.whl": "sha256:1a403fada01ff9221ca8044d701868fa132215d84beb92242d9acd2147f667a8"
+    }
+  },
+  "execution": {
+    "reproducer": "Build 50 unique ISO8601 timestamps repeated to 3000 rows and run pd.to_datetime(pd.Series(vals)) with python -X faulthandler.",
+    "fresh_rerun_1": {"control_exit": 0, "candidate_exit": 139, "control_observation": "SUCCESS - no segfault 3.0.3", "candidate_observation": "Fatal Python error: Segmentation fault"},
+    "fresh_rerun_2": {"control_exit": 0, "candidate_exit": 139, "control_observation": "SUCCESS - no segfault 3.0.3", "candidate_observation": "Fatal Python error: Segmentation fault"},
+    "candidate_gold_mounted": false,
+    "candidate_historical_discussion_mounted": false,
+    "candidate_received_control_output": false,
+    "network_denied_during_install_and_test": true,
+    "observed_candidate_failure": "Deterministic native segmentation fault in the duplicated ISO8601 Series path, with the documented faulthandler stack."
+  }
+}

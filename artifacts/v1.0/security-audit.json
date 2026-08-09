@@ -1,0 +1,16 @@
+{
+  "docker_socket_mounted": false,
+  "host_home_mounted": false,
+  "image_policy": "digest_pinned",
+  "network": "denied",
+  "privileged": false,
+  "read_only_workspace": true,
+  "resource_limits": {
+    "cpus": 2,
+    "memory": "512m",
+    "pids": 256,
+    "timeout_seconds": 120
+  },
+  "schema_version": "1.0",
+  "status": "PASS"
+}

@@ -1,0 +1,463 @@
+{
+  "audit": {
+    "baseline_audit": [
+      {
+        "digest": "sha256:2a6be06efcd053ed36e1c78623e36881069296bb32e2b9d7091b5a9a6ceba9a7",
+        "id": "static-v0.4",
+        "source": "corpus/v0.4/pilot/predictions.json",
+        "valid": true
+      },
+      {
+        "digest": "sha256:e21f7c8379899360d52690399315bedba39f9714804d9b38b7a46b5c0f778d9c",
+        "id": "naive-deterministic",
+        "source": "corpus/v0.7/decisive-run/result.json",
+        "valid": true
+      },
+      {
+        "id": "agentic-v0.5-frozen",
+        "source": "git:60ccc18",
+        "valid": true
+      }
+    ],
+    "errors": [],
+    "historical": [
+      {
+        "artifacts": {
+          "available": true,
+          "path": "external-staging-root",
+          "reason": null
+        },
+        "block_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+        "case_id": "RADAR-V07-A01",
+        "incident": "pandas #55137",
+        "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A01-pandas-55137.json",
+        "runtime_recipe_available": false,
+        "status": "BLOCKED",
+        "valid": true
+      },
+      {
+        "artifacts": {
+          "available": true,
+          "path": "external-staging-root",
+          "reason": null
+        },
+        "block_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+        "case_id": "RADAR-V07-A02",
+        "incident": "scikit-learn #30512 / SciPy 1.15.0rc1",
+        "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A02-sklean-30512.json",
+        "runtime_recipe_available": false,
+        "status": "BLOCKED",
+        "valid": true
+      },
+      {
+        "artifacts": {
+          "available": true,
+          "path": "external-staging-root",
+          "reason": null
+        },
+        "block_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+        "case_id": "RADAR-V07-A03",
+        "incident": "pandas #45601",
+        "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A03-pandas-45601.json",
+        "runtime_recipe_available": false,
+        "status": "BLOCKED",
+        "valid": true
+      },
+      {
+        "artifacts": {
+          "available": true,
+          "path": "external-staging-root",
+          "reason": null
+        },
+        "block_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+        "case_id": "RADAR-V07-A04",
+        "incident": "pandas #57124",
+        "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A04-pandas-57124.json",
+        "runtime_recipe_available": false,
+        "status": "BLOCKED",
+        "valid": true
+      },
+      {
+        "artifacts": {
+          "available": true,
+          "path": "external-staging-root",
+          "reason": null
+        },
+        "block_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+        "case_id": "RADAR-V07-A05",
+        "incident": "pandas #66085",
+        "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A05-pandas-66085.json",
+        "runtime_recipe_available": false,
+        "status": "BLOCKED",
+        "valid": true
+      }
+    ],
+    "opacity": {
+      "valid": true,
+      "violations": []
+    },
+    "reference_digest": "sha256:63135f5b84bdde61d11a0691eae8e328ebee85e2c2a63f81296c99cd8eb74afd",
+    "safety": {
+      "count": 20,
+      "evaluator_labels_outside_runtime": true,
+      "runtime_manifest": "corpus/v0.7/safety-twins/runtime-manifest.json"
+    },
+    "source_digests": {
+      "evaluator_labels": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "runtime_manifest": "sha256:1e6bd987b37174aa8c6c851529ae7786ecbb0058d20908b1452eae7b8aeae420",
+      "suite": "sha256:dfae973fabc15bb9398e1396fef73974f158757de8d5230ba4e53abad2dd7d82"
+    },
+    "suite_id": "decisive-v1",
+    "suite_path": "corpus/v0.7/decisive-v1/suite.json",
+    "valid": true,
+    "warnings": []
+  },
+  "baselines": {
+    "agentic-v0.5-frozen": {
+      "metrics": {
+        "action_owner_correctness": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "advantage_over_naive_positive_resolution": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "candidate_induced_correctness": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "cross_repository_resolution": {
+          "denominator": 1,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "false_owner_accusation_rate": {
+          "denominator": 20,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "historical_positive_resolution": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "median_substantive_experiments": {
+          "denominator": 1,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "premature_owner_accusations": {
+          "denominator": 20,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "safety_abstention_recall": {
+          "denominator": 20,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "semantic_ambiguity_handling": {
+          "denominator": 1,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "useful_experiment_rate": {
+          "denominator": 40,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        }
+      },
+      "status": "BLOCKED"
+    },
+    "naive-deterministic": {
+      "metrics": {
+        "action_owner_correctness": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "advantage_over_naive_positive_resolution": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "candidate_induced_correctness": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "cross_repository_resolution": {
+          "denominator": 1,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "false_owner_accusation_rate": {
+          "denominator": 20,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "historical_positive_resolution": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "median_substantive_experiments": {
+          "denominator": 1,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "premature_owner_accusations": {
+          "denominator": 20,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "safety_abstention_recall": {
+          "denominator": 20,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "semantic_ambiguity_handling": {
+          "denominator": 1,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "useful_experiment_rate": {
+          "denominator": 40,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        }
+      },
+      "status": "BLOCKED"
+    },
+    "static-v0.4": {
+      "metrics": {
+        "action_owner_correctness": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "advantage_over_naive_positive_resolution": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "candidate_induced_correctness": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "cross_repository_resolution": {
+          "denominator": 1,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "false_owner_accusation_rate": {
+          "denominator": 20,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "historical_positive_resolution": {
+          "denominator": 5,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "median_substantive_experiments": {
+          "denominator": 1,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "premature_owner_accusations": {
+          "denominator": 20,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "safety_abstention_recall": {
+          "denominator": 20,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "semantic_ambiguity_handling": {
+          "denominator": 1,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "useful_experiment_rate": {
+          "denominator": 40,
+          "numerator": null,
+          "status": "not_evaluable",
+          "value": null
+        }
+      },
+      "status": "BLOCKED"
+    }
+  },
+  "blockers": [
+    "PLATFORM_UNAVAILABLE",
+    "HISTORICAL_BUILD_UNREPRODUCIBLE"
+  ],
+  "cases": {
+    "blocked": 25,
+    "blocked_cases": [
+      {
+        "case_id": "RADAR-V07-A01",
+        "reason": "HISTORICAL_BUILD_UNREPRODUCIBLE"
+      },
+      {
+        "case_id": "RADAR-V07-A02",
+        "reason": "HISTORICAL_BUILD_UNREPRODUCIBLE"
+      },
+      {
+        "case_id": "RADAR-V07-A03",
+        "reason": "HISTORICAL_BUILD_UNREPRODUCIBLE"
+      },
+      {
+        "case_id": "RADAR-V07-A04",
+        "reason": "HISTORICAL_BUILD_UNREPRODUCIBLE"
+      },
+      {
+        "case_id": "RADAR-V07-A05",
+        "reason": "HISTORICAL_BUILD_UNREPRODUCIBLE"
+      },
+      {
+        "case_id": "RADAR-V07-T01",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T02",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T03",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T04",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T05",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T06",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T07",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T08",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T09",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T10",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T11",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T12",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T13",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T14",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T15",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T16",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T17",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T18",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T19",
+        "reason": "PLATFORM_UNAVAILABLE"
+      },
+      {
+        "case_id": "RADAR-V07-T20",
+        "reason": "PLATFORM_UNAVAILABLE"
+      }
+    ],
+    "executed": 0,
+    "requested": 25
+  },
+  "certification": "INCONCLUSIVE",
+  "command": [
+    "python",
+    "scripts/build_v1_evidence.py"
+  ],
+  "error": "canonical executable evaluation is blocked; missing inputs were not replaced",
+  "platform": {
+    "canonical_supported": false,
+    "docker": true,
+    "machine": "AMD64",
+    "os": "win32",
+    "python": "3.13.3"
+  },
+  "reference": {
+    "path": "artifacts/v1.0/canonical-results.json",
+    "used_as_runtime_evidence": false
+  },
+  "release_version": "1.0.0",
+  "schema_version": "1.0",
+  "status": "BLOCKED",
+  "suite_id": "decisive-v1",
+  "timestamp": "2026-08-09T06:39:38.268797+00:00"
+}

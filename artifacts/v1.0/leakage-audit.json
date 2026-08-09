@@ -1,0 +1,10 @@
+{
+  "candidate_opacity": {
+    "valid": true,
+    "violations": []
+  },
+  "evaluator_labels_outside_runtime": true,
+  "reference_not_used_as_runtime_evidence": true,
+  "schema_version": "1.0",
+  "status": "PASS"
+}

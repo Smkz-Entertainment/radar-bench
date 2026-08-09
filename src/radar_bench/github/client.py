@@ -28,7 +28,7 @@ class GitHubClient:
         *,
         timeout: float = 20.0,
         retries: int = 3,
-        user_agent: str = "radar-bench/0.1.0 (read-only)",
+        user_agent: str = "radar-bench/1.0.0 (read-only)",
     ) -> None:
         self.timeout = timeout
         self.retries = retries

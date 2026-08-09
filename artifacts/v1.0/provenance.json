@@ -1,0 +1,18 @@
+{
+  "frozen_baseline_commit": "60ccc18",
+  "generated_at": "2026-08-09T06:41:20.126512+00:00",
+  "host": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.3"
+  },
+  "implementation_commit": "688856e997d44394a3b5a84fe82ee88260b9f1de",
+  "reference_digest": "sha256:63135f5b84bdde61d11a0691eae8e328ebee85e2c2a63f81296c99cd8eb74afd",
+  "release_version": "1.0.0",
+  "schema_version": "1.0",
+  "suite_digests": {
+    "evaluator_labels": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+    "runtime_manifest": "sha256:1e6bd987b37174aa8c6c851529ae7786ecbb0058d20908b1452eae7b8aeae420",
+    "suite": "sha256:dfae973fabc15bb9398e1396fef73974f158757de8d5230ba4e53abad2dd7d82"
+  },
+  "suite_id": "decisive-v1"
+}

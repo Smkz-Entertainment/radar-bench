@@ -1,23 +1,24 @@
 [build-system]
-requires = ["setuptools>=68"]
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "radar-bench"
-version = "0.1.0"
-description = "Evidence-first benchmark foundation for downstream failure attribution"
+version = "1.0.0"
+description = "Evidence-first executable benchmark for downstream failure investigation"
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
-license = { file = "LICENSE" }
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
 authors = [{ name = "Ecosystem Radar Agent", email = "agent@example.invalid" }]
 dependencies = []
 classifiers = [
-  "Development Status :: 3 - Alpha",
-  "License :: OSI Approved :: Apache Software License",
+  "Development Status :: 5 - Production/Stable",
   "Programming Language :: Python :: 3",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Testing",
 ]
 
 [project.optional-dependencies]
@@ -39,11 +40,18 @@ radar_bench = ["py.typed"]
 "share/radar-bench/schema" = ["schema/*.json"]
 
 [tool.radar]
-schema_version = "0.1"
+schema_version = "1.0"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+
+[tool.coverage.run]
+source = ["radar_bench"]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
 
 [tool.ruff]
 target-version = "py311"

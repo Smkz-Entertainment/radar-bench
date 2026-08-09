@@ -1,9 +1,8 @@
 cff-version: 1.2.0
-title: "Ecosystem Radar / Radar Bench"
-version: 0.1.0
+title: "Radar Bench: Evidence-first executable benchmark"
+version: 1.0.0
 message: "Please cite the release and the public evidence sources used by a case."
 authors:
   - family-names: "Radar contributors"
 license: Apache-2.0
-date-released: 2026-08-08
-
+date-released: 2026-08-09

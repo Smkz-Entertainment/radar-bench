@@ -23,6 +23,8 @@ SCHEMAS = {
     "admission_v04": "gold-admission-v0.4.schema.json",
     "investigation_episode_v01": "investigation-episode-v0.1.schema.json",
     "investigation_experiment_v01": "investigation-experiment-v0.1.schema.json",
+    "decisive_suite_v1": "decisive-suite-v1.schema.json",
+    "benchmark_result_v1": "benchmark-result-v1.schema.json",
 }
 
 

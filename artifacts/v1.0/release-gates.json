@@ -1,0 +1,106 @@
+{
+  "checks": {
+    "candidate_opacity": {
+      "status": "PASS"
+    },
+    "canonical_runtime": {
+      "reason": [
+        "PLATFORM_UNAVAILABLE",
+        "HISTORICAL_BUILD_UNREPRODUCIBLE"
+      ],
+      "status": "BLOCKED"
+    },
+    "clean_worktree": {
+      "status": "FAIL"
+    },
+    "dependency_audit": {
+      "output": "",
+      "status": "PASS"
+    },
+    "quality_gates": {
+      "bandit": "PASS",
+      "coverage_percent": 90.34,
+      "mypy": "PASS",
+      "pip_audit": "PASS",
+      "pytest": "PASS",
+      "ruff": "PASS",
+      "snapshots": {
+        "count": 12,
+        "status": "PASS"
+      },
+      "status": "PASS",
+      "suite_validation": "PASS",
+      "test_count": 83,
+      "wheel_build": "PASS"
+    },
+    "reference_present": {
+      "status": "PASS"
+    },
+    "suite_valid": {
+      "status": "PASS"
+    },
+    "temporal_gold_separation": {
+      "status": "PASS"
+    }
+  },
+  "not_production_validation": true,
+  "readiness": "BLOCKED",
+  "release_version": "1.0.0",
+  "repository": {
+    "branch": "master",
+    "clean": false,
+    "head": "688856e997d44394a3b5a84fe82ee88260b9f1de",
+    "status_short": [
+      "M CHANGELOG.md",
+      " M CITATION.cff",
+      " M CONTRIBUTING.md",
+      " M README.md",
+      " M SECURITY.md",
+      " M corpus/v0.7/README.md",
+      " M docs/ROADMAP.md",
+      " M docs/STATUS.md",
+      " M pyproject.toml",
+      " M scripts/ci.py",
+      " M src/radar_bench/__init__.py",
+      " M src/radar_bench/cli.py",
+      " M src/radar_bench/execution/v07.py",
+      " M src/radar_bench/github/client.py",
+      " M src/radar_bench/providers/subprocess_provider.py",
+      " M src/radar_bench/schema/loader.py",
+      " M tests/test_v07.py",
+      "?? .gitattributes",
+      "?? .github/",
+      "?? BENCHMARK.md",
+      "?? CODE_OF_CONDUCT.md",
+      "?? artifacts/v1.0/",
+      "?? benchmark-card.json",
+      "?? corpus/v0.7/case-sealing/",
+      "?? corpus/v0.7/decisive-run/",
+      "?? corpus/v0.7/decisive-v1/",
+      "?? corpus/v0.7/safety-twins/",
+      "?? docs/BASELINES.md",
+      "?? docs/BENCHMARK_INTEGRITY.md",
+      "?? docs/CONTRIBUTING_CASES.md",
+      "?? docs/DECISIVE_VALIDATION.md",
+      "?? docs/EXECUTABLE_CASES.md",
+      "?? docs/GOLD_ADMISSION.md",
+      "?? docs/LIMITATIONS.md",
+      "?? docs/METHODOLOGY.md",
+      "?? docs/QUICKSTART.md",
+      "?? docs/RELEASING.md",
+      "?? docs/REPRODUCIBILITY.md",
+      "?? docs/RESEARCH_HISTORY.md",
+      "?? docs/SAFETY_TWINS.md",
+      "?? docs/SCORING.md",
+      "?? docs/TEMPORAL_BLINDNESS.md",
+      "?? schema/benchmark-result-v1.schema.json",
+      "?? schema/decisive-suite-v1.schema.json",
+      "?? scripts/build_v1_evidence.py",
+      "?? src/radar_bench/release.py",
+      "?? tests/test_hardening.py",
+      "?? tests/test_release.py"
+    ]
+  },
+  "schema_version": "1.0",
+  "suite_id": "decisive-v1"
+}

@@ -1,16 +1,40 @@
 # Changelog
 
-## Unreleased — v0.2 validation milestone
+## 1.0.0 - 2026-08-09
 
-- Added independent corpus admission contracts and a 100-slot adversarial plan.
-- Added `confounded_change`, evidence classes, calibration, abstention metrics,
-  and provider-lane cost/utility accounting.
-- Kept v0.1 schemas and baseline behavior frozen; no product integrations were
-  added.
+- Finalized Radar Bench as an OSS executable benchmark rather than an attribution product.
+- Added the `decisive-v1` suite contract: five sealed historical cases and twenty opaque safety twins.
+- Added fail-closed suite validation, case inspection, result verification, and `--version` CLI support.
+- Preserved the immutable static v0.4, naïve, and frozen v0.5 baselines.
+- Published canonical reference metrics without treating them as live runtime evidence.
+- Documented v0.6 oracle leakage, v0.7 executable falsification, temporal blindness, safety, reproducibility, and case admission.
 
-## 0.1.0
+## 0.7.0 - 2026-08-09
 
-- Initial evidence-first benchmark foundation.
-- Added schemas, validation, snapshots, collector/storage, normalization,
-  deterministic baseline, scoring, providers, CLI, seed manifest, and release
-  evidence workflow.
+- Added sealed network-denied executable manifests and the decisive 25-case research run.
+- Validated executable safety on 20 opaque twins and rejected the agentic attribution thesis after the frozen investigator missed cross-repository SciPy attribution.
+
+## 0.6.0 - 2026-08-08
+
+- Added benchmark-integrity and oracle-leakage challenges.
+- Rejected replay-oracle certification after gold evidence was shown to be available through the evaluator path.
+
+## 0.5.0 - 2026-08-08
+
+- Added frozen interactive investigation behavior for research comparison.
+
+## 0.4.0 - 2026-08-08
+
+- Added the mined historical pilot and immutable static attribution baseline.
+
+## 0.3.0 - 2026-08-08
+
+- Added temporal snapshots, gold admission, and blind evaluation contracts.
+
+## 0.2.0 - 2026-08-08
+
+- Added admission, evaluation, and safety-oriented benchmark foundations.
+
+## 0.1.0 - 2026-08-08
+
+- Initial evidence-first offline benchmark foundation.

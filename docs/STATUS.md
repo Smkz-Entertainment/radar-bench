@@ -1,74 +1,22 @@
 # Status
 
-v0.1 is frozen as a passing local engineering foundation. v0.2 is a research
-milestone and remains partial until an independently grounded corpus clears the
-attribution and abstention gates. Planned records do not count as gold.
-v0.3 is the Gold Corpus & Blind Attribution milestone; its engineering
-contracts pass locally, but its 120 attribution slots and 300 safety slots are
-still planned, with zero admitted labels and no hidden evaluation.
-v0.4 is the Gold Corpus Mining & Admission pilot. It has 20 admitted
-attribution records and 40 admitted safety records with five explicit temporal
-blocks. The corpus denominator is valid, but deterministic continuation gates
-fail on candidate-induced precision (0.60) and action-owner precision (0.00),
-so the result is `PIVOT_REQUIRED`, not a capability or production claim.
-v0.5 is the bounded Interactive Regression Investigation pilot over the frozen
-v0.4 records. It preserves the v0.4 result as
-`STATIC_OWNER_ATTRIBUTION = FAILED_VALIDATION`; its deterministic replay-first
-heuristic lane currently clears the frozen continuation thresholds, so
-`AGENTIC_CAUSAL_INVESTIGATION = ACTIVE_VALIDATED`. This is not production
-readiness and does not authorize corpus or product expansion.
-v0.6 is the Benchmark Integrity Challenge over that frozen v0.5 investigator.
-It currently reports `V06_BENCHMARK_INTEGRITY = FAILED_VALIDATION`, keeps
-`V05_INVESTIGATOR = FROZEN_UNDER_AUDIT`, and blocks product implementation.
-The replay channel has status/result mismatches, attribution decoys are marked
-useful too often, the naive planner meets the strict failure boundary, and no
-exact environment manifest exists for real execution. See
-[V06_BENCHMARK_INTEGRITY.md](V06_BENCHMARK_INTEGRITY.md).
+Radar Bench 1.0 is a viable OSS benchmark and the attribution product thesis is terminated.
 
 ## Decisions
 
-- Runtime dependencies are empty in v0.1 so schema, temporal, and safety checks
-  remain runnable offline.
-- The standard-library HTTP client is read-only and rejects non-GitHub hosts.
-- Gold evidence is stored separately and inference loaders refuse gold paths.
-- Unsupported attributions abstain instead of guessing an owner.
-- `confounded_change` is a v0.2 abstention outcome when candidate and control
-  differ but runtime, dependency, resolver, or environment variables also
-  changed.
-- Evidence classes are ordered `OBSERVED`, `REPRODUCED`,
-  `CAUSALLY_SUPPORTED`, `CONFIRMED`; numeric confidence is accompanied by
-  calibration evidence.
+- `STATIC_OWNER_ATTRIBUTION = FAILED_VALIDATION`
+- `AGENTIC_CAUSAL_INVESTIGATION = FAILED_VALIDATION`
+- `CROSS_REPOSITORY_ATTRIBUTION_PRODUCT = TERMINATED`
+- `AUTONOMOUS_ATTRIBUTION_MVP = DO_NOT_BUILD`
+- `REPLAY_ORACLE_CERTIFICATION = REJECTED`
+- `EXECUTABLE_CAUSAL_SAFETY = VALIDATED_SMALL_N`
+- `HISTORICAL_ATTRIBUTION_EXECUTABILITY = VALIDATED_SMALL_N`
+- `RADAR_BENCH = VIABLE_OSS_PROJECT`
 
-## Known limitations
+The v0.7 decisive run used five sealed historical cases and twenty opaque safety twins. The frozen investigator abstained safely but resolved only one of five historical positives and missed the required scikit-learn #30512 → SciPy case. That is evidence against the agentic attribution product, not against the executable benchmark.
 
-- Public GitHub collection depends on network/rate-limit availability.
-- The seed manifest is a curation queue; only the worked OpenBLAS record is a
-  complete reference case in this local foundation.
-- The custom validator deliberately implements the repository's JSON Schema
-  subset; external schema-hosting and production-scale corpus expansion remain
-  future work.
-- The v0.2 corpus has 100 planned admission slots and zero admitted gold cases.
-- Local-model and Codex lanes have accounting and comparison contracts, but no
-  provider is credited with incremental value until the same hidden cases are
-  scored and costed across all lanes.
-- v0.3 adds D1-D5 difficulty, separate causal ontology fields, exact safety
-  confidence bounds, and a portable candidate-only blind boundary. It does not
-  claim an OS sandbox for arbitrary native third-party code.
-- v0.4 adds resolution-chain admission, Gold-A/Gold-B/Safety-A levels, explicit
-  rejection taxonomy, content-addressed public snapshots, and pilot
-  continuation gates. Codex and local-model lanes are intentionally not run.
-- v0.5 adds evaluator-owned InvestigationEpisode and experiment schemas,
-  temporal-blind candidate views, bounded replay, state-machine ledgers,
-  attributability classes, Resolution@k, safety, ablation, and kill-gate
-  evidence. Real container execution and optional model lanes remain blocked
-  when no safe runtime or no-cost/credentialed model is available.
-- v0.6 adds evaluator-owned integrity audits for the oracle channel, grouped
-  holdouts, decoys, counterfactuals, anti-oracle baselines, and freeze
-  verification. Its failed gates prevent productization until the oracle is
-  repaired and the challenge passes.
-v0.7 replaces replay certification with an executable benchmark. It keeps
-commit `60ccc18` frozen, defines a common experiment capability surface and a
-network-denied sealed-container executor, and currently reports
-`PRODUCT_VALIDATION = BLOCKED_BY_EXECUTABILITY` because the micro-corpus has
-zero independently sealed cases. Historical replay is explicitly rejected as
-certification evidence. See [V07_EXECUTABLE_INVESTIGATION.md](V07_EXECUTABLE_INVESTIGATION.md).
+## Release boundary
+
+The public v1 suite is `decisive-v1`. Canonical execution is Linux/x86-64 Docker only. A clean checkout without historical wheelhouses must report `ARTIFACT_UNAVAILABLE`; a non-Linux host must report `PLATFORM_UNAVAILABLE`. Neither condition is a pass.
+
+The v0.1–v0.7 source, schemas, case-sealing records, and negative evidence remain preserved for research history. See [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md).

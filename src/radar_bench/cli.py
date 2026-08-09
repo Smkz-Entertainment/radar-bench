@@ -39,6 +39,13 @@ from radar_bench.normalize.junit import normalize_junit
 from radar_bench.normalize.pytest_text import normalize_pytest
 from radar_bench.snapshots.builder import build_snapshot
 from radar_bench.snapshots.integrity import check_snapshot
+from radar_bench.release import (
+    SUITE_ID,
+    evaluate_decisive_suite,
+    inspect_case,
+    load_suite,
+    validate_decisive_suite,
+)
 
 EXIT_OK = 0
 EXIT_INVALID = 2
@@ -410,11 +417,80 @@ def _evidence_by_case() -> dict[str, dict[str, dict[str, Any]]]:
 
 
 def command_evaluate(args: argparse.Namespace) -> int:
+    if args.suite:
+        result = evaluate_decisive_suite(
+            _root(),
+            command=["radar-bench", "evaluate", "--suite", args.suite],
+        )
+        if args.output:
+            write_json(Path(args.output), result)
+        _json(result)
+        if result["status"] == "INVALID":
+            return EXIT_INVALID
+        if result["status"] == "BLOCKED":
+            return EXIT_EXTERNAL
+        return EXIT_GATE if result.get("certification") == "UNSAFE" else EXIT_OK
+    if not args.path:
+        raise ValidationError("evaluate requires a predictions path or --suite decisive-v1")
     report = score(load_predictions(Path(args.path), _evidence_by_case()), _labels())
     if args.output:
         write_json(Path(args.output), report)
     print(markdown_report(report))
     return EXIT_OK
+
+
+def command_validate_suite(args: argparse.Namespace) -> int:
+    if args.suite != SUITE_ID:
+        _json({"valid": False, "errors": [f"unknown suite: {args.suite}"]})
+        return EXIT_INVALID
+    result = validate_decisive_suite(_root())
+    _json(result)
+    return EXIT_OK if result["valid"] else EXIT_INVALID
+
+
+def command_list_suites(args: argparse.Namespace) -> int:
+    suites = []
+    path = _root() / "corpus" / "v0.7" / "decisive-v1" / "suite.json"
+    if path.is_file():
+        suite = load_suite(_root())
+        suites.append(
+            {
+                "suite_id": suite["suite_id"],
+                "release_version": suite["release_version"],
+                "historical_cases": len(suite["historical_cases"]),
+                "safety_cases": suite["safety_cases"]["count"],
+                "platform": suite["platform"],
+            }
+        )
+    _json({"suites": suites})
+    return EXIT_OK
+
+
+def command_inspect_case(args: argparse.Namespace) -> int:
+    try:
+        _json(inspect_case(_root(), args.case_id))
+        return EXIT_OK
+    except (OSError, ValueError, ValidationError) as exc:
+        _json({"valid": False, "errors": [str(exc)]})
+        return EXIT_INVALID
+
+
+def command_verify_results(args: argparse.Namespace) -> int:
+    path = Path(args.path).resolve()
+    errors: list[str] = []
+    try:
+        result = cast(dict[str, Any], json.loads(path.read_text(encoding="utf-8")))
+        errors.extend(validate_decisive_suite(_root()).get("errors", []))
+        if result.get("schema_version") != "1.0":
+            errors.append("result has the wrong schema version")
+        if result.get("suite_id") != SUITE_ID:
+            errors.append("result is not for decisive-v1")
+        if result.get("reference", {}).get("used_as_runtime_evidence") is True:
+            errors.append("canonical reference was marked as runtime evidence")
+    except (OSError, ValueError) as exc:
+        errors.append(str(exc))
+    _json({"path": str(path), "valid": not errors, "errors": errors})
+    return EXIT_OK if not errors else EXIT_INVALID
 
 
 def command_evaluate_v03(args: argparse.Namespace) -> int:
@@ -498,6 +574,7 @@ def build_parser() -> argparse.ArgumentParser:
         prog="radar-bench",
         description="Evidence-first downstream failure attribution benchmark",
     )
+    parser.add_argument("--version", action="version", version=__version__)
     sub = parser.add_subparsers(dest="command", required=True)
     p = sub.add_parser("doctor")
     p.set_defaults(function=command_doctor)
@@ -530,6 +607,14 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("validate-v07-executable")
     p.add_argument("--path")
     p.set_defaults(function=command_validate_v07_executable)
+    p = sub.add_parser("validate", help="validate a public benchmark suite contract")
+    p.add_argument("--suite", required=True)
+    p.set_defaults(function=command_validate_suite)
+    p = sub.add_parser("list-suites", help="list public benchmark suites")
+    p.set_defaults(function=command_list_suites)
+    p = sub.add_parser("inspect-case", help="inspect non-gold case metadata")
+    p.add_argument("case_id")
+    p.set_defaults(function=command_inspect_case)
     p = sub.add_parser("collect")
     group = p.add_mutually_exclusive_group(required=True)
     group.add_argument("--issue")
@@ -566,10 +651,14 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("path")
     p.set_defaults(function=command_import)
     p = sub.add_parser("evaluate")
-    p.add_argument("path")
+    p.add_argument("path", nargs="?")
+    p.add_argument("--suite")
     p.add_argument("--split", default="seed")
     p.add_argument("--output")
     p.set_defaults(function=command_evaluate)
+    p = sub.add_parser("verify-results", help="verify a v1 result against current suite metadata")
+    p.add_argument("path")
+    p.set_defaults(function=command_verify_results)
     p = sub.add_parser("evaluate-v03")
     p.add_argument("path")
     p.add_argument("--labels", required=True)

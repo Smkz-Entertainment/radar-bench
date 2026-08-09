@@ -46,6 +46,7 @@ FROZEN_REQUEST_MAP = {
     "baseline_check": "rerun",
     "version_swap": "change_dependency_version",
 }
+MAX_OUTPUT_BYTES = 10 * 1024 * 1024
 FORBIDDEN_RUNTIME_TOKENS = (
     "gold",
     "historical",
@@ -76,7 +77,9 @@ def _directory_digest(path: Path, root: Path) -> str:
     files = [item for item in path.rglob("*") if item.is_file() and ".git" not in item.parts]
     for item in sorted(files):
         digest.update(str(item.relative_to(root)).replace("\\", "/").encode("utf-8"))
-        digest.update(item.read_bytes())
+        with item.open("rb") as stream:
+            for block in iter(lambda: stream.read(1024 * 1024), b""):
+                digest.update(block)
     return "sha256:" + digest.hexdigest()
 
 
@@ -360,8 +363,14 @@ class HermeticExecutor:
             "--rm",
             "--network=none",
             "--read-only",
+            "--cpus=2",
+            "--memory=512m",
+            "--pids-limit=256",
+            "--cap-drop=ALL",
+            "--security-opt=no-new-privileges",
+            "--user=65532:65532",
             "--tmpfs",
-            "/run/radar-tmp:rw,noexec,nosuid,nodev",
+            "/run/radar-tmp:rw,noexec,nosuid,nodev,mode=1777",
             "-v",
             f"{workspace.as_posix()}:/workspace:ro",
             "-w",
@@ -382,6 +391,13 @@ class HermeticExecutor:
             )
         except (OSError, subprocess.TimeoutExpired) as exc:
             return {"status": "EXECUTION_ERROR", "error": type(exc).__name__}
+        output_size = len(completed.stdout) + len(completed.stderr)
+        if output_size > MAX_OUTPUT_BYTES:
+            return {
+                "status": "EXECUTION_ERROR",
+                "error": "OUTPUT_LIMIT_EXCEEDED",
+                "output_bytes": output_size,
+            }
         return {
             "status": "COMPLETED",
             "returncode": completed.returncode,

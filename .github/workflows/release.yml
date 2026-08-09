@@ -1,0 +1,51 @@
+name: Draft GitHub release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  draft-release:
+    name: Verify and draft release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Set up Python
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install build dependencies
+        run: python -m pip install --upgrade pip build && python -m pip install -e ".[dev]"
+      - name: Verify version and release metadata
+        env:
+          RELEASE_REF: ${{ github.ref_name }}
+        run: >-
+          python -c "import os, radar_bench; expected=os.environ['RELEASE_REF'].removeprefix('v'); assert radar_bench.__version__ == expected, (radar_bench.__version__, expected)"
+      - name: Run quality gates
+        run: python scripts/ci.py
+      - name: Validate decisive suite
+        run: python -m radar_bench.cli validate --suite decisive-v1
+      - name: Run canonical evaluation
+        run: python -m radar_bench.cli evaluate --suite decisive-v1 --output artifacts/v1.0/result.json
+      - name: Verify canonical result contract
+        run: python -m radar_bench.cli verify-results artifacts/v1.0/result.json
+      - name: Build distributions
+        run: python -m build
+      - name: Verify release diff hygiene
+        run: git diff --check
+      - name: Draft GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: >-
+          gh release create "${{ github.ref_name }}" dist/*
+          --draft --verify-tag --title "Radar Bench ${{ github.ref_name }}"
+          --notes-file artifacts/v1.0/final-report.md

@@ -1,0 +1,50 @@
+{
+  "run_status": "COMPLETED_WITH_RUNTIME_RETRY_CAVEAT",
+  "case_count": 25,
+  "attribution_cases": 5,
+  "safety_cases": 20,
+  "frozen_commit": "60ccc18",
+  "models_used": [],
+  "manifest_digest": "sha256:0663244669f752cceeeb82bcd56280ef7ddfd71e6af43f28120050d0890d974c",
+  "metrics": {
+    "static_v04": {
+      "historical_positive_resolution": [4, 5],
+      "candidate_induced_correctness": [5, 5],
+      "action_owner_correctness_gold_known": [0, 5],
+      "safety_abstention": [20, 20],
+      "premature_owner_accusations": 0,
+      "useful_experiment_rate": null,
+      "median_substantive_experiments": 0,
+      "scikit_learn_30512_scipy": true,
+      "pandas_45601_semantic_gate": false
+    },
+    "naive_deterministic": {
+      "historical_positive_resolution": [0, 5],
+      "candidate_induced_correctness": [5, 5],
+      "action_owner_correctness_gold_known": [0, 5],
+      "safety_abstention": [10, 20],
+      "premature_owner_accusations": 10,
+      "useful_experiment_rate": [29, 40],
+      "median_substantive_experiments": 2,
+      "scikit_learn_30512_scipy": false,
+      "pandas_45601_semantic_gate": false
+    },
+    "frozen_v05": {
+      "historical_positive_resolution": [1, 5],
+      "candidate_induced_correctness": [4, 5],
+      "action_owner_correctness_gold_known": [0, 5],
+      "safety_abstention": [20, 20],
+      "premature_owner_accusations": 0,
+      "useful_experiment_rate": [29, 40],
+      "median_substantive_experiments": 2,
+      "scikit_learn_30512_scipy": false,
+      "pandas_45601_semantic_gate": true,
+      "advantage_over_naive_positive_resolution_pp": 20.0
+    }
+  },
+  "serial_retry": {
+    "case": "scikit-learn #30512",
+    "status": "BLOCKED_BY_DOCKER_RUNTIME_STALL",
+    "scored_as_causal_evidence": false
+  }
+}

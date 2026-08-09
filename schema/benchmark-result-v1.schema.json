@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/radar-bench/benchmark-result-v1.schema.json",
+  "title": "Radar Bench v1 benchmark result",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["schema_version", "suite_id", "status", "certification", "cases", "baselines"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "suite_id": {"const": "decisive-v1"},
+    "status": {"enum": ["COMPLETED", "BLOCKED", "INVALID", "DRIFT"]},
+    "certification": {"enum": ["SAFE", "UNSAFE", "INCONCLUSIVE"]},
+    "cases": {"type": "object"},
+    "baselines": {"type": "object"}
+  }
+}

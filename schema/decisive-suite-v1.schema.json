@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/radar-bench/decisive-suite-v1.schema.json",
+  "title": "Radar Bench decisive-v1 suite",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "suite_id",
+    "release_version",
+    "platform",
+    "historical_cases",
+    "safety_cases",
+    "baselines",
+    "canonical_reference"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "suite_id": {"const": "decisive-v1"},
+    "release_version": {"const": "1.0.0"},
+    "platform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["os", "architecture", "runtime", "network"],
+      "properties": {
+        "os": {"const": "linux"},
+        "architecture": {"const": "x86_64"},
+        "runtime": {"const": "docker"},
+        "network": {"const": "denied"}
+      }
+    },
+    "historical_cases": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["case_id", "incident", "manifest", "case_type", "runtime_visible"],
+        "properties": {
+          "case_id": {"type": "string", "minLength": 1},
+          "incident": {"type": "string", "minLength": 1},
+          "manifest": {"type": "string", "minLength": 1},
+          "case_type": {"const": "HISTORICAL_EXECUTABLE"},
+          "runtime_visible": {"const": false}
+        }
+      }
+    },
+    "safety_cases": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["count", "runtime_manifest", "evaluator_labels", "case_type", "runtime_visible"],
+      "properties": {
+        "count": {"const": 20},
+        "runtime_manifest": {"type": "string", "minLength": 1},
+        "evaluator_labels": {"type": "string", "minLength": 1},
+        "case_type": {"const": "CONSTRUCTED_EXECUTABLE_SAFETY"},
+        "runtime_visible": {"const": false}
+      }
+    },
+    "baselines": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "immutable", "source", "source_digest"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1},
+          "kind": {"type": "string", "minLength": 1},
+          "immutable": {"const": true},
+          "source": {"type": "string", "minLength": 1},
+          "source_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "canonical_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["result", "not_runtime_evidence"],
+      "properties": {
+        "result": {"type": "string", "minLength": 1},
+        "not_runtime_evidence": {"const": true}
+      }
+    }
+  }
+}
