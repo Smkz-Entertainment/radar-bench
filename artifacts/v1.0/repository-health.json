@@ -1,7 +1,7 @@
 {
   "branch": "agent/docker-engine-public-artifacts",
   "clean": true,
-  "head": "93ef2bb5a8264c0acc518283f681d50dc6724258",
+  "head": "a7fbbcaa4669d97e872cec58d46d432912336e23",
   "schema_version": "1.0",
   "status_short": []
 }

@@ -1,17 +1,18 @@
 {
   "artifact_catalog_digest": "sha256:14ad07caccc97a1c817bfd3ce743c843cada18594f5a29a474ac571a16bf29e0",
   "frozen_baseline_commit": "60ccc18",
-  "generated_at": "2026-08-09T08:37:13.843744+00:00",
+  "generated_at": "2026-08-09T12:04:53.676012+00:00",
   "host": {
     "platform": "Windows-11-10.0.26200-SP0",
     "python": "3.13.3"
   },
-  "implementation_commit": "93ef2bb5a8264c0acc518283f681d50dc6724258",
+  "implementation_commit": "a7fbbcaa4669d97e872cec58d46d432912336e23",
   "reference_digest": "sha256:63135f5b84bdde61d11a0691eae8e328ebee85e2c2a63f81296c99cd8eb74afd",
   "release_version": "1.0.0",
   "schema_version": "1.0",
   "suite_digests": {
     "evaluator_labels": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+    "historical_evaluator_labels": "sha256:51e0a88394684b55ac3654687d78ea4d9ec32b0474aef047b5522d07b3af10a6",
     "runtime_manifest": "sha256:1e6bd987b37174aa8c6c851529ae7786ecbb0058d20908b1452eae7b8aeae420",
     "suite": "sha256:dfae973fabc15bb9398e1396fef73974f158757de8d5230ba4e53abad2dd7d82"
   },

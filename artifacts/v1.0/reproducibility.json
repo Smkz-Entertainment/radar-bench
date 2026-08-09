@@ -2,20 +2,18 @@
   "artifact_catalog": {
     "redistribution_status": "RECONSTRUCT_ONLY",
     "status": "PASS",
-    "verification": "BLOCKED"
+    "verification": "READY"
   },
-  "blocked_cases": 25,
-  "blockers": [
-    "ARTIFACT_UNAVAILABLE"
-  ],
+  "blocked_cases": 0,
+  "blockers": [],
   "dependency_audit": {
     "output": "",
     "status": "PASS"
   },
-  "executed_cases": 0,
+  "executed_cases": 25,
   "network": "denied",
   "schema_version": "1.0",
-  "status": "INCONCLUSIVE",
+  "status": "COMPLETED",
   "suite_id": "decisive-v1",
   "supported_platform": "Linux x86_64 Docker engine (including Docker Desktop Linux engine)"
 }

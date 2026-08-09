@@ -1,6 +1,6 @@
 # Radar Bench 1.0.0 release evidence
 
-Release readiness: **BLOCKED**
+Release readiness: **READY_FOR_PUBLIC_RELEASE**
 
 This bundle records the v1 OSS benchmark boundary. It does not convert a blocked runtime into a benchmark score and does not claim product or production validation.
 
@@ -14,21 +14,21 @@ This bundle records the v1 OSS benchmark boundary. It does not convert a blocked
 
 ## Current evaluation
 
-- Status: `BLOCKED`
-- Certification: `INCONCLUSIVE`
+- Status: `COMPLETED`
+- Certification: `UNSAFE`
 - Requested cases: `25`
-- Executed cases: `0`
-- Blocked cases: `25`
-- Blockers: `ARTIFACT_UNAVAILABLE`
+- Executed cases: `25`
+- Blocked cases: `0`
+- Blockers: `none`
 - Dependency audit: `PASS`.
-- Public artifact catalog: `PASS` (5 bundles; external verification: `BLOCKED`).
+- Public artifact catalog: `PASS` (5 bundles; external verification: `READY`).
 
 ## Quality gates
 
-- Commit: `93ef2bb5a8264c0acc518283f681d50dc6724258`
+- Commit: `a7fbbcaa4669d97e872cec58d46d432912336e23`
 - Working tree at evidence capture: `CLEAN`
-- Tests: `PASS` (96 collected)
-- Coverage: `91.07%`
+- Tests: `PASS` (121 collected)
+- Coverage: `90.24%`
 - Ruff / mypy / Bandit: `PASS / PASS / PASS`
 - Dependency audit: `PASS`
 - Wheel build: `PASS`
