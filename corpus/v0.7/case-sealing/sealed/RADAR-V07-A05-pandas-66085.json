@@ -17,6 +17,7 @@
     "read_only_root": true,
     "architecture": "x86_64"
   },
+  "runtime_recipe": {"recipe_id": "RADAR-V07-A05-runtime-v1"},
   "artifact_bundle": {
     "bundle_id": "pandas-66085-wheelhouse",
     "files": {

@@ -259,6 +259,9 @@ class ReleaseHelperTests(unittest.TestCase):
         with patch("radar_bench.release.validate_decisive_suite", return_value=valid_audit), patch(
             "radar_bench.release.inspect_docker_runtime",
             return_value=DockerRuntime(available=True, supported=True, engine_os="linux", engine_architecture="x86_64", reason=None),
+        ), patch(
+            "radar_bench.release.reconstruct_historical_cases",
+            return_value={"status": "READY", "blockers": [], "cases": []},
         ):
             result = evaluate_decisive_suite(Path("."))
         self.assertEqual(result["blockers"], ["EXECUTOR_HARNESS_UNAVAILABLE"])

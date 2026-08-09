@@ -20,6 +20,12 @@ from typing import Any, Mapping, cast
 from radar_bench.errors import ValidationError
 from radar_bench.execution.docker_runtime import inspect_docker_runtime
 from radar_bench.execution.v07 import validate_manifest
+from radar_bench.historical_runtime import (
+    RUNTIME_RECIPES_RELATIVE,
+    load_runtime_recipes,
+    reconstruct_historical_cases,
+    validate_runtime_recipes,
+)
 from radar_bench.schema.loader import validate_json
 
 SUITE_ID = "decisive-v1"
@@ -271,6 +277,46 @@ def validate_decisive_suite(
     if {item.get("case_id") for item in historical_results} != HISTORICAL_IDS:
         errors.append("decisive-v1 historical case IDs do not match the five sealed cases")
 
+    runtime_validation = validate_runtime_recipes(root)
+    errors.extend(runtime_validation.get("errors", []))
+    runtime_recipe_by_case: dict[str, str] = {}
+    runtime_image_by_case: dict[str, str] = {}
+    if runtime_validation.get("valid"):
+        try:
+            runtime_document = load_runtime_recipes(root)
+            for item in cast(list[dict[str, Any]], runtime_document["recipes"]):
+                case_id = str(item["case_id"])
+                runtime_recipe_by_case[case_id] = str(item["recipe_id"])
+                platform = item.get("platform")
+                if isinstance(platform, Mapping) and isinstance(platform.get("container_image"), str):
+                    runtime_image_by_case[case_id] = str(platform["container_image"])
+        except (OSError, ValueError, KeyError, TypeError):
+            errors.append("runtime recipe document could not be indexed")
+    for entry, historical in zip(
+        cast(list[dict[str, Any]], suite["historical_cases"]), historical_results
+    ):
+        manifest_path, manifest_error = _resolve_inside(root, base, str(entry.get("manifest", "")))
+        if manifest_error or manifest_path is None or not manifest_path.is_file():
+            continue
+        try:
+            manifest = _read_json(manifest_path)
+        except (OSError, ValueError):
+            continue
+        pointer = manifest.get("runtime_recipe")
+        expected_recipe = runtime_recipe_by_case.get(str(entry.get("case_id")))
+        if (
+            not isinstance(pointer, Mapping)
+            or not isinstance(pointer.get("recipe_id"), str)
+            or pointer.get("recipe_id") != expected_recipe
+        ):
+            errors.append(f"{entry.get('case_id')}: sealed manifest runtime recipe pointer is missing or mismatched")
+        container = manifest.get("container")
+        if (
+            not isinstance(container, Mapping)
+            or container.get("image") != runtime_image_by_case.get(str(entry.get("case_id")))
+        ):
+            errors.append(f"{entry.get('case_id')}: sealed manifest image does not match its runtime recipe")
+
     safety = cast(dict[str, Any], suite["safety_cases"])
     runtime_path, runtime_error = _resolve_inside(root, base, safety["runtime_manifest"])
     labels_path, labels_error = _resolve_inside(root, base, safety["evaluator_labels"])
@@ -366,6 +412,12 @@ def validate_decisive_suite(
             "evaluator_labels": file_digest(labels_path) if labels_path and labels_path.is_file() else None,
         },
         "baseline_audit": baseline_audit,
+        "runtime_recipes": {
+            "path": str(RUNTIME_RECIPES_RELATIVE).replace("\\", "/"),
+            "valid": bool(runtime_validation.get("valid")),
+            "digest": runtime_validation.get("recipe_digest"),
+            "count": runtime_validation.get("recipe_count", 0),
+        },
     }
 
 
@@ -471,7 +523,19 @@ def evaluate_decisive_suite(
         for baseline in result["baselines"].values():
             baseline["status"] = "BLOCKED"
         return result
-    result["error"] = "live execution harness is not enabled for this release evaluator"
+    historical_runtime = reconstruct_historical_cases(root, artifact_root)
+    result["historical_runtime"] = historical_runtime
+    if historical_runtime.get("status") != "READY":
+        result["error"] = "historical runtime reconstruction is blocked; canonical results were not substituted"
+        runtime_blockers = [str(item) for item in historical_runtime.get("blockers", [])]
+        result["blockers"] = runtime_blockers or ["HISTORICAL_BUILD_UNREPRODUCIBLE"]
+        result["cases"]["blocked_cases"] = _blocked_cases(
+            audit, result["blockers"][0]
+        )
+        for baseline in result["baselines"].values():
+            baseline["status"] = "BLOCKED"
+        return result
+    result["error"] = "investigator and safety execution harness is not enabled for this release evaluator"
     result["blockers"] = ["EXECUTOR_HARNESS_UNAVAILABLE"]
     result["cases"]["blocked_cases"] = _blocked_cases(audit, "EXECUTOR_HARNESS_UNAVAILABLE")
     return result

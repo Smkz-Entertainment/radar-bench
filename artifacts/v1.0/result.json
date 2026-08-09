@@ -31,7 +31,7 @@
         "case_id": "RADAR-V07-A01",
         "incident": "pandas #55137",
         "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A01-pandas-55137.json",
-        "runtime_recipe_available": false,
+        "runtime_recipe_available": true,
         "status": "BLOCKED",
         "valid": true
       },
@@ -45,7 +45,7 @@
         "case_id": "RADAR-V07-A02",
         "incident": "scikit-learn #30512 / SciPy 1.15.0rc1",
         "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A02-sklean-30512.json",
-        "runtime_recipe_available": false,
+        "runtime_recipe_available": true,
         "status": "BLOCKED",
         "valid": true
       },
@@ -59,7 +59,7 @@
         "case_id": "RADAR-V07-A03",
         "incident": "pandas #45601",
         "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A03-pandas-45601.json",
-        "runtime_recipe_available": false,
+        "runtime_recipe_available": true,
         "status": "BLOCKED",
         "valid": true
       },
@@ -73,7 +73,7 @@
         "case_id": "RADAR-V07-A04",
         "incident": "pandas #57124",
         "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A04-pandas-57124.json",
-        "runtime_recipe_available": false,
+        "runtime_recipe_available": true,
         "status": "BLOCKED",
         "valid": true
       },
@@ -87,7 +87,7 @@
         "case_id": "RADAR-V07-A05",
         "incident": "pandas #66085",
         "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A05-pandas-66085.json",
-        "runtime_recipe_available": false,
+        "runtime_recipe_available": true,
         "status": "BLOCKED",
         "valid": true
       }
@@ -97,6 +97,12 @@
       "violations": []
     },
     "reference_digest": "sha256:63135f5b84bdde61d11a0691eae8e328ebee85e2c2a63f81296c99cd8eb74afd",
+    "runtime_recipes": {
+      "count": 5,
+      "digest": "sha256:0772737e07765793d213ff58b406e93c2496421511287d67fed12214cb9f9d61",
+      "path": "corpus/v0.7/decisive-v1/runtime-recipes.json",
+      "valid": true
+    },
     "safety": {
       "count": 20,
       "evaluator_labels_outside_runtime": true,
@@ -439,8 +445,10 @@
   },
   "certification": "INCONCLUSIVE",
   "command": [
-    "python",
-    "scripts/build_v1_evidence.py"
+    "radar-bench",
+    "evaluate",
+    "--suite",
+    "decisive-v1"
   ],
   "error": "canonical executable evaluation is blocked; missing inputs were not replaced",
   "platform": {
@@ -461,5 +469,5 @@
   "schema_version": "1.0",
   "status": "BLOCKED",
   "suite_id": "decisive-v1",
-  "timestamp": "2026-08-09T08:34:33.262240+00:00"
+  "timestamp": "2026-08-09T10:08:51.621020+00:00"
 }

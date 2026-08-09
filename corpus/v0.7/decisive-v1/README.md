@@ -16,6 +16,14 @@ radar-bench evaluate --suite decisive-v1 --artifact-root /path/to/radar-bench-ar
 
 A clean checkout without that root validates the suite contract but must report historical execution as `ARTIFACT_UNAVAILABLE`. It must never treat `artifacts/v1.0/canonical-results.json` as a live run.
 
+Artifact and execution reproducibility are separate gates:
+
+- artifact reproducibility: another machine can acquire and verify the exact wheelhouses;
+- execution reproducibility: Docker can rebuild both sides from `runtime-recipes.json` and replay all five controls/candidates;
+- benchmark reproducibility: the complete five-attribution plus twenty-safety decisive run reproduces its frozen result.
+
+The first gate can pass while either of the latter gates remains `BLOCKED`. The runtime recipes pin the base image digest, exact Python version, package wheels, filesystem layout, preparation, command, expected exits, and network-denied execution policy.
+
 The supported acquisition path is:
 
 ```text

@@ -25,6 +25,14 @@ archives for traversal and corruption, rejects unexpected bundle entries, and
 writes only to the ignored external artifact root. `verify` is local-only and
 does not contact the network.
 
-The final evaluation still requires executable `runtime_recipe` fields for the
-historical cases. Artifact acquisition alone must therefore not be interpreted
-as canonical historical execution or as a release pass.
+The final evaluation also reconstructs the execution environments from
+`corpus/v0.7/decisive-v1/runtime-recipes.json`. Keep these gates distinct:
+
+- artifact reproducibility: exact external inputs can be acquired and verified;
+- execution reproducibility: all five control/candidate Docker environments can
+  be rebuilt and replayed with execution networking denied;
+- benchmark reproducibility: the complete decisive-v1 suite reproduces the
+  frozen benchmark result.
+
+Artifact acquisition alone must therefore not be interpreted as canonical
+historical execution or as a release pass.

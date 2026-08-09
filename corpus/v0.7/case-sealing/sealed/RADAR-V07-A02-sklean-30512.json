@@ -11,10 +11,11 @@
     "candidate": "scikit-learn 1.6.0, numpy 2.2.0, scipy 1.15.0rc1"
   },
   "container": {
-    "image": "mirror.gcr.io/library/python@sha256:63669fd2563fa90b0442fa7b568e66e3667755636cda086d7bcaaa895f66fe39",
+    "image": "mirror.gcr.io/library/python@sha256:4d440b214e447deddc0a94de23a3d97d28dfafdf125a8b4bb8073381510c9ee2",
     "network": "none",
     "architecture": "x86_64"
   },
+  "runtime_recipe": {"recipe_id": "RADAR-V07-A02-runtime-v1"},
   "artifact_bundle": {
     "bundle_id": "sklearn-30512-wheelhouse",
     "files": {
