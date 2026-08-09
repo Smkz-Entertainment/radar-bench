@@ -23,11 +23,11 @@
     "historical": [
       {
         "artifacts": {
-          "available": true,
+          "available": false,
           "path": "external-staging-root",
-          "reason": null
+          "reason": "ARTIFACT_UNAVAILABLE"
         },
-        "block_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+        "block_reason": "ARTIFACT_UNAVAILABLE",
         "case_id": "RADAR-V07-A01",
         "incident": "pandas #55137",
         "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A01-pandas-55137.json",
@@ -37,11 +37,11 @@
       },
       {
         "artifacts": {
-          "available": true,
+          "available": false,
           "path": "external-staging-root",
-          "reason": null
+          "reason": "ARTIFACT_UNAVAILABLE"
         },
-        "block_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+        "block_reason": "ARTIFACT_UNAVAILABLE",
         "case_id": "RADAR-V07-A02",
         "incident": "scikit-learn #30512 / SciPy 1.15.0rc1",
         "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A02-sklean-30512.json",
@@ -51,11 +51,11 @@
       },
       {
         "artifacts": {
-          "available": true,
+          "available": false,
           "path": "external-staging-root",
-          "reason": null
+          "reason": "ARTIFACT_UNAVAILABLE"
         },
-        "block_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+        "block_reason": "ARTIFACT_UNAVAILABLE",
         "case_id": "RADAR-V07-A03",
         "incident": "pandas #45601",
         "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A03-pandas-45601.json",
@@ -65,11 +65,11 @@
       },
       {
         "artifacts": {
-          "available": true,
+          "available": false,
           "path": "external-staging-root",
-          "reason": null
+          "reason": "ARTIFACT_UNAVAILABLE"
         },
-        "block_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+        "block_reason": "ARTIFACT_UNAVAILABLE",
         "case_id": "RADAR-V07-A04",
         "incident": "pandas #57124",
         "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A04-pandas-57124.json",
@@ -79,11 +79,11 @@
       },
       {
         "artifacts": {
-          "available": true,
+          "available": false,
           "path": "external-staging-root",
-          "reason": null
+          "reason": "ARTIFACT_UNAVAILABLE"
         },
-        "block_reason": "HISTORICAL_BUILD_UNREPRODUCIBLE",
+        "block_reason": "ARTIFACT_UNAVAILABLE",
         "case_id": "RADAR-V07-A05",
         "incident": "pandas #66085",
         "manifest": "corpus/v0.7/case-sealing/sealed/RADAR-V07-A05-pandas-66085.json",
@@ -328,111 +328,110 @@
     }
   },
   "blockers": [
-    "PLATFORM_UNAVAILABLE",
-    "HISTORICAL_BUILD_UNREPRODUCIBLE"
+    "ARTIFACT_UNAVAILABLE"
   ],
   "cases": {
     "blocked": 25,
     "blocked_cases": [
       {
         "case_id": "RADAR-V07-A01",
-        "reason": "HISTORICAL_BUILD_UNREPRODUCIBLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-A02",
-        "reason": "HISTORICAL_BUILD_UNREPRODUCIBLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-A03",
-        "reason": "HISTORICAL_BUILD_UNREPRODUCIBLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-A04",
-        "reason": "HISTORICAL_BUILD_UNREPRODUCIBLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-A05",
-        "reason": "HISTORICAL_BUILD_UNREPRODUCIBLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T01",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T02",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T03",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T04",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T05",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T06",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T07",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T08",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T09",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T10",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T11",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T12",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T13",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T14",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T15",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T16",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T17",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T18",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T19",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       },
       {
         "case_id": "RADAR-V07-T20",
-        "reason": "PLATFORM_UNAVAILABLE"
+        "reason": "ARTIFACT_UNAVAILABLE"
       }
     ],
     "executed": 0,
@@ -445,11 +444,14 @@
   ],
   "error": "canonical executable evaluation is blocked; missing inputs were not replaced",
   "platform": {
-    "canonical_supported": false,
+    "canonical_supported": true,
     "docker": true,
+    "engine_architecture": "x86_64",
+    "engine_os": "linux",
     "machine": "AMD64",
     "os": "win32",
-    "python": "3.13.3"
+    "python": "3.13.3",
+    "runtime_reason": null
   },
   "reference": {
     "path": "artifacts/v1.0/canonical-results.json",
@@ -459,5 +461,5 @@
   "schema_version": "1.0",
   "status": "BLOCKED",
   "suite_id": "decisive-v1",
-  "timestamp": "2026-08-09T06:42:32.835579+00:00"
+  "timestamp": "2026-08-09T07:52:08.149113+00:00"
 }

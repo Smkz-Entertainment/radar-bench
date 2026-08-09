@@ -19,15 +19,15 @@ This bundle records the v1 OSS benchmark boundary. It does not convert a blocked
 - Requested cases: `25`
 - Executed cases: `0`
 - Blocked cases: `25`
-- Blockers: `PLATFORM_UNAVAILABLE, HISTORICAL_BUILD_UNREPRODUCIBLE`
+- Blockers: `ARTIFACT_UNAVAILABLE`
 - Dependency audit: `PASS`.
 
 ## Quality gates
 
-- Commit: `9ddea87f41e4def9d495d894e151225006d205cc`
+- Commit: `e8701d3fd2b99dbdc76fba5a210ee6c676cd66d3`
 - Working tree at evidence capture: `CLEAN`
-- Tests: `PASS` (83 collected)
-- Coverage: `90.34%`
+- Tests: `PASS` (88 collected)
+- Coverage: `90.16%`
 - Ruff / mypy / Bandit: `PASS / PASS / PASS`
 - Dependency audit: `PASS`
 - Wheel build: `PASS`

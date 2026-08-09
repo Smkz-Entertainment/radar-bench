@@ -1,8 +1,7 @@
 {
   "blocked_cases": 25,
   "blockers": [
-    "PLATFORM_UNAVAILABLE",
-    "HISTORICAL_BUILD_UNREPRODUCIBLE"
+    "ARTIFACT_UNAVAILABLE"
   ],
   "dependency_audit": {
     "output": "",
@@ -13,5 +12,5 @@
   "schema_version": "1.0",
   "status": "INCONCLUSIVE",
   "suite_id": "decisive-v1",
-  "supported_platform": "Linux x86_64 with Docker"
+  "supported_platform": "Linux x86_64 Docker engine (including Docker Desktop Linux engine)"
 }

@@ -5,8 +5,7 @@
     },
     "canonical_runtime": {
       "reason": [
-        "PLATFORM_UNAVAILABLE",
-        "HISTORICAL_BUILD_UNREPRODUCIBLE"
+        "ARTIFACT_UNAVAILABLE"
       ],
       "status": "BLOCKED"
     },
@@ -19,7 +18,7 @@
     },
     "quality_gates": {
       "bandit": "PASS",
-      "coverage_percent": 90.34,
+      "coverage_percent": 90.16,
       "mypy": "PASS",
       "pip_audit": "PASS",
       "pytest": "PASS",
@@ -31,7 +30,7 @@
       },
       "status": "PASS",
       "suite_validation": "PASS",
-      "test_count": 83,
+      "test_count": 88,
       "wheel_build": "PASS"
     },
     "reference_present": {
@@ -48,9 +47,9 @@
   "readiness": "BLOCKED",
   "release_version": "1.0.0",
   "repository": {
-    "branch": "master",
+    "branch": "agent/docker-engine-public-artifacts",
     "clean": true,
-    "head": "9ddea87f41e4def9d495d894e151225006d205cc",
+    "head": "e8701d3fd2b99dbdc76fba5a210ee6c676cd66d3",
     "status_short": []
   },
   "schema_version": "1.0",
