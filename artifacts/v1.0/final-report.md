@@ -24,13 +24,14 @@ This bundle records the v1 OSS benchmark boundary. It does not convert a blocked
 
 ## Quality gates
 
-- Commit: `688856e997d44394a3b5a84fe82ee88260b9f1de`
-- Working tree at evidence capture: `DIRTY`
+- Commit: `9ddea87f41e4def9d495d894e151225006d205cc`
+- Working tree at evidence capture: `CLEAN`
 - Tests: `PASS` (83 collected)
 - Coverage: `90.34%`
 - Ruff / mypy / Bandit: `PASS / PASS / PASS`
 - Dependency audit: `PASS`
 - Wheel build: `PASS`
+- Source distribution build: `PASS`
 - Snapshot and leakage checks: `PASS` (12 cases)
 - Decisive suite validation: `PASS`
 
