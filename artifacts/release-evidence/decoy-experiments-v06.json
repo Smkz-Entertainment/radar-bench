@@ -1,0 +1,2959 @@
+{
+  "attribution_decoy_false_useful_rate": {
+    "denominator": 80,
+    "numerator": 48,
+    "value": 0.6
+  },
+  "available_decoys": 240,
+  "decoy_count": 240,
+  "decoy_false_useful_rate": {
+    "denominator": 240,
+    "numerator": 48,
+    "value": 0.2
+  },
+  "decoy_marked_useful": 48,
+  "definition": "Decoys are plausible but irrelevant changes; an oracle marking them useful is a channel-integrity failure signal.",
+  "frozen_selected_experiment_useful_rate": 0.9,
+  "rows": [
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A01"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A02"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A03"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A04"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A05"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A06"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A07"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A08"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A09"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A10"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A15"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A17"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A18"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A19"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A20"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A21"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A22"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A23"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "CONFOUNDING_DEPENDENCY",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A24"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        },
+        {
+          "outcome": "CANDIDATE_SPECIFIC",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": true
+        }
+      ],
+      "episode_id": "RADAR-V05-E-A25"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S01"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S02"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S03"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S04"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S05"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S06"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S07"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S08"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S09"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S10"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S11"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S12"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S13"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S14"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S15"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S16"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S17"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S18"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S19"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S20"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S21"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S22"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S23"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S24"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S25"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S26"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S27"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S28"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S29"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S30"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S31"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S32"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S33"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S34"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S35"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S36"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S37"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S38"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S39"
+    },
+    {
+      "decoys": [
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "1",
+            "changed_variable": "PYTHONHASHSEED",
+            "control": "0",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "-vv",
+            "changed_variable": "PYTEST_ADDOPTS",
+            "control": "default",
+            "type": "environment_toggle"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "sdist",
+            "changed_variable": "artifact_source",
+            "control": "wheel",
+            "type": "artifact_source_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        },
+        {
+          "outcome": "UNAVAILABLE",
+          "request": {
+            "candidate": "release",
+            "changed_variable": "build_variant",
+            "control": "debug",
+            "type": "build_variant_compare"
+          },
+          "status": "AVAILABLE",
+          "useful": false
+        }
+      ],
+      "episode_id": "RADAR-V05-E-S40"
+    }
+  ]
+}

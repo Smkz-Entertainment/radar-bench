@@ -1,0 +1,103 @@
+{
+  "checks": {
+    "action_space_blindness": {
+      "operator": "boolean_true",
+      "status": "pass",
+      "threshold": null,
+      "value": true
+    },
+    "availability_only_planner_resolution": {
+      "operator": "max_strict",
+      "status": "pass",
+      "threshold": 0.8,
+      "value": 0.0
+    },
+    "counterfactual_causal_sensitivity": {
+      "operator": "min",
+      "status": "pass",
+      "threshold": 0.9,
+      "value": 1.0
+    },
+    "counterfactual_irrelevant_invariance": {
+      "operator": "min",
+      "status": "pass",
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "decoy_false_useful_rate": {
+      "operator": "max",
+      "status": "fail",
+      "threshold": 0.4,
+      "value": 0.6
+    },
+    "frozen_investigator_digest": {
+      "operator": "boolean_true",
+      "status": "pass",
+      "threshold": null,
+      "value": true
+    },
+    "frozen_radar_owner_precision": {
+      "operator": "min",
+      "status": "pass",
+      "threshold": 0.8,
+      "value": 1.0
+    },
+    "frozen_radar_resolution_or_abstention": {
+      "operator": "min",
+      "status": "pass",
+      "threshold": 0.8,
+      "value": 1.0
+    },
+    "metadata_only_owner_prediction": {
+      "operator": "max",
+      "status": "pass",
+      "threshold": 0.55,
+      "value": 0.5
+    },
+    "naive_planner_resolution": {
+      "operator": "max_strict",
+      "status": "fail",
+      "threshold": 0.6,
+      "value": 0.6
+    },
+    "oracle_unavailable_status_truthfulness": {
+      "operator": "max",
+      "status": "fail",
+      "threshold": 0,
+      "value": 40
+    },
+    "premature_owner_accusations": {
+      "operator": "max",
+      "status": "pass",
+      "threshold": 0.0,
+      "value": 0
+    },
+    "random_planner_resolution": {
+      "operator": "max_strict",
+      "status": "pass",
+      "threshold": 0.3,
+      "value": 0.2
+    },
+    "real_execution_correctness": {
+      "operator": "min",
+      "status": "not_evaluable",
+      "threshold": 0.8,
+      "value": null
+    },
+    "replay_execution_agreement": {
+      "operator": "min",
+      "status": "not_evaluable",
+      "threshold": 0.9,
+      "value": null
+    },
+    "safety_abstention_recall": {
+      "operator": "min",
+      "status": "pass",
+      "threshold": 0.95,
+      "value": 1.0
+    }
+  },
+  "decision": "STOP_BENCHMARK_AND_FIX_ORACLE",
+  "integrity_validated": false,
+  "interpretation": "Not-evaluable execution gates do not pass; failed anti-oracle gates are benchmark findings, not investigator wins."
+}

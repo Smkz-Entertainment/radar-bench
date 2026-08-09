@@ -1,0 +1,153 @@
+{
+  "artifact_paths": [
+    "artifacts/v06-final-report.md",
+    "artifacts/v06-result.json",
+    "artifacts/release-evidence/v06-gates.json",
+    "artifacts/release-evidence/oracle-channel-audit-v06.json",
+    "artifacts/release-evidence/grouped-holdout-v06.json",
+    "artifacts/release-evidence/cross-family-holdout-v06.json",
+    "artifacts/release-evidence/component-holdout-v06.json",
+    "artifacts/release-evidence/time-period-holdout-v06.json",
+    "artifacts/release-evidence/decoy-experiments-v06.json",
+    "artifacts/release-evidence/counterfactual-perturbations-v06.json",
+    "artifacts/release-evidence/anti-oracle-baselines-v06.json",
+    "artifacts/release-evidence/real-execution-v06.json",
+    "artifacts/release-evidence/replay-concordance-v06.json",
+    "artifacts/release-evidence/investigator-freeze-v06.json"
+  ],
+  "decision": "STOP_BENCHMARK_AND_FIX_ORACLE",
+  "findings": [
+    "Metadata-only owner prediction is 0.5 against chance 0.5.",
+    "The full result channel exposes supported components on 12 of 60 probes.",
+    "Decoy false-useful rate on attribution cases is 0.6 (overall 0.2).",
+    "Random attribution resolution is 0.2; naive is 0.6.",
+    "Oracle-availability-only attribution resolution is 0.0 using response status only.",
+    "No real execution subset or replay/execution concordance is available from the frozen corpus."
+  ],
+  "gates": {
+    "checks": {
+      "action_space_blindness": {
+        "operator": "boolean_true",
+        "status": "pass",
+        "threshold": null,
+        "value": true
+      },
+      "availability_only_planner_resolution": {
+        "operator": "max_strict",
+        "status": "pass",
+        "threshold": 0.8,
+        "value": 0.0
+      },
+      "counterfactual_causal_sensitivity": {
+        "operator": "min",
+        "status": "pass",
+        "threshold": 0.9,
+        "value": 1.0
+      },
+      "counterfactual_irrelevant_invariance": {
+        "operator": "min",
+        "status": "pass",
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "decoy_false_useful_rate": {
+        "operator": "max",
+        "status": "fail",
+        "threshold": 0.4,
+        "value": 0.6
+      },
+      "frozen_investigator_digest": {
+        "operator": "boolean_true",
+        "status": "pass",
+        "threshold": null,
+        "value": true
+      },
+      "frozen_radar_owner_precision": {
+        "operator": "min",
+        "status": "pass",
+        "threshold": 0.8,
+        "value": 1.0
+      },
+      "frozen_radar_resolution_or_abstention": {
+        "operator": "min",
+        "status": "pass",
+        "threshold": 0.8,
+        "value": 1.0
+      },
+      "metadata_only_owner_prediction": {
+        "operator": "max",
+        "status": "pass",
+        "threshold": 0.55,
+        "value": 0.5
+      },
+      "naive_planner_resolution": {
+        "operator": "max_strict",
+        "status": "fail",
+        "threshold": 0.6,
+        "value": 0.6
+      },
+      "oracle_unavailable_status_truthfulness": {
+        "operator": "max",
+        "status": "fail",
+        "threshold": 0,
+        "value": 40
+      },
+      "premature_owner_accusations": {
+        "operator": "max",
+        "status": "pass",
+        "threshold": 0.0,
+        "value": 0
+      },
+      "random_planner_resolution": {
+        "operator": "max_strict",
+        "status": "pass",
+        "threshold": 0.3,
+        "value": 0.2
+      },
+      "real_execution_correctness": {
+        "operator": "min",
+        "status": "not_evaluable",
+        "threshold": 0.8,
+        "value": null
+      },
+      "replay_execution_agreement": {
+        "operator": "min",
+        "status": "not_evaluable",
+        "threshold": 0.9,
+        "value": null
+      },
+      "safety_abstention_recall": {
+        "operator": "min",
+        "status": "pass",
+        "threshold": 0.95,
+        "value": 1.0
+      }
+    },
+    "decision": "STOP_BENCHMARK_AND_FIX_ORACLE",
+    "integrity_validated": false,
+    "interpretation": "Not-evaluable execution gates do not pass; failed anti-oracle gates are benchmark findings, not investigator wins."
+  },
+  "hashes": {
+    "frozen_v05_implementation": "sha256:11098270d0f4ab26277ad2b63208dccf20b0c3300d9a1c54838092b0f9759297",
+    "immutable_v04_corpus": "sha256:ffbce9c1ece8a8afbcd6c7342a4224383d8b80a5c6e7e06e1e17401799e28621",
+    "v06_audit_implementation": "sha256:548eb8279ceff8d15905fb34cce867f275a32c818d9b8851e306f93806227ba3"
+  },
+  "platform": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.3"
+  },
+  "project": "ecosystem-radar-bench",
+  "protocol_version": "0.6",
+  "scope": {
+    "corpus_expanded": false,
+    "episodes": 60,
+    "investigator_tuned": false,
+    "network_mutation": "none",
+    "real_execution": "BLOCKED_EXTERNAL"
+  },
+  "statuses": {
+    "PRODUCT_IMPLEMENTATION": "BLOCKED",
+    "V05_INVESTIGATOR": "FROZEN_UNDER_AUDIT",
+    "V06_BENCHMARK_INTEGRITY": "FAILED_VALIDATION"
+  }
+}

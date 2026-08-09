@@ -18,6 +18,7 @@ from radar_bench.corpus.admission import admission_summary, validate_admission
 from radar_bench.corpus.v03 import validate_gold_admission, v03_corpus_summary
 from radar_bench.corpus.v04 import validate_v04_record, v04_summary
 from radar_bench.investigation.v01 import validate_episode
+from radar_bench.integrity.v06 import REQUIRED_V06_ARTIFACTS
 from radar_bench.evaluation.ablation import compare_lanes
 from radar_bench.errors import ExternalBlocked, RadarError, ValidationError
 from radar_bench.evaluation.gates import evaluate_gates
@@ -232,6 +233,28 @@ def command_validate_v05_episodes(args: argparse.Namespace) -> int:
         episodes = []
     result = {"path": str(path.resolve()), "valid": not errors, "episodes": len(episodes), "errors": errors}
     _json(result)
+    return EXIT_OK if not errors else EXIT_INVALID
+
+
+def command_validate_v06_integrity(args: argparse.Namespace) -> int:
+    root = _root()
+    result_path = Path(args.path) if args.path else root / "artifacts" / "v06-result.json"
+    errors: list[str] = []
+    try:
+        result = cast(dict[str, Any], json.loads(result_path.read_text(encoding="utf-8")))
+        if result.get("protocol_version") != "0.6":
+            errors.append("v0.6 result has the wrong protocol version")
+        for name in REQUIRED_V06_ARTIFACTS:
+            if not (root / "artifacts" / "release-evidence" / name).exists():
+                errors.append(f"missing v0.6 evidence artifact: {name}")
+        gates = result.get("gates", {})
+        if not isinstance(gates, dict) or "checks" not in gates:
+            errors.append("v0.6 result has no gate report")
+    except (OSError, ValueError, ValidationError) as exc:
+        errors.append(str(exc))
+        result = {}
+    output = {"path": str(result_path.resolve()), "valid": not errors, "errors": errors, "decision": result.get("decision")}
+    _json(output)
     return EXIT_OK if not errors else EXIT_INVALID
 
 
@@ -475,6 +498,9 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("validate-v05-episodes")
     p.add_argument("--path")
     p.set_defaults(function=command_validate_v05_episodes)
+    p = sub.add_parser("validate-v06-integrity")
+    p.add_argument("--path")
+    p.set_defaults(function=command_validate_v06_integrity)
     p = sub.add_parser("collect")
     group = p.add_mutually_exclusive_group(required=True)
     group.add_argument("--issue")

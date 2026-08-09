@@ -34,3 +34,13 @@ records:
 Only after v0.3 passes should shadow-mode ingestion, a public corpus/dashboard,
 or other user-facing Radar product work be considered. No GitHub bot or
 maintainer-contact integration is planned.
+
+The v0.6 integrity sequence is:
+
+1. Keep the v0.5 investigator and v0.4 corpus frozen.
+2. Audit action-space blindness, all observable response metadata, grouped and
+   cross-family holdouts, decoys, counterfactuals, and anti-oracle baselines.
+3. Admit only exact, reconstructable real executions; record external blocks
+   instead of fabricating runs.
+4. Stop on any failed or not-evaluable integrity gate. Product implementation
+   is blocked until a repaired oracle passes the full challenge.

@@ -1,0 +1,79 @@
+{
+  "development": {
+    "cases": 16,
+    "correct_resolution_or_abstention": {
+      "denominator": 16,
+      "numerator": 16,
+      "value": 1.0
+    },
+    "owner_precision": {
+      "denominator": 3,
+      "numerator": 3,
+      "value": 1.0
+    }
+  },
+  "development_groups": [
+    "https://github.com/OpenMathLib/OpenBLAS",
+    "https://github.com/matplotlib/matplotlib",
+    "https://github.com/numpy/numpy",
+    "https://github.com/pandas-dev/pandas",
+    "https://github.com/scipy/scipy"
+  ],
+  "evaluation": {
+    "cases": 4,
+    "correct_resolution_or_abstention": {
+      "denominator": 4,
+      "numerator": 4,
+      "value": 1.0
+    },
+    "owner_precision": {
+      "denominator": 1,
+      "numerator": 1,
+      "value": 1.0
+    }
+  },
+  "evaluation_groups": [
+    "https://github.com/pydata/xarray",
+    "https://github.com/scikit-learn/scikit-learn"
+  ],
+  "group_field": "component",
+  "group_overlap": [],
+  "groups": {
+    "https://github.com/OpenMathLib/OpenBLAS": [
+      "RADAR-V05-E-A02"
+    ],
+    "https://github.com/matplotlib/matplotlib": [
+      "RADAR-V05-E-A18"
+    ],
+    "https://github.com/numpy/numpy": [
+      "RADAR-V05-E-A04",
+      "RADAR-V05-E-A08",
+      "RADAR-V05-E-A09",
+      "RADAR-V05-E-A20",
+      "RADAR-V05-E-A22",
+      "RADAR-V05-E-A23",
+      "RADAR-V05-E-A24"
+    ],
+    "https://github.com/pandas-dev/pandas": [
+      "RADAR-V05-E-A05",
+      "RADAR-V05-E-A06",
+      "RADAR-V05-E-A15",
+      "RADAR-V05-E-A17",
+      "RADAR-V05-E-A21"
+    ],
+    "https://github.com/pydata/xarray": [
+      "RADAR-V05-E-A07",
+      "RADAR-V05-E-A25"
+    ],
+    "https://github.com/scikit-learn/scikit-learn": [
+      "RADAR-V05-E-A01",
+      "RADAR-V05-E-A10"
+    ],
+    "https://github.com/scipy/scipy": [
+      "RADAR-V05-E-A03",
+      "RADAR-V05-E-A19"
+    ]
+  },
+  "no_group_crosses_split": true,
+  "tuning_performed": false
+}

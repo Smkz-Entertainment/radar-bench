@@ -1,0 +1,9 @@
+{
+  "agreement": {
+    "denominator": 0,
+    "numerator": 0,
+    "value": null
+  },
+  "reason": "No genuine real-execution subset completed; replay-versus-execution comparison would be fabricated.",
+  "status": "NOT_EVALUABLE"
+}

@@ -45,6 +45,14 @@ reported separately; it does not change the frozen v0.4 `PIVOT_REQUIRED`
 decision or imply production readiness. See
 [docs/V05_INTERACTIVE_REGRESSION_INVESTIGATION.md](docs/V05_INTERACTIVE_REGRESSION_INVESTIGATION.md).
 
+The v0.6 Benchmark Integrity Challenge keeps v0.5 frozen and attacks the
+action space, replay response channel, holdouts, decoys, counterfactuals, and
+anti-oracle baselines. Its current result is
+`V06_BENCHMARK_INTEGRITY = FAILED_VALIDATION` with
+`PRODUCT_IMPLEMENTATION = BLOCKED`; see
+[docs/V06_BENCHMARK_INTEGRITY.md](docs/V06_BENCHMARK_INTEGRITY.md). The
+failure is a benchmark-integrity finding, not a product capability claim.
+
 There is no dashboard, GitHub write integration, notification system,
 arbitrary-repository executor, hosted service, billing, repair generator, or
 credential-requiring model integration.
@@ -89,6 +97,8 @@ radar-bench validate-v04-corpus --json
 python scripts/run_v05_investigation.py
 radar-bench validate-v05-episodes
 radar-bench baseline corpus/snapshots/RADAR-OSINT-008 --v03
+python scripts/run_v06_integrity.py
+radar-bench validate-v06-integrity
 ```
 
 ## Seed corpus status

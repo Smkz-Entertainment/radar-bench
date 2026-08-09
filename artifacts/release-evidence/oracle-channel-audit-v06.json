@@ -1,0 +1,3807 @@
+{
+  "action_space": {
+    "blind": true,
+    "definition": "Only generic experiment types are visible; target values remain planner-selected.",
+    "episodes": 60,
+    "unique_action_space_digests": 1,
+    "violations": []
+  },
+  "metadata_channel": {
+    "chance_baseline": 0.5,
+    "direct_result_component_exposure_count": 12,
+    "direct_result_component_exposure_rate": 0.2,
+    "episodes": 60,
+    "interpretation": "Metadata-only rows strip result values; direct component exposure is reported separately because it can be legitimate experiment evidence or structural oracle leakage.",
+    "metadata_gate_value": 0.5,
+    "metadata_only_owner_prediction": {
+      "denominator": 4,
+      "numerator": 2,
+      "value": 0.5
+    },
+    "rows": [
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A01",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 4,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 548,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A02",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 372,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A03",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 372,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A04",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 4,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 534,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A05",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 4,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 540,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A06",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 4,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 540,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A07",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 372,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A08",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 1,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 465,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A09",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 372,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A10",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 372,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A15",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 1,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 471,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A17",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 1,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 471,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A18",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 372,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A19",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 1,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 465,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A20",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 1,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 465,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A21",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 1,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 471,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A22",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 372,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A23",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 1,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 465,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A24",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 372,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 410,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-A25",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 1,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "str",
+            "list",
+            "bool"
+          ],
+          "serialized_length": 467,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S01",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S02",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S03",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S04",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S05",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S06",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S07",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S08",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S09",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S10",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S11",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S12",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S13",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S14",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S15",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S16",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S17",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S18",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S19",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S20",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S21",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S22",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S23",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S24",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S25",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S26",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S27",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S28",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S29",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S30",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S31",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S32",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S33",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S34",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S35",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S36",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S37",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S38",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S39",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      },
+      {
+        "baseline": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 369,
+          "status": "AVAILABLE"
+        },
+        "episode_id": "RADAR-V05-E-S40",
+        "probe": {
+          "adapter": "historical_replay",
+          "error_code_count": 0,
+          "execution_evidence_count": 0,
+          "provenance_id_length": 71,
+          "response_key_order": [
+            "status",
+            "request_id",
+            "adapter",
+            "result",
+            "execution_evidence",
+            "provenance_id"
+          ],
+          "result_key_order": [
+            "outcome",
+            "useful",
+            "supported_component",
+            "eliminated_hypotheses",
+            "candidate_induced"
+          ],
+          "result_value_types": [
+            "str",
+            "bool",
+            "NoneType",
+            "list",
+            "NoneType"
+          ],
+          "serialized_length": 364,
+          "status": "AVAILABLE"
+        }
+      }
+    ],
+    "unavailable_outcome_reported_available": 40,
+    "unique_structural_signatures": 8
+  },
+  "schema_version": "0.1"
+}

@@ -1,0 +1,100 @@
+{
+  "development": {
+    "cases": 11,
+    "correct_resolution_or_abstention": {
+      "denominator": 11,
+      "numerator": 11,
+      "value": 1.0
+    },
+    "owner_precision": {
+      "denominator": 2,
+      "numerator": 2,
+      "value": 1.0
+    }
+  },
+  "development_groups": [
+    "2021-12",
+    "2023-09",
+    "2024-01",
+    "2024-03",
+    "2026-04",
+    "2026-05",
+    "2026-06",
+    "2026-07"
+  ],
+  "evaluation": {
+    "cases": 9,
+    "correct_resolution_or_abstention": {
+      "denominator": 9,
+      "numerator": 9,
+      "value": 1.0
+    },
+    "owner_precision": {
+      "denominator": 2,
+      "numerator": 2,
+      "value": 1.0
+    }
+  },
+  "evaluation_groups": [
+    "2017-03",
+    "2022-11",
+    "2024-07",
+    "2024-12",
+    "2025-01",
+    "2025-02"
+  ],
+  "group_field": "time_period",
+  "group_overlap": [],
+  "groups": {
+    "2017-03": [
+      "RADAR-V05-E-A25"
+    ],
+    "2021-12": [
+      "RADAR-V05-E-A06"
+    ],
+    "2022-11": [
+      "RADAR-V05-E-A08"
+    ],
+    "2023-09": [
+      "RADAR-V05-E-A05"
+    ],
+    "2024-01": [
+      "RADAR-V05-E-A21"
+    ],
+    "2024-03": [
+      "RADAR-V05-E-A02",
+      "RADAR-V05-E-A22"
+    ],
+    "2024-07": [
+      "RADAR-V05-E-A09",
+      "RADAR-V05-E-A24"
+    ],
+    "2024-12": [
+      "RADAR-V05-E-A01",
+      "RADAR-V05-E-A03",
+      "RADAR-V05-E-A04"
+    ],
+    "2025-01": [
+      "RADAR-V05-E-A07"
+    ],
+    "2025-02": [
+      "RADAR-V05-E-A23"
+    ],
+    "2026-04": [
+      "RADAR-V05-E-A20"
+    ],
+    "2026-05": [
+      "RADAR-V05-E-A10",
+      "RADAR-V05-E-A17"
+    ],
+    "2026-06": [
+      "RADAR-V05-E-A15",
+      "RADAR-V05-E-A18"
+    ],
+    "2026-07": [
+      "RADAR-V05-E-A19"
+    ]
+  },
+  "no_group_crosses_split": true,
+  "tuning_performed": false
+}

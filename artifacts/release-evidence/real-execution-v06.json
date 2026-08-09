@@ -1,0 +1,12 @@
+{
+  "available_admitted_episodes": 60,
+  "correctness": {
+    "denominator": 0,
+    "numerator": 0,
+    "value": null
+  },
+  "reason": "No exact environment, command, lockfile, or secret-free container manifest is present in the frozen v0.4 corpus; no synthetic execution was substituted.",
+  "requested_cases": 5,
+  "selected_cases": [],
+  "status": "BLOCKED_EXTERNAL"
+}

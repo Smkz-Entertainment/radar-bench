@@ -17,6 +17,13 @@ v0.4 records. It preserves the v0.4 result as
 heuristic lane currently clears the frozen continuation thresholds, so
 `AGENTIC_CAUSAL_INVESTIGATION = ACTIVE_VALIDATED`. This is not production
 readiness and does not authorize corpus or product expansion.
+v0.6 is the Benchmark Integrity Challenge over that frozen v0.5 investigator.
+It currently reports `V06_BENCHMARK_INTEGRITY = FAILED_VALIDATION`, keeps
+`V05_INVESTIGATOR = FROZEN_UNDER_AUDIT`, and blocks product implementation.
+The replay channel has status/result mismatches, attribution decoys are marked
+useful too often, the naive planner meets the strict failure boundary, and no
+exact environment manifest exists for real execution. See
+[V06_BENCHMARK_INTEGRITY.md](V06_BENCHMARK_INTEGRITY.md).
 
 ## Decisions
 
@@ -55,3 +62,7 @@ readiness and does not authorize corpus or product expansion.
   attributability classes, Resolution@k, safety, ablation, and kill-gate
   evidence. Real container execution and optional model lanes remain blocked
   when no safe runtime or no-cost/credentialed model is available.
+- v0.6 adds evaluator-owned integrity audits for the oracle channel, grouped
+  holdouts, decoys, counterfactuals, anti-oracle baselines, and freeze
+  verification. Its failed gates prevent productization until the oracle is
+  repaired and the challenge passes.

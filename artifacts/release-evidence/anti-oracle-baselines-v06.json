@@ -1,0 +1,1914 @@
+{
+  "naive_first_component_heuristic": {
+    "attribution_resolution": {
+      "denominator": 20,
+      "numerator": 12,
+      "value": 0.6
+    },
+    "runs": [
+      {
+        "episode_id": "RADAR-V05-E-A01",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/scikit-learn/scikit-learn",
+          "root_cause_component": "https://github.com/scikit-learn/scikit-learn",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A02",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A03",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A04",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/numpy/numpy",
+          "root_cause_component": "https://github.com/numpy/numpy",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A05",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/pandas-dev/pandas",
+          "root_cause_component": "https://github.com/pandas-dev/pandas",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A06",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/pandas-dev/pandas",
+          "root_cause_component": "https://github.com/pandas-dev/pandas",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A07",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A08",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/numpy/numpy",
+          "root_cause_component": "https://github.com/numpy/numpy",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A09",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A10",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A15",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/pandas-dev/pandas",
+          "root_cause_component": "https://github.com/pandas-dev/pandas",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A17",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/pandas-dev/pandas",
+          "root_cause_component": "https://github.com/pandas-dev/pandas",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A18",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A19",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/scipy/scipy",
+          "root_cause_component": "https://github.com/scipy/scipy",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A20",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/numpy/numpy",
+          "root_cause_component": "https://github.com/numpy/numpy",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A21",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/pandas-dev/pandas",
+          "root_cause_component": "https://github.com/pandas-dev/pandas",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A22",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A23",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/numpy/numpy",
+          "root_cause_component": "https://github.com/numpy/numpy",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A24",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A25",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "https://github.com/pydata/xarray",
+          "root_cause_component": "https://github.com/pydata/xarray",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S01",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S02",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S03",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S04",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S05",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S06",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S07",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S08",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S09",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S10",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S11",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S12",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S13",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S14",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S15",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S16",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S17",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S18",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S19",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S20",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S21",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S22",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S23",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S24",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S25",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S26",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S27",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S28",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S29",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S30",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S31",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S32",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S33",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S34",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S35",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S36",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S37",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S38",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S39",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S40",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      }
+    ],
+    "selected_types": {
+      "dependency_graph_probe": 60
+    }
+  },
+  "oracle_availability_only_planner": {
+    "attribution_resolution": {
+      "denominator": 20,
+      "numerator": 0,
+      "value": 0.0
+    },
+    "response_statuses": {
+      "AVAILABLE": 60
+    },
+    "runs": [
+      {
+        "episode_id": "RADAR-V05-E-A01",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A02",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A03",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A04",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A05",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A06",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A07",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A08",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A09",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A10",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A15",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A17",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A18",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A19",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A20",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A21",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A22",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A23",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A24",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-A25",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S01",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S02",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S03",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S04",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S05",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S06",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S07",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S08",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S09",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S10",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S11",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S12",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S13",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S14",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S15",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S16",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S17",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S18",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S19",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S20",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S21",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S22",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S23",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S24",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S25",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S26",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S27",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S28",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S29",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S30",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S31",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S32",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S33",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S34",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S35",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S36",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S37",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S38",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S39",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      },
+      {
+        "episode_id": "RADAR-V05-E-S40",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": "upstream_component",
+          "root_cause_component": "upstream_component",
+          "state": "CAUSALLY_ATTRIBUTED"
+        },
+        "used_result_values": false
+      }
+    ],
+    "selected_types": {
+      "dependency_graph_probe": 60
+    },
+    "uses_only_response_status": true
+  },
+  "random_valid_experiment_selection": {
+    "attribution_resolution": {
+      "denominator": 20,
+      "numerator": 4,
+      "value": 0.2
+    },
+    "runs": [
+      {
+        "episode_id": "RADAR-V05-E-A01",
+        "response_status": "AVAILABLE",
+        "selected_type": "version_swap",
+        "terminal": {
+          "action_owner_repository": "https://github.com/scikit-learn/scikit-learn",
+          "root_cause_component": "https://github.com/scikit-learn/scikit-learn",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A02",
+        "response_status": "INVALID",
+        "selected_type": "platform_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A03",
+        "response_status": "AVAILABLE",
+        "selected_type": "rerun",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A04",
+        "response_status": "AVAILABLE",
+        "selected_type": "version_swap",
+        "terminal": {
+          "action_owner_repository": "https://github.com/numpy/numpy",
+          "root_cause_component": "https://github.com/numpy/numpy",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A05",
+        "response_status": "INVALID",
+        "selected_type": "architecture_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A06",
+        "response_status": "INVALID",
+        "selected_type": "architecture_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A07",
+        "response_status": "INVALID",
+        "selected_type": "artifact_source_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A08",
+        "response_status": "AVAILABLE",
+        "selected_type": "version_swap",
+        "terminal": {
+          "action_owner_repository": "https://github.com/numpy/numpy",
+          "root_cause_component": "https://github.com/numpy/numpy",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A09",
+        "response_status": "INVALID",
+        "selected_type": "dependency_unpin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A10",
+        "response_status": "INVALID",
+        "selected_type": "environment_toggle",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A15",
+        "response_status": "INVALID",
+        "selected_type": "environment_toggle",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A17",
+        "response_status": "INVALID",
+        "selected_type": "dependency_unpin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A18",
+        "response_status": "INVALID",
+        "selected_type": "platform_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A19",
+        "response_status": "AVAILABLE",
+        "selected_type": "version_swap",
+        "terminal": {
+          "action_owner_repository": "https://github.com/scipy/scipy",
+          "root_cause_component": "https://github.com/scipy/scipy",
+          "state": "CAUSALLY_ATTRIBUTED"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A20",
+        "response_status": "INVALID",
+        "selected_type": "environment_toggle",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A21",
+        "response_status": "INVALID",
+        "selected_type": "dependency_pin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A22",
+        "response_status": "INVALID",
+        "selected_type": "environment_toggle",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A23",
+        "response_status": "INVALID",
+        "selected_type": "artifact_source_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A24",
+        "response_status": "AVAILABLE",
+        "selected_type": "rerun",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-A25",
+        "response_status": "INVALID",
+        "selected_type": "dependency_pin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S01",
+        "response_status": "INVALID",
+        "selected_type": "artifact_source_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S02",
+        "response_status": "INVALID",
+        "selected_type": "bisect",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S03",
+        "response_status": "INVALID",
+        "selected_type": "bisect",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S04",
+        "response_status": "INVALID",
+        "selected_type": "platform_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S05",
+        "response_status": "INVALID",
+        "selected_type": "dependency_unpin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S06",
+        "response_status": "INVALID",
+        "selected_type": "build_variant_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S07",
+        "response_status": "AVAILABLE",
+        "selected_type": "version_swap",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S08",
+        "response_status": "INVALID",
+        "selected_type": "dependency_unpin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S09",
+        "response_status": "INVALID",
+        "selected_type": "dependency_unpin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S10",
+        "response_status": "INVALID",
+        "selected_type": "environment_toggle",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S11",
+        "response_status": "INVALID",
+        "selected_type": "dependency_unpin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S12",
+        "response_status": "INVALID",
+        "selected_type": "architecture_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S13",
+        "response_status": "INVALID",
+        "selected_type": "artifact_source_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S14",
+        "response_status": "INVALID",
+        "selected_type": "environment_toggle",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S15",
+        "response_status": "INVALID",
+        "selected_type": "environment_toggle",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S16",
+        "response_status": "INVALID",
+        "selected_type": "dependency_unpin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S17",
+        "response_status": "INVALID",
+        "selected_type": "artifact_source_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S18",
+        "response_status": "INVALID",
+        "selected_type": "dependency_unpin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S19",
+        "response_status": "AVAILABLE",
+        "selected_type": "version_swap",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S20",
+        "response_status": "AVAILABLE",
+        "selected_type": "minimal_reproducer",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S21",
+        "response_status": "AVAILABLE",
+        "selected_type": "rerun",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S22",
+        "response_status": "AVAILABLE",
+        "selected_type": "version_swap",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S23",
+        "response_status": "AVAILABLE",
+        "selected_type": "rerun",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S24",
+        "response_status": "INVALID",
+        "selected_type": "dependency_unpin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S25",
+        "response_status": "AVAILABLE",
+        "selected_type": "version_swap",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S26",
+        "response_status": "INVALID",
+        "selected_type": "architecture_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S27",
+        "response_status": "AVAILABLE",
+        "selected_type": "minimal_reproducer",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S28",
+        "response_status": "INVALID",
+        "selected_type": "dependency_pin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S29",
+        "response_status": "INVALID",
+        "selected_type": "dependency_pin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S30",
+        "response_status": "INVALID",
+        "selected_type": "dependency_unpin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S31",
+        "response_status": "INVALID",
+        "selected_type": "artifact_source_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S32",
+        "response_status": "INVALID",
+        "selected_type": "build_variant_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S33",
+        "response_status": "INVALID",
+        "selected_type": "bisect",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S34",
+        "response_status": "AVAILABLE",
+        "selected_type": "version_swap",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S35",
+        "response_status": "INVALID",
+        "selected_type": "architecture_compare",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S36",
+        "response_status": "AVAILABLE",
+        "selected_type": "minimal_reproducer",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S37",
+        "response_status": "INVALID",
+        "selected_type": "dependency_unpin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S38",
+        "response_status": "INVALID",
+        "selected_type": "dependency_pin",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S39",
+        "response_status": "AVAILABLE",
+        "selected_type": "minimal_reproducer",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      },
+      {
+        "episode_id": "RADAR-V05-E-S40",
+        "response_status": "AVAILABLE",
+        "selected_type": "dependency_graph_probe",
+        "terminal": {
+          "action_owner_repository": null,
+          "root_cause_component": null,
+          "state": "BOUNDED_INCONCLUSIVE"
+        }
+      }
+    ],
+    "selected_types": {
+      "architecture_compare": 5,
+      "artifact_source_compare": 6,
+      "bisect": 3,
+      "build_variant_compare": 2,
+      "dependency_graph_probe": 1,
+      "dependency_pin": 5,
+      "dependency_unpin": 11,
+      "environment_toggle": 7,
+      "minimal_reproducer": 4,
+      "platform_compare": 3,
+      "rerun": 4,
+      "version_swap": 9
+    }
+  },
+  "ranking_expectation": "random low, metadata-only near chance, availability-only low, naive below 0.60, frozen investigator high"
+}

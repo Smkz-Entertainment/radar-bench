@@ -1,0 +1,115 @@
+{
+  "development": {
+    "cases": 12,
+    "correct_resolution_or_abstention": {
+      "denominator": 12,
+      "numerator": 12,
+      "value": 1.0
+    },
+    "owner_precision": {
+      "denominator": 3,
+      "numerator": 3,
+      "value": 1.0
+    }
+  },
+  "development_groups": [
+    "commit:15fd7d7",
+    "matplotlib:3.11.0",
+    "meson:f2py",
+    "numpy:1.23.0",
+    "openblas:0.3.26",
+    "pandas:3.0.4",
+    "pandas:nightly",
+    "pr:29458",
+    "pr:44940",
+    "scipy:1.15.0rc1",
+    "xarray:0.9",
+    "zarr:3"
+  ],
+  "evaluation": {
+    "cases": 8,
+    "correct_resolution_or_abstention": {
+      "denominator": 8,
+      "numerator": 8,
+      "value": 1.0
+    },
+    "owner_precision": {
+      "denominator": 1,
+      "numerator": 1,
+      "value": 1.0
+    }
+  },
+  "evaluation_groups": [
+    "numpy:2.0.0",
+    "numpy:2.2.3",
+    "numpy:2.3",
+    "pandas:2.2.0",
+    "pr:27883",
+    "scikit-learn:main",
+    "scipy:1.18"
+  ],
+  "group_field": "incident",
+  "group_overlap": [],
+  "groups": {
+    "commit:15fd7d7": [
+      "RADAR-V05-E-A05"
+    ],
+    "matplotlib:3.11.0": [
+      "RADAR-V05-E-A18"
+    ],
+    "meson:f2py": [
+      "RADAR-V05-E-A09"
+    ],
+    "numpy:1.23.0": [
+      "RADAR-V05-E-A08"
+    ],
+    "numpy:2.0.0": [
+      "RADAR-V05-E-A22",
+      "RADAR-V05-E-A24"
+    ],
+    "numpy:2.2.3": [
+      "RADAR-V05-E-A23"
+    ],
+    "numpy:2.3": [
+      "RADAR-V05-E-A20"
+    ],
+    "openblas:0.3.26": [
+      "RADAR-V05-E-A02"
+    ],
+    "pandas:2.2.0": [
+      "RADAR-V05-E-A21"
+    ],
+    "pandas:3.0.4": [
+      "RADAR-V05-E-A15"
+    ],
+    "pandas:nightly": [
+      "RADAR-V05-E-A17"
+    ],
+    "pr:27883": [
+      "RADAR-V05-E-A04"
+    ],
+    "pr:29458": [
+      "RADAR-V05-E-A01"
+    ],
+    "pr:44940": [
+      "RADAR-V05-E-A06"
+    ],
+    "scikit-learn:main": [
+      "RADAR-V05-E-A10"
+    ],
+    "scipy:1.15.0rc1": [
+      "RADAR-V05-E-A03"
+    ],
+    "scipy:1.18": [
+      "RADAR-V05-E-A19"
+    ],
+    "xarray:0.9": [
+      "RADAR-V05-E-A25"
+    ],
+    "zarr:3": [
+      "RADAR-V05-E-A07"
+    ]
+  },
+  "no_group_crosses_split": true,
+  "tuning_performed": false
+}
