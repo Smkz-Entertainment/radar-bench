@@ -8,7 +8,13 @@
 - network-denied, digest-pinned Linux/x86-64 Docker execution;
 - evaluator-only labels physically outside candidate-visible runtime trees.
 
-The five historical wheelhouses are not redistributed in this repository. Their sealed manifests retain the staging paths and hashes from the case-sealing sprint. A clean checkout therefore validates the suite contract but must report historical execution as `ARTIFACT_UNAVAILABLE`. It must never treat `artifacts/v1.0/canonical-results.json` as a live run.
+The five historical wheelhouses are not redistributed in this repository. Their sealed manifests contain bundle IDs and file hashes, but no developer-local staging paths. Supply the bundles from an external artifact root:
+
+```text
+radar-bench evaluate --suite decisive-v1 --artifact-root /path/to/radar-bench-artifacts
+```
+
+A clean checkout without that root validates the suite contract but must report historical execution as `ARTIFACT_UNAVAILABLE`. It must never treat `artifacts/v1.0/canonical-results.json` as a live run.
 
 Run structural validation with:
 
@@ -22,4 +28,4 @@ Run the supported evaluation command with:
 radar-bench evaluate --suite decisive-v1 --output artifacts/v1.0/result.json
 ```
 
-The second command fails closed when the Linux/x86-64 runtime or sealed historical artifacts are unavailable.
+The second command fails closed when the Docker server does not provide Linux/x86-64, network denial, or sealed historical artifacts.

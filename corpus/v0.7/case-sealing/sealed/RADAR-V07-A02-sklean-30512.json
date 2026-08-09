@@ -16,7 +16,7 @@
     "architecture": "x86_64"
   },
   "artifact_bundle": {
-    "local_path": "C:\\Users\\samis\\AppData\\Local\\Temp\\radar-case-sealing-e6e869d5f1d64055b4ec392e3d5e2f61\\sklearn-30512-wheelhouse",
+    "bundle_id": "sklearn-30512-wheelhouse",
     "files": {
       "joblib-1.4.2-py3-none-any.whl": "sha256:06d478d5674cbc267e7496a410ee875abd68e4340feff4490bcb7afb88060ae6",
       "numpy-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "sha256:122fd2fcfafdefc889c64ad99c228d5a1f9692c3a83f56c292618a59aa60ae83",

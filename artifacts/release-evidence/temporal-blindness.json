@@ -1,6 +1,6 @@
 {
   "boundary": "portable capability boundary plus network-denied repository client",
-  "candidate_allowed_root": "C:\\Users\\samis\\AppData\\Local\\Temp\\tmp2u7skc0s\\candidate",
+  "candidate_allowed_root": "<candidate-allowed-root>",
   "candidate_cannot_enumerate_gold": true,
   "candidate_cannot_read_gold": true,
   "candidate_output_digest": "sha256:6c27411dd0082ea95645e64c655e9c31a71c2f6d378bc8d50891d74ecfd17743",

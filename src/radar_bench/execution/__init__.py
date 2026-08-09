@@ -13,6 +13,7 @@ from radar_bench.execution.v07 import (
     validate_request,
     v07_gates,
 )
+from radar_bench.execution.docker_runtime import DockerRuntime, inspect_docker_runtime
 
 __all__ = [
     "COMMON_CAPABILITIES",
@@ -26,4 +27,6 @@ __all__ = [
     "validate_manifest",
     "validate_request",
     "v07_gates",
+    "DockerRuntime",
+    "inspect_docker_runtime",
 ]

@@ -6,7 +6,7 @@ The repository uses an annotated local tag only after every release gate passes.
 
 1. Confirm the worktree contains only intentional release files.
 2. Run `python scripts/ci.py` and preserve its machine-readable output.
-3. Run `radar-bench evaluate --suite decisive-v1` on the supported Linux/x86-64 Docker host.
+3. Run `radar-bench evaluate --suite decisive-v1 --artifact-root /path/to/radar-bench-artifacts` with a supported Linux/x86-64 Docker engine. Docker Desktop's Linux engine is acceptable.
 4. Confirm `artifacts/v1.0/release-gates.json` is `READY_FOR_PUBLIC_RELEASE` and the dependency audit is `PASS`.
 5. Update `CHANGELOG.md`, `CITATION.cff`, and the release evidence.
 6. Create an annotated `v1.0.0` tag only after the previous checks pass.

@@ -7,6 +7,8 @@
 - Added fail-closed suite validation, case inspection, result verification, and `--version` CLI support.
 - Preserved the immutable static v0.4, naïve, and frozen v0.5 baselines.
 - Published canonical reference metrics without treating them as live runtime evidence.
+- Accepted Docker Desktop when its server engine is Linux/x86-64, independent of the client host OS.
+- Replaced developer-local historical artifact paths with explicit external bundle IDs and a digest-verified `--artifact-root` input.
 - Documented v0.6 oracle leakage, v0.7 executable falsification, temporal blindness, safety, reproducibility, and case admission.
 
 ## 0.7.0 - 2026-08-09

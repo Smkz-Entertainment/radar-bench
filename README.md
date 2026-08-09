@@ -34,7 +34,7 @@ The supported evaluation command is:
 radar-bench evaluate --suite decisive-v1 --output artifacts/v1.0/result.json
 ```
 
-The canonical executable suite requires Linux/x86-64 and Docker. On another platform—or without the sealed historical wheelhouses—the command fails closed and records the precise blocker. `canonical-results.json` is a reference artifact, never a substitute for execution.
+The canonical executable suite requires a Linux/x86-64 Docker engine with network denial. Docker Desktop on Windows or macOS is acceptable when its server engine reports those capabilities. Historical wheelhouses are external inputs; provide them with `--artifact-root` when available. Without them, the command fails closed and records `ARTIFACT_UNAVAILABLE`. `canonical-results.json` is a reference artifact, never a substitute for execution.
 
 ## decisive-v1
 

@@ -2,7 +2,7 @@
   "schema_version": "v07-case-sealing-inventory-1",
   "sprint": "case-sealing",
   "started_at": "2026-08-09T00:00:00+03:00",
-  "artifact_staging_root": "C:\\Users\\samis\\AppData\\Local\\Temp\\radar-case-sealing-e6e869d5f1d64055b4ec392e3d5e2f61",
+  "artifact_staging_root": "<external-staging-root>",
   "container_image": "mirror.gcr.io/library/python@sha256:63669fd2563fa90b0442fa7b568e66e3667755636cda086d7bcaaa895f66fe39",
   "platform": {
     "os": "linux",

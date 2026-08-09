@@ -15,7 +15,7 @@ Rules used for this sprint:
   three attribution and five safety cases is actually met.
 
 The local artifact bundles used for this run are retained outside Git under the
-machine-local staging path recorded in `inventory.json`. Their SHA-256 values
+external bundle ID recorded in the sealed manifest. Their SHA-256 values
 are recorded in the sealed case manifests.
 
 Current sprint result: 3 locally sealed attribution cases, 0 locally sealed

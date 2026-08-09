@@ -17,6 +17,6 @@ The v0.7 decisive run used five sealed historical cases and twenty opaque safety
 
 ## Release boundary
 
-The public v1 suite is `decisive-v1`. Canonical execution is Linux/x86-64 Docker only. A clean checkout without historical wheelhouses must report `ARTIFACT_UNAVAILABLE`; a non-Linux host must report `PLATFORM_UNAVAILABLE`. Neither condition is a pass.
+The public v1 suite is `decisive-v1`. Canonical execution is a Linux/x86-64 Docker engine with network denial; Docker Desktop's Linux engine is valid even when the client host is Windows or macOS. A clean checkout without externally supplied historical wheelhouses must report `ARTIFACT_UNAVAILABLE`, and an engine that is not Linux/x86-64 must report `PLATFORM_UNAVAILABLE`. Neither condition is a pass.
 
 The v0.1–v0.7 source, schemas, case-sealing records, and negative evidence remain preserved for research history. See [RESEARCH_HISTORY.md](RESEARCH_HISTORY.md).

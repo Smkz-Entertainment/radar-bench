@@ -10,7 +10,6 @@ from __future__ import annotations
 
 import hashlib
 import json
-import platform
 import shutil
 import statistics
 import subprocess  # nosec B404 - fixed container argv, shell disabled
@@ -20,6 +19,7 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence, cast
 
 from radar_bench.evaluation.stages import digest_tree
+from radar_bench.execution.docker_runtime import inspect_docker_runtime
 
 PROTOCOL_VERSION = "0.7"
 FROZEN_V05_COMMIT = "60ccc18"
@@ -427,9 +427,24 @@ def preparation_audit(root: Path, manifest_path: Path) -> dict[str, Any]:
         return {"status": "BLOCKED_BY_EXECUTABILITY", "manifest": str(manifest_path), "case_count": 0, "counts": dict(counts), "reason": "The preparation phase has not sealed any executable cases."}
     if counts["attribution"] < MIN_ATTRIBUTION_CASES or counts["safety"] < MIN_SAFETY_CASES:
         return {"status": "BLOCKED_BY_EXECUTABILITY", "manifest": str(manifest_path), "case_count": len(cases), "counts": dict(counts), "reason": f"Pilot requires at least {MIN_ATTRIBUTION_CASES} attribution and {MIN_SAFETY_CASES} safety cases."}
-    if platform.system().lower() != "linux" or shutil.which("docker") is None:
-        return {"status": "BLOCKED_BY_EXECUTABILITY", "manifest": str(manifest_path), "case_count": len(cases), "counts": dict(counts), "reason": "A Linux/x86-64 Docker runtime is required for network-denied hermetic execution on this host."}
-    return {"status": "READY", "manifest": str(manifest_path), "case_count": len(cases), "counts": dict(counts), "manifest_digest": manifest_digest(manifest)}
+    runtime = inspect_docker_runtime()
+    if not runtime.supported:
+        return {
+            "status": "BLOCKED_BY_EXECUTABILITY",
+            "manifest": str(manifest_path),
+            "case_count": len(cases),
+            "counts": dict(counts),
+            "runtime": runtime.as_dict(),
+            "reason": "A Linux/x86-64 Docker engine is required for network-denied hermetic execution.",
+        }
+    return {
+        "status": "READY",
+        "manifest": str(manifest_path),
+        "case_count": len(cases),
+        "counts": dict(counts),
+        "runtime": runtime.as_dict(),
+        "manifest_digest": manifest_digest(manifest),
+    }
 
 
 def freeze_audit(root: Path, expected_digest: str, expected_commit: str = FROZEN_V05_COMMIT) -> dict[str, Any]:

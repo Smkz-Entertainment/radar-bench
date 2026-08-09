@@ -1,10 +1,10 @@
 """Public v1.0 benchmark contract and fail-closed release evaluator.
 
 This module deliberately treats the historical five-case run as a reference
-artifact, not as live observations.  A checkout can validate the contract
-without having the privately staged historical wheelhouses required to execute
-it.  Evaluation therefore reports every missing input and never substitutes
-the canonical reference result.
+artifact, not as live observations. A checkout can validate the contract
+without having externally staged historical wheelhouses required to execute
+it. Evaluation therefore reports every missing input and never substitutes the
+canonical reference result.
 """
 
 from __future__ import annotations
@@ -12,13 +12,13 @@ from __future__ import annotations
 import hashlib
 import json
 import platform
-import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Mapping, cast
 
 from radar_bench.errors import ValidationError
+from radar_bench.execution.docker_runtime import inspect_docker_runtime
 from radar_bench.execution.v07 import validate_manifest
 from radar_bench.schema.loader import validate_json
 
@@ -110,14 +110,32 @@ def load_suite(root: Path) -> dict[str, Any]:
     return suite
 
 
-def _artifact_status(manifest: Mapping[str, Any]) -> dict[str, Any]:
+def _artifact_status(
+    manifest: Mapping[str, Any], *, artifact_root: Path | None = None
+) -> dict[str, Any]:
     bundle = manifest.get("artifact_bundle")
     if not isinstance(bundle, Mapping):
-        return {"available": False, "reason": "ARTIFACT_UNAVAILABLE", "path": None}
-    raw_path = bundle.get("local_path")
-    if not isinstance(raw_path, str) or not raw_path:
+        return {
+            "available": False,
+            "reason": "ARTIFACT_UNAVAILABLE",
+            "path": "external-staging-root",
+        }
+    bundle_id = bundle.get("bundle_id")
+    if (
+        not isinstance(bundle_id, str)
+        or not bundle_id
+        or Path(bundle_id).is_absolute()
+        or ".." in Path(bundle_id).parts
+        or Path(bundle_id).name != bundle_id
+        or artifact_root is None
+    ):
         return {"available": False, "reason": "ARTIFACT_UNAVAILABLE", "path": "external-staging-root"}
-    path = Path(raw_path)
+    root = artifact_root.resolve()
+    path = (root / bundle_id).resolve()
+    try:
+        path.relative_to(root)
+    except ValueError:
+        return {"available": False, "reason": "ARTIFACT_UNAVAILABLE", "path": "external-staging-root"}
     if not path.is_dir():
         return {"available": False, "reason": "ARTIFACT_UNAVAILABLE", "path": "external-staging-root"}
     files = bundle.get("files")
@@ -141,7 +159,12 @@ def _artifact_status(manifest: Mapping[str, Any]) -> dict[str, Any]:
     return {"available": True, "reason": None, "path": "external-staging-root"}
 
 
-def _audit_historical_case(root: Path, entry: Mapping[str, Any], base: Path) -> dict[str, Any]:
+def _audit_historical_case(
+    root: Path,
+    entry: Mapping[str, Any],
+    base: Path,
+    artifact_root: Path | None = None,
+) -> dict[str, Any]:
     errors: list[str] = []
     manifest_path, path_error = _resolve_inside(root, base, str(entry.get("manifest", "")))
     if path_error or manifest_path is None:
@@ -178,7 +201,7 @@ def _audit_historical_case(root: Path, entry: Mapping[str, Any], base: Path) -> 
         errors.append(f"{case_id}: two fresh control/candidate reruns are required")
     runtime_recipe = manifest.get("runtime_recipe")
     runtime_recipe_available = isinstance(runtime_recipe, Mapping)
-    artifacts = _artifact_status(manifest)
+    artifacts = _artifact_status(manifest, artifact_root=artifact_root)
     if errors:
         return {
             "case_id": case_id,
@@ -229,7 +252,9 @@ def _audit_opacity(root: Path, paths: list[Path]) -> dict[str, Any]:
     return {"valid": not violations, "violations": violations}
 
 
-def validate_decisive_suite(root: Path) -> dict[str, Any]:
+def validate_decisive_suite(
+    root: Path, *, artifact_root: Path | None = None
+) -> dict[str, Any]:
     errors: list[str] = []
     warnings: list[str] = []
     suite_path = root / SUITE_RELATIVE
@@ -240,7 +265,7 @@ def validate_decisive_suite(root: Path) -> dict[str, Any]:
     base = suite_path.parent
     historical_results: list[dict[str, Any]] = []
     for entry in cast(list[dict[str, Any]], suite["historical_cases"]):
-        result = _audit_historical_case(root, entry, base)
+        result = _audit_historical_case(root, entry, base, artifact_root)
         historical_results.append(result)
         errors.extend(result.get("errors", []))
     if {item.get("case_id") for item in historical_results} != HISTORICAL_IDS:
@@ -373,8 +398,13 @@ def _blocked_cases(audit: Mapping[str, Any], reason: str) -> list[dict[str, str]
     return cases
 
 
-def evaluate_decisive_suite(root: Path, *, command: list[str] | None = None) -> dict[str, Any]:
-    audit = validate_decisive_suite(root)
+def evaluate_decisive_suite(
+    root: Path,
+    *,
+    command: list[str] | None = None,
+    artifact_root: Path | None = None,
+) -> dict[str, Any]:
+    audit = validate_decisive_suite(root, artifact_root=artifact_root)
     now = datetime.now(timezone.utc).isoformat()
     result: dict[str, Any] = {
         "schema_version": "1.0",
@@ -388,8 +418,8 @@ def evaluate_decisive_suite(root: Path, *, command: list[str] | None = None) -> 
             "os": sys.platform,
             "machine": platform.machine(),
             "python": platform.python_version(),
-            "docker": bool(shutil.which("docker")),
-            "canonical_supported": sys.platform == "linux" and platform.machine().lower() in {"x86_64", "amd64"},
+            "docker": False,
+            "canonical_supported": False,
         },
         "cases": {
             "requested": HISTORICAL_CASE_COUNT + SAFETY_CASE_COUNT,
@@ -411,11 +441,23 @@ def evaluate_decisive_suite(root: Path, *, command: list[str] | None = None) -> 
         result["error"] = "suite validation failed; no cases executed"
         result["cases"]["blocked_cases"] = _blocked_cases(audit, "INVALID_SUITE")
         return result
+    runtime = inspect_docker_runtime()
+    result["platform"].update(
+        {
+            "docker": runtime.available,
+            "canonical_supported": runtime.supported,
+            "engine_os": runtime.engine_os,
+            "engine_architecture": runtime.engine_architecture,
+            "runtime_reason": runtime.reason,
+        }
+    )
     reasons: list[str] = []
     if not result["platform"]["canonical_supported"]:
-        reasons.append("PLATFORM_UNAVAILABLE")
-    if not result["platform"]["docker"]:
-        reasons.append("RUNTIME_UNAVAILABLE")
+        reasons.append(
+            "RUNTIME_UNAVAILABLE"
+            if not runtime.available
+            else "PLATFORM_UNAVAILABLE"
+        )
     reasons.extend(
         str(item["block_reason"])
         for item in cast(list[dict[str, Any]], audit["historical"])

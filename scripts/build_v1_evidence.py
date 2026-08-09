@@ -258,7 +258,7 @@ def main() -> int:
     reproducibility = {
         "schema_version": "1.0",
         "suite_id": SUITE_ID,
-        "supported_platform": "Linux x86_64 with Docker",
+        "supported_platform": "Linux x86_64 Docker engine (including Docker Desktop Linux engine)",
         "network": "denied",
         "executed_cases": result["cases"]["executed"],
         "blocked_cases": result["cases"]["blocked"],

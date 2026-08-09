@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 from unittest.mock import patch
 
+from radar_bench.execution.docker_runtime import DockerRuntime
 from radar_bench.errors import SecurityError
 from radar_bench.providers.subprocess_provider import (
     MAX_INPUT_BYTES,
@@ -57,14 +58,53 @@ class ReleaseHelperTests(unittest.TestCase):
             self.assertEqual(_resolve_inside(root, root, str(artifact))[1], "path must be relative to the repository")
             self.assertEqual(_artifact_status({})["reason"], "ARTIFACT_UNAVAILABLE")
             self.assertFalse(_artifact_status({"artifact_bundle": {"local_path": None}})["available"])
-            missing = _artifact_status({"artifact_bundle": {"local_path": str(root / "missing"), "files": {"x": digest}}})
+            missing = _artifact_status(
+                {"artifact_bundle": {"bundle_id": "missing", "files": {"x": digest}}},
+                artifact_root=root,
+            )
             self.assertFalse(missing["available"])
-            missing_file = _artifact_status({"artifact_bundle": {"local_path": str(root), "files": {"missing.whl": digest}}})
+            bundle = root / "bundle"
+            bundle.mkdir()
+            (bundle / "artifact.whl").write_bytes(b"artifact")
+            missing_file = _artifact_status(
+                {"artifact_bundle": {"bundle_id": "bundle", "files": {"missing.whl": digest}}},
+                artifact_root=root,
+            )
             self.assertFalse(missing_file["available"])
-            valid = _artifact_status({"artifact_bundle": {"local_path": str(root), "files": {"artifact.whl": digest}}})
+            valid = _artifact_status(
+                {"artifact_bundle": {"bundle_id": "bundle", "files": {"artifact.whl": digest}}},
+                artifact_root=root,
+            )
             self.assertTrue(valid["available"])
-            self.assertFalse(_artifact_status({"artifact_bundle": {"local_path": str(root), "files": {}}})["available"])
-            self.assertFalse(_artifact_status({"artifact_bundle": {"local_path": str(root), "files": {"artifact.whl": "sha256:" + "0" * 64}}})["available"])
+            self.assertFalse(
+                _artifact_status(
+                    {"artifact_bundle": {"bundle_id": "bundle", "files": {}}},
+                    artifact_root=root,
+                )["available"]
+            )
+            self.assertFalse(
+                _artifact_status(
+                    {
+                        "artifact_bundle": {
+                            "bundle_id": "bundle",
+                            "files": {"artifact.whl": "sha256:" + "0" * 64},
+                        }
+                    },
+                    artifact_root=root,
+                )["available"]
+            )
+            self.assertFalse(
+                _artifact_status(
+                    {"artifact_bundle": {"bundle_id": "../escape", "files": {}}},
+                    artifact_root=root,
+                )["available"]
+            )
+            self.assertFalse(
+                _artifact_status(
+                    {"artifact_bundle": {"bundle_id": str(root), "files": {}}},
+                    artifact_root=root,
+                )["available"]
+            )
             (root / "visible").mkdir()
             (root / "visible" / "view.json").write_text('{"gold": false}', encoding="utf-8")
             opacity = _audit_opacity(root, [root / "visible"])
@@ -217,16 +257,14 @@ class ReleaseHelperTests(unittest.TestCase):
 
         valid_audit = {"valid": True, "historical": [], "safety": {"count": 0}}
         with patch("radar_bench.release.validate_decisive_suite", return_value=valid_audit), patch(
-            "radar_bench.release.sys.platform", "linux"
-        ), patch("radar_bench.release.platform.machine", return_value="x86_64"), patch(
-            "radar_bench.release.shutil.which", return_value="docker"
+            "radar_bench.release.inspect_docker_runtime",
+            return_value=DockerRuntime(available=True, supported=True, engine_os="linux", engine_architecture="x86_64", reason=None),
         ):
             result = evaluate_decisive_suite(Path("."))
         self.assertEqual(result["blockers"], ["EXECUTOR_HARNESS_UNAVAILABLE"])
         with patch("radar_bench.release.validate_decisive_suite", return_value=valid_audit), patch(
-            "radar_bench.release.sys.platform", "linux"
-        ), patch("radar_bench.release.platform.machine", return_value="x86_64"), patch(
-            "radar_bench.release.shutil.which", return_value=None
+            "radar_bench.release.inspect_docker_runtime",
+            return_value=DockerRuntime(available=False, supported=False, engine_os=None, engine_architecture=None, reason="RUNTIME_UNAVAILABLE"),
         ):
             result = evaluate_decisive_suite(Path("."))
         self.assertEqual(result["blockers"], ["RUNTIME_UNAVAILABLE"])

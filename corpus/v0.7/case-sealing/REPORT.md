@@ -32,7 +32,8 @@ mode `none`:
 
 The candidate containers were given only local wheels and the pre-cutoff input.
 Gold, post-cutoff discussion, and control output were not mounted. The full
-wheel SHA-256 inventory and local staging path are in the adjacent JSON files.
+wheel SHA-256 inventory and external bundle IDs are in the adjacent JSON files;
+developer-local staging paths are intentionally excluded from the public record.
 
 The recommended scikit-learn #30554 case was rejected with
 `PLATFORM_UNAVAILABLE`: the historical report is macOS arm64, while the

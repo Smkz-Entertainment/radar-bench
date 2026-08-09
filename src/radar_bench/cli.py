@@ -418,9 +418,14 @@ def _evidence_by_case() -> dict[str, dict[str, dict[str, Any]]]:
 
 def command_evaluate(args: argparse.Namespace) -> int:
     if args.suite:
+        command = ["radar-bench", "evaluate", "--suite", args.suite]
+        artifact_root = Path(args.artifact_root).resolve() if args.artifact_root else None
+        if artifact_root is not None:
+            command.extend(["--artifact-root", "<external-artifact-root>"])
         result = evaluate_decisive_suite(
             _root(),
-            command=["radar-bench", "evaluate", "--suite", args.suite],
+            command=command,
+            artifact_root=artifact_root,
         )
         if args.output:
             write_json(Path(args.output), result)
@@ -653,6 +658,10 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("evaluate")
     p.add_argument("path", nargs="?")
     p.add_argument("--suite")
+    p.add_argument(
+        "--artifact-root",
+        help="external directory containing content-addressed historical wheelhouses",
+    )
     p.add_argument("--split", default="seed")
     p.add_argument("--output")
     p.set_defaults(function=command_evaluate)

@@ -14,10 +14,10 @@ Validate the suite contract:
 radar-bench validate --suite decisive-v1
 ```
 
-Evaluate only on the supported Linux/x86-64 Docker platform:
+Evaluate only with a supported Linux/x86-64 Docker engine (Docker Desktop's Linux engine is acceptable):
 
 ```text
 radar-bench evaluate --suite decisive-v1 --output artifacts/v1.0/result.json
 ```
 
-On Windows, macOS, missing Docker, or missing sealed wheelhouses, the command returns a non-zero blocked result. That is expected and must not be converted into a score.
+Without Docker, without a Linux/x86-64 Docker server, or without externally staged wheelhouses, the command returns a non-zero blocked result. That is expected and must not be converted into a score.

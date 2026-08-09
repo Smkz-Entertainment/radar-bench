@@ -19,6 +19,17 @@ class ReleaseContractTests(unittest.TestCase):
         self.assertTrue(audit["opacity"]["valid"])
         self.assertTrue(audit["safety"]["evaluator_labels_outside_runtime"])
 
+    def test_public_historical_manifests_do_not_contain_local_paths(self) -> None:
+        manifests = sorted(
+            (ROOT / "corpus" / "v0.7" / "case-sealing" / "sealed").glob("*.json")
+        )
+        self.assertEqual(len(manifests), 5)
+        for path in manifests:
+            text = path.read_text(encoding="utf-8")
+            self.assertNotIn("local_path", text)
+            self.assertNotIn("C:\\Users\\", text)
+            self.assertIn('"bundle_id"', text)
+
     def test_evaluate_fails_closed_on_noncanonical_runtime(self) -> None:
         result = evaluate_decisive_suite(ROOT)
         self.assertEqual(result["suite_id"], "decisive-v1")

@@ -18,7 +18,7 @@
     "architecture": "x86_64"
   },
   "artifact_bundle": {
-    "local_path": "C:\\Users\\samis\\AppData\\Local\\Temp\\radar-case-sealing-e6e869d5f1d64055b4ec392e3d5e2f61\\pandas-66085-wheelhouse",
+    "bundle_id": "pandas-66085-wheelhouse",
     "files": {
       "numpy-2.4.6-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl": "sha256:a7830bab239b79cda9c08c2da014761cafb48da6150e1da17ac06283f43b6089",
       "pandas-3.0.3-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl": "sha256:a4eeb6830daf35a71cc09649bd823e2b542dac246cdee9614c6e4bd65028cd6a",
