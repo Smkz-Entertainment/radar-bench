@@ -377,7 +377,7 @@ def _run_docker(
             "output_limit_exceeded": False,
             "error_type": type(exc).__name__,
         }
-    result = _docker_result(cast(subprocess.CompletedProcess[bytes], completed))
+    result = _docker_result(completed)
     if result["output_limit_exceeded"]:
         result["error_type"] = "OUTPUT_LIMIT_EXCEEDED"
     return result
@@ -414,7 +414,7 @@ def _exact_python(docker: str, image: str, expected: str) -> tuple[bool, str | N
 
 def _dockerfile(recipe: Mapping[str, Any], side: str, wheel_names: list[str]) -> str:
     platform = cast(Mapping[str, Any], recipe["platform"])
-    build = cast(Mapping[str, Any], cast(Mapping[str, Any], recipe.get("_document_build", {})))
+    build = cast(Mapping[str, Any], recipe.get("_document_build", {}))
     install = cast(list[str], build["install_command"])
     install_argv = install + [f"/wheelhouse/{name}" for name in wheel_names]
     image = str(platform["container_image"])
@@ -458,7 +458,7 @@ def _run_case_side(
         "--cpus=2",
         "--memory=512m",
         "--tmpfs",
-        "/tmp:rw,noexec,nosuid,nodev,mode=1777",
+        "/tmp:rw,noexec,nosuid,nodev,mode=1777",  # nosec B108 - container-local tmpfs target
         "--user=0:0" if preparation else "--user=65532:65532",
         "--mount",
         _mount(input_dir, "/input", not preparation),
