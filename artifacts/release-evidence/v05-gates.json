@@ -1,0 +1,47 @@
+{
+  "checks": {
+    "action_owner_precision": {
+      "status": "pass",
+      "threshold": 0.8,
+      "value": 1.0
+    },
+    "candidate_induced_precision": {
+      "status": "pass",
+      "threshold": 0.85,
+      "value": 1.0
+    },
+    "correct_resolution_or_abstention": {
+      "status": "pass",
+      "threshold": 0.8,
+      "value": 1.0
+    },
+    "false_premature_or_high_confidence_owner": {
+      "status": "pass",
+      "threshold": 0,
+      "value": 0
+    },
+    "median_experiments": {
+      "status": "pass",
+      "threshold": 3,
+      "value": 1.0
+    },
+    "safety_abstention_recall": {
+      "status": "pass",
+      "threshold": 0.95,
+      "value": 1.0
+    },
+    "useful_experiments": {
+      "status": "pass",
+      "threshold": 0.6,
+      "value": 0.9
+    },
+    "valid_requests": {
+      "status": "pass",
+      "threshold": 0.9,
+      "value": 1.0
+    }
+  },
+  "continue_pilot": true,
+  "interpretation": "Thresholds are frozen continuation and kill criteria; no label or threshold weakening is permitted.",
+  "kill_criteria_triggered": false
+}

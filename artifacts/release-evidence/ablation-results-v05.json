@@ -1,0 +1,268 @@
+{
+  "comparison": {
+    "baseline_a_is_frozen_v04": true,
+    "codex_openai": "BLOCKED_EXTERNAL",
+    "local_model": "BLOCKED_EXTERNAL",
+    "selection_rule": "No lane is promoted without the same temporal interface and frozen gates."
+  },
+  "lanes": {
+    "A_static_v04": {
+      "lane": "A_static_v04",
+      "metrics": {
+        "action_owner_precision": 0.0,
+        "candidate_induced_precision": 0.6,
+        "false_high_confidence_owner_accusations": 0,
+        "safety_abstention_recall": 1.0
+      },
+      "source_artifact": "artifacts/v04-result.json",
+      "status": "FROZEN",
+      "v04_decision_unchanged": "PIVOT_REQUIRED"
+    },
+    "B_deterministic_heuristic": {
+      "lane": "B_deterministic_heuristic",
+      "metrics": {
+        "abstention": {
+          "precision": {
+            "denominator": 48,
+            "numerator": 48,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 48,
+            "numerator": 48,
+            "value": 1.0
+          }
+        },
+        "action_owner": {
+          "precision": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          }
+        },
+        "by_difficulty": {
+          "D1": {
+            "correct_terminal": 4,
+            "correct_terminal_rate": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            },
+            "episodes": 4
+          },
+          "D2": {
+            "correct_terminal": 17,
+            "correct_terminal_rate": {
+              "denominator": 17,
+              "numerator": 17,
+              "value": 1.0
+            },
+            "episodes": 17
+          },
+          "D3": {
+            "correct_terminal": 16,
+            "correct_terminal_rate": {
+              "denominator": 16,
+              "numerator": 16,
+              "value": 1.0
+            },
+            "episodes": 16
+          },
+          "D4": {
+            "correct_terminal": 11,
+            "correct_terminal_rate": {
+              "denominator": 11,
+              "numerator": 11,
+              "value": 1.0
+            },
+            "episodes": 11
+          },
+          "D5": {
+            "correct_terminal": 12,
+            "correct_terminal_rate": {
+              "denominator": 12,
+              "numerator": 12,
+              "value": 1.0
+            },
+            "episodes": 12
+          }
+        },
+        "candidate_induced": {
+          "precision": {
+            "denominator": 20,
+            "numerator": 20,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 20,
+            "numerator": 20,
+            "value": 1.0
+          }
+        },
+        "correct_resolution_or_abstention": {
+          "denominator": 60,
+          "numerator": 60,
+          "value": 1.0
+        },
+        "counts": {
+          "abstentions": 48,
+          "attribution": 20,
+          "episodes": 60,
+          "positive_claims": 12
+        },
+        "efficiency": {
+          "all_experiment_counts": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cost": 0.0,
+          "experiments_per_resolution": 1.0,
+          "input_tokens": null,
+          "latency_seconds": null,
+          "median_experiments_to_correct_terminal": 1.0,
+          "model_lane": "deterministic_heuristic",
+          "output_tokens": null
+        },
+        "experiment_quality": {
+          "availability_rate": {
+            "denominator": 80,
+            "numerator": 80,
+            "value": 1.0
+          },
+          "bounded_inconclusive_correctness": {
+            "denominator": 48,
+            "numerator": 48,
+            "value": 1.0
+          },
+          "hypothesis_elimination_rate": {
+            "denominator": 80,
+            "numerator": 80,
+            "value": 1.0
+          },
+          "premature_attribution": {
+            "denominator": 60,
+            "numerator": 0,
+            "value": 0
+          },
+          "redundant_rate": {
+            "denominator": 80,
+            "numerator": 8,
+            "value": 0.1
+          },
+          "useful_rate": {
+            "denominator": 80,
+            "numerator": 72,
+            "value": 0.9
+          },
+          "valid_request_rate": {
+            "denominator": 80,
+            "numerator": 80,
+            "value": 1.0
+          }
+        },
+        "experimentally_attributable_action_owner": {
+          "episodes": 4,
+          "precision": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          }
+        },
+        "false_high_confidence_owner_accusations": {
+          "denominator": 12,
+          "numerator": 0,
+          "value": 0
+        },
+        "root_cause_component": {
+          "precision": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 20,
+            "numerator": 12,
+            "value": 0.6
+          }
+        }
+      },
+      "status": "RUN"
+    },
+    "C_local_open_model": {
+      "reason": "No suitable no-cost local model is installed.",
+      "status": "BLOCKED_EXTERNAL"
+    },
+    "D_codex_openai": {
+      "reason": "No credentials or credits were available; no purchase attempted.",
+      "status": "BLOCKED_EXTERNAL"
+    }
+  }
+}

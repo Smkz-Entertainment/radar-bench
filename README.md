@@ -37,6 +37,14 @@ candidate-induced precision is 0.60 and action-owner precision is 0.00; this is
 not a Radar capability or production-readiness result. Codex and local-model
 lanes are deliberately not run.
 
+The v0.5 pilot is an additive, replay-first interactive investigation study on
+that frozen 20/40 corpus. It adds temporal-blind InvestigationEpisode and
+experiment contracts, a five-experiment budget, deterministic heuristic
+planning, and auditable replay evidence. Its bounded continuation result is
+reported separately; it does not change the frozen v0.4 `PIVOT_REQUIRED`
+decision or imply production readiness. See
+[docs/V05_INTERACTIVE_REGRESSION_INVESTIGATION.md](docs/V05_INTERACTIVE_REGRESSION_INVESTIGATION.md).
+
 There is no dashboard, GitHub write integration, notification system,
 arbitrary-repository executor, hosted service, billing, repair generator, or
 credential-requiring model integration.
@@ -78,6 +86,8 @@ radar-bench validate-v02-corpus
 radar-bench baseline corpus/snapshots/RADAR-OSINT-008 --v02
 radar-bench validate-v03-corpus --json
 radar-bench validate-v04-corpus --json
+python scripts/run_v05_investigation.py
+radar-bench validate-v05-episodes
 radar-bench baseline corpus/snapshots/RADAR-OSINT-008 --v03
 ```
 

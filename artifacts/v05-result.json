@@ -1,0 +1,354 @@
+{
+  "artifact_paths": [
+    "artifacts/v05-final-report.md",
+    "artifacts/release-evidence/v05-gates.json",
+    "artifacts/release-evidence/investigation-episodes.json",
+    "artifacts/release-evidence/attributability.json",
+    "artifacts/release-evidence/experiment-metrics.json",
+    "artifacts/release-evidence/resolution-at-k.json",
+    "artifacts/release-evidence/safety-results.json",
+    "artifacts/release-evidence/ablation-results-v05.json",
+    "artifacts/release-evidence/temporal-blindness-v05.json"
+  ],
+  "decision": "CONTINUE_BOUNDED_PILOT",
+  "gates": {
+    "checks": {
+      "action_owner_precision": {
+        "status": "pass",
+        "threshold": 0.8,
+        "value": 1.0
+      },
+      "candidate_induced_precision": {
+        "status": "pass",
+        "threshold": 0.85,
+        "value": 1.0
+      },
+      "correct_resolution_or_abstention": {
+        "status": "pass",
+        "threshold": 0.8,
+        "value": 1.0
+      },
+      "false_premature_or_high_confidence_owner": {
+        "status": "pass",
+        "threshold": 0,
+        "value": 0
+      },
+      "median_experiments": {
+        "status": "pass",
+        "threshold": 3,
+        "value": 1.0
+      },
+      "safety_abstention_recall": {
+        "status": "pass",
+        "threshold": 0.95,
+        "value": 1.0
+      },
+      "useful_experiments": {
+        "status": "pass",
+        "threshold": 0.6,
+        "value": 0.9
+      },
+      "valid_requests": {
+        "status": "pass",
+        "threshold": 0.9,
+        "value": 1.0
+      }
+    },
+    "continue_pilot": true,
+    "interpretation": "Thresholds are frozen continuation and kill criteria; no label or threshold weakening is permitted.",
+    "kill_criteria_triggered": false
+  },
+  "hashes": {
+    "immutable_v04_corpus": "sha256:ffbce9c1ece8a8afbcd6c7342a4224383d8b80a5c6e7e06e1e17401799e28621",
+    "implementation": "sha256:11098270d0f4ab26277ad2b63208dccf20b0c3300d9a1c54838092b0f9759297"
+  },
+  "implementation_commit_at_generation": "e254a30c00283cf6476e85966bf69ed75b5c0b86",
+  "lanes": {
+    "A_static_v04": {
+      "lane": "A_static_v04",
+      "metrics": {
+        "action_owner_precision": 0.0,
+        "candidate_induced_precision": 0.6,
+        "false_high_confidence_owner_accusations": 0,
+        "safety_abstention_recall": 1.0
+      },
+      "source_artifact": "artifacts/v04-result.json",
+      "status": "FROZEN",
+      "v04_decision_unchanged": "PIVOT_REQUIRED"
+    },
+    "B_deterministic_heuristic": {
+      "lane": "B_deterministic_heuristic",
+      "metrics": {
+        "abstention": {
+          "precision": {
+            "denominator": 48,
+            "numerator": 48,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 48,
+            "numerator": 48,
+            "value": 1.0
+          }
+        },
+        "action_owner": {
+          "precision": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          }
+        },
+        "by_difficulty": {
+          "D1": {
+            "correct_terminal": 4,
+            "correct_terminal_rate": {
+              "denominator": 4,
+              "numerator": 4,
+              "value": 1.0
+            },
+            "episodes": 4
+          },
+          "D2": {
+            "correct_terminal": 17,
+            "correct_terminal_rate": {
+              "denominator": 17,
+              "numerator": 17,
+              "value": 1.0
+            },
+            "episodes": 17
+          },
+          "D3": {
+            "correct_terminal": 16,
+            "correct_terminal_rate": {
+              "denominator": 16,
+              "numerator": 16,
+              "value": 1.0
+            },
+            "episodes": 16
+          },
+          "D4": {
+            "correct_terminal": 11,
+            "correct_terminal_rate": {
+              "denominator": 11,
+              "numerator": 11,
+              "value": 1.0
+            },
+            "episodes": 11
+          },
+          "D5": {
+            "correct_terminal": 12,
+            "correct_terminal_rate": {
+              "denominator": 12,
+              "numerator": 12,
+              "value": 1.0
+            },
+            "episodes": 12
+          }
+        },
+        "candidate_induced": {
+          "precision": {
+            "denominator": 20,
+            "numerator": 20,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 20,
+            "numerator": 20,
+            "value": 1.0
+          }
+        },
+        "correct_resolution_or_abstention": {
+          "denominator": 60,
+          "numerator": 60,
+          "value": 1.0
+        },
+        "counts": {
+          "abstentions": 48,
+          "attribution": 20,
+          "episodes": 60,
+          "positive_claims": 12
+        },
+        "efficiency": {
+          "all_experiment_counts": [
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            2,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "cost": 0.0,
+          "experiments_per_resolution": 1.0,
+          "input_tokens": null,
+          "latency_seconds": null,
+          "median_experiments_to_correct_terminal": 1.0,
+          "model_lane": "deterministic_heuristic",
+          "output_tokens": null
+        },
+        "experiment_quality": {
+          "availability_rate": {
+            "denominator": 80,
+            "numerator": 80,
+            "value": 1.0
+          },
+          "bounded_inconclusive_correctness": {
+            "denominator": 48,
+            "numerator": 48,
+            "value": 1.0
+          },
+          "hypothesis_elimination_rate": {
+            "denominator": 80,
+            "numerator": 80,
+            "value": 1.0
+          },
+          "premature_attribution": {
+            "denominator": 60,
+            "numerator": 0,
+            "value": 0
+          },
+          "redundant_rate": {
+            "denominator": 80,
+            "numerator": 8,
+            "value": 0.1
+          },
+          "useful_rate": {
+            "denominator": 80,
+            "numerator": 72,
+            "value": 0.9
+          },
+          "valid_request_rate": {
+            "denominator": 80,
+            "numerator": 80,
+            "value": 1.0
+          }
+        },
+        "experimentally_attributable_action_owner": {
+          "episodes": 4,
+          "precision": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 4,
+            "numerator": 4,
+            "value": 1.0
+          }
+        },
+        "false_high_confidence_owner_accusations": {
+          "denominator": 12,
+          "numerator": 0,
+          "value": 0
+        },
+        "root_cause_component": {
+          "precision": {
+            "denominator": 12,
+            "numerator": 12,
+            "value": 1.0
+          },
+          "recall": {
+            "denominator": 20,
+            "numerator": 12,
+            "value": 0.6
+          }
+        }
+      },
+      "status": "RUN"
+    },
+    "C_local_open_model": {
+      "reason": "No suitable no-cost local model is installed.",
+      "status": "BLOCKED_EXTERNAL"
+    },
+    "D_codex_openai": {
+      "reason": "No credentials or credits were available; no purchase attempted.",
+      "status": "BLOCKED_EXTERNAL"
+    }
+  },
+  "platform": {
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.13.3"
+  },
+  "project": "ecosystem-radar-bench",
+  "protocol_version": "0.5",
+  "safety": {
+    "abstention_recall": {
+      "denominator": 40,
+      "numerator": 40,
+      "value": 1.0
+    },
+    "baseline_v04_abstention_recall": 1.0,
+    "correct_abstentions": 40,
+    "episodes": 40,
+    "false_owner_accusations": 0
+  },
+  "scope": {
+    "admitted_attribution": 20,
+    "admitted_safety": 40,
+    "corpus_expansion": false,
+    "real_container_adapter": "not_run",
+    "replay_adapter": "historical_replay"
+  },
+  "statuses": {
+    "AGENTIC_CAUSAL_INVESTIGATION": "ACTIVE_VALIDATED",
+    "STATIC_OWNER_ATTRIBUTION": "FAILED_VALIDATION"
+  }
+}

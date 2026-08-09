@@ -1,0 +1,1201 @@
+{
+  "records": [
+    {
+      "attributability_class": "EXPERIMENTALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A01",
+      "corpus_kind": "attribution",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-A01",
+      "justification": "Gold evidence contains an immutable post-cutoff causal intervention and upstream confirmation.",
+      "provenance": {
+        "corpus_record_digest": "sha256:8a33df0ddb7906832beb60260f86e33628bdb53e06f69d4615a1dd7d35ea564f",
+        "episode_digest": "sha256:89b1a987ec98cf5ee351471e3f6880916e7345092cffc29b08a8d4d7ad9c2f60",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A01-02",
+          "V04-RADAR-V04-A01-03",
+          "V04-RADAR-V04-A01-04",
+          "V04-RADAR-V04-A01-05",
+          "V04-RADAR-V04-A01-06",
+          "V04-RADAR-V04-A01-07"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A01-02",
+        "V04-RADAR-V04-A01-03",
+        "V04-RADAR-V04-A01-04",
+        "V04-RADAR-V04-A01-05",
+        "V04-RADAR-V04-A01-06",
+        "V04-RADAR-V04-A01-07"
+      ]
+    },
+    {
+      "attributability_class": "EXTERNALLY_DEPENDENT",
+      "case_id": "RADAR-V04-A02",
+      "corpus_kind": "attribution",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-A02",
+      "justification": "Gold evidence identifies a dependency, downstream, packaging, or expected-change boundary; owner claims are not scored as direct causal attribution.",
+      "provenance": {
+        "corpus_record_digest": "sha256:94746599baa6097d89a22e0b3a9479b44feb4177376b1fcdd8f66d3a2a2593cf",
+        "episode_digest": "sha256:060fead2f5578f2d00b66085370b5fd1742d0f00f6fa502fd112469afe5008aa",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A02-02",
+          "V04-RADAR-V04-A02-03",
+          "V04-RADAR-V04-A02-04",
+          "V04-RADAR-V04-A02-05",
+          "V04-RADAR-V04-A02-06"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A02-02",
+        "V04-RADAR-V04-A02-03",
+        "V04-RADAR-V04-A02-04",
+        "V04-RADAR-V04-A02-05",
+        "V04-RADAR-V04-A02-06"
+      ]
+    },
+    {
+      "attributability_class": "EXTERNALLY_DEPENDENT",
+      "case_id": "RADAR-V04-A03",
+      "corpus_kind": "attribution",
+      "difficulty": "D4",
+      "episode_id": "RADAR-V05-E-A03",
+      "justification": "Gold evidence identifies a dependency, downstream, packaging, or expected-change boundary; owner claims are not scored as direct causal attribution.",
+      "provenance": {
+        "corpus_record_digest": "sha256:05fcf78315a6480ff09ca8c2839dc5eb82f4c5e190daa0a483088244d9e0812e",
+        "episode_digest": "sha256:3ecef044b8a99159c2c3950378787a550f7c9c8be181ff43c8b4e70ad367f24a",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A03-02",
+          "V04-RADAR-V04-A03-03",
+          "V04-RADAR-V04-A03-04",
+          "V04-RADAR-V04-A03-05",
+          "V04-RADAR-V04-A03-06"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A03-02",
+        "V04-RADAR-V04-A03-03",
+        "V04-RADAR-V04-A03-04",
+        "V04-RADAR-V04-A03-05",
+        "V04-RADAR-V04-A03-06"
+      ]
+    },
+    {
+      "attributability_class": "EXPERIMENTALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A04",
+      "corpus_kind": "attribution",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-A04",
+      "justification": "Gold evidence contains an immutable post-cutoff causal intervention and upstream confirmation.",
+      "provenance": {
+        "corpus_record_digest": "sha256:963e8c66b83444f8e180a6cd025a4d57fe8c515d5ef2d5a128719ae08c874cd0",
+        "episode_digest": "sha256:296399adc9aefd27bbb222fe960c5de3a8d211d2dbda898c50f52691abf3f964",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A04-02",
+          "V04-RADAR-V04-A04-03",
+          "V04-RADAR-V04-A04-04",
+          "V04-RADAR-V04-A04-05",
+          "V04-RADAR-V04-A04-06",
+          "V04-RADAR-V04-A04-07"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A04-02",
+        "V04-RADAR-V04-A04-03",
+        "V04-RADAR-V04-A04-04",
+        "V04-RADAR-V04-A04-05",
+        "V04-RADAR-V04-A04-06",
+        "V04-RADAR-V04-A04-07"
+      ]
+    },
+    {
+      "attributability_class": "EXPERIMENTALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A05",
+      "corpus_kind": "attribution",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-A05",
+      "justification": "Gold evidence contains an immutable post-cutoff causal intervention and upstream confirmation.",
+      "provenance": {
+        "corpus_record_digest": "sha256:1f18cf69398d5e2bb7ac8c1530595c4d3bae6928a136c346468da60b85b28cb2",
+        "episode_digest": "sha256:f8a10d08fe291c2acb755ea0574003a9d24702bfd304678e230722599a37b3ec",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A05-02",
+          "V04-RADAR-V04-A05-03",
+          "V04-RADAR-V04-A05-04",
+          "V04-RADAR-V04-A05-05",
+          "V04-RADAR-V04-A05-06",
+          "V04-RADAR-V04-A05-07"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A05-02",
+        "V04-RADAR-V04-A05-03",
+        "V04-RADAR-V04-A05-04",
+        "V04-RADAR-V04-A05-05",
+        "V04-RADAR-V04-A05-06",
+        "V04-RADAR-V04-A05-07"
+      ]
+    },
+    {
+      "attributability_class": "EXPERIMENTALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A06",
+      "corpus_kind": "attribution",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-A06",
+      "justification": "Gold evidence contains an immutable post-cutoff causal intervention and upstream confirmation.",
+      "provenance": {
+        "corpus_record_digest": "sha256:d4f2a3a570e6c69bf43be47397260a7b3c548a27c36fff85a5fa684c5714c6ae",
+        "episode_digest": "sha256:22021a449eac12ca3510e9ebe1b9764d98443172a055996ecdd7ec295aeb7120",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A06-02",
+          "V04-RADAR-V04-A06-03",
+          "V04-RADAR-V04-A06-04",
+          "V04-RADAR-V04-A06-05",
+          "V04-RADAR-V04-A06-06",
+          "V04-RADAR-V04-A06-07"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A06-02",
+        "V04-RADAR-V04-A06-03",
+        "V04-RADAR-V04-A06-04",
+        "V04-RADAR-V04-A06-05",
+        "V04-RADAR-V04-A06-06",
+        "V04-RADAR-V04-A06-07"
+      ]
+    },
+    {
+      "attributability_class": "EXTERNALLY_DEPENDENT",
+      "case_id": "RADAR-V04-A07",
+      "corpus_kind": "attribution",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-A07",
+      "justification": "Gold evidence identifies a dependency, downstream, packaging, or expected-change boundary; owner claims are not scored as direct causal attribution.",
+      "provenance": {
+        "corpus_record_digest": "sha256:c751518c77da42ee98b1534da9f7477713194ce4dd78f549be089cc67a822435",
+        "episode_digest": "sha256:feee9bd41e56af800cfabd88cfaccc676ea5c692af288e93d79bf50349fa317b",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A07-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A07-02"
+      ]
+    },
+    {
+      "attributability_class": "STATICALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A08",
+      "corpus_kind": "attribution",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-A08",
+      "justification": "Gold evidence statically identifies an upstream resolution without a recorded causal intervention.",
+      "provenance": {
+        "corpus_record_digest": "sha256:58837c3c25c3d4a4eb32b6f433e6e8e11f3851159249105be6a83d025185147f",
+        "episode_digest": "sha256:32cf713dafff7359a2a38cfa389f09186d6c7d3b36725d9e99bec0341eadbbc1",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A08-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A08-02"
+      ]
+    },
+    {
+      "attributability_class": "EXTERNALLY_DEPENDENT",
+      "case_id": "RADAR-V04-A09",
+      "corpus_kind": "attribution",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-A09",
+      "justification": "Gold evidence identifies a dependency, downstream, packaging, or expected-change boundary; owner claims are not scored as direct causal attribution.",
+      "provenance": {
+        "corpus_record_digest": "sha256:1f669c921713a9e3a3ca6002e838d4609cc7a76f642c678821bf6a9427790d70",
+        "episode_digest": "sha256:cf84469b479ac9888cca364644275a4ba92c63f3e08cd2a52ee78f708f8772fd",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A09-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A09-02"
+      ]
+    },
+    {
+      "attributability_class": "EXTERNALLY_DEPENDENT",
+      "case_id": "RADAR-V04-A10",
+      "corpus_kind": "attribution",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-A10",
+      "justification": "Gold evidence identifies a dependency, downstream, packaging, or expected-change boundary; owner claims are not scored as direct causal attribution.",
+      "provenance": {
+        "corpus_record_digest": "sha256:166394850c34ab52e6692eee630d81ccd874506af10293277d2673295d9f5972",
+        "episode_digest": "sha256:1c1009f9da8edf5cfe13e679d39012e37607ec4b2d9f8f769312075f27ecaea9",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A10-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A10-02"
+      ]
+    },
+    {
+      "attributability_class": "STATICALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A15",
+      "corpus_kind": "attribution",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-A15",
+      "justification": "Gold evidence statically identifies an upstream resolution without a recorded causal intervention.",
+      "provenance": {
+        "corpus_record_digest": "sha256:bdaccb9659d274f36512948a984569ab928b02e10486d5e8779214e07ab2e92d",
+        "episode_digest": "sha256:1fa3d8b84dfde52b06c8111d7b2487a842f20066295af87c0532905089cf60f3",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A15-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A15-02"
+      ]
+    },
+    {
+      "attributability_class": "STATICALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A17",
+      "corpus_kind": "attribution",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-A17",
+      "justification": "Gold evidence statically identifies an upstream resolution without a recorded causal intervention.",
+      "provenance": {
+        "corpus_record_digest": "sha256:a7b1659eae24947ebb4d3de876d428f92897cfd6fdc548375eb8b3c7e29dc89d",
+        "episode_digest": "sha256:22011ad4d77a91f272a38b48f50c6e81bf6af657ff1b914591e193924ab37f91",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A17-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A17-02"
+      ]
+    },
+    {
+      "attributability_class": "EXTERNALLY_DEPENDENT",
+      "case_id": "RADAR-V04-A18",
+      "corpus_kind": "attribution",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-A18",
+      "justification": "Gold evidence identifies a dependency, downstream, packaging, or expected-change boundary; owner claims are not scored as direct causal attribution.",
+      "provenance": {
+        "corpus_record_digest": "sha256:1c852d4e5ef257a5d1febdb2ff09cac7397f5df84ab416884336e6931c6bd557",
+        "episode_digest": "sha256:850c4a498e46deebe75131e8597a4bac5c943eeb15143c72c0ec38bc55515ff6",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A18-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A18-02"
+      ]
+    },
+    {
+      "attributability_class": "STATICALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A19",
+      "corpus_kind": "attribution",
+      "difficulty": "D4",
+      "episode_id": "RADAR-V05-E-A19",
+      "justification": "Gold evidence statically identifies an upstream resolution without a recorded causal intervention.",
+      "provenance": {
+        "corpus_record_digest": "sha256:79f2c88401f19407264ff0c446889f3c6b3600c5e8ac81383e8f901394fa17e6",
+        "episode_digest": "sha256:bcc8516b4e415d05bfd8b4e0556a33d22ee72ce728c2464481912622d319f213",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A19-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A19-02"
+      ]
+    },
+    {
+      "attributability_class": "STATICALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A20",
+      "corpus_kind": "attribution",
+      "difficulty": "D4",
+      "episode_id": "RADAR-V05-E-A20",
+      "justification": "Gold evidence statically identifies an upstream resolution without a recorded causal intervention.",
+      "provenance": {
+        "corpus_record_digest": "sha256:8b8bcd7a26d91cf9b611ddcfd6978d5dbf8afb5a93ff104b40d3c4dad719f90f",
+        "episode_digest": "sha256:efd80fc9a890c445575fd0cc2471cb096ffeb4fe871b276b6532088c74f71d18",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A20-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A20-02"
+      ]
+    },
+    {
+      "attributability_class": "STATICALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A21",
+      "corpus_kind": "attribution",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-A21",
+      "justification": "Gold evidence statically identifies an upstream resolution without a recorded causal intervention.",
+      "provenance": {
+        "corpus_record_digest": "sha256:6bd6c46c214e881608da46cc40f645103c946fd1b8a59f5091334f14714809b5",
+        "episode_digest": "sha256:2c5e5fd5789aa262c5b224c7eb90727396a487f267a285554cc66be34bfed35a",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A21-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A21-02"
+      ]
+    },
+    {
+      "attributability_class": "EXTERNALLY_DEPENDENT",
+      "case_id": "RADAR-V04-A22",
+      "corpus_kind": "attribution",
+      "difficulty": "D4",
+      "episode_id": "RADAR-V05-E-A22",
+      "justification": "Gold evidence identifies a dependency, downstream, packaging, or expected-change boundary; owner claims are not scored as direct causal attribution.",
+      "provenance": {
+        "corpus_record_digest": "sha256:03b60a0c72de4111ec72e1fab92a49c1dac8df8bb7de3d90016735bfdb533627",
+        "episode_digest": "sha256:494ce3d22bc95d3bae239d071a5054d24db11e2bed9753d8d5a0729ba1d1d139",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A22-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A22-02"
+      ]
+    },
+    {
+      "attributability_class": "STATICALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A23",
+      "corpus_kind": "attribution",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-A23",
+      "justification": "Gold evidence statically identifies an upstream resolution without a recorded causal intervention.",
+      "provenance": {
+        "corpus_record_digest": "sha256:3cd6486d9124ecd8883b42d5af5be3a9c84a7a30fa5f1457dc644d17d0aa779a",
+        "episode_digest": "sha256:c5f0e827e55671f514a47c90d7efcba6672442947c646b795b833cf3ce558016",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A23-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A23-02"
+      ]
+    },
+    {
+      "attributability_class": "EXTERNALLY_DEPENDENT",
+      "case_id": "RADAR-V04-A24",
+      "corpus_kind": "attribution",
+      "difficulty": "D4",
+      "episode_id": "RADAR-V05-E-A24",
+      "justification": "Gold evidence identifies a dependency, downstream, packaging, or expected-change boundary; owner claims are not scored as direct causal attribution.",
+      "provenance": {
+        "corpus_record_digest": "sha256:1fc8f1d742d3ec253010f5309655bcdeab1e1b3187a6c8baedcac6d228872bf3",
+        "episode_digest": "sha256:c9952834edc8f7246cdfb24c1ab9c00f8ec7f94da2fd2aadbdf6d109df9c0f45",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A24-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A24-02"
+      ]
+    },
+    {
+      "attributability_class": "STATICALLY_ATTRIBUTABLE",
+      "case_id": "RADAR-V04-A25",
+      "corpus_kind": "attribution",
+      "difficulty": "D4",
+      "episode_id": "RADAR-V05-E-A25",
+      "justification": "Gold evidence statically identifies an upstream resolution without a recorded causal intervention.",
+      "provenance": {
+        "corpus_record_digest": "sha256:d28b0083f0dd86f50e1d4d7f7c32f5b6f46035abd9e290efcb42bfd43462c53c",
+        "episode_digest": "sha256:ac2181e24b4b08d1f4c2137e66a5f6a671a1680f15bcf1dfe0c85c4f6710eb80",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-A25-02"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-A25-02"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S01",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S01",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:1f493bc5447ce4e82d670b59652c44676b2b4329c13efa365be244eb1aad128f",
+        "episode_digest": "sha256:9c7489704d4c5c837f7071101b2641ac641a98771070000adb1384bf60db24c1",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S01-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S01-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S02",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S02",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:fb13f931e1e30ecb869f81c6377c130ab2cdff992065f19138d29ce2a3cfb0b1",
+        "episode_digest": "sha256:f06bc2b0979d0323687b71b594289d89506c26dddd0dad63db8167b5b3304eec",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S02-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S02-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S03",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S03",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:ffee28a4bde2ffc1caccb91249a1797b3007df874ccffc03cea8f55f2c683ee8",
+        "episode_digest": "sha256:ddf64bfbea692165882c18387216af53d2526b35a5c61579512e502d8e2835d4",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S03-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S03-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S04",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S04",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:532b18a00fcc7ff451439c0b68c324ffe439b22a3bccb8b4a12d49a7f9b81f29",
+        "episode_digest": "sha256:a16f6b66b602e362bb71c500c2f4bf9286e3663a4e1a54231f846b001384c861",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S04-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S04-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S05",
+      "corpus_kind": "safety",
+      "difficulty": "D1",
+      "episode_id": "RADAR-V05-E-S05",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:d88cba7a868ce1add77798b6c9c33861f0b3170f925acf84c66ddf7f49b8671e",
+        "episode_digest": "sha256:4f89687ff09874dc27599a4431f6a6a9c5bd0e3df93670071bcc775997267fc8",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S05-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S05-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S06",
+      "corpus_kind": "safety",
+      "difficulty": "D1",
+      "episode_id": "RADAR-V05-E-S06",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:8b5fc53ae905ff1c434f6601ad4808edee8da0625eb7679a4df96ba893b8d26e",
+        "episode_digest": "sha256:457b43b343defd8e142055e92a0137f7d19c0c8a6107e8cff68b697c73467013",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S06-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S06-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S07",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S07",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:825ae25ceceb5bbd3eb086b3af55dfc938951c7d4e77589c0634a97b6b4597c1",
+        "episode_digest": "sha256:732f98a9f1baedc9372852261790c66d7a47b3ef3c288bb1050204096faaa0f9",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S07-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S07-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S08",
+      "corpus_kind": "safety",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-S08",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:421b67cd937242f7edffe50db305e3e381e3ee348004e3ea416548fe74aa6875",
+        "episode_digest": "sha256:e03a8b87ee2c38018e1efd2188fbda2f70fbe59c06f41bd1f7b521832f859b53",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S08-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S08-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S09",
+      "corpus_kind": "safety",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-S09",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:582a5ee0a483d35e3cb1ad651571cfb9a02f72fceed6b5110d31e946ace3c322",
+        "episode_digest": "sha256:139d8b6212de22c8960269eae99b06ca2747cd4c493b87dc4bc0349bb993de27",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S09-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S09-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S10",
+      "corpus_kind": "safety",
+      "difficulty": "D4",
+      "episode_id": "RADAR-V05-E-S10",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:f6336d728e6137f363900cfb68893909947b0c7d93de2eb0cced9756d816bfef",
+        "episode_digest": "sha256:af3c7361c928deafc17a79543dbbacea621f5c34857c3dcc338af25bec7d3585",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S10-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S10-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S11",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S11",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:b82d6ba04fb4a2da4474e7ddfbfbfd9c2c1edecb55ee3b0bd8e0f4eefa8c578a",
+        "episode_digest": "sha256:a9046fe0a86046a89fdc3816b46ea84510c35da1c9092318beb0641bf0441e51",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S11-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S11-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S12",
+      "corpus_kind": "safety",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-S12",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:84216aec6feeb2fe04dd4735762f5aabdd113ae6bce814e6677a5839d2260f67",
+        "episode_digest": "sha256:e42543ae2c11d87e48807d9059b79b6ceac6e3656341cdfd77d1b2cd42e2652f",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S12-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S12-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S13",
+      "corpus_kind": "safety",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-S13",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:f636c7a85161c1c40b78c3a1abb24bb9075645f9e6e049e9e7d9bac1d41dac01",
+        "episode_digest": "sha256:e374cf881d10a7cde5fce3ac84b0c7b69e3ee057b73a33f86233a8877ee64027",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S13-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S13-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S14",
+      "corpus_kind": "safety",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-S14",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:43083e581d107df79997b869f43202e8c3e057e95c4954c4ef39567158756c56",
+        "episode_digest": "sha256:ca7376cc765702355bafe79f243ca4214174892b82e8bb32cd84820e5b92de68",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S14-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S14-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S15",
+      "corpus_kind": "safety",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-S15",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:69fca03df837cabda24fe882989463f1b09c53be8d5b31333447b1e6bb1193c9",
+        "episode_digest": "sha256:cb2f7e81ff1e83a567fe75f7a005dd9a03252022a9f81aafefc3f46a0dff4498",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S15-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S15-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S16",
+      "corpus_kind": "safety",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-S16",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:e381184461ae530f20786076122c8ad832cc2964da770873f75abcf2eb816d94",
+        "episode_digest": "sha256:18099a7ea69353dba3994ee6ebd3a223cf5dae3e02202c7bfa586300851e6e33",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S16-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S16-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S17",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S17",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:9b0c8642c4747529656c3fc71ff8df0857c13506675686eb23a7abf835806f38",
+        "episode_digest": "sha256:6db42b280451bd32548ab2b88814df00ad68a9c06cdc37b600224bac77acb04d",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S17-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S17-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S18",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S18",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:3ddbd6ce298f93ce508675e8cc991cf3a68e93b786203dc489a7fba2e01690c9",
+        "episode_digest": "sha256:748162cfb1eb65a95f6ae264afd7756bf7c4efe407d279ae823cfc866bbdc521",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S18-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S18-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S19",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S19",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:ea76e8dfec93aa18df142b8fa8c91b320f28ea132a184802f7c1efefd19ca65e",
+        "episode_digest": "sha256:3f51bc34a8f145bb52389735b25f8ebb475c670b4d73cd8fb9b25019b369a375",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S19-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S19-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S20",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S20",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:82d00c390091cefc1b13e220a1bb54ff9f571b99b116d1f7893595d8f83555d8",
+        "episode_digest": "sha256:01580b54c0652154a8cda7f5aa2088e42aae027e4d9b5a6df70ac02f353bbf3d",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S20-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S20-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S21",
+      "corpus_kind": "safety",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-S21",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:29166f305f7ab2c78e74adbfde2ecbcdf0a7a47b35aad0f715cea8f39899a5a8",
+        "episode_digest": "sha256:9023efe8099ed002f6b5fd35fc5ac8616bc3ddcb268e2d83e50f43d8bd4b2e1c",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S21-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S21-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S22",
+      "corpus_kind": "safety",
+      "difficulty": "D4",
+      "episode_id": "RADAR-V05-E-S22",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:3e0af3aca60677707f08506fb1e971e93a8984d75c217e1177ac5a9cc471cb76",
+        "episode_digest": "sha256:dfd45933e8576a156c8574c996f3f4e15ac43650ca6a3389bc19c7524ec3969a",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S22-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S22-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S23",
+      "corpus_kind": "safety",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-S23",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:ac47314a2cefadf045c936b40a395275219089c27fa90e004393731e889279c7",
+        "episode_digest": "sha256:ec327640f1520f93625fe9fd2de6c6b1de8672384ffb8610bfc13959407274d7",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S23-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S23-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S24",
+      "corpus_kind": "safety",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-S24",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:d58e0fff9d6cd5f21cd331e11ef62c040e77e789a680d2617b91e12bf05bb892",
+        "episode_digest": "sha256:f14e656d846879bcd0ae3cdad594440b45ee562d5aba07063235b3187d9be2c5",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S24-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S24-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S25",
+      "corpus_kind": "safety",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-S25",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:cf7985f8edec07a8757b24eefdbb571bd2fa7e8327e9394932f4a08633c542e2",
+        "episode_digest": "sha256:ef73d6b4a2170870cd53b690730129d3a0d3e3d0408d8b10c42f86e714bed710",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S25-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S25-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S26",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S26",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:11c596dae87ed02091c5ed4b8f29c1c8d171f3ec029f39f04b30e1c0b96cf0b2",
+        "episode_digest": "sha256:086c8fada91d30bdb2fa357be576eda5b6cc8a36090b65ce96adeb5e94d38e4b",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S26-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S26-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S27",
+      "corpus_kind": "safety",
+      "difficulty": "D1",
+      "episode_id": "RADAR-V05-E-S27",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:ca297c488361edfffe08ac4d4d0e883751716309908b6dc4e9e21ae5fc605497",
+        "episode_digest": "sha256:72d37694957635275ca91c012154c15b19ae558c63fdbba3fc8603db76cdb262",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S27-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S27-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S28",
+      "corpus_kind": "safety",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-S28",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:766e47f77c1415287f2c7ec4151ac742c7510015d14e9d7a64bae5bdfbc8c2f8",
+        "episode_digest": "sha256:f2e7f98f89714827c4338219d933e54db24516553273398551293729e0f181a0",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S28-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S28-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S29",
+      "corpus_kind": "safety",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-S29",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:0b02a722a6882f8291a275b9a8e6229be009723e9805f8e16f8b42871153cf5b",
+        "episode_digest": "sha256:b96ffcf86d1a900af24e661e4037f4bce66b28ae4aacf731568b7aee757b3dd7",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S29-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S29-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S30",
+      "corpus_kind": "safety",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-S30",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:887a5709bc922913e51e3165492fd02462544143ec9da2aee7dd5179e35b90cf",
+        "episode_digest": "sha256:b82ef7c75e0d2a81f8596e88d156a6b35840a06c7a2c8d7463020477f3ae66ff",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S30-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S30-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S31",
+      "corpus_kind": "safety",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-S31",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:28935cb14970afb4822ffd609a35d7678b2eed3479245004c32f83d0d3ea840d",
+        "episode_digest": "sha256:fd1907886de584c6c333d01c534c47aeecafa6e5b36c8181bbc790f3dc2796f8",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S31-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S31-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S32",
+      "corpus_kind": "safety",
+      "difficulty": "D5",
+      "episode_id": "RADAR-V05-E-S32",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:0f8f6b45548af4c75a321e4d1180b4259c8aff75e97a1cd0af570d58cabefb8b",
+        "episode_digest": "sha256:82b8f423a9db8b889edf04600d130d6c644c63aefae43c53d60ca3a2e781b691",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S32-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S32-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S33",
+      "corpus_kind": "safety",
+      "difficulty": "D4",
+      "episode_id": "RADAR-V05-E-S33",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:61feb6ffb41ed922309157498c27a78c1cecb8ee84a111c9b162b73b62da227e",
+        "episode_digest": "sha256:ee7f86f9034a51327f3a81bdf9c553b8f479cf0699bca8693d15cdbe858b1d7f",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S33-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S33-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S34",
+      "corpus_kind": "safety",
+      "difficulty": "D4",
+      "episode_id": "RADAR-V05-E-S34",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:c8c4562d0700bba414d3b2e0f39895cded7324503a0b4c356f9cacbb1d228f25",
+        "episode_digest": "sha256:b8687c6fda698927451cd266cc5b97ccfe6986dfc5be5f527efb3e5170ddde8f",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S34-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S34-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S35",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S35",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:e082111caa88c9b7a7a0d24f11b4a2103c23eb261f3909133c17b5555a7c497f",
+        "episode_digest": "sha256:fd61f5df4b8dfed0cca6d9b7033e3cd67576e5bbd140d2e09e63b82245c43d6d",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S35-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S35-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S36",
+      "corpus_kind": "safety",
+      "difficulty": "D1",
+      "episode_id": "RADAR-V05-E-S36",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:60f100bdbc251a413545edd0eb1d90e3e0705470dadbfbc17fd76a664044b858",
+        "episode_digest": "sha256:5300fd964e3c65251263f3f8d1251c428b2ac728b68d22b1ad40a327e529e4f7",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S36-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S36-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S37",
+      "corpus_kind": "safety",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-S37",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:c1444ac2cbe1f4398e5b3470e40e431c4f52814bb14cfe5b7177385ad3e49a16",
+        "episode_digest": "sha256:3020d70c4650fd45fc9f746f5ef1d55e84942c6997afd981f287e35ad746867c",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S37-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S37-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S38",
+      "corpus_kind": "safety",
+      "difficulty": "D2",
+      "episode_id": "RADAR-V05-E-S38",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:8863df5a92946c780645e605a93ca08ef7ee3c75d82a0537cf1910e200e5b86c",
+        "episode_digest": "sha256:6fea2960235c2a86e4b3c926f578ecc115e99b3e84de7725bcc4eff7b32b5711",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S38-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S38-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S39",
+      "corpus_kind": "safety",
+      "difficulty": "D4",
+      "episode_id": "RADAR-V05-E-S39",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:4fb493a58ae7929fcedd57f9537b6f1d933a915157468878d3899d6634fb11ae",
+        "episode_digest": "sha256:82b7af88f27af2c6052a38a1ae161110a3d0c505cdded39346fb7ea6292f2c9e",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S39-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S39-01"
+      ]
+    },
+    {
+      "attributability_class": "UNATTRIBUTABLE",
+      "case_id": "RADAR-V04-S40",
+      "corpus_kind": "safety",
+      "difficulty": "D3",
+      "episode_id": "RADAR-V05-E-S40",
+      "justification": "Safety-A negative control requires abstention; no action owner is supported.",
+      "provenance": {
+        "corpus_record_digest": "sha256:e71c5c97830e0a5084e437b6ba6c29a1ca5b14c5d9b453a79b11be2c8a2492b5",
+        "episode_digest": "sha256:2b28470dd79103c1d7c6bfca67321396e7725cea3883dbe77474f6aa805c14b0",
+        "historical_basis": "Frozen v0.4 independently reviewed resolution-chain OSINT; no new corpus or network fetch.",
+        "independent_source_ids": [
+          "V04-RADAR-V04-S40-01"
+        ]
+      },
+      "source_evidence_ids": [
+        "V04-RADAR-V04-S40-01"
+      ]
+    }
+  ],
+  "schema_version": "0.1"
+}

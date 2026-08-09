@@ -1,0 +1,11 @@
+{
+  "abstention_recall": {
+    "denominator": 40,
+    "numerator": 40,
+    "value": 1.0
+  },
+  "baseline_v04_abstention_recall": 1.0,
+  "correct_abstentions": 40,
+  "episodes": 40,
+  "false_owner_accusations": 0
+}

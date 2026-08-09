@@ -1,0 +1,20 @@
+{
+  "definition": "Correct terminal or correct abstention reached within k substantive experiments.",
+  "ks": {
+    "1": {
+      "denominator": 60,
+      "numerator": 40,
+      "value": 0.6666666666666666
+    },
+    "3": {
+      "denominator": 60,
+      "numerator": 60,
+      "value": 1.0
+    },
+    "5": {
+      "denominator": 60,
+      "numerator": 60,
+      "value": 1.0
+    }
+  }
+}

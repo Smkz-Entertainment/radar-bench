@@ -17,6 +17,7 @@ from radar_bench.config import project_root
 from radar_bench.corpus.admission import admission_summary, validate_admission
 from radar_bench.corpus.v03 import validate_gold_admission, v03_corpus_summary
 from radar_bench.corpus.v04 import validate_v04_record, v04_summary
+from radar_bench.investigation.v01 import validate_episode
 from radar_bench.evaluation.ablation import compare_lanes
 from radar_bench.errors import ExternalBlocked, RadarError, ValidationError
 from radar_bench.evaluation.gates import evaluate_gates
@@ -212,6 +213,25 @@ def command_validate_v04_corpus(args: argparse.Namespace) -> int:
     _json(result) if getattr(args, "json", False) else print(
         json.dumps(result, indent=2, sort_keys=True)
     )
+    return EXIT_OK if not errors else EXIT_INVALID
+
+
+def command_validate_v05_episodes(args: argparse.Namespace) -> int:
+    path = Path(args.path) if args.path else _root() / "artifacts" / "release-evidence" / "investigation-episodes.json"
+    errors: list[str] = []
+    try:
+        payload = cast(dict[str, Any], json.loads(path.read_text(encoding="utf-8")))
+        episodes = payload.get("episodes", [])
+        if not isinstance(episodes, list) or not episodes:
+            errors.append("v0.5 episode artifact has no episodes")
+            episodes = []
+        for episode in episodes:
+            errors.extend(f"{episode.get('episode_id', 'missing')}: {error}" for error in validate_episode(episode, root=_root()))
+    except (OSError, ValueError, ValidationError) as exc:
+        errors.append(str(exc))
+        episodes = []
+    result = {"path": str(path.resolve()), "valid": not errors, "episodes": len(episodes), "errors": errors}
+    _json(result)
     return EXIT_OK if not errors else EXIT_INVALID
 
 
@@ -452,6 +472,9 @@ def build_parser() -> argparse.ArgumentParser:
     p = sub.add_parser("validate-v04-corpus")
     p.add_argument("--json", action="store_true")
     p.set_defaults(function=command_validate_v04_corpus)
+    p = sub.add_parser("validate-v05-episodes")
+    p.add_argument("--path")
+    p.set_defaults(function=command_validate_v05_episodes)
     p = sub.add_parser("collect")
     group = p.add_mutually_exclusive_group(required=True)
     group.add_argument("--issue")

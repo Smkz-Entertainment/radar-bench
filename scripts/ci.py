@@ -98,9 +98,20 @@ def main() -> int:
             "output": v04_corpus.stdout,
             "error": v04_corpus.stderr,
         }
-        if v04_corpus.returncode != 0:
+    if v04_corpus.returncode != 0:
+        print(json.dumps(results, indent=2))
+        return v04_corpus.returncode
+    v05_episodes = ROOT / "artifacts" / "release-evidence" / "investigation-episodes.json"
+    if v05_episodes.exists():
+        v05_validation = run("validate-v05-episodes", check=False)
+        results["v05_episodes"] = {
+            "status": "pass" if v05_validation.returncode == 0 else "fail",
+            "output": v05_validation.stdout,
+            "error": v05_validation.stderr,
+        }
+        if v05_validation.returncode != 0:
             print(json.dumps(results, indent=2))
-            return v04_corpus.returncode
+            return v05_validation.returncode
     tests = subprocess.run(
         [
             PYTHON,

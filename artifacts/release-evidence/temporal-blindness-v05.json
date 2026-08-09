@@ -1,0 +1,16 @@
+{
+  "candidate_views": 60,
+  "hidden_fields_checked": [
+    "action_owner_repository",
+    "attributability_class",
+    "gold",
+    "hidden_gold_packet",
+    "historical_evidence",
+    "label",
+    "root_cause_component"
+  ],
+  "leakage_count": 0,
+  "leaked_episode_ids": [],
+  "policy": "Candidate receives cutoff snapshot, observations, hypotheses, action space, and replay results only.",
+  "valid": true
+}

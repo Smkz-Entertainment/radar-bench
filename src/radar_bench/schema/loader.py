@@ -21,6 +21,8 @@ SCHEMAS = {
     "blind_run_v03": "blind-run-v0.3.schema.json",
     "ablation_v03": "ablation-record-v0.3.schema.json",
     "admission_v04": "gold-admission-v0.4.schema.json",
+    "investigation_episode_v01": "investigation-episode-v0.1.schema.json",
+    "investigation_experiment_v01": "investigation-experiment-v0.1.schema.json",
 }
 
 
