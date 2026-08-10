@@ -209,13 +209,13 @@
       "sha256": "sha256:1c749913d263baae8d8258baa3a56e6db66f3d11e2c318473855b795d84c9e69"
     },
     {
-      "bytes": 683,
+      "bytes": 792,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/final-report.md",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:551b193426365480fae5b5d2fe45f88d80900d76d3ae69e10332ebb1806271fd"
+      "sha256": "sha256:836bf2c737e043bdd3acc9d01b5b8d60468ad9045b21b6ac0cb5ed0f27b0041c"
     },
     {
       "bytes": 16799,
@@ -263,22 +263,22 @@
       "sha256": "sha256:9d07ec6f3d3faa48fee254a8ca30562401c2310695642c109bc582546f302d11"
     },
     {
-      "bytes": 411,
+      "bytes": 453,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/release-gates.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:d536752f0dc8f681b4f3c2445fc191d3d4d9ffc6a8d2bf90a28e21f785592f1c"
+      "sha256": "sha256:6d9fce8341fbba4475d07d069fb919c68266e52f5f37fa9ffc625c4e5b27356d"
     },
     {
-      "bytes": 415,
+      "bytes": 773,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/remote-verification.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:1687df0b98452a25b47acdbd3be8939a01d690752c55d7c3fe594f06dcc05a17"
+      "sha256": "sha256:841d1480f51025ee78994ef2c54fdfc9598625ed523b0065a1aa73abc5e4811e"
     },
     {
       "bytes": 663,
@@ -323,7 +323,7 @@
       "path": "artifacts/v1.0.1/tracked-file-inventory.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:6bbd4cf585504a1b3f22903586ade723bca614a54a4b4bd56817790ee79f680e"
+      "sha256": "sha256:57e0da14950c1b9b2433579a81de216490bf6eaee45df7fe3c07d36a55734588"
     },
     {
       "bytes": 277,
@@ -938,13 +938,13 @@
       "sha256": "sha256:2822927d274410b47ebd9d270a8c351c0a3a2c9a0328c74b0851bfbe4a5e7e10"
     },
     {
-      "bytes": 23021,
+      "bytes": 23280,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "scripts/verify_release.py",
       "purpose": "release and audit tooling",
       "release_classification": "tooling",
-      "sha256": "sha256:7a65a13cc1d30c7f4cf2c6b798458b5f8b59eb96b2a87c10345cc3edf7e0e4ce"
+      "sha256": "sha256:cd63e1ff571094ad85b7263795e59ab47263ae4373cdf5e33b5531b4be9f6807"
     },
     {
       "bytes": 97,

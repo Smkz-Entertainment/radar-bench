@@ -277,6 +277,7 @@ def main() -> int:
     parser.add_argument("--clean-install-evidence", type=Path)
     parser.add_argument("--independent-result", type=Path, action="append", default=[])
     parser.add_argument("--quality-evidence", type=Path)
+    parser.add_argument("--hosted-ci-status", choices=("PASS", "BLOCKED_EXTERNAL_BILLING", "NOT_RECORDED"), default="NOT_RECORDED")
     args = parser.parse_args()
     root = args.root.resolve()
     evidence = root / "artifacts" / "v1.0.1"
@@ -336,7 +337,9 @@ def main() -> int:
     docker_observed = result.get("status") == "COMPLETED" and result.get("provenance", {}).get("execution_network") == "none" and result.get("provenance", {}).get("platform", {}).get("engine_os") == "linux"
     checks = {"suite_contract": bool(audit.get("valid")), "result_schema": True, "privacy_scan": not privacy_findings, "secret_scan": not secret_findings, "distribution": distribution["status"] == "PASS", "artifact_reconstruction": artifact_check.get("status") == "READY", "clean_install": clean_install.get("status") == "PASS", "canonical_reference_match": result.get("reference_comparison", {}).get("status") == "EXACT_MATCH", "independent_clean_clone_runs": independent["status"] == "PASS", "docker_execution_observed": docker_observed, "quality_checks": quality.get("status") == "PASS"}
     _write_json(evidence / "security-audit.json", {"status": "PASS" if all(checks.values()) else "BLOCKED", "checks": checks, "configured": {"execution_network": "none", "candidate_gold_separation": True, "digest_pinned_inputs": True}, "observed": {"docker_execution": docker_observed, "result_status": result.get("status"), "engine": result.get("provenance", {}).get("platform")}, "tool_evidence": quality})
-    _write_json(evidence / "release-gates.json", {"release": "1.0.1", "suite": "decisive-v1.1", "final_state": "READY_PRIVATE_REPOSITORY" if all(checks.values()) else "BLOCKED_SCIENTIFIC_CONTRACT", "gates": {"package_build": distribution["status"], "clean_package_install": clean_install.get("status", "NOT_RECORDED"), "suite_contract": "PASS" if audit.get("valid") else "FAIL", "historical_runtime_reconstruction": "PASS" if docker_observed else "BLOCKED", "canonical_decisive_evaluation": "PASS" if result.get("reference_comparison", {}).get("status") == "EXACT_MATCH" else "BLOCKED", "independent_clean_clone_reproduction": independent["status"], "v1.0.1_tag": "CREATED_LOCALLY_AFTER_FINAL_TREE"}})
+    local_state = "READY_PRIVATE_REPOSITORY" if all(checks.values()) else "BLOCKED_SCIENTIFIC_CONTRACT"
+    final_state = "BLOCKED_EXTERNAL_AUTH" if local_state == "READY_PRIVATE_REPOSITORY" and args.hosted_ci_status == "BLOCKED_EXTERNAL_BILLING" else local_state
+    _write_json(evidence / "release-gates.json", {"release": "1.0.1", "suite": "decisive-v1.1", "final_state": final_state, "gates": {"package_build": distribution["status"], "clean_package_install": clean_install.get("status", "NOT_RECORDED"), "suite_contract": "PASS" if audit.get("valid") else "FAIL", "historical_runtime_reconstruction": "PASS" if docker_observed else "BLOCKED", "canonical_decisive_evaluation": "PASS" if result.get("reference_comparison", {}).get("status") == "EXACT_MATCH" else "BLOCKED", "independent_clean_clone_reproduction": independent["status"], "v1.0.1_tag": "CREATED_LOCALLY_AFTER_FINAL_TREE", "hosted_ci": args.hosted_ci_status}})
     _write_json(evidence / "tracked-file-inventory.json", _inventory(root))
     (evidence / "pruning-report.md").write_text(
         "# v1.0.1 pruning report\n\n"
@@ -346,12 +349,12 @@ def main() -> int:
     )
     (evidence / "final-report.md").write_text(
         "# Radar Bench v1.0.1 release evidence\n\n"
-        f"- strict result: `{result.get('status')}`\n- executed cases: `{result.get('cases', {}).get('executed')}/25`\n- corrected reference comparison: `{result.get('reference_comparison', {}).get('status')}`\n- clean-clone parity: `{independent.get('status')}`\n- metric contract: `{metric_audit['status']}`\n- security evidence: `{('PASS' if all(checks.values()) else 'BLOCKED')}`\n- annotated tag: `v1.0.1` will be annotated on this exact final tree before publication completes\n\n"
+        f"- strict result: `{result.get('status')}`\n- executed cases: `{result.get('cases', {}).get('executed')}/25`\n- corrected reference comparison: `{result.get('reference_comparison', {}).get('status')}`\n- clean-clone parity: `{independent.get('status')}`\n- metric contract: `{metric_audit['status']}`\n- security evidence: `{('PASS' if all(checks.values()) else 'BLOCKED')}`\n- annotated tag: `v1.0.1`\n- hosted GitHub CI: `{args.hosted_ci_status}`\n\n"
         "The original v1.0.0 record remains immutable historical evidence. The corrected v1.0.1 result is runtime evidence only when the artifact-backed execution and independent clean-clone records above are present. A completed `UNSAFE` result is the expected negative product-hypothesis outcome; it is not a release-quality or attribution pass.\n",
         encoding="utf-8",
         newline="\n",
     )
-    print(json.dumps({"status": result.get("status"), "release_state": "READY_PRIVATE_REPOSITORY" if all(checks.values()) else "BLOCKED_SCIENTIFIC_CONTRACT", "evidence": "artifacts/v1.0.1"}, sort_keys=True))
+    print(json.dumps({"status": result.get("status"), "release_state": final_state, "evidence": "artifacts/v1.0.1"}, sort_keys=True))
     return 0 if audit.get("valid") else 2
 
 

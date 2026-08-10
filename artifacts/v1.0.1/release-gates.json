@@ -1,9 +1,10 @@
 {
-  "final_state": "READY_PRIVATE_REPOSITORY",
+  "final_state": "BLOCKED_EXTERNAL_AUTH",
   "gates": {
     "canonical_decisive_evaluation": "PASS",
     "clean_package_install": "PASS",
     "historical_runtime_reconstruction": "PASS",
+    "hosted_ci": "BLOCKED_EXTERNAL_BILLING",
     "independent_clean_clone_reproduction": "PASS",
     "package_build": "PASS",
     "suite_contract": "PASS",
