@@ -200,22 +200,22 @@
       "sha256": "sha256:3f40f9fa897cc958e2465ea74928c72485420d4b0e43c54f145534cd02a61451"
     },
     {
-      "bytes": 1400,
+      "bytes": 1472,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/clean-install.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:1c749913d263baae8d8258baa3a56e6db66f3d11e2c318473855b795d84c9e69"
+      "sha256": "sha256:c129c8040195a42c6e3e4d48de4fcb696c8ecda04d35338b5bbf0a06ac96c046"
     },
     {
-      "bytes": 792,
+      "bytes": 658,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/final-report.md",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:836bf2c737e043bdd3acc9d01b5b8d60468ad9045b21b6ac0cb5ed0f27b0041c"
+      "sha256": "sha256:cbc94eb4229a99e5ae7427f612d2cf842b83f3ff3c8b50990e6c1d76d065d11b"
     },
     {
       "bytes": 16799,
@@ -242,7 +242,7 @@
       "path": "artifacts/v1.0.1/package-content.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:6ae6edb18518541b53e68cda54067eba9c57afe1eaaf1ac736a8969417718477"
+      "sha256": "sha256:cdfa2291e6becbe708cae8d949ace2b484089f2e9b6f06c8fa36b61ac520887e"
     },
     {
       "bytes": 404,
@@ -323,7 +323,7 @@
       "path": "artifacts/v1.0.1/tracked-file-inventory.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:57e0da14950c1b9b2433579a81de216490bf6eaee45df7fe3c07d36a55734588"
+      "sha256": "sha256:099ca284b67881267b6b8a0098b32aa7ff3061a8acecc436cd9404890d479119"
     },
     {
       "bytes": 277,
@@ -398,13 +398,13 @@
       "sha256": "sha256:72339e5b828d73dc288085a326dc41c43a64f99e181f9c7b9f1f3d3df82c50fd"
     },
     {
-      "bytes": 2722,
+      "bytes": 2814,
       "keep_decision": "KEEP",
       "package_inclusion": "package resources when under src; otherwise not packaged",
       "path": "corpus/v1.0.1/decisive-v1.1/README.md",
       "purpose": "current benchmark contract or frozen baseline",
       "release_classification": "benchmark",
-      "sha256": "sha256:b7e71475408b851765c7220ab5ff2f6b7334a47a1c4ce8c65de8df7332ee8be6"
+      "sha256": "sha256:fc5e794cfdcb269c02a1de6da439e8a585fc0c95d4dbf97682965c70be316a8b"
     },
     {
       "bytes": 10136,
@@ -839,13 +839,13 @@
       "sha256": "sha256:2a3002e9b3a6d5707987e98a346efcfa3b0248afc01757b3aa5d64cec615d50a"
     },
     {
-      "bytes": 1522,
+      "bytes": 1524,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "docs/REPRODUCIBILITY.md",
       "purpose": "public project documentation",
       "release_classification": "documentation",
-      "sha256": "sha256:e01dae4d0fb14c2acb06e46e0984271af5cf1610c25a9e9a02b43d5774b04cfb"
+      "sha256": "sha256:11cfd7fc16279b857073462b82bc4dc8b2596bc65974fbad2e1e27b340201385"
     },
     {
       "bytes": 946,
@@ -1190,13 +1190,13 @@
       "sha256": "sha256:72339e5b828d73dc288085a326dc41c43a64f99e181f9c7b9f1f3d3df82c50fd"
     },
     {
-      "bytes": 2722,
+      "bytes": 2814,
       "keep_decision": "KEEP",
       "package_inclusion": "package source or package data",
       "path": "src/radar_bench/resources/corpus/v1.0.1/decisive-v1.1/README.md",
       "purpose": "runtime source",
       "release_classification": "source",
-      "sha256": "sha256:b7e71475408b851765c7220ab5ff2f6b7334a47a1c4ce8c65de8df7332ee8be6"
+      "sha256": "sha256:fc5e794cfdcb269c02a1de6da439e8a585fc0c95d4dbf97682965c70be316a8b"
     },
     {
       "bytes": 10136,

@@ -2,14 +2,14 @@
   "distribution": {
     "artifacts": [
       {
-        "bytes": 124911,
+        "bytes": 124915,
         "name": "radar_bench-1.0.1-py3-none-any.whl",
-        "sha256": "sha256:8d72ce99e62d80a89c0ea5744cb49e08a4a7765b344cc7428950325efc9cf712"
+        "sha256": "sha256:dc079e2da7730d32c82b876132660d37eee7a262b057b248cdd5e5183d9afe42"
       },
       {
-        "bytes": 95718,
+        "bytes": 95738,
         "name": "radar_bench-1.0.1.tar.gz",
-        "sha256": "sha256:5eda75abe64ee877539010325f3b2d5a17c5f7484b96a2dec65f35880061fd2f"
+        "sha256": "sha256:13a7f4f1cdf1dbdf3ff863f392768b1b59c226701fa85112fb25fff688cccc3e"
       }
     ],
     "expected": [

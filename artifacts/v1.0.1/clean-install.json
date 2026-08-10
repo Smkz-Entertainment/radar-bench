@@ -16,7 +16,8 @@
       "radar-bench --version",
       "doctor",
       "list-suites",
-      "validate --suite decisive-v1.1"
+      "validate --suite decisive-v1.1",
+      "inspect-case RADAR-V07-A01"
     ],
     "historical_labels_digest": "sha256:b3100b9b9f7410e3a705ee5f5854b296a4e1eee29753671a12c8754f66db13a7",
     "reference_digest": "sha256:cad6c626bfd6fa289dd8d314710e9f14f7816b38fc5a4f454e5c1c9045619870",
@@ -31,7 +32,8 @@
       "radar-bench --version",
       "doctor",
       "list-suites",
-      "validate --suite decisive-v1.1"
+      "validate --suite decisive-v1.1",
+      "inspect-case RADAR-V07-A01"
     ],
     "historical_labels_digest": "sha256:b3100b9b9f7410e3a705ee5f5854b296a4e1eee29753671a12c8754f66db13a7",
     "reference_digest": "sha256:cad6c626bfd6fa289dd8d314710e9f14f7816b38fc5a4f454e5c1c9045619870",

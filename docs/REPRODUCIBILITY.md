@@ -17,7 +17,7 @@ From a brand-new checkout with no developer caches:
 
     python -m pip install .
     radar-bench artifacts fetch --suite decisive-v1.1 --output-root <artifact-root>
-    radar-bench artifacts verify --suite decisive-v1.1 --output-root <artifact-root>
+    radar-bench artifacts verify --suite decisive-v1.1 --artifact-root <artifact-root>
     radar-bench evaluate --suite decisive-v1.1 --artifact-root <artifact-root> --output result.json
     radar-bench verify-results result.json
 

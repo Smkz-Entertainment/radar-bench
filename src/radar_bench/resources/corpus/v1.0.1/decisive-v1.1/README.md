@@ -30,8 +30,8 @@ The harness is deliberately not an investigator. It does not select case-specifi
 The supported acquisition path is:
 
 ```text
-radar-bench artifacts fetch --suite decisive-v1.1
-radar-bench artifacts verify --suite decisive-v1.1
+radar-bench artifacts fetch --suite decisive-v1.1 --output-root /path/to/radar-bench-artifacts
+radar-bench artifacts verify --suite decisive-v1.1 --artifact-root /path/to/radar-bench-artifacts
 ```
 
 Run structural validation with:
