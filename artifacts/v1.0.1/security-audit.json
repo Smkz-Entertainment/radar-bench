@@ -110,7 +110,7 @@
         "version": "2.10.1"
       },
       "pytest_coverage": {
-        "coverage_percent": 92.74,
+        "coverage_percent": 92.47,
         "minimum_percent": 90,
         "status": "PASS",
         "tests": 46

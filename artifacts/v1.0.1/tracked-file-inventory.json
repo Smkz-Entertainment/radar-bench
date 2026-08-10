@@ -1,5 +1,5 @@
 {
-  "count": 193,
+  "count": 197,
   "files": [
     {
       "bytes": 112,
@@ -72,6 +72,15 @@
       "purpose": "repository automation and policy",
       "release_classification": "automation",
       "sha256": "sha256:22f77f0aca03ed104409394ed2b6c62d91293fe52c3d2565c6823591f378cfe4"
+    },
+    {
+      "bytes": 3153,
+      "keep_decision": "KEEP",
+      "package_inclusion": "not packaged",
+      "path": ".github/workflows/release.yml",
+      "purpose": "repository automation and policy",
+      "release_classification": "automation",
+      "sha256": "sha256:33ab407befb58fde84072961c322cfee9de9773d78816c473fc7884c6e3abb6e"
     },
     {
       "bytes": 312,
@@ -218,6 +227,15 @@
       "sha256": "sha256:cbc94eb4229a99e5ae7427f612d2cf842b83f3ff3c8b50990e6c1d76d065d11b"
     },
     {
+      "bytes": 1088,
+      "keep_decision": "KEEP",
+      "package_inclusion": "not packaged",
+      "path": "artifacts/v1.0.1/metadata-only-inference.json",
+      "purpose": "release evidence",
+      "release_classification": "evidence",
+      "sha256": "sha256:aeeadf585765ba3c17a8c26bbcae486bc1f08820779dd108a36e2755cdff92a6"
+    },
+    {
       "bytes": 16799,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
@@ -278,7 +296,7 @@
       "path": "artifacts/v1.0.1/remote-verification.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:eceb83e44e5a5247ec0e044b956b5099c16436ec472f7016409ec77bc78d12dc"
+      "sha256": "sha256:9756494f62e70203561aa306f78e81ccc08aaeb9c2bc887f75bee1ee484f6ed2"
     },
     {
       "bytes": 663,
@@ -314,7 +332,7 @@
       "path": "artifacts/v1.0.1/security-audit.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:90a120e1dee19a2416a5351408681f3a2826ab164999bed1f90a2506f952a9e6"
+      "sha256": "sha256:5f4f62dee54f8d9ce5989178d82982693f912b41d4c2e1782136ceacb0c72881"
     },
     {
       "bytes": 72132,
@@ -323,7 +341,7 @@
       "path": "artifacts/v1.0.1/tracked-file-inventory.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:0fd856f72123985346562ac8fa3c9eb09a688fc830bc13f88b329ad7eef93daa"
+      "sha256": "sha256:bd260a89a5ffbe0085debdcebc9689061bf3698e96fb6319912be4083242d39f"
     },
     {
       "bytes": 277,
@@ -936,6 +954,15 @@
       "purpose": "strict public schemas",
       "release_classification": "contract",
       "sha256": "sha256:2822927d274410b47ebd9d270a8c351c0a3a2c9a0328c74b0851bfbe4a5e7e10"
+    },
+    {
+      "bytes": 3717,
+      "keep_decision": "KEEP",
+      "package_inclusion": "not packaged",
+      "path": "scripts/audit_metadata_only.py",
+      "purpose": "release and audit tooling",
+      "release_classification": "tooling",
+      "sha256": "sha256:7a71c98424fb8cca9d0dc0d2a78027c241fb568c44e1694db0158c6dc692aa6d"
     },
     {
       "bytes": 25172,
@@ -1710,6 +1737,15 @@
       "purpose": "automated tests",
       "release_classification": "test",
       "sha256": "sha256:3997d5ee1f64bddd92c7de7a8a0c0681512d5d35ff5e2aaded90ac8ad04a3c40"
+    },
+    {
+      "bytes": 1322,
+      "keep_decision": "KEEP",
+      "package_inclusion": "not packaged",
+      "path": "tests/test_docs.py",
+      "purpose": "automated tests",
+      "release_classification": "test",
+      "sha256": "sha256:a259731878a6eeda48159eae86da8fd8124a8b34907b38528a568c19b8ff71cf"
     },
     {
       "bytes": 2561,
