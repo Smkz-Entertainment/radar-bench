@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from pathlib import Path
 from typing import Any, Mapping, cast
 
@@ -228,6 +229,20 @@ def build_result(
     executed = int(cast(Mapping[str, Any], raw.get("cases", {})).get("executed", 0)) if isinstance(raw.get("cases"), Mapping) else 0
     blocked = 25 - executed
     blocked_cases = cast(list[dict[str, str]], cast(Mapping[str, Any], raw.get("cases", {})).get("blocked_cases", [])) if isinstance(raw.get("cases"), Mapping) else []
+    if blocked and len(blocked_cases) != blocked:
+        listed_ids = {
+            item.get("case_id")
+            for item in blocked_cases
+            if isinstance(item, Mapping) and isinstance(item.get("case_id"), str)
+        }
+        blocked_cases = [
+            *blocked_cases,
+            *[
+                {"case_id": case_id, "reason": "EXECUTION_BLOCKED"}
+                for case_id in (*HISTORICAL_IDS, *SAFETY_IDS)
+                if case_id not in listed_ids
+            ],
+        ][:blocked]
     lane_source = cast(Mapping[str, Any], raw.get("metrics", {})).get("lanes", {}) if isinstance(raw.get("metrics"), Mapping) else {}
     baselines: dict[str, Any] = {}
     for lane in LANES:
@@ -297,6 +312,21 @@ def validate_result(document: Mapping[str, Any]) -> None:
     cases = document.get("cases")
     if isinstance(cases, Mapping) and int(cases.get("executed", 0)) + int(cases.get("blocked", 0)) != 25:
         errors.append("cases.executed + cases.blocked must equal 25")
+    if isinstance(cases, Mapping):
+        blocked_cases = cases.get("blocked_cases")
+        if isinstance(blocked_cases, list):
+            blocked_ids = [
+                item.get("case_id")
+                for item in blocked_cases
+                if isinstance(item, Mapping)
+            ]
+            expected_ids = set((*HISTORICAL_IDS, *SAFETY_IDS))
+            if len(blocked_ids) != len(set(blocked_ids)):
+                errors.append("cases.blocked_cases must not contain duplicate case IDs")
+            if any(not isinstance(case_id, str) or case_id not in expected_ids for case_id in blocked_ids):
+                errors.append("cases.blocked_cases contains an unknown case ID")
+            if isinstance(cases.get("blocked"), int) and len(blocked_ids) != cases["blocked"]:
+                errors.append("cases.blocked must equal the blocked_cases length")
     baselines = document.get("baselines")
     if isinstance(baselines, Mapping):
         for lane in LANES:
@@ -312,10 +342,50 @@ def validate_result(document: Mapping[str, Any]) -> None:
                 value = metric.get("value")
                 if status == "evaluable" and (not isinstance(denominator, int) or denominator <= 0):
                     errors.append(f"{lane}.{name}: evaluable metric needs a positive denominator")
+                if status == "evaluable" and (
+                    not isinstance(value, (int, float))
+                    or isinstance(value, bool)
+                    or not isinstance(numerator, int)
+                    or not isinstance(denominator, int)
+                ):
+                    errors.append(f"{lane}.{name}: evaluable metric needs a numeric value")
                 if status == "not_evaluable" and value is not None:
                     errors.append(f"{lane}.{name}: not_evaluable metric must have null value")
+                if status == "not_evaluable" and (numerator != 0 or denominator != 0):
+                    errors.append(f"{lane}.{name}: not_evaluable metric must use a zero denominator")
                 if name != "median_substantive_experiments" and isinstance(numerator, int) and isinstance(denominator, int) and numerator > denominator:
                     errors.append(f"{lane}.{name}: numerator exceeds denominator")
+                if status == "evaluable" and isinstance(value, (int, float)) and not isinstance(value, bool) and isinstance(numerator, int) and isinstance(denominator, int) and denominator > 0:
+                    expected_value = (
+                        float(numerator)
+                        if name == "median_substantive_experiments"
+                        else numerator / denominator
+                    )
+                    if not math.isclose(float(value), expected_value, rel_tol=0.0, abs_tol=1e-12):
+                        errors.append(f"{lane}.{name}: value does not match numerator and denominator")
+    predictions = document.get("case_predictions")
+    expected_case_ids = [*HISTORICAL_IDS, *SAFETY_IDS]
+    if isinstance(predictions, Mapping):
+        for lane in LANES:
+            lane_predictions = predictions.get(lane)
+            actual_case_ids = [
+                item.get("case_id")
+                for item in lane_predictions
+                if isinstance(item, Mapping)
+            ] if isinstance(lane_predictions, list) else []
+            if actual_case_ids != expected_case_ids:
+                errors.append(f"{lane}.case_predictions must contain the exact canonical case sequence")
+            if len(actual_case_ids) != len(set(actual_case_ids)):
+                errors.append(f"{lane}.case_predictions must not contain duplicate case IDs")
+    if document.get("status") == "COMPLETED":
+        if isinstance(cases, Mapping) and cases.get("blocked") != 0:
+            errors.append("COMPLETED results cannot contain blocked cases")
+        if isinstance(baselines, Mapping) and any(
+            isinstance(baselines.get(lane), Mapping)
+            and baselines[lane].get("status") != "EXECUTED"
+            for lane in LANES
+        ):
+            errors.append("COMPLETED results require every baseline to be EXECUTED")
     if errors:
         raise ValidationError("strict result contract semantic validation failed", errors)
 

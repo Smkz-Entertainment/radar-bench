@@ -60,9 +60,9 @@ an appointed representative at an online or offline event.
 ## Enforcement
 
 Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders through the private GitHub repository
-security channel. If that channel is unavailable, open a minimal public issue
-without private details or exploit material and request private follow-up.
+reported to the community leaders. This repository currently has no verified
+private intake channel, so do not include sensitive personal information in a
+public issue; open only a minimal issue requesting private follow-up.
 
 All complaints will be reviewed and investigated promptly and fairly.
 

@@ -33,7 +33,8 @@ def _terminate_tree(process: subprocess.Popen[bytes]) -> str | None:
         if os.name == "nt":
             completed = subprocess.run(  # nosec B603, B607 - fixed taskkill argv
                 ["taskkill", "/PID", str(process.pid), "/T", "/F"],
-                capture_output=True,
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
                 check=False,
                 shell=False,
                 timeout=10,
@@ -74,6 +75,8 @@ def run_bounded(
         start_new_session=os.name != "nt",
     )
     streams: dict[str, bytearray] = {"stdout": bytearray(), "stderr": bytearray()}
+    stream_hashers = {name: hashlib.sha256() for name in streams}
+    stream_bytes = {name: 0 for name in streams}
     state = {"observed": 0, "overflow": False}
     lock = threading.Lock()
 
@@ -86,8 +89,10 @@ def run_bounded(
                 chunk = pipe.read(CHUNK_BYTES)
                 if not chunk:
                     return
+                stream_hashers[name].update(chunk)
+                stream_bytes[name] += len(chunk)
                 with lock:
-                    state["observed"] = min(max_output_bytes + 1, state["observed"] + len(chunk))
+                    state["observed"] += len(chunk)
                     remaining = max_output_bytes - len(streams["stdout"]) - len(streams["stderr"])
                     if remaining > 0:
                         streams[name].extend(chunk[:remaining])
@@ -135,11 +140,17 @@ def run_bounded(
     for thread in threads:
         thread.join(timeout=10)
     combined = bytes(streams["stdout"] + streams["stderr"])
+    aggregate = hashlib.sha256()
+    for name in ("stdout", "stderr"):
+        aggregate.update(name.encode("ascii"))
+        aggregate.update(b"\0")
+        aggregate.update(stream_bytes[name].to_bytes(16, "big"))
+        aggregate.update(stream_hashers[name].digest())
     excerpt = combined[:EXCERPT_BYTES].decode("utf-8", errors="replace")
     return BoundedCapture(
         returncode=process.returncode,
         output_bytes=int(state["observed"]),
-        output_digest="sha256:" + hashlib.sha256(combined).hexdigest(),
+        output_digest="sha256:" + aggregate.hexdigest(),
         output_limit_exceeded=bool(state["overflow"]),
         timed_out=timed_out,
         excerpt=excerpt,

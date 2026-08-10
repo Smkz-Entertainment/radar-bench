@@ -12,7 +12,6 @@ import hashlib
 import json
 import shutil
 import statistics
-import subprocess  # nosec B404 - fixed container argv, shell disabled
 import time
 from collections import Counter
 from pathlib import Path
@@ -512,15 +511,17 @@ def preparation_audit(root: Path, manifest_path: Path) -> dict[str, Any]:
 
 def freeze_audit(root: Path, expected_digest: str, expected_commit: str = FROZEN_V05_COMMIT) -> dict[str, Any]:
     current_digest = digest_tree(root, ("src/radar_bench/investigation/*.py", "src/radar_bench/evaluation/v05.py", "schema/investigation-*.json", "scripts/run_v05_investigation.py"))
-    commit_result = subprocess.run(  # nosec - fixed read-only git argv
+    commit_result = run_bounded(
         ["git", "log", "-1", "--format=%H", "--", "src/radar_bench/investigation/v01.py", "src/radar_bench/evaluation/v05.py", "scripts/run_v05_investigation.py"],
         cwd=root,
-        capture_output=True,
-        check=False,
-        shell=False,
-        text=True,
+        timeout=30,
+        max_output_bytes=4096,
     )
-    current_commit = commit_result.stdout.strip() if commit_result.returncode == 0 else "unknown"
+    current_commit = (
+        commit_result.payload.decode("utf-8", errors="replace").strip()
+        if commit_result.returncode == 0 and not commit_result.output_limit_exceeded
+        else "unknown"
+    )
     return {"expected_digest": expected_digest, "current_digest": current_digest, "digest_match": current_digest == expected_digest, "expected_commit": expected_commit, "current_commit": current_commit, "commit_match": current_commit.startswith(expected_commit), "tuning_performed": False}
 
 

@@ -31,4 +31,5 @@ def test_documentation_describes_the_fail_closed_scientific_boundary() -> None:
     assert "BLOCKED" in readme
     assert "network-denied" in readme
     assert "Gold is loaded only by the evaluator" in threat_model
-    assert "security channel" in security
+    assert "no verified" in security
+    assert "release remains blocked" in security

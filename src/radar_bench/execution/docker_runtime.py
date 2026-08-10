@@ -16,6 +16,8 @@ from collections.abc import Callable
 from dataclasses import dataclass
 from typing import Any
 
+from radar_bench.execution.process import run_bounded
+
 DOCKER_INFO_TIMEOUT_SECONDS = 10
 MAX_DOCKER_INFO_BYTES = 1024 * 1024
 SUPPORTED_ENGINE_OS = "linux"
@@ -74,14 +76,42 @@ def inspect_docker_runtime(
             reason="RUNTIME_UNAVAILABLE",
         )
 
+    argv = [docker, "info", "--format", "{{json .}}"]
     try:
-        completed = runner(
-            [docker, "info", "--format", "{{json .}}"],
-            capture_output=True,
-            check=False,
-            shell=False,
-            timeout=DOCKER_INFO_TIMEOUT_SECONDS,
-        )
+        if runner is subprocess.run:
+            bounded = run_bounded(
+                argv,
+                timeout=DOCKER_INFO_TIMEOUT_SECONDS,
+                max_output_bytes=MAX_DOCKER_INFO_BYTES,
+            )
+            if bounded.timed_out or bounded.cleanup_error:
+                return DockerRuntime(
+                    available=False,
+                    supported=False,
+                    engine_os=None,
+                    engine_architecture=None,
+                    reason="DOCKER_INFO_UNAVAILABLE",
+                )
+            if bounded.output_limit_exceeded:
+                return DockerRuntime(
+                    available=True,
+                    supported=False,
+                    engine_os=None,
+                    engine_architecture=None,
+                    reason="DOCKER_INFO_TOO_LARGE",
+                )
+            returncode = bounded.returncode
+            output = bounded.payload
+        else:
+            completed = runner(
+                argv,
+                capture_output=True,
+                check=False,
+                shell=False,
+                timeout=DOCKER_INFO_TIMEOUT_SECONDS,
+            )
+            returncode = completed.returncode
+            output = completed.stdout or b""
     except (OSError, subprocess.TimeoutExpired):
         return DockerRuntime(
             available=False,
@@ -91,7 +121,6 @@ def inspect_docker_runtime(
             reason="DOCKER_INFO_UNAVAILABLE",
         )
 
-    output = completed.stdout or b""
     if len(output) > MAX_DOCKER_INFO_BYTES:
         return DockerRuntime(
             available=True,
@@ -100,7 +129,7 @@ def inspect_docker_runtime(
             engine_architecture=None,
             reason="DOCKER_INFO_TOO_LARGE",
         )
-    if completed.returncode != 0:
+    if returncode != 0:
         return DockerRuntime(
             available=True,
             supported=False,

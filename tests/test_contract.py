@@ -67,3 +67,41 @@ def test_strict_result_rejects_unknown_properties() -> None:
     result["unexpected"] = True
     with pytest.raises(ValidationError):
         validate_result_document(result, ROOT)
+
+
+@pytest.mark.parametrize(
+    "mutation",
+    [
+        "remove_required",
+        "denominator_drift",
+        "partial_predictions",
+        "extra_metric_field",
+    ],
+)
+def test_adversarial_result_contract_mutations_are_rejected(
+    mutation: str,
+) -> None:
+    result = json.loads(
+        (ROOT / "reference" / "decisive-v1.1-result.json").read_text(encoding="utf-8")
+    )
+    if mutation == "remove_required":
+        del result["decision"]
+    elif mutation == "denominator_drift":
+        result["baselines"]["agentic-v0.5-frozen"]["metrics"]["historical_positive_resolution"]["denominator"] = 4
+    elif mutation == "partial_predictions":
+        result["case_predictions"]["static-v0.4"] = result["case_predictions"]["static-v0.4"][:-1]
+    elif mutation == "extra_metric_field":
+        result["baselines"]["static-v0.4"]["metrics"]["historical_positive_resolution"]["extra"] = True
+    with pytest.raises(ValidationError):
+        validate_result_document(result, ROOT)
+
+
+def test_case_sequence_drift_is_rejected_after_schema_validation() -> None:
+    result = json.loads(
+        (ROOT / "reference" / "decisive-v1.1-result.json").read_text(encoding="utf-8")
+    )
+    predictions = result["case_predictions"]["static-v0.4"]
+    predictions[0], predictions[1] = predictions[1], predictions[0]
+    with pytest.raises(ValidationError) as raised:
+        validate_result_document(result, ROOT)
+    assert any("exact canonical case sequence" in error for error in raised.value.errors)

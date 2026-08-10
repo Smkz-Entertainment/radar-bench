@@ -16,7 +16,7 @@ from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 from typing import Any, Mapping, cast
 from urllib.error import URLError
-from urllib.parse import quote, urlparse
+from urllib.parse import quote, unquote, urlparse
 from urllib.request import Request, urlopen  # nosec B310 - hosts are allowlisted
 
 SUITE_RELATIVE = Path("corpus/v1.0.1/decisive-v1.1/suite.json")
@@ -265,6 +265,7 @@ def _verify_bundle(bundle: ArtifactBundle, artifact_root: Path) -> dict[str, Any
         return {"artifact_id": bundle.artifact_id, "status": "BLOCKED", "errors": ["bundle directory is absent"]}
     expected = {item.name: item for item in bundle.files}
     actual_files: dict[str, Path] = {}
+    actual_records: dict[str, tuple[str, int]] = {}
     for path in bundle_root.rglob("*"):
         relative = path.relative_to(bundle_root).as_posix()
         if path.is_symlink() or not path.is_file() or not _safe_name(relative):
@@ -283,14 +284,10 @@ def _verify_bundle(bundle: ArtifactBundle, artifact_root: Path) -> dict[str, Any
         if digest != item.digest:
             errors.append(f"digest mismatch: {name}")
             continue
+        actual_records[name] = (digest, item.size)
         errors.extend(f"{name}: {error}" for error in _validate_archive(candidate))
     extras = sorted(set(actual_files) - set(expected))
     errors.extend(f"unexpected file: {name}" for name in extras)
-    actual_records = {
-        name: (_sha256(path), path.stat().st_size)
-        for name, path in actual_files.items()
-        if name in expected and not errors
-    }
     total_bytes = sum(path.stat().st_size for path in actual_files.values())
     if total_bytes > MAX_BUNDLE_BYTES:
         errors.append("bundle exceeds total size limit")
@@ -339,6 +336,10 @@ def _pypi_project_version(filename: str) -> tuple[str, str]:
 
 
 def _approved_https_url(value: str, host: str) -> bool:
+    if not isinstance(value, str) or "\\" in value or any(
+        ord(character) < 0x20 or ord(character) == 0x7F for character in value
+    ):
+        return False
     try:
         parsed = urlparse(value)
         _ = parsed.port
@@ -353,6 +354,16 @@ def _approved_https_url(value: str, host: str) -> bool:
         and not parsed.query
         and not parsed.fragment
     )
+
+
+def _approved_file_url(value: str, filename: str) -> bool:
+    if not _approved_https_url(value, PYPI_FILE_HOST):
+        return False
+    try:
+        decoded_name = PurePosixPath(unquote(urlparse(value).path)).name
+    except (UnicodeError, ValueError):
+        return False
+    return decoded_name == filename
 
 
 def _read_remote_json(url: str) -> dict[str, Any]:
@@ -397,13 +408,13 @@ def _source_url(filename: str, cache: dict[str, str]) -> str:
             raise ArtifactContractError(f"exact PyPI file is unavailable: {filename}")
         cache[filename] = str(match["url"])
     url = cache[filename]
-    if not _approved_https_url(url, PYPI_FILE_HOST):
+    if not _approved_file_url(url, filename):
         raise ArtifactContractError(f"unapproved artifact host: {filename}")
     return url
 
 
 def _download(url: str, destination: Path, expected: ArtifactFile) -> None:
-    if not _approved_https_url(url, PYPI_FILE_HOST):
+    if not _approved_file_url(url, expected.name):
         raise ArtifactContractError("download URL is not an approved PyPI file URL")
     if destination.exists() and destination.is_symlink():
         raise ArtifactContractError(f"refusing symlink destination: {destination.name}")
@@ -417,7 +428,7 @@ def _download(url: str, destination: Path, expected: ArtifactFile) -> None:
     try:
         with urlopen(request, timeout=DOWNLOAD_TIMEOUT_SECONDS) as response:  # nosec B310
             final_url = str(response.geturl())
-            if not _approved_https_url(final_url, PYPI_FILE_HOST):
+            if not _approved_file_url(final_url, expected.name):
                 raise ArtifactContractError("artifact redirect left the approved host")
             length = response.headers.get("Content-Length")
             if length and int(length) > min(MAX_FILE_BYTES, expected.size):

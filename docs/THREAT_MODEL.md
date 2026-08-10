@@ -33,8 +33,10 @@ additional mounts or network access.
 
 ## Reporting
 
-This repository has no public security email or external vulnerability intake
-service. For a sensitive report, contact the maintainers through the private
-GitHub repository security channel. If that channel is unavailable, open a
-minimal public issue without secrets or exploit details and state that the
-maintainers should follow up privately.
+This repository has no public security email or verified external vulnerability
+intake service. The release-candidate audit also found no available private
+GitHub vulnerability-reporting endpoint for this repository. Do not put secrets,
+credentials, or working exploit details in a public issue. Until the repository
+owner enables and verifies a private intake route, open only a minimal public
+issue asking the maintainer to establish private follow-up. This is an external
+release blocker, not a claim that private reporting is currently available.

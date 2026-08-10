@@ -10,7 +10,9 @@ argument arrays, bounded process cleanup, exact artifact inventories, and
 evaluator-only gold separation. These controls are defense in depth and are
 not a guarantee of multi-tenant isolation.
 
-For a sensitive vulnerability report, use the private GitHub repository
-security channel. No public security email address is claimed by this
-project. If that channel is unavailable, open a minimal public issue without
-secrets or exploit details and request private follow-up.
+At the time of this release-candidate audit, this repository has no verified
+private vulnerability-reporting channel. Do not put secrets, credentials, or
+working exploit details in a public issue. Until the repository owner enables
+and verifies a private intake route, open only a minimal public issue asking
+the maintainer to establish private follow-up. The release remains blocked on
+that external security-channel configuration.

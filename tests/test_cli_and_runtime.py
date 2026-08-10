@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 
 import pytest
@@ -59,3 +60,40 @@ def test_preparation_output_inventory_is_exact(tmp_path: Path) -> None:
     ok, error, _ = _copy_declared_outputs(staging, destination, ["fixture.dat"])
     assert ok is False
     assert error == "PREPARATION_OUTPUT_INVENTORY_MISMATCH"
+
+
+def test_preparation_output_rejects_hardlinks(tmp_path: Path) -> None:
+    staging = tmp_path / "staging"
+    destination = tmp_path / "destination"
+    staging.mkdir()
+    destination.mkdir()
+    source = staging / "source.dat"
+    linked = staging / "linked.dat"
+    source.write_bytes(b"fixture")
+    os.link(source, linked)
+    ok, error, _ = _copy_declared_outputs(
+        staging, destination, ["source.dat", "linked.dat"]
+    )
+    assert ok is False
+    assert error == "PREPARATION_OUTPUT_HARDLINK"
+
+
+def test_preparation_output_rejects_directories_and_file_flood(tmp_path: Path) -> None:
+    staging = tmp_path / "staging"
+    destination = tmp_path / "destination"
+    staging.mkdir()
+    destination.mkdir()
+    (staging / "nested").mkdir()
+    ok, error, _ = _copy_declared_outputs(staging, destination, [])
+    assert ok is False
+    assert error == "PREPARATION_OUTPUT_INVALID"
+
+    flood = tmp_path / "flood"
+    flood.mkdir()
+    for index in range(17):
+        (flood / f"{index}.dat").write_bytes(b"x")
+    ok, error, _ = _copy_declared_outputs(
+        flood, destination, [f"{index}.dat" for index in range(17)]
+    )
+    assert ok is False
+    assert error == "PREPARATION_OUTPUT_TOO_MANY_FILES"
