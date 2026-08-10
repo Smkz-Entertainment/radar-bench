@@ -1,0 +1,18 @@
+{
+  "findings": [
+    {
+      "line": "25",
+      "path": "scripts/verify_release.py"
+    },
+    {
+      "line": "26",
+      "path": "scripts/verify_release.py"
+    },
+    {
+      "line": "27",
+      "path": "scripts/verify_release.py"
+    }
+  ],
+  "scope": "git-tracked UTF-8 text files",
+  "status": "FAIL"
+}

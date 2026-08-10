@@ -1,0 +1,5 @@
+{
+  "command": "radar-bench validate --suite decisive-v1.1",
+  "source": "fresh temporary virtual environment from the built wheel",
+  "status": "PASS"
+}

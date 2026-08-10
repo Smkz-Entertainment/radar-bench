@@ -1,0 +1,39 @@
+{
+  "case_id": "RADAR-V07-A02",
+  "status": "LOCALLY_SEALED",
+  "corpus_kind": "attribution",
+  "incident": "scikit-learn #30512 / SciPy 1.15.0rc1",
+  "source_url": "https://github.com/scikit-learn/scikit-learn/issues/30512",
+  "historical_environment": {
+    "python": "3.10.12",
+    "os": "Linux x86_64 / WSL2 in the report",
+    "control": "scikit-learn 1.6.0, numpy 2.2.0, scipy 1.14.1",
+    "candidate": "scikit-learn 1.6.0, numpy 2.2.0, scipy 1.15.0rc1"
+  },
+  "container": {
+    "image": "mirror.gcr.io/library/python@sha256:4d440b214e447deddc0a94de23a3d97d28dfafdf125a8b4bb8073381510c9ee2",
+    "network": "none",
+    "architecture": "x86_64"
+  },
+  "runtime_recipe": {"recipe_id": "RADAR-V07-A02-runtime-v1"},
+  "artifact_bundle": {
+    "bundle_id": "sklearn-30512-wheelhouse",
+    "files": {
+      "joblib-1.4.2-py3-none-any.whl": "sha256:06d478d5674cbc267e7496a410ee875abd68e4340feff4490bcb7afb88060ae6",
+      "numpy-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "sha256:122fd2fcfafdefc889c64ad99c228d5a1f9692c3a83f56c292618a59aa60ae83",
+      "scikit_learn-1.6.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "sha256:a46d3ca0f11a540b8eaddaf5e38172d8cd65a86cb3e3632161ec96c0cffb774c",
+      "scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "sha256:8e32dced201274bf96899e6491d9ba3e9a5f6b336708656466ad0522d8528f69",
+      "scipy-1.15.0rc1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "sha256:9fbfae540e376ff8e453896038da35359f590f862efa3e4001241d47537b8b15",
+      "threadpoolctl-3.5.0-py3-none-any.whl": "sha256:56c1e26c150397e58c4926da8eeee87533b1e32bef131bd4bf6a2f45f3185467"
+    }
+  },
+  "execution": {
+    "reproducer": "Run check_estimators_pickle(name='hello', estimator_orig=SplineTransformer(), readonly_memmap=True).",
+    "fresh_rerun_1": {"control_exit": 0, "candidate_exit": 1},
+    "fresh_rerun_2": {"control_exit": 0, "candidate_exit": 1},
+    "candidate_gold_mounted": false,
+    "candidate_historical_discussion_mounted": false,
+    "candidate_received_control_output": false,
+    "observed_candidate_failure": "ValueError from scipy.interpolate._bsplines._dierckx.evaluate_spline"
+  }
+}

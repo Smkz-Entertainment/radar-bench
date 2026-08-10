@@ -1,0 +1,11 @@
+{
+  "gold_loaded_after_execution": true,
+  "lanes": [
+    "static-v0.4",
+    "naive-deterministic",
+    "agentic-v0.5-frozen"
+  ],
+  "reference_digest": "sha256:607635accd7746f7e3c58824b4ac0c30160abd0a4e21a56bdecd5e1d1f1ca4c4",
+  "status": "PASS",
+  "suite": "decisive-v1.1"
+}

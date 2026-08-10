@@ -1,0 +1,44 @@
+{
+  "case_id": "RADAR-V07-A01",
+  "status": "LOCALLY_SEALED",
+  "corpus_kind": "attribution",
+  "incident": "pandas #55137",
+  "source_url": "https://github.com/pandas-dev/pandas/issues/55137",
+  "historical_environment": {
+    "python": "3.10.12",
+    "os": "Linux x86_64",
+    "control": "pandas 1.3.4, numpy 1.25.2",
+    "candidate": "pandas 2.1.0, numpy 1.25.2",
+    "historical_control_revision": "pandas commit 945c9ed",
+    "historical_candidate_reference": "pandas issue environment commit f00efd0"
+  },
+  "container": {
+    "image": "mirror.gcr.io/library/python@sha256:4d440b214e447deddc0a94de23a3d97d28dfafdf125a8b4bb8073381510c9ee2",
+    "network": "none",
+    "architecture": "x86_64"
+  },
+  "runtime_recipe": {"recipe_id": "RADAR-V07-A01-runtime-v1"},
+  "artifact_bundle": {
+    "bundle_id": "pandas-55137-wheelhouse",
+    "files": {
+      "numpy-1.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "sha256:f08f2e037bba04e707eebf4bc934f1972a315c883a9e0ebfa8a7756eabf9e357",
+      "pandas-1.3.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "sha256:d99d2350adb7b6c3f7f8f0e5dfb7d34ff8dd4bc0a53e62c445b7e43e163fce63",
+      "pandas-2.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl": "sha256:9d81e1813191070440d4c7a413cb673052b3b4a984ffd86b8dd468c45742d3cc",
+      "python_dateutil-2.8.2-py2.py3-none-any.whl": "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9",
+      "pytz-2023.3.post1-py2.py3-none-any.whl": "sha256:ce42d816b81b68506614c11e8937d3aa9e41007ceb50bfdcb0749b921bf646c7",
+      "six-1.16.0-py2.py3-none-any.whl": "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254",
+      "tzdata-2023.3-py2.py3-none-any.whl": "sha256:7e65763eef3120314099b6939b5546db7adce1e7d6f2e179e3df563c70511eda"
+    },
+    "historical_input": "old_pandas.pkl",
+    "historical_input_sha256": "sha256:57a6ce8ca23bee85e888096b0b094c27df269ad2ac728d7bab05e9363ad93900"
+  },
+  "execution": {
+    "reproducer": "Create a 100x4 ones DataFrame with pandas 1.3.4 and to_pickle it; read it with pandas 2.1.0.",
+    "fresh_rerun_1": {"control_exit": 0, "candidate_exit": 1},
+    "fresh_rerun_2": {"control_exit": 0, "candidate_exit": 1},
+    "candidate_gold_mounted": false,
+    "candidate_historical_discussion_mounted": false,
+    "candidate_received_control_output": false,
+    "observed_candidate_failure": "TypeError in pandas pickle compatibility loading after BlockPlacement mismatch"
+  }
+}

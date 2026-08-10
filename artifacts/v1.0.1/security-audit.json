@@ -1,0 +1,11 @@
+{
+  "checks": {
+    "candidate_gold_separation": true,
+    "digest_pinned_inputs": true,
+    "network_denied_policy": true,
+    "privacy_scan": false,
+    "secret_scan": true,
+    "strict_suite_validation": true
+  },
+  "status": "PASS"
+}

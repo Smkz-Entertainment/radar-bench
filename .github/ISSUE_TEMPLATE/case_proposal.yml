@@ -1,0 +1,31 @@
+name: Historical case proposal
+description: Propose a case for sealing review; this does not admit it to the benchmark.
+title: "case: "
+labels: ["case-sealing"]
+body:
+  - type: markdown
+    attributes:
+      value: Do not attach post-cutoff gold evidence or secret/private artifacts. The proposal is not candidate-visible runtime data.
+  - type: input
+    id: incident
+    attributes:
+      label: Incident URL
+    validations:
+      required: true
+  - type: textarea
+    id: reconstruction
+    attributes:
+      label: Reconstruction evidence
+      description: Explain exact revisions, artifacts, platform, and deterministic reproducer.
+    validations:
+      required: true
+  - type: dropdown
+    id: proposed_status
+    attributes:
+      label: Current status
+      options:
+        - candidate
+        - blocked
+        - rejected
+    validations:
+      required: true

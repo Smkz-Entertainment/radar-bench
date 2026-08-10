@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools==83.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "radar-bench"
+version = "1.0.1"
+description = "Evidence-first executable benchmark for downstream failure investigation"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE", "DATA_LICENSE.md", "LICENSES.md"]
+authors = [{ name = "Smkz-Entertainment" }]
+dependencies = []
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development :: Testing",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-cov>=5", "hypothesis>=6", "ruff>=0.6", "mypy>=1.11", "bandit>=1.7", "pip-audit>=2.7", "build>=1.2"]
+
+[project.scripts]
+radar-bench = "radar_bench.cli:main"
+
+[tool.setuptools.package-dir]
+"" = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+radar_bench = [
+  "py.typed",
+  "resources/**/*.json",
+  "resources/**/*.md",
+  "resources/**/*.py",
+  "resources/**/*.dat",
+  "resources/**/*.lock",
+]
+
+[tool.setuptools.data-files]
+"share/radar-bench/schema" = ["schema/*.json"]
+
+[tool.radar]
+schema_version = "1.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.coverage.run]
+source = ["radar_bench"]
+omit = [
+  "src/radar_bench/artifacts.py",
+  "src/radar_bench/release.py",
+  "src/radar_bench/execution/canonical.py",
+  "src/radar_bench/execution/v07.py",
+  "src/radar_bench/historical_runtime.py",
+  "src/radar_bench/investigation/v01.py",
+  "src/radar_bench/providers/*",
+]
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.mypy]
+exclude = "src/radar_bench/resources"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*.py" = ["B017"]

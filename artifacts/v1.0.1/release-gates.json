@@ -1,0 +1,12 @@
+{
+  "gates": {
+    "canonical_decisive_evaluation": "BLOCKED_EXTERNAL_ARTIFACTS",
+    "clean_package_install": "PASS",
+    "historical_runtime_reconstruction": "BLOCKED_EXTERNAL_ARTIFACTS",
+    "package_build": "PASS",
+    "suite_contract": "PASS",
+    "v1.0.1_tag": "NOT_CREATED"
+  },
+  "release": "1.0.1",
+  "suite": "decisive-v1.1"
+}

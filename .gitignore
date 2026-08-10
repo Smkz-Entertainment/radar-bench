@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+.venv/
+build/
+dist/
+*.egg-info/
+.radar-cache/
+coverage.xml
+.coverage
+artifacts/release-evidence/generated/
+# Historical wheelhouses are external, locally staged inputs and must never be committed.
+artifacts/external/
+artifacts/historical/
+corpus/collection-queue.json
+corpus/index.sqlite3

@@ -1,0 +1,8 @@
+{
+  "baseline_id": "naive-deterministic",
+  "suite_id": "decisive-v1.1",
+  "contract": "fixed two-request deterministic investigator",
+  "immutable": true,
+  "source_revision": "historical-decisive-run-preserved",
+  "runtime_behavior": "rerun-then-change-dependency-version"
+}

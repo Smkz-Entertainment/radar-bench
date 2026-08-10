@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/ecosystem-radar/investigation-experiment-v0.1.schema.json",
+  "title": "Radar InvestigationExperiment v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "request_id", "episode_id", "experiment_id", "type", "hypothesis", "limits"],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "request_id": {"type": "string", "pattern": "^REQ-[A-Z0-9._:-]+$"},
+    "episode_id": {"type": "string", "pattern": "^RADAR-V05-E-[A-Z0-9._:-]+$"},
+    "experiment_id": {"type": "string", "pattern": "^EXP-[A-Z0-9._:-]+$"},
+    "type": {"enum": ["rerun", "baseline_check", "version_swap", "dependency_pin", "dependency_unpin", "bisect", "environment_toggle", "platform_compare", "architecture_compare", "artifact_source_compare", "build_variant_compare", "minimal_reproducer", "dependency_graph_probe"]},
+    "hypothesis": {"type": "string", "minLength": 1, "maxLength": 2000},
+    "target_component": {"type": ["string", "null"], "maxLength": 1000},
+    "changed_variable": {"type": ["string", "null"], "maxLength": 1000},
+    "control": {"type": ["string", "null"], "maxLength": 1000},
+    "candidate": {"type": ["string", "null"], "maxLength": 1000},
+    "limits": {
+      "type": "object", "additionalProperties": false,
+      "required": ["network_policy", "timeout_seconds", "memory_mb", "output_mb"],
+      "properties": {
+        "network_policy": {"enum": ["denied"]},
+        "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 300},
+        "memory_mb": {"type": "integer", "minimum": 16, "maximum": 1024},
+        "output_mb": {"type": "integer", "minimum": 1, "maximum": 100}
+      }
+    }
+  }
+}

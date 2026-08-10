@@ -1,0 +1,8 @@
+build==1.5.0
+bandit==1.8.6
+hypothesis==6.155.7
+mypy==1.19.1
+pip-audit==2.10.1
+pytest==9.0.3
+pytest-cov==7.1.0
+ruff==0.12.11
