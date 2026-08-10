@@ -3,8 +3,8 @@
   "remote": "https://github.com/Smkz-Entertainment/radar-bench.git",
   "default_branch": "main",
   "visibility": "private",
-  "verified_code_commit": "ac8d311af954d1c6221609e8affb053c81a1f261",
-  "remote_main_head_at_audit": "ac8d311af954d1c6221609e8affb053c81a1f261",
+  "verified_code_commit": "65fc80416610e4731e46eaa890570bc1a9cc6c95",
+  "remote_main_head_at_audit": "65fc80416610e4731e46eaa890570bc1a9cc6c95",
   "remote_main_ref_matches_verified_code_commit_at_audit": true,
   "published_tree": "main retains the repository history; no sanitized-orphan claim is made",
   "verification_method": "GitHub API main commit/tree plus remote tag and release queries",
@@ -13,8 +13,8 @@
   "github_release_created": false,
   "hosted_ci": {
     "status": "BLOCKED_EXTERNAL_BILLING",
-    "run_id": 31360349438,
-    "head_sha": "ac8d311af954d1c6221609e8affb053c81a1f261",
+    "run_id": 31361398639,
+    "head_sha": "65fc80416610e4731e46eaa890570bc1a9cc6c95",
     "jobs_started": false,
     "message": "GitHub annotated every job: recent account payments failed or the spending limit must be increased.",
     "local_checks_are_not_a_substitute": true
@@ -23,6 +23,11 @@
     "status": "BLOCKED_EXTERNAL_FEATURE",
     "private_vulnerability_reporting_api_http_status": 404,
     "security_advisories_api_http_status": 404,
+    "enable_attempt": {
+      "method": "PUT /repos/Smkz-Entertainment/radar-bench/private-vulnerability-reporting",
+      "http_status": 404,
+      "result": "BLOCKED_EXTERNAL_FEATURE"
+    },
     "public_email_claimed": false,
     "local_release_gate": "BLOCKED_SECURITY"
   }
