@@ -111,7 +111,7 @@ def _cleanup_container(docker: str, name: str) -> dict[str, Any]:
         [docker, "rm", "--force", name], timeout=30, max_output_bytes=64 * 1024
     )
     inspected = run_bounded(
-        [docker, "ps", "--all", "--filter", f"name=^{name}$", "--format", "{{{{.Names}}}}"],
+        [docker, "ps", "--all", "--filter", f"name=^{name}$", "--format", "{{.Names}}"],
         timeout=30,
         max_output_bytes=64 * 1024,
     )

@@ -436,7 +436,7 @@ def _remove_container(docker: str, name: str) -> dict[str, Any]:
 
     removed = _run_docker([docker, "rm", "--force", name], timeout=30)
     inspected = _run_docker(
-        [docker, "ps", "--all", "--filter", f"name=^{name}$", "--format", "{{{{.Names}}}}"],
+        [docker, "ps", "--all", "--filter", f"name=^{name}$", "--format", "{{.Names}}"],
         timeout=30,
     )
     output = _bytes(cast(bytes | str | None, inspected.get("_output"))).decode(
@@ -640,7 +640,7 @@ def _build_side(
 def _remove_image(docker: str, image: str) -> dict[str, Any]:
     removed = _run_docker([docker, "image", "rm", "--force", image], timeout=60)
     inspected = _run_docker(
-        [docker, "image", "ls", "--all", "--filter", f"reference={image}", "--format", "{{{{.Repository}}:{{.Tag}}}}"],
+        [docker, "image", "ls", "--all", "--filter", f"reference={image}", "--format", "{{.Repository}}:{{.Tag}}"],
         timeout=30,
     )
     output = _bytes(cast(bytes | str | None, inspected.get("_output"))).decode(
