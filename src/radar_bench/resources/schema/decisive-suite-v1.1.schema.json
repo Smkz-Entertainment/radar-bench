@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://radar-bench.org/schema/decisive-suite-v1.1.schema.json",
+  "title": "Radar Bench decisive-v1.1 suite",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "suite_id",
+    "release_version",
+    "platform",
+    "historical_cases",
+    "safety_cases",
+    "baselines",
+    "metric_contract",
+    "canonical_reference"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "suite_id": {"const": "decisive-v1.1"},
+    "release_version": {"const": "1.0.1"},
+    "platform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["os", "architecture", "runtime", "network"],
+      "properties": {
+        "os": {"const": "linux"},
+        "architecture": {"const": "x86_64"},
+        "runtime": {"const": "docker"},
+        "network": {"const": "denied"}
+      }
+    },
+    "historical_cases": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["case_id", "incident", "manifest", "case_type", "runtime_visible"],
+        "properties": {
+          "case_id": {"type": "string", "pattern": "^RADAR-V07-A0[1-5]$"},
+          "incident": {"type": "string", "minLength": 1},
+          "manifest": {"type": "string", "pattern": "^../case-sealing/sealed/.+\\.json$"},
+          "case_type": {"const": "HISTORICAL_EXECUTABLE"},
+          "runtime_visible": {"const": false}
+        }
+      }
+    },
+    "safety_cases": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["count", "runtime_manifest", "evaluator_labels", "case_type", "runtime_visible"],
+      "properties": {
+        "count": {"const": 20},
+        "runtime_manifest": {"const": "../safety-twins/runtime-manifest.json"},
+        "evaluator_labels": {"const": "../safety-twins/evaluator-labels.json"},
+        "case_type": {"const": "CONSTRUCTED_EXECUTABLE_SAFETY"},
+        "runtime_visible": {"const": false}
+      }
+    },
+    "baselines": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "immutable", "source", "source_digest"],
+        "properties": {
+          "id": {"enum": ["static-v0.4", "naive-deterministic", "agentic-v0.5-frozen"]},
+          "kind": {"type": "string", "minLength": 1},
+          "immutable": {"const": true},
+          "source": {"type": "string", "minLength": 1},
+          "source_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+        }
+      }
+    },
+    "metric_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "action_owner_scoring", "useful_experiment_scoring", "reference_policy"],
+      "properties": {
+        "schema_version": {"const": "1.1"},
+        "action_owner_scoring": {"const": "eligible_labels_only"},
+        "useful_experiment_scoring": {"const": "executed_attempts"},
+        "reference_policy": {"const": "corrected_executable_reference"}
+      }
+    },
+    "canonical_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["result", "not_runtime_evidence"],
+      "properties": {
+        "result": {"const": "reference/decisive-v1.1-result.json"},
+        "not_runtime_evidence": {"const": true}
+      }
+    }
+  }
+}

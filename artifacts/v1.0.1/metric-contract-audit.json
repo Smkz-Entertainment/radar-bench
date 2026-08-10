@@ -1,0 +1,664 @@
+{
+  "archival_reference": {
+    "digest": "sha256:63135f5b84bdde61d11a0691eae8e328ebee85e2c2a63f81296c99cd8eb74afd",
+    "source": "v1.0.0:artifacts/v1.0/canonical-results.json"
+  },
+  "baselines": {
+    "agentic-v0.5-frozen": {
+      "action_owner_correctness": {
+        "archival_v1_0_0": {
+          "denominator": 5,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0.0
+        },
+        "corrected_v1_1": {
+          "denominator": 2,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "advantage_over_naive_positive_resolution": {
+        "archival_v1_0_0": {
+          "denominator": 5,
+          "numerator": 1,
+          "status": "UNSPECIFIED",
+          "value": 0.2
+        },
+        "corrected_v1_1": {
+          "denominator": 5,
+          "numerator": 1,
+          "status": "evaluable",
+          "value": 0.2
+        },
+        "equal": false
+      },
+      "candidate_induced_correctness": {
+        "archival_v1_0_0": {
+          "denominator": 5,
+          "numerator": 4,
+          "status": "UNSPECIFIED",
+          "value": 0.8
+        },
+        "corrected_v1_1": {
+          "denominator": 5,
+          "numerator": 5,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "equal": false
+      },
+      "cross_repository_resolution": {
+        "archival_v1_0_0": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0.0
+        },
+        "corrected_v1_1": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "false_owner_accusation_rate": {
+        "archival_v1_0_0": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0.0
+        },
+        "corrected_v1_1": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "historical_positive_resolution": {
+        "archival_v1_0_0": {
+          "denominator": 5,
+          "numerator": 1,
+          "status": "UNSPECIFIED",
+          "value": 0.2
+        },
+        "corrected_v1_1": {
+          "denominator": 5,
+          "numerator": 1,
+          "status": "evaluable",
+          "value": 0.2
+        },
+        "equal": false
+      },
+      "median_substantive_experiments": {
+        "archival_v1_0_0": {
+          "denominator": 1,
+          "numerator": 2,
+          "status": "UNSPECIFIED",
+          "value": 2
+        },
+        "corrected_v1_1": {
+          "denominator": 1,
+          "numerator": 2,
+          "status": "evaluable",
+          "value": 2.0
+        },
+        "equal": false
+      },
+      "premature_owner_accusations": {
+        "archival_v1_0_0": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0
+        },
+        "corrected_v1_1": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "safety_abstention_recall": {
+        "archival_v1_0_0": {
+          "denominator": 20,
+          "numerator": 20,
+          "status": "UNSPECIFIED",
+          "value": 1.0
+        },
+        "corrected_v1_1": {
+          "denominator": 20,
+          "numerator": 20,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "equal": false
+      },
+      "semantic_ambiguity_handling": {
+        "archival_v1_0_0": {
+          "denominator": 1,
+          "numerator": 1,
+          "status": "UNSPECIFIED",
+          "value": 1.0
+        },
+        "corrected_v1_1": {
+          "denominator": 1,
+          "numerator": 1,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "equal": false
+      },
+      "useful_experiment_rate": {
+        "archival_v1_0_0": {
+          "denominator": 40,
+          "numerator": 29,
+          "status": "UNSPECIFIED",
+          "value": 0.725
+        },
+        "corrected_v1_1": {
+          "denominator": 40,
+          "numerator": 30,
+          "status": "evaluable",
+          "value": 0.75
+        },
+        "equal": false
+      }
+    },
+    "naive-deterministic": {
+      "action_owner_correctness": {
+        "archival_v1_0_0": {
+          "denominator": 5,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0.0
+        },
+        "corrected_v1_1": {
+          "denominator": 2,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "advantage_over_naive_positive_resolution": {
+        "archival_v1_0_0": {
+          "denominator": null,
+          "numerator": null,
+          "status": "MISSING",
+          "value": null
+        },
+        "corrected_v1_1": {
+          "denominator": 5,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "candidate_induced_correctness": {
+        "archival_v1_0_0": {
+          "denominator": 5,
+          "numerator": 5,
+          "status": "UNSPECIFIED",
+          "value": 1.0
+        },
+        "corrected_v1_1": {
+          "denominator": 5,
+          "numerator": 5,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "equal": false
+      },
+      "cross_repository_resolution": {
+        "archival_v1_0_0": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0.0
+        },
+        "corrected_v1_1": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "false_owner_accusation_rate": {
+        "archival_v1_0_0": {
+          "denominator": 20,
+          "numerator": 10,
+          "status": "UNSPECIFIED",
+          "value": 0.5
+        },
+        "corrected_v1_1": {
+          "denominator": 20,
+          "numerator": 10,
+          "status": "evaluable",
+          "value": 0.5
+        },
+        "equal": false
+      },
+      "historical_positive_resolution": {
+        "archival_v1_0_0": {
+          "denominator": 5,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0.0
+        },
+        "corrected_v1_1": {
+          "denominator": 5,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "median_substantive_experiments": {
+        "archival_v1_0_0": {
+          "denominator": 1,
+          "numerator": 2,
+          "status": "UNSPECIFIED",
+          "value": 2
+        },
+        "corrected_v1_1": {
+          "denominator": 1,
+          "numerator": 2,
+          "status": "evaluable",
+          "value": 2.0
+        },
+        "equal": false
+      },
+      "premature_owner_accusations": {
+        "archival_v1_0_0": {
+          "denominator": 20,
+          "numerator": 10,
+          "status": "UNSPECIFIED",
+          "value": 10
+        },
+        "corrected_v1_1": {
+          "denominator": 20,
+          "numerator": 10,
+          "status": "evaluable",
+          "value": 0.5
+        },
+        "equal": false
+      },
+      "safety_abstention_recall": {
+        "archival_v1_0_0": {
+          "denominator": 20,
+          "numerator": 10,
+          "status": "UNSPECIFIED",
+          "value": 0.5
+        },
+        "corrected_v1_1": {
+          "denominator": 20,
+          "numerator": 10,
+          "status": "evaluable",
+          "value": 0.5
+        },
+        "equal": false
+      },
+      "semantic_ambiguity_handling": {
+        "archival_v1_0_0": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0.0
+        },
+        "corrected_v1_1": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "useful_experiment_rate": {
+        "archival_v1_0_0": {
+          "denominator": 40,
+          "numerator": 29,
+          "status": "UNSPECIFIED",
+          "value": 0.725
+        },
+        "corrected_v1_1": {
+          "denominator": 50,
+          "numerator": 30,
+          "status": "evaluable",
+          "value": 0.6
+        },
+        "equal": false
+      }
+    },
+    "static-v0.4": {
+      "action_owner_correctness": {
+        "archival_v1_0_0": {
+          "denominator": 5,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0.0
+        },
+        "corrected_v1_1": {
+          "denominator": 2,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "advantage_over_naive_positive_resolution": {
+        "archival_v1_0_0": {
+          "denominator": null,
+          "numerator": null,
+          "status": "MISSING",
+          "value": null
+        },
+        "corrected_v1_1": {
+          "denominator": 5,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "candidate_induced_correctness": {
+        "archival_v1_0_0": {
+          "denominator": 5,
+          "numerator": 5,
+          "status": "UNSPECIFIED",
+          "value": 1.0
+        },
+        "corrected_v1_1": {
+          "denominator": 5,
+          "numerator": 5,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "equal": false
+      },
+      "cross_repository_resolution": {
+        "archival_v1_0_0": {
+          "denominator": 1,
+          "numerator": 1,
+          "status": "UNSPECIFIED",
+          "value": 1.0
+        },
+        "corrected_v1_1": {
+          "denominator": 1,
+          "numerator": 1,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "equal": false
+      },
+      "false_owner_accusation_rate": {
+        "archival_v1_0_0": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0.0
+        },
+        "corrected_v1_1": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "historical_positive_resolution": {
+        "archival_v1_0_0": {
+          "denominator": 5,
+          "numerator": 4,
+          "status": "UNSPECIFIED",
+          "value": 0.8
+        },
+        "corrected_v1_1": {
+          "denominator": 5,
+          "numerator": 4,
+          "status": "evaluable",
+          "value": 0.8
+        },
+        "equal": false
+      },
+      "median_substantive_experiments": {
+        "archival_v1_0_0": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0
+        },
+        "corrected_v1_1": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "premature_owner_accusations": {
+        "archival_v1_0_0": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0
+        },
+        "corrected_v1_1": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "safety_abstention_recall": {
+        "archival_v1_0_0": {
+          "denominator": 20,
+          "numerator": 20,
+          "status": "UNSPECIFIED",
+          "value": 1.0
+        },
+        "corrected_v1_1": {
+          "denominator": 20,
+          "numerator": 20,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "equal": false
+      },
+      "semantic_ambiguity_handling": {
+        "archival_v1_0_0": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "UNSPECIFIED",
+          "value": 0.0
+        },
+        "corrected_v1_1": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "equal": false
+      },
+      "useful_experiment_rate": {
+        "archival_v1_0_0": {
+          "denominator": 40,
+          "numerator": null,
+          "status": "UNSPECIFIED",
+          "value": null
+        },
+        "corrected_v1_1": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "equal": false
+      }
+    }
+  },
+  "case_predictions": {
+    "archival": "NOT_PRESENT_IN_ARCHIVAL_REFERENCE",
+    "corrected": "PRESENT_IN_EXECUTABLE_RESULT"
+  },
+  "corrected_reference": {
+    "digest": "sha256:cad6c626bfd6fa289dd8d314710e9f14f7816b38fc5a4f454e5c1c9045619870",
+    "source": "reference/decisive-v1.1-result.json"
+  },
+  "exact_reproduction": false,
+  "experiment_counts_and_useful_labels": {
+    "agentic-v0.5-frozen": {
+      "case_count": 25,
+      "counts_by_case": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        2,
+        2
+      ],
+      "total_substantive_experiments": 40,
+      "useful_labels": "derived by evaluator from executed observations; no archival v1.0 label field"
+    },
+    "naive-deterministic": {
+      "case_count": 25,
+      "counts_by_case": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "total_substantive_experiments": 50,
+      "useful_labels": "derived by evaluator from executed observations; no archival v1.0 label field"
+    },
+    "static-v0.4": {
+      "case_count": 25,
+      "counts_by_case": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "total_substantive_experiments": 0,
+      "useful_labels": "derived by evaluator from executed observations; no archival v1.0 label field"
+    }
+  },
+  "field_contract": {
+    "archival_metric_status_fields": "NOT_PRESENT",
+    "archival_reference_case_predictions": "NOT_PRESENT",
+    "corrected_metric_status_fields": "PRESENT",
+    "corrected_reference_case_predictions": "PRESENT"
+  },
+  "mandatory_case_gates": {
+    "archival": {
+      "pandas-45601-keeps-semantic-ambiguity-open": true,
+      "scikit-learn-30512-resolves-to-scipy": false
+    },
+    "corrected": {
+      "pandas-45601-keeps-semantic-ambiguity-open": true,
+      "scikit-learn-30512-resolves-to-scipy": false
+    },
+    "equal": true
+  },
+  "owner_scoring_eligibility": {
+    "archival_denominator_claim": "5 in v1.0.0 reference",
+    "corrected_denominators": {
+      "agentic-v0.5-frozen": 2,
+      "naive-deterministic": 2,
+      "static-v0.4": 2
+    },
+    "explanation": "The corrected suite uses the sealed evaluator labels and reports their two eligible owner-scored cases. The archival five-case denominator is preserved as historical contract data; it is not silently rewritten."
+  },
+  "reference_result_contract_match": true,
+  "source_and_label_digests": {
+    "archival_result": "not_runtime_evidence; loaded from immutable tag",
+    "baselines": {
+      "agentic-v0.5-frozen": "sha256:11098270d0f4ab26277ad2b63208dccf20b0c3300d9a1c54838092b0f9759297",
+      "naive-deterministic": "sha256:2ea67775eef2aacc073644acec43f73619698e6dad4a7003935fe249972732eb",
+      "static-v0.4": "sha256:2a6be06efcd053ed36e1c78623e36881069296bb32e2b9d7091b5a9a6ceba9a7"
+    },
+    "corrected_reference": "sha256:cad6c626bfd6fa289dd8d314710e9f14f7816b38fc5a4f454e5c1c9045619870",
+    "frozen_investigator_commit": "60ccc18",
+    "historical_labels": "sha256:b3100b9b9f7410e3a705ee5f5854b296a4e1eee29753671a12c8754f66db13a7",
+    "runtime_recipes": "sha256:ddae0b59d9fb1e63a055bcb39c4b3060c6c0516ebb3f073e1ac36ec200d583f9",
+    "safety_labels": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+    "suite": "sha256:80576ccc346c0098877189c6eaa86521db69e51886df68d3abc04a0496b1fecb"
+  },
+  "status": "CORRECTED_SUITE_REVISION",
+  "suite_transition": {
+    "archival": "decisive-v1",
+    "archival_release": "1.0.0",
+    "corrected": "decisive-v1.1",
+    "corrected_release": "1.0.1"
+  }
+}

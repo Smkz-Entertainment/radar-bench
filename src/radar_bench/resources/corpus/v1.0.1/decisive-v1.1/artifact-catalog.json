@@ -1,0 +1,136 @@
+{
+  "schema_version": "1.0",
+  "suite_id": "decisive-v1.1",
+  "catalog_policy": "No historical bytes are redistributed by this repository. RECONSTRUCT_ONLY entries may be acquired from the named upstream package index and must pass every recorded size, digest, layout, and archive-safety check.",
+  "artifact_root_layout": "<artifact-root>/<artifact_id>/<filename>",
+  "execution_network": "denied",
+  "bundles": [
+    {
+      "artifact_id": "pandas-55137-wheelhouse",
+      "case_ids": ["RADAR-V07-A01"],
+      "incidents": ["pandas #55137"],
+      "format": "wheelhouse",
+      "supported_architecture": "x86_64",
+      "python": "3.10",
+      "total_bytes": 43525981,
+      "bundle_digest": "sha256:862e1a1087f82c0879871ece3270958451eb56762fc5911fbcbffb81cf645b44",
+      "digest_algorithm": "sha256(sorted filename\\0file digest\\0file size records joined by newline)",
+      "upstream_provenance": [
+        "https://github.com/pandas-dev/pandas/issues/55137",
+        "https://pypi.org/"
+      ],
+      "redistribution_status": "RECONSTRUCT_ONLY",
+      "reconstruction_recipe": "PyPI release files selected by exact wheel filename, then verified against the sealed manifest.",
+      "files": [
+        {"name": "numpy-1.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:f08f2e037bba04e707eebf4bc934f1972a315c883a9e0ebfa8a7756eabf9e357", "size": 18219190},
+        {"name": "pandas-1.3.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:d99d2350adb7b6c3f7f8f0e5dfb7d34ff8dd4bc0a53e62c445b7e43e163fce63", "size": 11541622},
+        {"name": "pandas-2.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:9d81e1813191070440d4c7a413cb673052b3b4a984ffd86b8dd468c45742d3cc", "size": 12662125},
+        {"name": "python_dateutil-2.8.2-py2.py3-none-any.whl", "sha256": "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9", "size": 247702},
+        {"name": "pytz-2023.3.post1-py2.py3-none-any.whl", "sha256": "sha256:ce42d816b81b68506614c11e8937d3aa9e41007ceb50bfdcb0749b921bf646c7", "size": 502454},
+        {"name": "six-1.16.0-py2.py3-none-any.whl", "sha256": "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254", "size": 11053},
+        {"name": "tzdata-2023.3-py2.py3-none-any.whl", "sha256": "sha256:7e65763eef3120314099b6939b5546db7adce1e7d6f2e179e3df563c70511eda", "size": 341835}
+      ]
+    },
+    {
+      "artifact_id": "sklearn-30512-wheelhouse",
+      "case_ids": ["RADAR-V07-A02"],
+      "incidents": ["scikit-learn #30512 / SciPy 1.15.0rc1"],
+      "format": "wheelhouse",
+      "supported_architecture": "x86_64",
+      "python": "3.10",
+      "total_bytes": 111962505,
+      "bundle_digest": "sha256:de1f378316813b8e81e5df0f8cc696e21512ee2c99173ca44384a2b24390fee0",
+      "digest_algorithm": "sha256(sorted filename\\0file digest\\0file size records joined by newline)",
+      "upstream_provenance": [
+        "https://github.com/scikit-learn/scikit-learn/issues/30512",
+        "https://pypi.org/"
+      ],
+      "redistribution_status": "RECONSTRUCT_ONLY",
+      "reconstruction_recipe": "PyPI release files selected by exact wheel filename, then verified against the sealed manifest.",
+      "files": [
+        {"name": "joblib-1.4.2-py3-none-any.whl", "sha256": "sha256:06d478d5674cbc267e7496a410ee875abd68e4340feff4490bcb7afb88060ae6", "size": 301817},
+        {"name": "numpy-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:122fd2fcfafdefc889c64ad99c228d5a1f9692c3a83f56c292618a59aa60ae83", "size": 16378908},
+        {"name": "scikit_learn-1.6.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:a46d3ca0f11a540b8eaddaf5e38172d8cd65a86cb3e3632161ec96c0cffb774c", "size": 13490128},
+        {"name": "scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:8e32dced201274bf96899e6491d9ba3e9a5f6b336708656466ad0522d8528f69", "size": 41178528},
+        {"name": "scipy-1.15.0rc1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:9fbfae540e376ff8e453896038da35359f590f862efa3e4001241d47537b8b15", "size": 40594710},
+        {"name": "threadpoolctl-3.5.0-py3-none-any.whl", "sha256": "sha256:56c1e26c150397e58c4926da8eeee87533b1e32bef131bd4bf6a2f45f3185467", "size": 18414}
+      ]
+    },
+    {
+      "artifact_id": "pandas-45601-wheelhouse",
+      "case_ids": ["RADAR-V07-A03"],
+      "incidents": ["pandas #45601"],
+      "format": "wheelhouse",
+      "supported_architecture": "x86_64",
+      "python": "3.10",
+      "total_bytes": 39910630,
+      "bundle_digest": "sha256:c07029f0bddb1fab4982a76bb0385fecb7accad8427a043ee76a8b923a4bbfb5",
+      "digest_algorithm": "sha256(sorted filename\\0file digest\\0file size records joined by newline)",
+      "upstream_provenance": [
+        "https://github.com/pandas-dev/pandas/issues/45601",
+        "https://pypi.org/"
+      ],
+      "redistribution_status": "RECONSTRUCT_ONLY",
+      "reconstruction_recipe": "PyPI release files selected by exact wheel filename, then verified against the sealed manifest.",
+      "files": [
+        {"name": "numpy-1.21.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:dc4b2fb01f1b4ddbe2453468ea0719f4dbb1f5caa712c8b21bb3dd1480cd30d9", "size": 15906228},
+        {"name": "pandas-1.3.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:2651d75b9a167cc8cc572cf787ab512d16e316ae00ba81874b560586fa1325e0", "size": 11549648},
+        {"name": "pandas-1.4.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:fe454180ad31bbbe1e5d111b44443258730467f035e26b4e354655ab59405871", "size": 11692528},
+        {"name": "python_dateutil-2.8.2-py2.py3-none-any.whl", "sha256": "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9", "size": 247702},
+        {"name": "pytz-2021.3-py2.py3-none-any.whl", "sha256": "sha256:3672058bc3453457b622aab7a1c3bfd5ab0bdae451512f6cf25f64ed37f5b87c", "size": 503471},
+        {"name": "six-1.16.0-py2.py3-none-any.whl", "sha256": "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254", "size": 11053}
+      ]
+    },
+    {
+      "artifact_id": "pandas-57124-wheelhouse",
+      "case_ids": ["RADAR-V07-A04"],
+      "incidents": ["pandas #57124"],
+      "format": "wheelhouse",
+      "supported_architecture": "x86_64",
+      "python": "3.10",
+      "total_bytes": 44598862,
+      "bundle_digest": "sha256:f4b2c69a454b066f8b02e032d2ae11d9724e6d70447296e588a6071e79e0b1d6",
+      "digest_algorithm": "sha256(sorted filename\\0file digest\\0file size records joined by newline)",
+      "upstream_provenance": [
+        "https://github.com/pandas-dev/pandas/issues/57124",
+        "https://pypi.org/"
+      ],
+      "redistribution_status": "RECONSTRUCT_ONLY",
+      "reconstruction_recipe": "PyPI release files selected by exact wheel filename, then verified against the sealed manifest.",
+      "files": [
+        {"name": "numpy-1.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:f08f2e037bba04e707eebf4bc934f1972a315c883a9e0ebfa8a7756eabf9e357", "size": 18219190},
+        {"name": "pandas-2.1.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:00028e6737c594feac3c2df15636d73ace46b8314d236100b57ed7e4b9ebe8d9", "size": 12265858},
+        {"name": "pandas-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", "sha256": "sha256:20404d2adefe92aed3b38da41d0847a143a09be982a31b85bc7dd565bdba0f4e", "size": 13010773},
+        {"name": "python_dateutil-2.8.2-py2.py3-none-any.whl", "sha256": "sha256:961d03dc3453ebbc59dbdea9e4e11c5651520a876d0f4db161e8674aae935da9", "size": 247702},
+        {"name": "pytz-2023.3.post1-py2.py3-none-any.whl", "sha256": "sha256:ce42d816b81b68506614c11e8937d3aa9e41007ceb50bfdcb0749b921bf646c7", "size": 502454},
+        {"name": "six-1.17.0-py2.py3-none-any.whl", "sha256": "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274", "size": 11050},
+        {"name": "tzdata-2023.3-py2.py3-none-any.whl", "sha256": "sha256:7e65763eef3120314099b6939b5546db7adce1e7d6f2e179e3df563c70511eda", "size": 341835}
+      ]
+    },
+    {
+      "artifact_id": "pandas-66085-wheelhouse",
+      "case_ids": ["RADAR-V07-A05"],
+      "incidents": ["pandas #66085"],
+      "format": "wheelhouse",
+      "supported_architecture": "x86_64",
+      "python": "3.13",
+      "total_bytes": 38875252,
+      "bundle_digest": "sha256:8a5a5fdcae415ff17989835e49cf7741f5eade8624fd0befb503d58607b31791",
+      "digest_algorithm": "sha256(sorted filename\\0file digest\\0file size records joined by newline)",
+      "upstream_provenance": [
+        "https://github.com/pandas-dev/pandas/issues/66085",
+        "https://pypi.org/"
+      ],
+      "redistribution_status": "RECONSTRUCT_ONLY",
+      "reconstruction_recipe": "PyPI release files selected by exact wheel filename, then verified against the sealed manifest.",
+      "files": [
+        {"name": "numpy-2.4.6-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl", "sha256": "sha256:a7830bab239b79cda9c08c2da014761cafb48da6150e1da17ac06283f43b6089", "size": 16633220},
+        {"name": "pandas-3.0.3-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", "sha256": "sha256:a4eeb6830daf35a71cc09649bd823e2b542dac246cdee9614c6e4bd65028cd6a", "size": 10891243},
+        {"name": "pandas-3.0.4-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl", "sha256": "sha256:6afa70bd5a24cedf0c983d888f7d48c3ca1bc5fc095d38a3e6277e85f9bd4ab3", "size": 10762008},
+        {"name": "python_dateutil-2.9.0.post0-py2.py3-none-any.whl", "sha256": "sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427", "size": 229892},
+        {"name": "six-1.17.0-py2.py3-none-any.whl", "sha256": "sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274", "size": 11050},
+        {"name": "tzdata-2025.2-py2.py3-none-any.whl", "sha256": "sha256:1a403fada01ff9221ca8044d701868fa132215d84beb92242d9acd2147f667a8", "size": 347839}
+      ]
+    }
+  ]
+}

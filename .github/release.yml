@@ -1,0 +1,13 @@
+changelog:
+  categories:
+    - title: "Security and integrity"
+      labels:
+        - "security"
+        - "integrity"
+    - title: "Benchmark and cases"
+      labels:
+        - "case-sealing"
+        - "benchmark"
+    - title: "Other changes"
+      labels:
+        - "*"

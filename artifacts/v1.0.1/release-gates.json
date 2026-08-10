@@ -1,0 +1,14 @@
+{
+  "final_state": "READY_PRIVATE_REPOSITORY",
+  "gates": {
+    "canonical_decisive_evaluation": "PASS",
+    "clean_package_install": "PASS",
+    "historical_runtime_reconstruction": "PASS",
+    "independent_clean_clone_reproduction": "PASS",
+    "package_build": "PASS",
+    "suite_contract": "PASS",
+    "v1.0.1_tag": "CREATED_LOCALLY_AFTER_FINAL_TREE"
+  },
+  "release": "1.0.1",
+  "suite": "decisive-v1.1"
+}

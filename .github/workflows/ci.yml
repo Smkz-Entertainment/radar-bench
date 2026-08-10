@@ -1,0 +1,155 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  PYTHONUTF8: "1"
+
+jobs:
+  quality:
+    name: Quality / Python ${{ matrix.python-version }}
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12", "3.13"]
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Set up Python
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install locked development dependencies
+        run: python -m pip install -r requirements-dev.lock && python -m pip install --no-deps .
+      - name: Run tests and coverage
+        run: python -m pytest -q --cov=radar_bench --cov-report=term-missing --cov-fail-under=90
+      - name: Run lint
+        run: python -m ruff check .
+      - name: Run type checking
+        run: python -m mypy --strict src
+      - name: Run security lint
+        run: python -m bandit -q -r src
+      - name: Run dependency audit
+        run: python -m pip_audit .
+
+  contract:
+    name: Strict contract and package smoke
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Set up Python
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install locked build dependencies
+        run: python -m pip install -r requirements-dev.lock
+      - name: Validate canonical suite and reference contract
+        run: |
+          python -m pip install --no-deps .
+          python -m radar_bench.cli validate --suite decisive-v1.1
+          python -m radar_bench.cli verify-results reference/decisive-v1.1-result.json
+      - name: Build wheel and sdist
+        run: python -m build --wheel --sdist --outdir "$RUNNER_TEMP/radar-dist"
+      - name: Smoke-test installed wheel from empty directory
+        shell: bash
+        run: |
+          SMOKE="$RUNNER_TEMP/radar-smoke"
+          mkdir -p "$SMOKE"
+          python -m venv "$SMOKE/venv"
+          "$SMOKE/venv/bin/python" -m pip install --no-deps "$RUNNER_TEMP"/radar-dist/*.whl
+          cd "$SMOKE"
+          "$SMOKE/venv/bin/radar-bench" doctor
+          "$SMOKE/venv/bin/radar-bench" list-suites
+          "$SMOKE/venv/bin/radar-bench" validate --suite decisive-v1.1
+      - name: Smoke-test installed sdist from empty directory
+        shell: bash
+        run: |
+          SMOKE="$RUNNER_TEMP/radar-sdist-smoke"
+          mkdir -p "$SMOKE"
+          python -m venv "$SMOKE/venv"
+          "$SMOKE/venv/bin/python" -m pip install --no-deps setuptools==83.0.0
+          "$SMOKE/venv/bin/python" -m pip install --no-deps --no-build-isolation "$RUNNER_TEMP"/radar-dist/*.tar.gz
+          cd "$SMOKE"
+          "$SMOKE/venv/bin/radar-bench" --version
+          "$SMOKE/venv/bin/radar-bench" doctor
+          "$SMOKE/venv/bin/radar-bench" list-suites
+          "$SMOKE/venv/bin/radar-bench" validate --suite decisive-v1.1
+      - name: Verify empty artifact roots fail closed
+        shell: bash
+        run: |
+          SMOKE="$RUNNER_TEMP/radar-empty-artifacts"
+          mkdir -p "$SMOKE"
+          set +e
+          OUTPUT=$(python -m radar_bench.cli artifacts verify --suite decisive-v1.1 --artifact-root "$SMOKE" 2>&1)
+          CODE=$?
+          set -e
+          test "$CODE" -eq 4
+          echo "$OUTPUT" | grep -q '"status": "BLOCKED"'
+          ! echo "$OUTPUT" | grep -Eq 'FileNotFoundError|No such file'
+      - name: Verify generators leave the checkout clean
+        run: git diff --exit-code && test -z "$(git status --porcelain)"
+
+  security:
+    name: Secret, metadata, and dependency policy scans
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        with:
+          python-version: "3.13"
+      - name: Install and validate citation metadata
+        run: |
+          python -m pip install --disable-pip-version-check cffconvert==2.0.0
+          cffconvert --validate -i CITATION.cff
+      - name: Install pinned Gitleaks
+        shell: bash
+        run: |
+          curl --fail --silent --show-error --location \
+            https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz \
+            --output "$RUNNER_TEMP/gitleaks.tar.gz"
+          echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  $RUNNER_TEMP/gitleaks.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/gitleaks.tar.gz" -C "$RUNNER_TEMP"
+      - name: Scan current tree and reachable history with Gitleaks
+        shell: bash
+        run: |
+          "$RUNNER_TEMP/gitleaks" dir . --no-banner --redact --report-format json --report-path "$RUNNER_TEMP/gitleaks-current.json"
+          "$RUNNER_TEMP/gitleaks" git --log-opts='--all' --no-banner --redact --report-format json --report-path "$RUNNER_TEMP/gitleaks-history.json"
+      - name: Install pinned TruffleHog
+        shell: bash
+        run: |
+          curl --fail --silent --show-error --location \
+            https://github.com/trufflesecurity/trufflehog/releases/download/v3.96.0/trufflehog_3.96.0_linux_amd64.tar.gz \
+            --output "$RUNNER_TEMP/trufflehog.tar.gz"
+          echo "7105f1cd6577f058a9e39d0578f1a99c8a1e481e4d3512cd8a09acfe22a0fdc0  $RUNNER_TEMP/trufflehog.tar.gz" | sha256sum --check
+          tar -xzf "$RUNNER_TEMP/trufflehog.tar.gz" -C "$RUNNER_TEMP"
+      - name: Scan tracked public tree with TruffleHog
+        shell: bash
+        run: |
+          "$RUNNER_TEMP/trufflehog" filesystem src tests docs schema corpus baselines reference artifacts scripts README.md BENCHMARK.md CHANGELOG.md CITATION.cff CODE_OF_CONDUCT.md CONTRIBUTING.md DATA_LICENSE.md LICENSE LICENSES.md NOTICE SECURITY.md pyproject.toml requirements-dev.lock --json --no-update --no-color --no-verification --fail
+      - name: Scan reachable history with TruffleHog
+        shell: bash
+        run: |
+          # URI/Lob are excluded only for the inert credential-shaped test
+          # fixtures retained to test URL rejection; Gitleaks scans them too.
+          "$RUNNER_TEMP/trufflehog" git file://"$GITHUB_WORKSPACE" --json --no-update --no-color --no-verification --exclude-detectors=URI,Lob --fail

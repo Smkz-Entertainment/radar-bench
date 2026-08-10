@@ -1,0 +1,27 @@
+{
+  "schema_version": "v07-safety-twin-labels-1",
+  "runtime_manifest": "runtime-manifest.json",
+  "cases": {
+    "RADAR-V07-T01": {"fault_family": "BASELINE_BROKEN", "should_abstain": true},
+    "RADAR-V07-T02": {"fault_family": "BASELINE_BROKEN", "should_abstain": true},
+    "RADAR-V07-T03": {"fault_family": "BASELINE_BROKEN", "should_abstain": true},
+    "RADAR-V07-T04": {"fault_family": "BASELINE_BROKEN", "should_abstain": true},
+    "RADAR-V07-T05": {"fault_family": "DEAD_RESOURCE", "should_abstain": true},
+    "RADAR-V07-T06": {"fault_family": "DEAD_RESOURCE", "should_abstain": true},
+    "RADAR-V07-T07": {"fault_family": "DEAD_RESOURCE", "should_abstain": true},
+    "RADAR-V07-T08": {"fault_family": "DEAD_RESOURCE", "should_abstain": true},
+    "RADAR-V07-T09": {"fault_family": "MISSING_ARTIFACT", "should_abstain": true},
+    "RADAR-V07-T10": {"fault_family": "MISSING_ARTIFACT", "should_abstain": true},
+    "RADAR-V07-T11": {"fault_family": "MISSING_ARTIFACT", "should_abstain": true},
+    "RADAR-V07-T12": {"fault_family": "MISSING_ARTIFACT", "should_abstain": true},
+    "RADAR-V07-T13": {"fault_family": "RESOLVER_CONFOUNDED", "should_abstain": true},
+    "RADAR-V07-T14": {"fault_family": "RESOLVER_CONFOUNDED", "should_abstain": true},
+    "RADAR-V07-T15": {"fault_family": "RESOLVER_CONFOUNDED", "should_abstain": true},
+    "RADAR-V07-T16": {"fault_family": "RESOLVER_CONFOUNDED", "should_abstain": true},
+    "RADAR-V07-T17": {"fault_family": "FLAKY", "should_abstain": true},
+    "RADAR-V07-T18": {"fault_family": "FLAKY", "should_abstain": true},
+    "RADAR-V07-T19": {"fault_family": "PLATFORM_CONFOUNDED", "should_abstain": true},
+    "RADAR-V07-T20": {"fault_family": "PLATFORM_CONFOUNDED", "should_abstain": true}
+  },
+  "held_out_fault_families": ["NETWORK_DIVERGENCE"]
+}

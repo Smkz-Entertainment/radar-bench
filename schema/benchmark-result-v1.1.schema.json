@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://radar-bench.org/schema/benchmark-result-v1.1.schema.json",
+  "title": "Radar Bench decisive-v1.1 strict result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "suite_id",
+    "release_version",
+    "status",
+    "certification",
+    "cases",
+    "baselines",
+    "case_predictions",
+    "mandatory_case_gates",
+    "canonical_reproduction",
+    "provenance",
+    "reference_comparison",
+    "candidate_gold_separation",
+    "decision"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "suite_id": {"const": "decisive-v1.1"},
+    "release_version": {"const": "1.0.1"},
+    "status": {"enum": ["COMPLETED", "BLOCKED", "INVALID", "DRIFT"]},
+    "certification": {"enum": ["SAFE", "UNSAFE", "INCONCLUSIVE"]},
+    "cases": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["requested", "executed", "blocked", "historical", "safety", "blocked_cases"],
+      "properties": {
+        "requested": {"const": 25},
+        "executed": {"type": "integer", "minimum": 0, "maximum": 25},
+        "blocked": {"type": "integer", "minimum": 0, "maximum": 25},
+        "historical": {"const": 5},
+        "safety": {"const": 20},
+        "blocked_cases": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["case_id", "reason"],
+            "properties": {
+              "case_id": {"type": "string", "minLength": 1},
+              "reason": {"type": "string", "minLength": 1}
+            }
+          }
+        }
+      }
+    },
+    "baselines": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["static-v0.4", "naive-deterministic", "agentic-v0.5-frozen"],
+      "properties": {
+        "static-v0.4": {"$ref": "#/$defs/baseline"},
+        "naive-deterministic": {"$ref": "#/$defs/baseline"},
+        "agentic-v0.5-frozen": {"$ref": "#/$defs/baseline"}
+      }
+    },
+    "case_predictions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["static-v0.4", "naive-deterministic", "agentic-v0.5-frozen"],
+      "properties": {
+        "static-v0.4": {"$ref": "#/$defs/predictions"},
+        "naive-deterministic": {"$ref": "#/$defs/predictions"},
+        "agentic-v0.5-frozen": {"$ref": "#/$defs/predictions"}
+      }
+    },
+    "mandatory_case_gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scikit-learn-30512-resolves-to-scipy", "pandas-45601-keeps-semantic-ambiguity-open"],
+      "properties": {
+        "scikit-learn-30512-resolves-to-scipy": {"type": "boolean"},
+        "pandas-45601-keeps-semantic-ambiguity-open": {"type": "boolean"}
+      }
+    },
+    "canonical_reproduction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reference_used_as_runtime_evidence"],
+      "properties": {
+        "status": {"enum": ["CORRECTED_SUITE_REFERENCE_MATCH", "RESULT_MISMATCH", "NOT_EVALUABLE"]},
+        "reference_used_as_runtime_evidence": {"const": false}
+      }
+    },
+    "provenance": {"$ref": "#/$defs/provenance"},
+    "reference_comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reference_digest", "mismatch_paths"],
+      "properties": {
+        "status": {"enum": ["EXACT_MATCH", "MISMATCH", "NOT_AVAILABLE"]},
+        "reference_digest": {"type": ["string", "null"], "pattern": "^sha256:[0-9a-f]{64}$"},
+        "mismatch_paths": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "candidate_gold_separation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["labels_loaded_after_execution", "gold_visible_to_candidate", "historical_evidence_visible_to_candidate", "reference_used_as_runtime_evidence"],
+      "properties": {
+        "labels_loaded_after_execution": {"type": "boolean"},
+        "gold_visible_to_candidate": {"const": false},
+        "historical_evidence_visible_to_candidate": {"const": false},
+        "reference_used_as_runtime_evidence": {"const": false}
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["executable_causal_safety", "historical_attribution_executability", "agentic_causal_investigation", "cross_repository_generalization", "product_implementation"],
+      "properties": {
+        "executable_causal_safety": {"const": "VALIDATED_SMALL_N"},
+        "historical_attribution_executability": {"const": "VALIDATED_SMALL_N"},
+        "agentic_causal_investigation": {"const": "FAILED_DECISIVE_TEST"},
+        "cross_repository_generalization": {"const": "FAILED_DECISIVE_TEST"},
+        "product_implementation": {"const": "BLOCKED"}
+      }
+    }
+  },
+  "$defs": {
+    "metric": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "numerator", "denominator", "status"],
+      "properties": {
+        "value": {"type": ["number", "null"]},
+        "numerator": {"type": "integer", "minimum": 0},
+        "denominator": {"type": "integer", "minimum": 0},
+        "status": {"enum": ["evaluable", "not_evaluable"]}
+      }
+    },
+    "baseline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "metrics"],
+      "properties": {
+        "status": {"enum": ["EXECUTED", "BLOCKED", "NOT_EXECUTED"]},
+        "metrics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "historical_positive_resolution",
+            "candidate_induced_correctness",
+            "action_owner_correctness",
+            "cross_repository_resolution",
+            "semantic_ambiguity_handling",
+            "safety_abstention_recall",
+            "false_owner_accusation_rate",
+            "premature_owner_accusations",
+            "useful_experiment_rate",
+            "median_substantive_experiments",
+            "advantage_over_naive_positive_resolution"
+          ],
+          "properties": {
+            "historical_positive_resolution": {"$ref": "#/$defs/metric"},
+            "candidate_induced_correctness": {"$ref": "#/$defs/metric"},
+            "action_owner_correctness": {"$ref": "#/$defs/metric"},
+            "cross_repository_resolution": {"$ref": "#/$defs/metric"},
+            "semantic_ambiguity_handling": {"$ref": "#/$defs/metric"},
+            "safety_abstention_recall": {"$ref": "#/$defs/metric"},
+            "false_owner_accusation_rate": {"$ref": "#/$defs/metric"},
+            "premature_owner_accusations": {"$ref": "#/$defs/metric"},
+            "useful_experiment_rate": {"$ref": "#/$defs/metric"},
+            "median_substantive_experiments": {"$ref": "#/$defs/metric"},
+            "advantage_over_naive_positive_resolution": {"$ref": "#/$defs/metric"}
+          }
+        }
+      }
+    },
+    "predictions": {
+      "type": "array",
+      "minItems": 25,
+      "maxItems": 25,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["case_id", "state", "candidate_induced", "root_cause_component", "action_owner_repository", "substantive_experiments"],
+        "properties": {
+          "case_id": {"type": "string", "minLength": 1},
+          "state": {"type": "string", "minLength": 1},
+          "candidate_induced": {"type": ["boolean", "null"]},
+          "root_cause_component": {"type": ["string", "null"]},
+          "action_owner_repository": {"type": ["string", "null"]},
+          "substantive_experiments": {"type": "integer", "minimum": 0}
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["suite_digest", "historical_labels_digest", "safety_labels_digest", "runtime_recipe_digest", "baseline_digests", "platform", "execution_network", "network_used", "runtime_reference_used"],
+      "properties": {
+        "suite_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "historical_labels_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "safety_labels_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "runtime_recipe_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+        "baseline_digests": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["static-v0.4", "naive-deterministic", "agentic-v0.5-frozen"],
+          "properties": {
+            "static-v0.4": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+            "naive-deterministic": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+            "agentic-v0.5-frozen": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"}
+          }
+        },
+        "platform": {"type": "object", "additionalProperties": false, "required": ["engine_os", "engine_architecture"], "properties": {"engine_os": {"type": "string"}, "engine_architecture": {"type": "string"}}},
+        "execution_network": {"const": "none"},
+        "network_used": {"type": "boolean"},
+        "runtime_reference_used": {"const": false}
+      }
+    }
+  }
+}

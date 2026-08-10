@@ -1,0 +1,29 @@
+{
+  "executed_cases": 25,
+  "independent_clean_clone_runs": {
+    "exact_projection_match": true,
+    "reference_digest": "sha256:80576ccc346c0098877189c6eaa86521db69e51886df68d3abc04a0496b1fecb",
+    "runs": [
+      {
+        "reference_comparison": "EXACT_MATCH",
+        "result_sha256": "sha256:51fc29251e0035ecef7973ce8a264918e81dca50bb5bb16c1c37cefd49793778",
+        "status": "COMPLETED"
+      },
+      {
+        "reference_comparison": "EXACT_MATCH",
+        "result_sha256": "sha256:51fc29251e0035ecef7973ce8a264918e81dca50bb5bb16c1c37cefd49793778",
+        "status": "COMPLETED"
+      }
+    ],
+    "status": "PASS"
+  },
+  "reference_comparison": {
+    "mismatch_paths": [],
+    "reference_digest": "sha256:cad6c626bfd6fa289dd8d314710e9f14f7816b38fc5a4f454e5c1c9045619870",
+    "status": "EXACT_MATCH"
+  },
+  "reference_used_as_runtime_evidence": false,
+  "result_status": "COMPLETED",
+  "status": "PASS",
+  "suite": "decisive-v1.1"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "immutable_v1_0_0_commit": "c4425fd927450218490d8397ddb53912c94681d6",
+  "bundle": {
+    "format": "git bundle",
+    "sha256": "sha256:0d9f26e521b9b73b0bb0ee02adb65022a26fddc80ba498ae63d7ddf0d11e5317",
+    "redistribution": "external local preservation only",
+    "verify": "git bundle verify passed",
+    "restore": "fresh clone from bundle passed",
+    "restored_v1_0_0_tag": true,
+    "restored_head": "c4425fd927450218490d8397ddb53912c94681d6"
+  },
+  "path": "external-history-bundle",
+  "note": "The v1.0.0 tag remains immutable; this evidence does not make the private repository or bundle a public artifact distribution channel."
+}

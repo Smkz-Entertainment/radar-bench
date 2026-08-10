@@ -1,0 +1,14 @@
+{
+  "external_scanners": {
+    "gitleaks_current": {
+      "archive_sha256": "sha256:d29144deff3a68aa93ced33dddf84b7fdc26070add4aa0f4513094c8332afc4e",
+      "findings": 0,
+      "status": "PASS",
+      "version": "8.30.1"
+    }
+  },
+  "findings": [],
+  "method": "generic Windows/POSIX home/project pattern scan; no private sample paths",
+  "scope": "git-tracked UTF-8 text files",
+  "status": "PASS"
+}
