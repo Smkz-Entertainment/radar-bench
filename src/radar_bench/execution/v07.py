@@ -117,10 +117,16 @@ def _cleanup_container(docker: str, name: str) -> dict[str, Any]:
     )
     names = inspected.payload.decode("utf-8", errors="replace").splitlines()
     present = any(item.strip() == name for item in names)
+    inspection_ok = (
+        inspected.returncode is not None
+        and not inspected.timed_out
+        and inspected.cleanup_error is None
+    )
     return {
         "remove_returncode": removed.returncode,
         "present_after_cleanup": present,
-        "cleanup_verified": not present,
+        "cleanup_verified": inspection_ok and not present,
+        "cleanup_error": None if inspection_ok else "CLEANUP_INSPECTION_FAILED",
     }
 
 
@@ -420,7 +426,13 @@ class HermeticExecutor:
         docker_command.extend(item for key, value in environment.items() for item in ("-e", f"{key}={value}"))
         docker_command.extend([image, *command])
         started = time.perf_counter()
-        _cleanup_container(docker_path, container_name)
+        initial_cleanup = _cleanup_container(docker_path, container_name)
+        if not initial_cleanup["cleanup_verified"]:
+            return {
+                "status": "EXECUTION_ERROR",
+                "error": "PREEXISTING_CONTAINER_CLEANUP_UNVERIFIED",
+                "container_cleanup": initial_cleanup,
+            }
         try:
             completed = run_bounded(
                 docker_command,
@@ -436,6 +448,12 @@ class HermeticExecutor:
                 "container_cleanup": _cleanup_container(docker_path, container_name),
             }
         cleanup = _cleanup_container(docker_path, container_name)
+        if not cleanup["cleanup_verified"]:
+            return {
+                "status": "EXECUTION_ERROR",
+                "error": "CONTAINER_CLEANUP_UNVERIFIED",
+                "container_cleanup": cleanup,
+            }
         if completed.timed_out:
             return {
                 "status": "EXECUTION_ERROR",

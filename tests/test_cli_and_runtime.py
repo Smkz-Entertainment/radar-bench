@@ -5,8 +5,11 @@ from pathlib import Path
 
 import pytest
 
+import radar_bench.execution.v07 as v07
+import radar_bench.historical_runtime as historical_runtime
 from radar_bench.cli import build_parser, main
 from radar_bench.execution.canonical import validate_candidate_view
+from radar_bench.execution.process import BoundedCapture
 from radar_bench.historical_runtime import _copy_declared_outputs
 from radar_bench.release import inspect_case
 
@@ -97,3 +100,32 @@ def test_preparation_output_rejects_directories_and_file_flood(tmp_path: Path) -
     )
     assert ok is False
     assert error == "PREPARATION_OUTPUT_TOO_MANY_FILES"
+
+
+def test_cleanup_verification_fails_closed_when_inspection_fails(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def failed_inspection(argv: list[str], **_kwargs: object) -> dict[str, object]:
+        if "inspect" in argv or "ps" in argv or "volume" in argv:
+            return {"returncode": None, "error_type": "OSError", "_output": b""}
+        return {"returncode": 0, "_output": b""}
+
+    monkeypatch.setattr(historical_runtime, "_run_docker", failed_inspection)
+    assert historical_runtime._remove_container("docker", "container")["cleanup_verified"] is False
+    assert historical_runtime._remove_volume("docker", "volume")["cleanup_verified"] is False
+    assert historical_runtime._remove_image("docker", "image")["cleanup_verified"] is False
+
+    monkeypatch.setattr(
+        v07,
+        "run_bounded",
+        lambda *_args, **_kwargs: BoundedCapture(
+            returncode=None,
+            output_bytes=0,
+            output_digest="sha256:" + "0" * 64,
+            output_limit_exceeded=False,
+            timed_out=False,
+            excerpt="",
+            cleanup_error="inspection failed",
+        ),
+    )
+    assert v07._cleanup_container("docker", "container")["cleanup_verified"] is False

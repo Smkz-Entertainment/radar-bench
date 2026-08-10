@@ -443,10 +443,17 @@ def _remove_container(docker: str, name: str) -> dict[str, Any]:
         "utf-8", errors="replace"
     )
     present = any(line.strip() == name for line in output.splitlines())
+    inspection_ok = (
+        inspected.get("returncode") is not None
+        and not inspected.get("timed_out", False)
+        and inspected.get("cleanup_error") is None
+        and inspected.get("error_type") is None
+    )
     return {
         "remove_returncode": removed.get("returncode"),
         "present_after_cleanup": present,
-        "cleanup_verified": not present,
+        "cleanup_verified": inspection_ok and not present,
+        "cleanup_error": None if inspection_ok else "CLEANUP_INSPECTION_FAILED",
     }
 
 
@@ -460,10 +467,17 @@ def _remove_volume(docker: str, name: str) -> dict[str, Any]:
         "utf-8", errors="replace"
     )
     present = any(line.strip() == name for line in output.splitlines())
+    inspection_ok = (
+        inspected.get("returncode") is not None
+        and not inspected.get("timed_out", False)
+        and inspected.get("cleanup_error") is None
+        and inspected.get("error_type") is None
+    )
     return {
         "remove_returncode": removed.get("returncode"),
         "present_after_cleanup": present,
-        "cleanup_verified": not present,
+        "cleanup_verified": inspection_ok and not present,
+        "cleanup_error": None if inspection_ok else "CLEANUP_INSPECTION_FAILED",
     }
 
 
@@ -519,7 +533,22 @@ def _run_case_side(
 ) -> dict[str, Any]:
     purpose = "preparation" if preparation else "execution"
     name = _container_name(case_id, side, purpose)
-    _remove_container(docker, name)
+    initial_cleanup = _remove_container(docker, name)
+    if not initial_cleanup["cleanup_verified"]:
+        return {
+            "returncode": None,
+            "output_bytes": 0,
+            "output_digest": None,
+            "output_limit_exceeded": False,
+            "timed_out": False,
+            "cleanup_error": "PREEXISTING_CONTAINER_CLEANUP_UNVERIFIED",
+            "error_type": "PREEXISTING_CONTAINER_CLEANUP_UNVERIFIED",
+            "container_cleanup": initial_cleanup,
+            "side": side,
+            "network": "none",
+            "preparation": preparation,
+            "container_name": name,
+        }
     argv = [
         docker,
         "run",
@@ -554,7 +583,10 @@ def _run_case_side(
     argv.extend([image, *command])
     result = _run_docker(argv, timeout=DOCKER_RUN_TIMEOUT_SECONDS)
     if cleanup_after:
-        result["container_cleanup"] = _remove_container(docker, name)
+        cleanup = _remove_container(docker, name)
+        result["container_cleanup"] = cleanup
+        if not cleanup["cleanup_verified"]:
+            result["cleanup_error"] = result.get("cleanup_error") or "CONTAINER_CLEANUP_UNVERIFIED"
     else:
         result["container_cleanup_deferred"] = True
     result.pop("_output", None)
@@ -605,8 +637,22 @@ def _build_side(
     return image_tag, None
 
 
-def _remove_image(docker: str, image: str) -> None:
-    _run_docker([docker, "image", "rm", "--force", image], timeout=60)
+def _remove_image(docker: str, image: str) -> dict[str, Any]:
+    removed = _run_docker([docker, "image", "rm", "--force", image], timeout=60)
+    inspected = _run_docker([docker, "image", "inspect", image], timeout=30)
+    inspection_ok = (
+        inspected.get("returncode") is not None
+        and not inspected.get("timed_out", False)
+        and inspected.get("cleanup_error") is None
+        and inspected.get("error_type") is None
+    )
+    present = inspection_ok and inspected.get("returncode") == 0
+    return {
+        "remove_returncode": removed.get("returncode"),
+        "present_after_cleanup": present,
+        "cleanup_verified": inspection_ok and not present,
+        "cleanup_error": None if inspection_ok else "CLEANUP_INSPECTION_FAILED",
+    }
 
 
 def reconstruct_historical_cases(root: Path, artifact_root: Path | None = None) -> dict[str, Any]:
@@ -745,6 +791,10 @@ def reconstruct_historical_cases(root: Path, artifact_root: Path | None = None) 
                                 docker, container_name
                             )
                             prep_result["volume_cleanup"] = _remove_volume(docker, prep_volume)
+                            if not prep_result["container_cleanup"]["cleanup_verified"]:
+                                side_errors.append("PREPARATION_CONTAINER_CLEANUP_FAILED")
+                            if not prep_result["volume_cleanup"]["cleanup_verified"]:
+                                side_errors.append("PREPARATION_VOLUME_CLEANUP_FAILED")
                             case_result["preparation"] = prep_result
                     for index, side in enumerate(("control", "candidate")):
                         if side_errors:
@@ -766,8 +816,13 @@ def reconstruct_historical_cases(root: Path, artifact_root: Path | None = None) 
                         if result["status"] != "READY":
                             side_errors.append("HISTORICAL_BUILD_UNREPRODUCIBLE" if result.get("returncode") is not None else "EXECUTION_TIMEOUT")
             finally:
+                image_cleanup: list[dict[str, Any]] = []
                 for tag in image_tags:
-                    _remove_image(docker, tag)
+                    cleanup = _remove_image(docker, tag)
+                    image_cleanup.append({"image": tag, **cleanup})
+                    if not cleanup["cleanup_verified"]:
+                        side_errors.append("IMAGE_CLEANUP_FAILED")
+                case_result["image_cleanup"] = image_cleanup
         if side_errors:
             all_ready = False
             blockers.extend(side_errors)

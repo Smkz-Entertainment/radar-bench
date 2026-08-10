@@ -40,6 +40,8 @@ class SubprocessProvider:
             raise TimeoutError("provider timed out")
         if completed.output_limit_exceeded:
             raise SecurityError("subprocess provider output exceeds the size limit")
+        if completed.cleanup_error:
+            raise RuntimeError("subprocess provider cleanup failed")
         if completed.returncode != 0:
             raise RuntimeError(f"provider exited with {completed.returncode}")
         value = json.loads(completed.payload.decode("utf-8"))
