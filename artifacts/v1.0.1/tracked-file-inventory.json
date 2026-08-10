@@ -290,13 +290,13 @@
       "sha256": "sha256:f35ed1fcd104e6db0242710d4e88b62b1de2301eb7e61e158c701b1f366f7001"
     },
     {
-      "bytes": 872,
+      "bytes": 1205,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/remote-verification.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:9756494f62e70203561aa306f78e81ccc08aaeb9c2bc887f75bee1ee484f6ed2"
+      "sha256": "sha256:7a10d2ce2795c6c8186ef5317e95f9994b271f79224b25165cd23d85cd1d2ee5"
     },
     {
       "bytes": 663,
@@ -326,13 +326,13 @@
       "sha256": "sha256:836d61f133a5bea9ad004dac99e6088b7970e5d8226f6788e48d29e25a2a206d"
     },
     {
-      "bytes": 6268,
+      "bytes": 6269,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/security-audit.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:d6a3b6c65cca462e692c745fb45522749c98c2fe2e15a8a954368a37dd0e72b9"
+      "sha256": "sha256:42a45bc9678d8554914656e5a72b9ca2d73592b4e46fefd344dfe03ac407e05b"
     },
     {
       "bytes": 73780,
@@ -341,7 +341,7 @@
       "path": "artifacts/v1.0.1/tracked-file-inventory.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:47a722eb6ab8f8d3db7e8df61d73d1477dc7000bc870ab507a471cec8934703b"
+      "sha256": "sha256:28ab87a6efcbe76da1f3f0a16ca307ade1507a74491e7a1bb20266e6958ba2ee"
     },
     {
       "bytes": 277,

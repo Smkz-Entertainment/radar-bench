@@ -112,7 +112,7 @@
         "version": "2.10.1"
       },
       "pytest_coverage": {
-        "coverage_percent": 92.9,
+        "coverage_percent": 92.65,
         "minimum_percent": 90,
         "scope": "core modules declared by pyproject coverage configuration; integration modules have dedicated contract and smoke tests",
         "status": "PASS",
