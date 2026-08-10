@@ -444,7 +444,7 @@ def _remove_container(docker: str, name: str) -> dict[str, Any]:
     )
     present = any(line.strip() == name for line in output.splitlines())
     inspection_ok = (
-        inspected.get("returncode") is not None
+        inspected.get("returncode") == 0
         and not inspected.get("timed_out", False)
         and inspected.get("cleanup_error") is None
         and inspected.get("error_type") is None
@@ -468,7 +468,7 @@ def _remove_volume(docker: str, name: str) -> dict[str, Any]:
     )
     present = any(line.strip() == name for line in output.splitlines())
     inspection_ok = (
-        inspected.get("returncode") is not None
+        inspected.get("returncode") == 0
         and not inspected.get("timed_out", False)
         and inspected.get("cleanup_error") is None
         and inspected.get("error_type") is None
@@ -639,14 +639,20 @@ def _build_side(
 
 def _remove_image(docker: str, image: str) -> dict[str, Any]:
     removed = _run_docker([docker, "image", "rm", "--force", image], timeout=60)
-    inspected = _run_docker([docker, "image", "inspect", image], timeout=30)
+    inspected = _run_docker(
+        [docker, "image", "ls", "--all", "--filter", f"reference={image}", "--format", "{{{{.Repository}}:{{.Tag}}}}"],
+        timeout=30,
+    )
+    output = _bytes(cast(bytes | str | None, inspected.get("_output"))).decode(
+        "utf-8", errors="replace"
+    )
+    present = any(line.strip() for line in output.splitlines())
     inspection_ok = (
-        inspected.get("returncode") is not None
+        inspected.get("returncode") == 0
         and not inspected.get("timed_out", False)
         and inspected.get("cleanup_error") is None
         and inspected.get("error_type") is None
     )
-    present = inspection_ok and inspected.get("returncode") == 0
     return {
         "remove_returncode": removed.get("returncode"),
         "present_after_cleanup": present,

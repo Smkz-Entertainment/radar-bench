@@ -1,5 +1,6 @@
 {
   "cache_isolation": "PASS; each installed-package smoke used a unique fresh virtual environment and package source",
+  "working_directory": "PASS; each smoke ran from a fresh empty temporary directory and doctor reported installed-package resources",
   "distribution": {
     "sdist": {
       "bytes": 100471,
@@ -24,7 +25,7 @@
     "build_backend": "setuptools==83.0.0",
     "commands": [
       "make pinned build backend available in fresh venv",
-      "install sdist with --no-build-isolation",
+      "install sdist with --no-build-isolation; run from fresh empty cwd",
       "radar-bench --version",
       "doctor",
       "list-suites",
@@ -40,7 +41,7 @@
   "status": "PASS",
   "wheel": {
     "commands": [
-      "install wheel into fresh venv",
+      "install wheel into fresh venv; run from fresh empty cwd",
       "radar-bench --version",
       "doctor",
       "list-suites",

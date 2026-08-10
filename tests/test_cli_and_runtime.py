@@ -106,7 +106,7 @@ def test_cleanup_verification_fails_closed_when_inspection_fails(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     def failed_inspection(argv: list[str], **_kwargs: object) -> dict[str, object]:
-        if "inspect" in argv or "ps" in argv or "volume" in argv:
+        if "inspect" in argv or "ps" in argv or "volume" in argv or ("image" in argv and "ls" in argv):
             return {"returncode": None, "error_type": "OSError", "_output": b""}
         return {"returncode": 0, "_output": b""}
 
@@ -126,6 +126,32 @@ def test_cleanup_verification_fails_closed_when_inspection_fails(
             timed_out=False,
             excerpt="",
             cleanup_error="inspection failed",
+        ),
+    )
+    assert v07._cleanup_container("docker", "container")["cleanup_verified"] is False
+
+
+def test_cleanup_verification_rejects_nonzero_listing(monkeypatch: pytest.MonkeyPatch) -> None:
+    def nonzero_listing(argv: list[str], **_kwargs: object) -> dict[str, object]:
+        if "ps" in argv or "volume" in argv or ("image" in argv and "ls" in argv):
+            return {"returncode": 1, "_output": b""}
+        return {"returncode": 0, "_output": b""}
+
+    monkeypatch.setattr(historical_runtime, "_run_docker", nonzero_listing)
+    assert historical_runtime._remove_container("docker", "container")["cleanup_verified"] is False
+    assert historical_runtime._remove_volume("docker", "volume")["cleanup_verified"] is False
+    assert historical_runtime._remove_image("docker", "image")["cleanup_verified"] is False
+
+    monkeypatch.setattr(
+        v07,
+        "run_bounded",
+        lambda *_args, **_kwargs: BoundedCapture(
+            returncode=1,
+            output_bytes=0,
+            output_digest="sha256:" + "0" * 64,
+            output_limit_exceeded=False,
+            timed_out=False,
+            excerpt="",
         ),
     )
     assert v07._cleanup_container("docker", "container")["cleanup_verified"] is False

@@ -118,7 +118,7 @@ def _cleanup_container(docker: str, name: str) -> dict[str, Any]:
     names = inspected.payload.decode("utf-8", errors="replace").splitlines()
     present = any(item.strip() == name for item in names)
     inspection_ok = (
-        inspected.returncode is not None
+        inspected.returncode == 0
         and not inspected.timed_out
         and inspected.cleanup_error is None
     )
