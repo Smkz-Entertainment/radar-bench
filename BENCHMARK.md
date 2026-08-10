@@ -27,6 +27,11 @@ metrics use eligible labels only. Useful-experiment rate uses executed
 attempts. The SciPy-side resolution for scikit-learn #30512 and the semantic
 ambiguity gate for pandas #45601 are mandatory case-level gates.
 
+An evaluator-side metadata-only audit projects candidate-visible safety-view
+fields while removing case identity, paths, digests, and gold labels. All
+twenty projections are identical; the resulting family inference is prior-only
+(20% majority prior versus 16.67% six-way uniform chance).
+
 ## Claims
 
 The small executable safety and historical-runtime evidence is preserved.

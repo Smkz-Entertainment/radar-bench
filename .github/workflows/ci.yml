@@ -41,7 +41,7 @@ jobs:
       - name: Run type checking
         run: python -m mypy --strict src
       - name: Run security lint
-        run: python -m bandit -q -r src
+        run: python -m bandit -q -r src scripts
       - name: Run dependency audit
         run: python -m pip_audit .
 
@@ -63,6 +63,7 @@ jobs:
           python -m pip install --no-deps .
           python -m radar_bench.cli validate --suite decisive-v1.1
           python -m radar_bench.cli verify-results reference/decisive-v1.1-result.json
+          python scripts/audit_metadata_only.py --output "$RUNNER_TEMP/metadata-only-inference.json"
       - name: Build wheel and sdist
         run: python -m build --wheel --sdist --outdir "$RUNNER_TEMP/radar-dist"
       - name: Smoke-test installed wheel from empty directory
@@ -76,6 +77,7 @@ jobs:
           "$SMOKE/venv/bin/radar-bench" doctor
           "$SMOKE/venv/bin/radar-bench" list-suites
           "$SMOKE/venv/bin/radar-bench" validate --suite decisive-v1.1
+          "$SMOKE/venv/bin/radar-bench" inspect-case RADAR-V07-A02
       - name: Smoke-test installed sdist from empty directory
         shell: bash
         run: |
@@ -89,6 +91,7 @@ jobs:
           "$SMOKE/venv/bin/radar-bench" doctor
           "$SMOKE/venv/bin/radar-bench" list-suites
           "$SMOKE/venv/bin/radar-bench" validate --suite decisive-v1.1
+          "$SMOKE/venv/bin/radar-bench" inspect-case RADAR-V07-A02
       - name: Verify empty artifact roots fail closed
         shell: bash
         run: |
@@ -122,6 +125,10 @@ jobs:
         run: |
           python -m pip install --disable-pip-version-check cffconvert==2.0.0
           cffconvert --validate -i CITATION.cff
+      - name: Build package archives for security scanning
+        run: |
+          python -m pip install --disable-pip-version-check -r requirements-dev.lock
+          python -m build --wheel --sdist --outdir "$RUNNER_TEMP/radar-dist"
       - name: Install pinned Gitleaks
         shell: bash
         run: |
@@ -135,6 +142,10 @@ jobs:
         run: |
           "$RUNNER_TEMP/gitleaks" dir . --no-banner --redact --report-format json --report-path "$RUNNER_TEMP/gitleaks-current.json"
           "$RUNNER_TEMP/gitleaks" git --log-opts='--all' --no-banner --redact --report-format json --report-path "$RUNNER_TEMP/gitleaks-history.json"
+      - name: Scan package archives with Gitleaks
+        shell: bash
+        run: |
+          "$RUNNER_TEMP/gitleaks" dir "$RUNNER_TEMP/radar-dist" --no-banner --redact --report-format json --report-path "$RUNNER_TEMP/gitleaks-package.json"
       - name: Install pinned TruffleHog
         shell: bash
         run: |
@@ -146,10 +157,15 @@ jobs:
       - name: Scan tracked public tree with TruffleHog
         shell: bash
         run: |
-          "$RUNNER_TEMP/trufflehog" filesystem src tests docs schema corpus baselines reference artifacts scripts README.md BENCHMARK.md CHANGELOG.md CITATION.cff CODE_OF_CONDUCT.md CONTRIBUTING.md DATA_LICENSE.md LICENSE LICENSES.md NOTICE SECURITY.md pyproject.toml requirements-dev.lock --json --no-update --no-color --no-verification --fail
+          # URI/Lob are excluded only for documented inert URL/name fixtures.
+          "$RUNNER_TEMP/trufflehog" filesystem src tests docs schema corpus baselines reference artifacts scripts README.md BENCHMARK.md CHANGELOG.md CITATION.cff CODE_OF_CONDUCT.md CONTRIBUTING.md DATA_LICENSE.md LICENSE LICENSES.md NOTICE SECURITY.md pyproject.toml requirements-dev.lock --json --no-update --no-color --results=verified --exclude-detectors=URI,Lob --fail --fail-on-scan-errors
       - name: Scan reachable history with TruffleHog
         shell: bash
         run: |
           # URI/Lob are excluded only for the inert credential-shaped test
           # fixtures retained to test URL rejection; Gitleaks scans them too.
-          "$RUNNER_TEMP/trufflehog" git file://"$GITHUB_WORKSPACE" --json --no-update --no-color --no-verification --exclude-detectors=URI,Lob --fail
+          "$RUNNER_TEMP/trufflehog" git file://"$GITHUB_WORKSPACE" --json --no-update --no-color --results=verified --exclude-detectors=URI,Lob --fail --fail-on-scan-errors
+      - name: Scan package archives with TruffleHog
+        shell: bash
+        run: |
+          "$RUNNER_TEMP/trufflehog" filesystem "$RUNNER_TEMP/radar-dist" --json --no-update --no-color --results=verified --exclude-detectors=URI,Lob --fail --fail-on-scan-errors

@@ -21,8 +21,9 @@ tag. A release can publish the OSS benchmark contract while retaining the
 canonical suite's fail-closed status; it must not claim end-to-end
 reproducibility without the runtime evidence.
 
-This repository intentionally does not run an automatic GitHub Release job.
-The repository remains private until the owner chooses publication visibility;
-the annotated tag and release assets must be created only after the evidence
-listed above is reviewed. A public source push is not a scientific release and
+This repository does not run an automatic GitHub Release job. The manual
+`.github/workflows/release.yml` workflow has separate verify/build and
+draft-release jobs; it is not invoked by pushes and does not publish a release
+automatically. The repository remains private until the owner chooses
+publication visibility. A public source push is not a scientific release and
 must not be described as one.

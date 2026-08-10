@@ -159,6 +159,32 @@ def _distribution_inventory(distribution_root: Path | None) -> dict[str, Any]:
     return {"status": "PASS" if len(entries) == 2 else "BLOCKED", "expected": ["wheel", "sdist"], "artifacts": entries}
 
 
+def _workflow_audit(root: Path) -> dict[str, Any]:
+    workflows = sorted((root / ".github" / "workflows").glob("*.y*ml"))
+    unpinned_actions: list[str] = []
+    noncanonical_runners: list[str] = []
+    action_pattern = re.compile(r"^\s*uses:\s+([^\s]+)@([0-9a-fA-F]{40})(?:\s|$)")
+    runner_pattern = re.compile(r"^\s*runs-on:\s+([^\s#]+)")
+    for workflow in workflows:
+        for line_number, line in enumerate(workflow.read_text(encoding="utf-8").splitlines(), 1):
+            if "uses:" in line:
+                match = action_pattern.match(line)
+                if match is None:
+                    unpinned_actions.append(f"{workflow.name}:{line_number}")
+            runner = runner_pattern.match(line)
+            if runner and runner.group(1) != "ubuntu-24.04":
+                noncanonical_runners.append(f"{workflow.name}:{line_number}")
+    lock_present = (root / "requirements-dev.lock").is_file()
+    return {
+        "status": "PASS" if workflows and lock_present and not unpinned_actions and not noncanonical_runners else "FAIL",
+        "workflow_count": len(workflows),
+        "lock_file": "requirements-dev.lock" if lock_present else None,
+        "unpinned_actions": unpinned_actions,
+        "noncanonical_runners": noncanonical_runners,
+        "source": ".github/workflows and requirements-dev.lock",
+    }
+
+
 def _archive_paths(path: Path) -> list[str]:
     if path.suffix == ".whl":
         with zipfile.ZipFile(path) as archive:
@@ -287,8 +313,11 @@ def main() -> int:
     if result is None:
         raise SystemExit("supplied result is not a JSON object")
     validate_result_document(result, root)
+    result_schema_valid = True
     reference = _read_json(root / "reference/decisive-v1.1-result.json") or {}
     quality = _read_json(args.quality_evidence.resolve()) if args.quality_evidence else {"status": "NOT_RECORDED", "checks": {}}
+    workflow_audit = _workflow_audit(root)
+    metadata_audit = _read_json(evidence / "metadata-only-inference.json") or {"status": "NOT_RECORDED"}
     _write_json(evidence / "result.json", result)
     metric_audit = _metric_audit(root, result, reference)
     _write_json(evidence / "metric-contract-audit.json", metric_audit)
@@ -335,11 +364,11 @@ def main() -> int:
     independent = _independent_runs([item.resolve() for item in args.independent_result], result)
     _write_json(evidence / "canonical-reproduction.json", {"status": "PASS" if result.get("canonical_reproduction", {}).get("status") == "CORRECTED_SUITE_REFERENCE_MATCH" else "BLOCKED", "suite": "decisive-v1.1", "result_status": result.get("status"), "executed_cases": result.get("cases", {}).get("executed"), "reference_comparison": result.get("reference_comparison"), "independent_clean_clone_runs": independent, "reference_used_as_runtime_evidence": False})
     docker_observed = result.get("status") == "COMPLETED" and result.get("provenance", {}).get("execution_network") == "none" and result.get("provenance", {}).get("platform", {}).get("engine_os") == "linux"
-    checks = {"suite_contract": bool(audit.get("valid")), "result_schema": True, "privacy_scan": not privacy_findings, "secret_scan": not secret_findings, "distribution": distribution["status"] == "PASS", "artifact_reconstruction": artifact_check.get("status") == "READY", "clean_install": clean_install.get("status") == "PASS", "canonical_reference_match": result.get("reference_comparison", {}).get("status") == "EXACT_MATCH", "independent_clean_clone_runs": independent["status"] == "PASS", "docker_execution_observed": docker_observed, "quality_checks": quality.get("status") == "PASS"}
-    _write_json(evidence / "security-audit.json", {"status": "PASS" if all(checks.values()) else "BLOCKED", "checks": checks, "configured": {"execution_network": "none", "candidate_gold_separation": True, "digest_pinned_inputs": True}, "observed": {"docker_execution": docker_observed, "result_status": result.get("status"), "engine": result.get("provenance", {}).get("platform")}, "tool_evidence": quality})
+    checks = {"suite_contract": bool(audit.get("valid")), "result_schema": result_schema_valid, "privacy_scan": not privacy_findings, "secret_scan": not secret_findings, "distribution": distribution["status"] == "PASS", "artifact_reconstruction": artifact_check.get("status") == "READY", "clean_install": clean_install.get("status") == "PASS", "canonical_reference_match": result.get("reference_comparison", {}).get("status") == "EXACT_MATCH", "independent_clean_clone_runs": independent["status"] == "PASS", "docker_execution_observed": docker_observed, "metadata_only_inference": metadata_audit.get("status") == "PASS", "workflow_audit": workflow_audit.get("status") == "PASS", "quality_checks": quality.get("status") == "PASS"}
+    _write_json(evidence / "security-audit.json", {"status": "PASS" if all(checks.values()) else "BLOCKED", "checks": checks, "configured": {"execution_network": "none", "candidate_gold_separation": True, "digest_pinned_inputs": True}, "observed": {"docker_execution": docker_observed, "result_status": result.get("status"), "engine": result.get("provenance", {}).get("platform")}, "workflow_audit": workflow_audit, "metadata_only_inference": metadata_audit, "tool_evidence": quality})
     local_state = "READY_PRIVATE_REPOSITORY" if all(checks.values()) else "BLOCKED_SCIENTIFIC_CONTRACT"
     final_state = "BLOCKED_EXTERNAL_AUTH" if local_state == "READY_PRIVATE_REPOSITORY" and args.hosted_ci_status == "BLOCKED_EXTERNAL_BILLING" else local_state
-    _write_json(evidence / "release-gates.json", {"release": "1.0.1", "suite": "decisive-v1.1", "final_state": final_state, "gates": {"package_build": distribution["status"], "clean_package_install": clean_install.get("status", "NOT_RECORDED"), "suite_contract": "PASS" if audit.get("valid") else "FAIL", "historical_runtime_reconstruction": "PASS" if docker_observed else "BLOCKED", "canonical_decisive_evaluation": "PASS" if result.get("reference_comparison", {}).get("status") == "EXACT_MATCH" else "BLOCKED", "independent_clean_clone_reproduction": independent["status"], "v1.0.1_tag": "CREATED_LOCALLY_AFTER_FINAL_TREE", "hosted_ci": args.hosted_ci_status}})
+    _write_json(evidence / "release-gates.json", {"release": "1.0.1", "suite": "decisive-v1.1", "final_state": final_state, "gates": {"package_build": distribution["status"], "clean_package_install": clean_install.get("status", "NOT_RECORDED"), "suite_contract": "PASS" if audit.get("valid") else "FAIL", "historical_runtime_reconstruction": "PASS" if docker_observed else "BLOCKED", "canonical_decisive_evaluation": "PASS" if result.get("reference_comparison", {}).get("status") == "EXACT_MATCH" else "BLOCKED", "independent_clean_clone_reproduction": independent["status"], "metadata_only_inference": "PASS" if metadata_audit.get("status") == "PASS" else "BLOCKED", "workflow_audit": workflow_audit.get("status", "NOT_RECORDED"), "v1.0.1_tag": "CREATED_LOCALLY_AFTER_FINAL_TREE", "hosted_ci": args.hosted_ci_status}})
     _write_json(evidence / "tracked-file-inventory.json", _inventory(root))
     (evidence / "pruning-report.md").write_text(
         "# v1.0.1 pruning report\n\n"

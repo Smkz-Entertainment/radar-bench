@@ -6,16 +6,50 @@
     "distribution": true,
     "docker_execution_observed": true,
     "independent_clean_clone_runs": true,
+    "metadata_only_inference": true,
     "privacy_scan": true,
     "quality_checks": true,
     "result_schema": true,
     "secret_scan": true,
-    "suite_contract": true
+    "suite_contract": true,
+    "workflow_audit": true
   },
   "configured": {
     "candidate_gold_separation": true,
     "digest_pinned_inputs": true,
     "execution_network": "none"
+  },
+  "metadata_only_inference": {
+    "case_count": 20,
+    "fault_family_count": 6,
+    "fault_family_counts": {
+      "BASELINE_BROKEN": 4,
+      "DEAD_RESOURCE": 4,
+      "FLAKY": 2,
+      "MISSING_ARTIFACT": 4,
+      "PLATFORM_CONFOUNDED": 2,
+      "RESOLVER_CONFOUNDED": 4
+    },
+    "feature_digest": "sha256:9e09ddc657f0dd4de2212c3834f4fda2ca7523ae9974376f3fd2d04d73061782",
+    "feature_digest_classes": 1,
+    "feature_keys": [
+      "schema_version",
+      "corpus_kind",
+      "plausible_components"
+    ],
+    "held_out_fault_families": [
+      "NETWORK_DIVERGENCE"
+    ],
+    "majority_prior_accuracy": 0.2,
+    "metadata_predictive_signal": "NONE",
+    "method": "Evaluator-side projection of candidate-visible metadata with case identity, digests, paths, and labels excluded from features.",
+    "prior_only_accuracy_excess_over_uniform": 0.033333333333333354,
+    "source_digests": {
+      "candidate_views": "sha256:17075873e7de6415c880eb054d2d1c663f2fa3e30d6cb195868a1865c42d314b",
+      "evaluator_labels": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a"
+    },
+    "status": "PASS",
+    "uniform_random_chance": 0.16666666666666666
   },
   "observed": {
     "docker_execution": true,
@@ -38,6 +72,10 @@
         "status": "PASS",
         "version": "2.0.0"
       },
+      "documentation_commands": {
+        "status": "PASS",
+        "tests": 2
+      },
       "gitleaks_current": {
         "archive_sha256": "sha256:d29144deff3a68aa93ced33dddf84b7fdc26070add4aa0f4513094c8332afc4e",
         "findings": 0,
@@ -56,6 +94,12 @@
         "status": "PASS",
         "version": "8.30.1"
       },
+      "metadata_only_inference": {
+        "feature_digest_classes": 1,
+        "majority_prior_accuracy": 0.2,
+        "status": "PASS",
+        "uniform_random_chance": 0.16666666666666666
+      },
       "mypy_strict": {
         "status": "PASS",
         "version": "1.19.1"
@@ -69,7 +113,7 @@
         "coverage_percent": 92.74,
         "minimum_percent": 90,
         "status": "PASS",
-        "tests": 44
+        "tests": 46
       },
       "ruff": {
         "status": "PASS",
@@ -77,14 +121,24 @@
       },
       "trufflehog_current_tracked_tree": {
         "archive_sha256": "sha256:fbf918c52a1f29be96344e1c4696fe019cfc34fb1184fab31cf3e8347917b43a",
+        "excluded_inert_detectors": [
+          "URI",
+          "Lob"
+        ],
         "findings": 0,
         "status": "PASS",
+        "verified_only": true,
         "version": "3.96.0"
       },
       "trufflehog_package_archives": {
         "archive_sha256": "sha256:fbf918c52a1f29be96344e1c4696fe019cfc34fb1184fab31cf3e8347917b43a",
+        "excluded_inert_detectors": [
+          "URI",
+          "Lob"
+        ],
         "findings": 0,
         "status": "PASS",
+        "verified_only": true,
         "version": "3.96.0"
       },
       "trufflehog_reachable_history": {
@@ -95,7 +149,14 @@
         ],
         "findings": 0,
         "status": "PASS",
+        "verified_only": true,
         "version": "3.96.0"
+      },
+      "workflow_yaml": {
+        "actionlint": "NOT_INSTALLED",
+        "files": 2,
+        "status": "PASS",
+        "yaml_parse": "PASS"
       }
     },
     "commands": "recorded in CI and docs; secrets and absolute local paths intentionally omitted",
@@ -130,5 +191,13 @@
       "source": "historical_runtime.py and execution/v07.py command plans plus completed result provenance"
     },
     "status": "PASS"
+  },
+  "workflow_audit": {
+    "lock_file": "requirements-dev.lock",
+    "noncanonical_runners": [],
+    "source": ".github/workflows and requirements-dev.lock",
+    "status": "PASS",
+    "unpinned_actions": [],
+    "workflow_count": 2
   }
 }

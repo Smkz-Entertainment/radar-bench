@@ -1,0 +1,32 @@
+{
+  "case_count": 20,
+  "fault_family_count": 6,
+  "fault_family_counts": {
+    "BASELINE_BROKEN": 4,
+    "DEAD_RESOURCE": 4,
+    "FLAKY": 2,
+    "MISSING_ARTIFACT": 4,
+    "PLATFORM_CONFOUNDED": 2,
+    "RESOLVER_CONFOUNDED": 4
+  },
+  "feature_digest": "sha256:9e09ddc657f0dd4de2212c3834f4fda2ca7523ae9974376f3fd2d04d73061782",
+  "feature_digest_classes": 1,
+  "feature_keys": [
+    "schema_version",
+    "corpus_kind",
+    "plausible_components"
+  ],
+  "held_out_fault_families": [
+    "NETWORK_DIVERGENCE"
+  ],
+  "majority_prior_accuracy": 0.2,
+  "metadata_predictive_signal": "NONE",
+  "method": "Evaluator-side projection of candidate-visible metadata with case identity, digests, paths, and labels excluded from features.",
+  "prior_only_accuracy_excess_over_uniform": 0.033333333333333354,
+  "source_digests": {
+    "candidate_views": "sha256:17075873e7de6415c880eb054d2d1c663f2fa3e30d6cb195868a1865c42d314b",
+    "evaluator_labels": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a"
+  },
+  "status": "PASS",
+  "uniform_random_chance": 0.16666666666666666
+}

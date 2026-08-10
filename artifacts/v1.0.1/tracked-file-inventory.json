@@ -65,13 +65,13 @@
       "sha256": "sha256:d27d0aeb8ddbed18574860740cc44963c5fb9f16c6c613f275fc6e8cf555a1e5"
     },
     {
-      "bytes": 6855,
+      "bytes": 7994,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": ".github/workflows/ci.yml",
       "purpose": "repository automation and policy",
       "release_classification": "automation",
-      "sha256": "sha256:07510c215f53a8cd11173c900eabd0eda31eb283df19845a92043528fa0df289"
+      "sha256": "sha256:22f77f0aca03ed104409394ed2b6c62d91293fe52c3d2565c6823591f378cfe4"
     },
     {
       "bytes": 312,
@@ -83,13 +83,13 @@
       "sha256": "sha256:e635e92329b3cdf3a419803d6fbac297116d6ca56adc452c96c3e7c53c5d0b2f"
     },
     {
-      "bytes": 1474,
+      "bytes": 1764,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "BENCHMARK.md",
       "purpose": "public project documentation",
       "release_classification": "documentation",
-      "sha256": "sha256:6043145648c8ed13060c48b0f7bc85eca702a7031f5110672c799ee9246a8a09"
+      "sha256": "sha256:d3a68a4dd458b891827b63acf99a3d1a0a7bb292a4d6a4ec97a463d5c32b30d0"
     },
     {
       "bytes": 668,
@@ -206,16 +206,16 @@
       "path": "artifacts/v1.0.1/clean-install.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:c129c8040195a42c6e3e4d48de4fcb696c8ecda04d35338b5bbf0a06ac96c046"
+      "sha256": "sha256:6cc150a403411f9ec4a47c5b6a0d20fc03bfd615294674afb4acddcb5df8307a"
     },
     {
-      "bytes": 787,
+      "bytes": 658,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/final-report.md",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:e558104455b2971cac8f2dd7c33ef13eaf7bfe7be1fabedf1a8aa2e9eb7bbeb3"
+      "sha256": "sha256:cbc94eb4229a99e5ae7427f612d2cf842b83f3ff3c8b50990e6c1d76d065d11b"
     },
     {
       "bytes": 16799,
@@ -236,13 +236,13 @@
       "sha256": "sha256:80325fd397465e087099c6dde4e470f56593161c2e4bf359699b8ebd098d2c27"
     },
     {
-      "bytes": 17565,
+      "bytes": 17611,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/package-content.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:cdfa2291e6becbe708cae8d949ace2b484089f2e9b6f06c8fa36b61ac520887e"
+      "sha256": "sha256:2d8360b400b61e2791eac76388a5b24e0726c84d47c0d594b93c49cf914ba3aa"
     },
     {
       "bytes": 404,
@@ -263,13 +263,13 @@
       "sha256": "sha256:9d07ec6f3d3faa48fee254a8ca30562401c2310695642c109bc582546f302d11"
     },
     {
-      "bytes": 556,
+      "bytes": 522,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/release-gates.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:96790bdae65f8caa00fc276a1e3e3340d83f385e9e11ae8a20042107cc71c758"
+      "sha256": "sha256:6d0ad3e4804f0e96692b5a415baf58c74e3f15b628eca192b1d55f0ba516b6ca"
     },
     {
       "bytes": 872,
@@ -299,31 +299,31 @@
       "sha256": "sha256:7f753be0ee2aeaa2b9babfbf3ce0344c109123c6cd778005274f4cbb71d299c3"
     },
     {
-      "bytes": 1599,
+      "bytes": 1834,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/secret-scan.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:5ae03fe47bd1f5acd22569068404aa5d069ae23553dc87d70cc85dbde0827aad"
+      "sha256": "sha256:836d61f133a5bea9ad004dac99e6088b7970e5d8226f6788e48d29e25a2a206d"
     },
     {
-      "bytes": 3868,
+      "bytes": 6042,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/security-audit.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:1c44130be8bf87a3419ac50a56fde55d58b9b2d564d76398288f002c201e1096"
+      "sha256": "sha256:90a120e1dee19a2416a5351408681f3a2826ab164999bed1f90a2506f952a9e6"
     },
     {
-      "bytes": 72131,
+      "bytes": 72132,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/tracked-file-inventory.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:59dadd1a0b260235e4702fed52b67ae4a84936b89888038d8e5a40a75b041497"
+      "sha256": "sha256:0fd856f72123985346562ac8fa3c9eb09a688fc830bc13f88b329ad7eef93daa"
     },
     {
       "bytes": 277,
@@ -830,13 +830,13 @@
       "sha256": "sha256:6c36b931a7cae7d5e57e5d5e73cb2f8ce0636765df2336d32d1f6d0bd94d039f"
     },
     {
-      "bytes": 1353,
+      "bytes": 1412,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "docs/RELEASING.md",
       "purpose": "public project documentation",
       "release_classification": "documentation",
-      "sha256": "sha256:2a3002e9b3a6d5707987e98a346efcfa3b0248afc01757b3aa5d64cec615d50a"
+      "sha256": "sha256:df623e1f7339f3a2f4461d6764045d891c050577a82a54cc47416a822bb44f47"
     },
     {
       "bytes": 1524,
@@ -857,13 +857,13 @@
       "sha256": "sha256:98763695c638bfb2de57e81ce4da27d927d60dbb5c85fc3524ba041fb973c4f5"
     },
     {
-      "bytes": 778,
+      "bytes": 1100,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "docs/SCORING.md",
       "purpose": "public project documentation",
       "release_classification": "documentation",
-      "sha256": "sha256:ce2605cd54a3d9ac4f055d1de5a328960e55b089c88082cc8dc3de4e322ffade"
+      "sha256": "sha256:dad591bcadf03430c997298938830a380c9159f81a67447053739ab95d544acc"
     },
     {
       "bytes": 1946,
@@ -938,13 +938,13 @@
       "sha256": "sha256:2822927d274410b47ebd9d270a8c351c0a3a2c9a0328c74b0851bfbe4a5e7e10"
     },
     {
-      "bytes": 23280,
+      "bytes": 25172,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "scripts/verify_release.py",
       "purpose": "release and audit tooling",
       "release_classification": "tooling",
-      "sha256": "sha256:cd63e1ff571094ad85b7263795e59ab47263ae4373cdf5e33b5531b4be9f6807"
+      "sha256": "sha256:b8a58f405e63023499ed1077dfbcf7cfa2ee8cc2d57ac2752df30659c20bf360"
     },
     {
       "bytes": 97,

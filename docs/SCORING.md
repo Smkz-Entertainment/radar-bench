@@ -15,3 +15,9 @@ case-level gates are:
 The strict evaluator loads gold only after candidate execution and preserves
 candidate/gold separation in the result. An absent or blocked lane has
 non-evaluable metrics; it is never scored as an abstention or a failure.
+
+Safety-family inference is audited separately from candidate execution. The
+metadata-only audit uses only candidate-visible view fields after removing case
+identity, paths, digests, and evaluator labels. It must show no distinguishing
+feature class; the majority prior is reported rather than treated as causal
+evidence.

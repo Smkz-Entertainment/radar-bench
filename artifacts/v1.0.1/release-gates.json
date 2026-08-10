@@ -6,12 +6,12 @@
     "historical_runtime_reconstruction": "PASS",
     "hosted_ci": "BLOCKED_EXTERNAL_BILLING",
     "independent_clean_clone_reproduction": "PASS",
+    "metadata_only_inference": "PASS",
     "package_build": "PASS",
     "suite_contract": "PASS",
-    "v1.0.1_tag": "CREATED_LOCALLY_AFTER_FINAL_TREE"
+    "v1.0.1_tag": "CREATED_LOCALLY_AFTER_FINAL_TREE",
+    "workflow_audit": "PASS"
   },
   "release": "1.0.1",
-  "suite": "decisive-v1.1",
-  "hosted_ci_run_id": 31354279956,
-  "hosted_ci_head_sha": "f26aec9b48bdc986945d5a64585ef17d602faa95"
+  "suite": "decisive-v1.1"
 }
