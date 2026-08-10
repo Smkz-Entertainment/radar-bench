@@ -1,5 +1,5 @@
 {
-  "final_state": "BLOCKED_EXTERNAL_AUTH",
+  "final_state": "BLOCKED_SECURITY",
   "gates": {
     "canonical_decisive_evaluation": "PASS",
     "clean_package_install": "PASS",
@@ -8,8 +8,9 @@
     "independent_clean_clone_reproduction": "PASS",
     "metadata_only_inference": "PASS",
     "package_build": "PASS",
+    "private_reporting": "BLOCKED_EXTERNAL_FEATURE",
     "suite_contract": "PASS",
-    "v1.0.1_tag": "CREATED_LOCALLY_AFTER_FINAL_TREE",
+    "v1.0.1_tag": "CANDIDATE_TAG_PRESENT_NOT_FINAL",
     "workflow_audit": "PASS"
   },
   "release": "1.0.1",

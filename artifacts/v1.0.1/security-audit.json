@@ -8,6 +8,7 @@
     "independent_clean_clone_runs": true,
     "metadata_only_inference": true,
     "privacy_scan": true,
+    "private_reporting": false,
     "quality_checks": true,
     "result_schema": true,
     "secret_scan": true,
@@ -17,7 +18,8 @@
   "configured": {
     "candidate_gold_separation": true,
     "digest_pinned_inputs": true,
-    "execution_network": "none"
+    "execution_network": "none",
+    "private_reporting": "BLOCKED_EXTERNAL_FEATURE"
   },
   "metadata_only_inference": {
     "case_count": 20,
@@ -59,7 +61,7 @@
     },
     "result_status": "COMPLETED"
   },
-  "status": "PASS",
+  "status": "BLOCKED",
   "tool_evidence": {
     "checks": {
       "bandit": {
@@ -110,10 +112,11 @@
         "version": "2.10.1"
       },
       "pytest_coverage": {
-        "coverage_percent": 92.47,
+        "coverage_percent": 92.9,
         "minimum_percent": 90,
+        "scope": "core modules declared by pyproject coverage configuration; integration modules have dedicated contract and smoke tests",
         "status": "PASS",
-        "tests": 46
+        "tests": 60
       },
       "ruff": {
         "status": "PASS",

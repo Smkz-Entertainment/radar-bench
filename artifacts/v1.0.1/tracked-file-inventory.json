@@ -1,5 +1,5 @@
 {
-  "count": 197,
+  "count": 198,
   "files": [
     {
       "bytes": 112,
@@ -74,13 +74,13 @@
       "sha256": "sha256:22f77f0aca03ed104409394ed2b6c62d91293fe52c3d2565c6823591f378cfe4"
     },
     {
-      "bytes": 3153,
+      "bytes": 5546,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": ".github/workflows/release.yml",
       "purpose": "repository automation and policy",
       "release_classification": "automation",
-      "sha256": "sha256:33ab407befb58fde84072961c322cfee9de9773d78816c473fc7884c6e3abb6e"
+      "sha256": "sha256:6d793f6b8cd273cc162781c1fd916ceb73fc9b04028e1280450b3bc5dc4460f1"
     },
     {
       "bytes": 312,
@@ -125,16 +125,16 @@
       "path": "CODE_OF_CONDUCT.md",
       "purpose": "public project documentation",
       "release_classification": "documentation",
-      "sha256": "sha256:2ab0758cc5089609db7d866a17c635b21cdbfef6bff288acb3e7cca8f41f1c28"
+      "sha256": "sha256:4554bc574a63851874806d19e6b0a43bf1e32f0ef373b00243605e0e859e4c70"
     },
     {
-      "bytes": 960,
+      "bytes": 1284,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "CONTRIBUTING.md",
       "purpose": "public project documentation",
       "release_classification": "documentation",
-      "sha256": "sha256:d580bb3d7245a635a3e0fff0fec8d1a7ae4f1a2b8cb08361862a3aecf322bdc9"
+      "sha256": "sha256:68bd82b463ca8595a07d278a99feccda8cbd971277c3717c972feddc4e8b132c"
     },
     {
       "bytes": 493,
@@ -182,13 +182,13 @@
       "sha256": "sha256:5bcdc5eeac579bedd38ba5087b5ad497f2e58c7803f5c1c92a0db2f1c1c3021e"
     },
     {
-      "bytes": 855,
+      "bytes": 1011,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "SECURITY.md",
       "purpose": "public project documentation",
       "release_classification": "documentation",
-      "sha256": "sha256:47ec80be6404cf8bc4c71d5f8525784ef19d1e6f6179a34448e4949e566fcc34"
+      "sha256": "sha256:9a5c18d59f5de2de0afdffe40db602a5e3a9b7cf197b571fbf0dba2fa049fd47"
     },
     {
       "bytes": 1378,
@@ -209,22 +209,22 @@
       "sha256": "sha256:3f40f9fa897cc958e2465ea74928c72485420d4b0e43c54f145534cd02a61451"
     },
     {
-      "bytes": 1472,
+      "bytes": 1856,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/clean-install.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:6cc150a403411f9ec4a47c5b6a0d20fc03bfd615294674afb4acddcb5df8307a"
+      "sha256": "sha256:5ded724fc662816b6b8012a2bb12b99843b6978473967e6ed3a38ecbf7d523c3"
     },
     {
-      "bytes": 658,
+      "bytes": 731,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/final-report.md",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:cbc94eb4229a99e5ae7427f612d2cf842b83f3ff3c8b50990e6c1d76d065d11b"
+      "sha256": "sha256:6038e54741b6a6dda120879e105934f16024404eb6414d428c69d21c12807965"
     },
     {
       "bytes": 1088,
@@ -254,13 +254,13 @@
       "sha256": "sha256:80325fd397465e087099c6dde4e470f56593161c2e4bf359699b8ebd098d2c27"
     },
     {
-      "bytes": 17611,
+      "bytes": 17662,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/package-content.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:2d8360b400b61e2791eac76388a5b24e0726c84d47c0d594b93c49cf914ba3aa"
+      "sha256": "sha256:47e7be92c1e3da521332098465ca64bd4c45f72ebbbf49ecb5ff7bc148dcd613"
     },
     {
       "bytes": 404,
@@ -281,13 +281,13 @@
       "sha256": "sha256:9d07ec6f3d3faa48fee254a8ca30562401c2310695642c109bc582546f302d11"
     },
     {
-      "bytes": 522,
+      "bytes": 569,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/release-gates.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:6d0ad3e4804f0e96692b5a415baf58c74e3f15b628eca192b1d55f0ba516b6ca"
+      "sha256": "sha256:f35ed1fcd104e6db0242710d4e88b62b1de2301eb7e61e158c701b1f366f7001"
     },
     {
       "bytes": 872,
@@ -326,22 +326,22 @@
       "sha256": "sha256:836d61f133a5bea9ad004dac99e6088b7970e5d8226f6788e48d29e25a2a206d"
     },
     {
-      "bytes": 6042,
+      "bytes": 6268,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/security-audit.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:5f4f62dee54f8d9ce5989178d82982693f912b41d4c2e1782136ceacb0c72881"
+      "sha256": "sha256:d6a3b6c65cca462e692c745fb45522749c98c2fe2e15a8a954368a37dd0e72b9"
     },
     {
-      "bytes": 72132,
+      "bytes": 73780,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/tracked-file-inventory.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:bd260a89a5ffbe0085debdcebc9689061bf3698e96fb6319912be4083242d39f"
+      "sha256": "sha256:47a722eb6ab8f8d3db7e8df61d73d1477dc7000bc870ab507a471cec8934703b"
     },
     {
       "bytes": 277,
@@ -884,13 +884,13 @@
       "sha256": "sha256:dad591bcadf03430c997298938830a380c9159f81a67447053739ab95d544acc"
     },
     {
-      "bytes": 1946,
+      "bytes": 2152,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "docs/THREAT_MODEL.md",
       "purpose": "public project documentation",
       "release_classification": "documentation",
-      "sha256": "sha256:285d14bf40c51645cb5624ce92feaf67e22bc3395ae940aeb221b5d37b15c972"
+      "sha256": "sha256:63ff46afa34f504082b85f99b74e950bdc7b4c9e968c4c3a94f497fd39ba5621"
     },
     {
       "bytes": 1930,
@@ -965,13 +965,13 @@
       "sha256": "sha256:7a71c98424fb8cca9d0dc0d2a78027c241fb568c44e1694db0158c6dc692aa6d"
     },
     {
-      "bytes": 25172,
+      "bytes": 25935,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "scripts/verify_release.py",
       "purpose": "release and audit tooling",
       "release_classification": "tooling",
-      "sha256": "sha256:b8a58f405e63023499ed1077dfbcf7cfa2ee8cc2d57ac2752df30659c20bf360"
+      "sha256": "sha256:fe159b40bcd1e9d60018506295018bb7822666cb0bdea43479b5f25a4cc1b6a8"
     },
     {
       "bytes": 97,
@@ -983,13 +983,13 @@
       "sha256": "sha256:a731323fc42eaee2e43b2afc971adbc4726e65bfa849669e39916c4549f2d649"
     },
     {
-      "bytes": 22853,
+      "bytes": 23265,
       "keep_decision": "KEEP",
       "package_inclusion": "package source or package data",
       "path": "src/radar_bench/artifacts.py",
       "purpose": "runtime source",
       "release_classification": "source",
-      "sha256": "sha256:3abd61f9b08dab6382b62b1baa6592b3982c254fb442e9b5e73e961e9487b4f8"
+      "sha256": "sha256:4b595b3f685563caa6de557a522ac84304c1d1de44114bafd33e71de3dd8115e"
     },
     {
       "bytes": 6798,
@@ -1037,31 +1037,31 @@
       "sha256": "sha256:5772ea988f3c1ec87303aeb380357c0c88107c1979eb3b472e169701f3104d31"
     },
     {
-      "bytes": 4409,
+      "bytes": 5498,
       "keep_decision": "KEEP",
       "package_inclusion": "package source or package data",
       "path": "src/radar_bench/execution/docker_runtime.py",
       "purpose": "runtime source",
       "release_classification": "source",
-      "sha256": "sha256:2726f3b53b94d2d5a477b3ae6195a830e6c7a2a5df1c8b475a6c4eb6a3bbeb10"
+      "sha256": "sha256:a9160c9b6611612cac88a0f08cf2c56498fd7126953ae9299fe219437ddd5d59"
     },
     {
-      "bytes": 5202,
+      "bytes": 5676,
       "keep_decision": "KEEP",
       "package_inclusion": "package source or package data",
       "path": "src/radar_bench/execution/process.py",
       "purpose": "runtime source",
       "release_classification": "source",
-      "sha256": "sha256:2bc3c0648d7a485792134913c19358c6b3b8dcc247b06857e250bbc2f1b144a5"
+      "sha256": "sha256:bbc53fa901ba0c096b7bfa5602f5997ff71095986be4172c4444dc263ec2c1a4"
     },
     {
-      "bytes": 31889,
+      "bytes": 31851,
       "keep_decision": "KEEP",
       "package_inclusion": "package source or package data",
       "path": "src/radar_bench/execution/v07.py",
       "purpose": "runtime source",
       "release_classification": "source",
-      "sha256": "sha256:7d5d7705258e4672039ca6394f07466d66127fa70d23c3eb1103de36b2fec50f"
+      "sha256": "sha256:6cd3ec90ccb4c66bb670a05bb0f3c3a2bad8e8e7ccb4350eeb725aea12ac89e9"
     },
     {
       "bytes": 42,
@@ -1658,13 +1658,13 @@
       "sha256": "sha256:2822927d274410b47ebd9d270a8c351c0a3a2c9a0328c74b0851bfbe4a5e7e10"
     },
     {
-      "bytes": 16360,
+      "bytes": 20182,
       "keep_decision": "KEEP",
       "package_inclusion": "package source or package data",
       "path": "src/radar_bench/result_contract.py",
       "purpose": "runtime source",
       "release_classification": "source",
-      "sha256": "sha256:f2654096903a56404677dddb8d66a00919a8ea370d88ebd09f72a3241c8d7828"
+      "sha256": "sha256:0171b2bd349c3c64e9d0ebf6440b3065d928f68ed1a882f4e38dbb0f4a98dc36"
     },
     {
       "bytes": 44,
@@ -1694,22 +1694,31 @@
       "sha256": "sha256:d4427aaeb0fec83285d60df7ce79d2e92b93475d0d6bb8d0e87b0a570761b055"
     },
     {
-      "bytes": 2030,
+      "bytes": 3302,
+      "keep_decision": "KEEP",
+      "package_inclusion": "not packaged",
+      "path": "tests/test_artifacts.py",
+      "purpose": "automated tests",
+      "release_classification": "test",
+      "sha256": "sha256:fa13f76a8cf9172c16687245c7395d045a3c4c2d05e36856d021def7f2ba82d3"
+    },
+    {
+      "bytes": 3261,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "tests/test_cli_and_runtime.py",
       "purpose": "automated tests",
       "release_classification": "test",
-      "sha256": "sha256:762b46356010e8b808d20d6673d4a26f2e0f2b51a4d7b1f8dc928b2163d6d2d0"
+      "sha256": "sha256:f69103346b6860e81e5cf1856b08be61e381caec032ccaedc5ed1008646d0b2f"
     },
     {
-      "bytes": 2517,
+      "bytes": 4018,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "tests/test_contract.py",
       "purpose": "automated tests",
       "release_classification": "test",
-      "sha256": "sha256:2d8fc73944757a943718c066b67f9aa7b4e74991aa8039c03048138577d504c1"
+      "sha256": "sha256:7ed38c6960c22d4d421a5556e4217a1e9b44d26881ab3d05baf532ead53d1760"
     },
     {
       "bytes": 5088,
@@ -1721,13 +1730,13 @@
       "sha256": "sha256:92929ab6a87d675e93ef2218fa65703a841c0b3b48ef0f06b6e90d56bf1f02ba"
     },
     {
-      "bytes": 1247,
+      "bytes": 3437,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "tests/test_docker_extra.py",
       "purpose": "automated tests",
       "release_classification": "test",
-      "sha256": "sha256:b4622c39ca08d3ede3a2beec93f4f5198b71d15e591517fb2f53ca4b3e4ab9ce"
+      "sha256": "sha256:4d63a6c594fe514aad2b82a897fbbc5a7aab0b561a16f6c6423f12f7f72ba8bf"
     },
     {
       "bytes": 1274,
@@ -1739,13 +1748,13 @@
       "sha256": "sha256:3997d5ee1f64bddd92c7de7a8a0c0681512d5d35ff5e2aaded90ac8ad04a3c40"
     },
     {
-      "bytes": 1322,
+      "bytes": 1366,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "tests/test_docs.py",
       "purpose": "automated tests",
       "release_classification": "test",
-      "sha256": "sha256:a259731878a6eeda48159eae86da8fd8124a8b34907b38528a568c19b8ff71cf"
+      "sha256": "sha256:080dc781952a459ea0fa68b69706c3ae9f15cdb515e15ab8dca58f0975dd2449"
     },
     {
       "bytes": 2561,

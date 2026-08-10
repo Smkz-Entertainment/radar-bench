@@ -1,21 +1,28 @@
 {
-  "status": "BLOCKED_EXTERNAL_AUTH",
+  "status": "BLOCKED_EXTERNAL_GATES",
   "remote": "https://github.com/Smkz-Entertainment/radar-bench.git",
   "default_branch": "main",
   "visibility": "private",
-  "main_sha": "4d4491a4675190d0f3e02b742ddde2ceaef0ec0f",
-  "remote_main_ref_matches_local": true,
-  "published_tree": "sanitized-orphan-root containing the committed v1.0.1 public tree",
-  "verification_method": "remote API metadata plus remote main tree comparison",
+  "verified_code_commit": "bbc1036d0f92e80f4146a2ae2d2ab0f4f83a147c",
+  "remote_main_ref_matches_verified_code_commit_at_audit": true,
+  "published_tree": "main retains the repository history; no sanitized-orphan claim is made",
+  "verification_method": "GitHub API main commit/tree plus remote tag and release queries",
   "v1.0.0_tag_preserved": true,
-  "v1.0.1_tag_created": true,
+  "v1.0.1_tag_present_candidate_not_final": true,
   "github_release_created": false,
   "hosted_ci": {
     "status": "BLOCKED_EXTERNAL_BILLING",
-    "run_id": 31355457973,
-    "head_sha": "4d4491a4675190d0f3e02b742ddde2ceaef0ec0f",
+    "run_id": 31356898157,
+    "head_sha": "bbc1036d0f92e80f4146a2ae2d2ab0f4f83a147c",
     "jobs_started": false,
     "message": "GitHub annotated every job: recent account payments failed or the spending limit must be increased.",
     "local_checks_are_not_a_substitute": true
+  },
+  "private_reporting": {
+    "status": "BLOCKED_EXTERNAL_FEATURE",
+    "private_vulnerability_reporting_api_http_status": 404,
+    "security_advisories_api_http_status": 404,
+    "public_email_claimed": false,
+    "local_release_gate": "BLOCKED_SECURITY"
   }
 }
