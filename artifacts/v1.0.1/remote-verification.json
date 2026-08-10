@@ -3,7 +3,8 @@
   "remote": "https://github.com/Smkz-Entertainment/radar-bench.git",
   "default_branch": "main",
   "visibility": "private",
-  "verified_code_commit": "bbc1036d0f92e80f4146a2ae2d2ab0f4f83a147c",
+  "verified_code_commit": "07269a651688f8887076f4104a4c0e48fc66b45b",
+  "remote_main_head_at_audit": "07269a651688f8887076f4104a4c0e48fc66b45b",
   "remote_main_ref_matches_verified_code_commit_at_audit": true,
   "published_tree": "main retains the repository history; no sanitized-orphan claim is made",
   "verification_method": "GitHub API main commit/tree plus remote tag and release queries",
@@ -12,8 +13,8 @@
   "github_release_created": false,
   "hosted_ci": {
     "status": "BLOCKED_EXTERNAL_BILLING",
-    "run_id": 31356898157,
-    "head_sha": "bbc1036d0f92e80f4146a2ae2d2ab0f4f83a147c",
+    "run_id": 31358331451,
+    "head_sha": "07269a651688f8887076f4104a4c0e48fc66b45b",
     "jobs_started": false,
     "message": "GitHub annotated every job: recent account payments failed or the spending limit must be increased.",
     "local_checks_are_not_a_substitute": true
