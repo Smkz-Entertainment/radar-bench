@@ -155,3 +155,45 @@ def test_cleanup_verification_rejects_nonzero_listing(monkeypatch: pytest.Monkey
         ),
     )
     assert v07._cleanup_container("docker", "container")["cleanup_verified"] is False
+
+
+def test_cleanup_listing_templates_are_valid_docker_templates(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[list[str]] = []
+
+    def successful_docker(argv: list[str], **_kwargs: object) -> dict[str, object]:
+        calls.append(argv)
+        return {"returncode": 0, "_output": b""}
+
+    monkeypatch.setattr(historical_runtime, "_run_docker", successful_docker)
+    monkeypatch.setattr(
+        v07,
+        "run_bounded",
+        lambda argv, **_kwargs: (
+            calls.append(argv)
+            or BoundedCapture(
+                returncode=0,
+                output_bytes=0,
+                output_digest="sha256:" + "0" * 64,
+                output_limit_exceeded=False,
+                timed_out=False,
+                excerpt="",
+            )
+        ),
+    )
+
+    historical_runtime._remove_container("docker", "container")
+    historical_runtime._remove_volume("docker", "volume")
+    historical_runtime._remove_image("docker", "image")
+    v07._cleanup_container("docker", "container")
+
+    assert ["--format", "{{.Names}}"] in [
+        argv[-2:] for argv in calls if "ps" in argv
+    ]
+    assert ["--format", "{{.Name}}"] in [
+        argv[-2:] for argv in calls if "volume" in argv and "ls" in argv
+    ]
+    assert ["--format", "{{.Repository}}:{{.Tag}}"] in [
+        argv[-2:] for argv in calls if "image" in argv and "ls" in argv
+    ]

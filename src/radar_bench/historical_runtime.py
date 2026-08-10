@@ -460,7 +460,7 @@ def _remove_container(docker: str, name: str) -> dict[str, Any]:
 def _remove_volume(docker: str, name: str) -> dict[str, Any]:
     removed = _run_docker([docker, "volume", "rm", "--force", name], timeout=30)
     inspected = _run_docker(
-        [docker, "volume", "ls", "--filter", f"name=^{name}$", "--format", "{{{{.Name}}}}"],
+        [docker, "volume", "ls", "--filter", f"name=^{name}$", "--format", "{{.Name}}"],
         timeout=30,
     )
     output = _bytes(cast(bytes | str | None, inspected.get("_output"))).decode(
