@@ -209,13 +209,13 @@
       "sha256": "sha256:3f40f9fa897cc958e2465ea74928c72485420d4b0e43c54f145534cd02a61451"
     },
     {
-      "bytes": 1884,
+      "bytes": 2072,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/clean-install.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:b28a1af1f76971bd5bedc2d3290da9c56551125e7785db121d89877628e6ef53"
+      "sha256": "sha256:ea99659bd46087606e37ac63f6e524e399eb8a29b06ced532b64d9b683888415"
     },
     {
       "bytes": 731,
@@ -260,7 +260,7 @@
       "path": "artifacts/v1.0.1/package-content.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:8498a1823d34cf9004d2e1eacb096eff1bd0eee89211df08b7be9e9c8fa2fd05"
+      "sha256": "sha256:c53bfa6e6538fb0280fc60f8d19d34d7a401fe5e86f93f5431f95d43fa4d5404"
     },
     {
       "bytes": 404,
@@ -290,13 +290,13 @@
       "sha256": "sha256:f35ed1fcd104e6db0242710d4e88b62b1de2301eb7e61e158c701b1f366f7001"
     },
     {
-      "bytes": 1205,
+      "bytes": 1280,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/remote-verification.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:7a10d2ce2795c6c8186ef5317e95f9994b271f79224b25165cd23d85cd1d2ee5"
+      "sha256": "sha256:5eaf83eaf05d73c7e03618fe8f0334dcc536b1ff26027da891061d4ef0f073b0"
     },
     {
       "bytes": 663,
@@ -332,16 +332,16 @@
       "path": "artifacts/v1.0.1/security-audit.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:70d916b62185acfbaa8dedc3b74137191dcf404580de9e2c6fbc17249f3ff303"
+      "sha256": "sha256:338e802d41ae170d9255c137cfbd28b2306b2171db574ece156954c84bd4e9d0"
     },
     {
-      "bytes": 73781,
+      "bytes": 74095,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/tracked-file-inventory.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:95d47d972da8b8f97df00f803f879289bed5b23234d301307c66232b52dd3c14"
+      "sha256": "sha256:d5af49651d0e06631bbc64e4caa3c1752083d527621c1a23324108e97bdb778c"
     },
     {
       "bytes": 277,
@@ -1055,13 +1055,13 @@
       "sha256": "sha256:bbc53fa901ba0c096b7bfa5602f5997ff71095986be4172c4444dc263ec2c1a4"
     },
     {
-      "bytes": 32599,
+      "bytes": 32588,
       "keep_decision": "KEEP",
       "package_inclusion": "package source or package data",
       "path": "src/radar_bench/execution/v07.py",
       "purpose": "runtime source",
       "release_classification": "source",
-      "sha256": "sha256:289e5786eabf8d72cae06cac2bc8c814ce13c298059dfa93198d191793821452"
+      "sha256": "sha256:ba3937802fad99e8565abc87ecea538c91a1e5e0c5f9716de397ee67fcbe2019"
     },
     {
       "bytes": 42,
@@ -1082,13 +1082,13 @@
       "sha256": "sha256:65151bf58af06bf5abeb10886ab40df384ca3a9b17e0bfce0b4cdd0cd7b52606"
     },
     {
-      "bytes": 37378,
+      "bytes": 37562,
       "keep_decision": "KEEP",
       "package_inclusion": "package source or package data",
       "path": "src/radar_bench/historical_runtime.py",
       "purpose": "runtime source",
       "release_classification": "source",
-      "sha256": "sha256:c634b59dfe446eded0c05b1414da435a4b2330b201f38ce203666e88d1ce5e99"
+      "sha256": "sha256:f857ae3fb2fdb2fa06b241b04acd90cf52d4ed22eb2135faebac77a3fae3798f"
     },
     {
       "bytes": 518,
@@ -1703,13 +1703,13 @@
       "sha256": "sha256:fa13f76a8cf9172c16687245c7395d045a3c4c2d05e36856d021def7f2ba82d3"
     },
     {
-      "bytes": 4640,
+      "bytes": 7197,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "tests/test_cli_and_runtime.py",
       "purpose": "automated tests",
       "release_classification": "test",
-      "sha256": "sha256:f9851be13b1d609e2b2899e037cced6cff29a66685b38c9430963e7d3f0169be"
+      "sha256": "sha256:3b9fd443ae4a125354443020f8b14bc1d2fa206074602ca51aa85110683083dc"
     },
     {
       "bytes": 4018,

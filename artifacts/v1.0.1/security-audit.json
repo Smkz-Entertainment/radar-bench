@@ -116,7 +116,7 @@
         "minimum_percent": 90,
         "scope": "core modules declared by pyproject coverage configuration; integration modules have dedicated contract and smoke tests",
         "status": "PASS",
-        "tests": 62
+        "tests": 64
       },
       "ruff": {
         "status": "PASS",

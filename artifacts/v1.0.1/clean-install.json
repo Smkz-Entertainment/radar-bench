@@ -1,16 +1,15 @@
 {
   "cache_isolation": "PASS; each installed-package smoke used a unique fresh virtual environment and package source",
-  "working_directory": "PASS; each smoke ran from a fresh empty temporary directory and doctor reported installed-package resources",
   "distribution": {
     "sdist": {
-      "bytes": 100471,
+      "bytes": 100733,
       "name": "radar_bench-1.0.1.tar.gz",
-      "sha256": "sha256:14519a40b3a47b7279b7083db6181383bfae3c13ed69a652c2286e7aea304bc3"
+      "sha256": "sha256:5bc41f3af41de327d75600aaae81c6221cd86c28cff557c0b710c4c2ed990e39e"
     },
     "wheel": {
-      "bytes": 126995,
+      "bytes": 127006,
       "name": "radar_bench-1.0.1-py3-none-any.whl",
-      "sha256": "sha256:3c10779d41ca406b6baa6cccac5743dfd329399ec5a90f5cf82dd4a48c225b1b"
+      "sha256": "sha256:48da5924498ec748f560af1d8bc417f29dd9bbe4ac7ff8accc5308233ed7352e"
     }
   },
   "empty_artifact_verify": {
@@ -37,7 +36,7 @@
     "status": "PASS",
     "version": "1.0.1"
   },
-  "source": "fresh temporary virtual environments from final9 wheel and sdist",
+  "source": "fresh temporary virtual environments from final18 wheel and sdist",
   "status": "PASS",
   "wheel": {
     "commands": [
@@ -52,5 +51,6 @@
     "reference_digest": "sha256:cad6c626bfd6fa289dd8d314710e9f14f7816b38fc5a4f454e5c1c9045619870",
     "status": "PASS",
     "version": "1.0.1"
-  }
+  },
+  "working_directory": "PASS; each smoke ran from a fresh empty temporary directory and doctor reported installed-package resources"
 }
