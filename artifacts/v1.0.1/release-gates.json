@@ -11,5 +11,7 @@
     "v1.0.1_tag": "CREATED_LOCALLY_AFTER_FINAL_TREE"
   },
   "release": "1.0.1",
-  "suite": "decisive-v1.1"
+  "suite": "decisive-v1.1",
+  "hosted_ci_run_id": 31354279956,
+  "hosted_ci_head_sha": "f26aec9b48bdc986945d5a64585ef17d602faa95"
 }

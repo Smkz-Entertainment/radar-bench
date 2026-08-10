@@ -209,13 +209,13 @@
       "sha256": "sha256:c129c8040195a42c6e3e4d48de4fcb696c8ecda04d35338b5bbf0a06ac96c046"
     },
     {
-      "bytes": 658,
+      "bytes": 787,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/final-report.md",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:cbc94eb4229a99e5ae7427f612d2cf842b83f3ff3c8b50990e6c1d76d065d11b"
+      "sha256": "sha256:e558104455b2971cac8f2dd7c33ef13eaf7bfe7be1fabedf1a8aa2e9eb7bbeb3"
     },
     {
       "bytes": 16799,
@@ -263,22 +263,22 @@
       "sha256": "sha256:9d07ec6f3d3faa48fee254a8ca30562401c2310695642c109bc582546f302d11"
     },
     {
-      "bytes": 453,
+      "bytes": 556,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/release-gates.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:6d9fce8341fbba4475d07d069fb919c68266e52f5f37fa9ffc625c4e5b27356d"
+      "sha256": "sha256:96790bdae65f8caa00fc276a1e3e3340d83f385e9e11ae8a20042107cc71c758"
     },
     {
-      "bytes": 773,
+      "bytes": 872,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/remote-verification.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:841d1480f51025ee78994ef2c54fdfc9598625ed523b0065a1aa73abc5e4811e"
+      "sha256": "sha256:eceb83e44e5a5247ec0e044b956b5099c16436ec472f7016409ec77bc78d12dc"
     },
     {
       "bytes": 663,
@@ -323,7 +323,7 @@
       "path": "artifacts/v1.0.1/tracked-file-inventory.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:099ca284b67881267b6b8a0098b32aa7ff3061a8acecc436cd9404890d479119"
+      "sha256": "sha256:59dadd1a0b260235e4702fed52b67ae4a84936b89888038d8e5a40a75b041497"
     },
     {
       "bytes": 277,
