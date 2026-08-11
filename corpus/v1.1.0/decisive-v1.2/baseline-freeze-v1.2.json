@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.2",
+  "suite_id": "decisive-v1.2",
+  "policy": "frozen-source-manifest",
+  "baselines": {
+    "static-v0.4": {
+      "originating_commit": "0b328e4a3014ed03ac6097b6dfe142cdcd4e5631",
+      "files": [{"path": "baselines/static-v0.4/predictions.json", "bytes": 91777, "sha256": "sha256:2a6be06efcd053ed36e1c78623e36881069296bb32e2b9d7091b5a9a6ceba9a7"}],
+      "canonical_tree_digest": "sha256:ea7b09b8983e65d4f3731861e6c2c1519d8f1aa8fe949a019cb09a266be68038"
+    },
+    "naive-deterministic": {
+      "originating_commit": "0b328e4a3014ed03ac6097b6dfe142cdcd4e5631",
+      "files": [{"path": "baselines/naive-deterministic.json", "bytes": 277, "sha256": "sha256:2ea67775eef2aacc073644acec43f73619698e6dad4a7003935fe249972732eb"}],
+      "canonical_tree_digest": "sha256:dc81c70c50b3e98e8d9b137933f82880d246efca5001378717ab95a0e95ab7d0"
+    },
+    "agentic-v0.5-frozen": {
+      "originating_commit": "60ccc182a6d82ac6dcece5db5096a1ae1a49dea2",
+      "files": [
+        {"path": "src/radar_bench/execution/canonical.py", "bytes": 26141, "sha256": "sha256:5772ea988f3c1ec87303aeb380357c0c88107c1979eb3b472e169701f3104d31"},
+        {"path": "src/radar_bench/investigation/v01.py", "bytes": 20592, "sha256": "sha256:ee3f493d1ddab51484f050433ec4cd6cee849be8116d41acb5076c87da318cd3"},
+        {"path": "src/radar_bench/resources/schema/investigation-episode-v0.1.schema.json", "bytes": 5989, "sha256": "sha256:6c59462ea03e762753f4e506267ddeb1805a9d68993df8ea5142011cf69b59bd"},
+        {"path": "src/radar_bench/resources/schema/investigation-experiment-v0.1.schema.json", "bytes": 1752, "sha256": "sha256:2822927d274410b47ebd9d270a8c351c0a3a2c9a0328c74b0851bfbe4a5e7e10"},
+        {"path": "src/radar_bench/resources/corpus/v1.0.1/decisive-v1.1/suite.json", "bytes": 2831, "sha256": "sha256:80576ccc346c0098877189c6eaa86521db69e51886df68d3abc04a0496b1fecb"}
+      ],
+      "canonical_tree_digest": "sha256:b6ad336e059f8506a7ea29ef73327c814de15e21882c659ffff15742d8ad9e32"
+    }
+  },
+  "validation": {"current_digests_must_match": true, "git_pointer_alone_is_invalid": true}
+}

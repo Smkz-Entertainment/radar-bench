@@ -1,0 +1,25 @@
+{
+  "final_state": "BLOCKED_REPRODUCIBILITY",
+  "gates": {
+    "baseline_freeze": "PASS",
+    "candidate_bundle": "PASS",
+    "candidate_isolation": "BLOCKED_CANDIDATE_ISOLATION",
+    "canonical_decisive_v1_2": "BLOCKED_REPRODUCIBILITY",
+    "coverage": "BLOCKED",
+    "gold_separation": "PASS",
+    "information_sufficiency": "PASS",
+    "package_build": "PASS",
+    "resource_integrity": "PASS",
+    "security": "BLOCKED",
+    "tag_integrity": "PASS"
+  },
+  "immutable_refs": [
+    "v1.0.0",
+    "v1.0.1",
+    "decisive-v1.1",
+    "reference/decisive-v1.1-result.json"
+  ],
+  "release": "1.1.0",
+  "release_created": false,
+  "suite": "decisive-v1.2"
+}

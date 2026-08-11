@@ -468,7 +468,7 @@ def _blocked_cases(audit: Mapping[str, Any], reason: str) -> list[dict[str, str]
     return cases
 
 
-def evaluate_decisive_suite_legacy(
+def _archived_decisive_suite_legacy(
     root: Path,
     *,
     command: list[str] | None = None,

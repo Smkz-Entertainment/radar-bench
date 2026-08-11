@@ -1,0 +1,13 @@
+{
+  "atomic_publish": true,
+  "content_addressed_package_materialization": true,
+  "interprocess_lock": true,
+  "manifest_verified": true,
+  "source_to_package_mirror": {
+    "mismatches": [],
+    "pair_count": 4,
+    "status": "PASS"
+  },
+  "status": "PASS",
+  "symlink_rejection": true
+}

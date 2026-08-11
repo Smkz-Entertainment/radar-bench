@@ -1,0 +1,12 @@
+{
+  "observed_local_run": {
+    "branch_percent": 39,
+    "line_percent": 52
+  },
+  "reason": "full production-source coverage has not yet reached the preregistered threshold; no omit list was restored",
+  "required": {
+    "branch": ">=80%",
+    "line": ">=90%"
+  },
+  "status": "BLOCKED"
+}

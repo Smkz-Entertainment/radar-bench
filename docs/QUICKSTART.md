@@ -24,7 +24,16 @@ unsafe archives, or extra files.
 
 ## Run
 
-    radar-bench validate --suite decisive-v1.1
+    radar-bench validate --suite decisive-v1.2
+    radar-bench evaluate --suite decisive-v1.2 --candidate-command docker run --network none --read-only --cap-drop ALL --memory 512m --cpus 1 --pids-limit 128 <image> <argv>
+
+The external candidate command must prove network denial in its Docker argv.
+The evaluator creates cryptographically random episode IDs and passes only the
+candidate evidence bundle. It never mounts the repository, labels, reference,
+credentials, or evaluator mapping.
+
+The immutable v1.1 historical reference remains available for archival checks:
+
     radar-bench evaluate --suite decisive-v1.1 --artifact-root <artifact-root> --output result.json
     radar-bench verify-results result.json
 

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://radar-bench.dev/schema/decisive-suite-v1.2.schema.json",
+  "title": "Radar Bench decisive-v1.2 suite",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "suite_id", "release_version", "platform", "case_ids", "candidate_bundle", "evaluator_bundle", "protocol", "capabilities", "metric_contract", "baseline_contract"],
+  "properties": {
+    "schema_version": {"const": "1.2"},
+    "suite_id": {"const": "decisive-v1.2"},
+    "release_version": {"const": "1.1.0"},
+    "status": {"type": "string"},
+    "platform": {"type": "object", "required": ["os", "architecture", "runtime", "network"], "additionalProperties": false, "properties": {"os": {"const": "linux"}, "architecture": {"const": "x86_64"}, "runtime": {"const": "docker"}, "network": {"const": "denied"}}},
+    "case_ids": {"type": "object", "required": ["historical", "safety"], "additionalProperties": false, "properties": {"historical": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"type": "string"}}, "safety": {"type": "array", "minItems": 20, "maxItems": 20, "items": {"type": "string"}}}},
+    "candidate_bundle": {"type": "string"},
+    "evaluator_bundle": {"type": "string"},
+    "protocol": {"type": "object", "required": ["version", "episode_ids", "candidate_order", "candidate_network", "candidate_gold_visibility", "candidate_repository_visibility", "rerun_cache"], "properties": {"version": {"const": "1.2-jsonl"}, "episode_ids": {"const": "cryptographically_random_per_run"}, "candidate_order": {"type": "string"}, "candidate_network": {"const": "denied"}, "candidate_gold_visibility": {"const": false}, "candidate_repository_visibility": {"const": false}, "rerun_cache": {"const": "disabled"}}},
+    "capabilities": {"type": "array", "minItems": 7, "uniqueItems": true, "items": {"type": "string"}},
+    "metric_contract": {"type": "string"},
+    "baseline_contract": {"type": "string"},
+    "reference_policy": {"type": "string"},
+    "release_state": {"type": "string"}
+  }
+}

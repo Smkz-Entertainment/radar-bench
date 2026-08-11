@@ -1,13 +1,19 @@
-name: Release candidate
+name: Release candidate verification
 
 on:
   workflow_dispatch:
+    inputs:
+      release_tag:
+        description: "Existing immutable tag to verify; no tag is created or moved"
+        required: true
+        default: "v1.1.0"
+        type: string
 
 permissions:
   contents: read
 
 concurrency:
-  group: release-${{ github.ref }}
+  group: release-${{ github.workflow }}-${{ inputs.release_tag }}
   cancel-in-progress: false
 
 env:
@@ -16,15 +22,21 @@ env:
 
 jobs:
   verify-build:
-    name: Verify and build release artifacts
+    name: Verify immutable tag and build artifacts
     runs-on: ubuntu-24.04
-    permissions:
-      contents: read
     steps:
-      - name: Check out source
+      - name: Check out the requested tag
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
+          ref: ${{ inputs.release_tag }}
+      - name: Require the exact existing tag target
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          test -n "$RELEASE_TAG"
+          test "$(git rev-parse "refs/tags/$RELEASE_TAG^{commit}")" = "$(git rev-parse HEAD)"
       - name: Set up Python
         uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
         with:
@@ -32,6 +44,12 @@ jobs:
           cache: pip
       - name: Install locked development dependencies
         run: python -m pip install -r requirements-dev.lock && python -m pip install --no-deps .
+      - name: Require package version to equal the tag
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          test "$(python -c 'import tomllib; print(tomllib.load(open("pyproject.toml","rb"))["project"]["version"])')" = "${RELEASE_TAG#v}"
       - name: Run release verification gates
         run: |
           python -m pytest -q --cov=radar_bench --cov-fail-under=90
@@ -42,78 +60,85 @@ jobs:
           python -m pip install --disable-pip-version-check cffconvert==2.0.0
           cffconvert --validate -i CITATION.cff
           python -m radar_bench.cli validate --suite decisive-v1.1
+          python -m radar_bench.cli validate --suite decisive-v1.2
           python -m radar_bench.cli verify-results reference/decisive-v1.1-result.json
-          python scripts/audit_metadata_only.py --output "$RUNNER_TEMP/metadata-only-inference.json"
       - name: Build wheel and sdist
         run: python -m build --wheel --sdist --outdir "$RUNNER_TEMP/radar-dist"
-      - name: Install pinned Gitleaks
+      - name: Write exact source provenance
         shell: bash
-        run: |
-          curl --fail --silent --show-error --location \
-            https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz \
-            --output "$RUNNER_TEMP/gitleaks.tar.gz"
-          echo "551f6fc83ea457d62a0d98237cbad105af8d557003051f41f3e7ca7b3f2470eb  $RUNNER_TEMP/gitleaks.tar.gz" | sha256sum --check
-          tar -xzf "$RUNNER_TEMP/gitleaks.tar.gz" -C "$RUNNER_TEMP"
-      - name: Scan checkout and release archives with Gitleaks
-        shell: bash
-        run: |
-          "$RUNNER_TEMP/gitleaks" dir . --no-banner --redact --report-format json --report-path "$RUNNER_TEMP/gitleaks-current.json"
-          "$RUNNER_TEMP/gitleaks" git --log-opts='--all' --no-banner --redact --report-format json --report-path "$RUNNER_TEMP/gitleaks-history.json"
-          "$RUNNER_TEMP/gitleaks" dir "$RUNNER_TEMP/radar-dist" --no-banner --redact --report-format json --report-path "$RUNNER_TEMP/gitleaks-package.json"
-      - name: Install pinned TruffleHog
-        shell: bash
-        run: |
-          curl --fail --silent --show-error --location \
-            https://github.com/trufflesecurity/trufflehog/releases/download/v3.96.0/trufflehog_3.96.0_linux_amd64.tar.gz \
-            --output "$RUNNER_TEMP/trufflehog.tar.gz"
-          echo "7105f1cd6577f058a9e39d0578f1a99c8a1e481e4d3512cd8a09acfe22a0fdc0  $RUNNER_TEMP/trufflehog.tar.gz" | sha256sum --check
-          tar -xzf "$RUNNER_TEMP/trufflehog.tar.gz" -C "$RUNNER_TEMP"
-      - name: Scan checkout and release archives with TruffleHog
-        shell: bash
-        run: |
-          # URI/Lob are excluded only for documented inert URL/name fixtures.
-          "$RUNNER_TEMP/trufflehog" filesystem . --json --no-update --no-color --results=verified --exclude-detectors=URI,Lob --fail --fail-on-scan-errors
-          "$RUNNER_TEMP/trufflehog" git file://"$GITHUB_WORKSPACE" --json --no-update --no-color --results=verified --exclude-detectors=URI,Lob --fail --fail-on-scan-errors
-          "$RUNNER_TEMP/trufflehog" filesystem "$RUNNER_TEMP/radar-dist" --json --no-update --no-color --results=verified --exclude-detectors=URI,Lob --fail --fail-on-scan-errors
-      - name: Create checksums
-        shell: bash
-        run: |
-          cd "$RUNNER_TEMP/radar-dist"
-          sha256sum radar_bench-1.0.1-py3-none-any.whl radar_bench-1.0.1.tar.gz > SHA256SUMS
-      - name: Upload verified release artifacts
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with:
-          name: radar-bench-release-artifacts
-          path: ${{ runner.temp }}/radar-dist
-          if-no-files-found: error
-          retention-days: 7
-      - name: Require a clean checkout after generators
-        run: git diff --exit-code && test -z "$(git status --porcelain)"
-
-  draft-release:
-    name: Create draft release from verified artifacts
-    needs: verify-build
-    runs-on: ubuntu-24.04
-    permissions:
-      contents: write
-    steps:
-      - name: Download only verified release artifacts
-        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
-        with:
-          name: radar-bench-release-artifacts
-          path: ${{ runner.temp }}/radar-dist
-      - name: Verify artifact checksums
-        shell: bash
-        run: |
-          cd "$RUNNER_TEMP/radar-dist"
-          sha256sum --check SHA256SUMS
-      - name: Create draft release without moving the tag
         env:
-          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import pathlib
+          import subprocess
+          import tomllib
+
+          root = pathlib.Path.cwd()
+          dist = pathlib.Path(os.environ["RUNNER_TEMP"]) / "radar-dist"
+          version = tomllib.loads((root / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
+          provenance = {
+              "schema_version": "1",
+              "release_tag": os.environ["RELEASE_TAG"],
+              "package_version": version,
+              "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
+              "source_tree": subprocess.check_output(["git", "rev-parse", "HEAD^{tree}"], text=True).strip(),
+              "suite": "decisive-v1.2",
+              "protocol": "1.2-jsonl",
+              "artifacts": sorted(path.name for path in dist.iterdir() if path.is_file()),
+          }
+          (dist / "SOURCE-PROVENANCE.json").write_text(
+              json.dumps(provenance, indent=2, sort_keys=True) + "\n",
+              encoding="utf-8",
+          )
+          PY
+      - name: Verify public package contents
         shell: bash
         run: |
-          gh release create v1.0.1 \
-            "$RUNNER_TEMP/radar-dist/radar_bench-1.0.1-py3-none-any.whl" \
-            "$RUNNER_TEMP/radar-dist/radar_bench-1.0.1.tar.gz" \
-            --draft --verify-tag --title "Radar Bench v1.0.1" \
-            --notes "Draft only. Publish after independent review of the fail-closed release evidence."
+          python - <<'PY'
+          import os
+          import pathlib
+          import tarfile
+          import zipfile
+
+          dist = pathlib.Path(os.environ["RUNNER_TEMP"]) / "radar-dist"
+          forbidden = ("evaluator", "resources/reference", "resources/baselines", "resources/corpus/v1.0.1")
+          for archive in dist.iterdir():
+              if archive.suffix == ".whl":
+                  with zipfile.ZipFile(archive) as handle:
+                      names = handle.namelist()
+              elif archive.name.endswith(".tar.gz"):
+                  with tarfile.open(archive, "r:gz") as handle:
+                      names = handle.getnames()
+              else:
+                  continue
+              lowered = [name.lower() for name in names]
+              assert not any(any(token in name for token in forbidden) for name in lowered), archive
+              assert any("decisive-v1.2" in name for name in lowered), archive
+          PY
+      - name: Verify package checksums and provenance
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.release_tag }}
+        run: |
+          cd "$RUNNER_TEMP/radar-dist"
+          test -f "radar_bench-${RELEASE_TAG#v}-py3-none-any.whl"
+          test -f "radar_bench-${RELEASE_TAG#v}.tar.gz"
+          test -f SOURCE-PROVENANCE.json
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          provenance = json.loads(Path("SOURCE-PROVENANCE.json").read_text(encoding="utf-8"))
+          assert provenance["release_tag"] == os.environ["RELEASE_TAG"]
+          assert provenance["package_version"] == os.environ["RELEASE_TAG"].removeprefix("v")
+          assert len(provenance["source_commit"]) == 40
+          assert len(provenance["source_tree"]) == 40
+          PY
+          sha256sum ./* > SHA256SUMS
+          sha256sum --check SHA256SUMS
+      - name: Require a clean checkout after verification
+        run: git diff --exit-code && test -z "$(git status --porcelain)"

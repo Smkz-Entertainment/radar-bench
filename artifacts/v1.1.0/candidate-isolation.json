@@ -1,0 +1,16 @@
+{
+  "candidate_protocol": "1.2-jsonl",
+  "observed": {
+    "external_adapter_executed": false,
+    "reason": "no approved isolated candidate command was supplied"
+  },
+  "required": {
+    "cap_drop_all": true,
+    "cpu_limit": true,
+    "memory_limit": true,
+    "network": "denied",
+    "pid_limit": true,
+    "read_only": true
+  },
+  "status": "BLOCKED_CANDIDATE_ISOLATION"
+}

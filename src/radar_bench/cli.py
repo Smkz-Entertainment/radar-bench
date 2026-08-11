@@ -19,6 +19,11 @@ from radar_bench.release import (
     validate_decisive_suite,
 )
 from radar_bench.result_contract import validate_result_document
+from radar_bench.v1_2 import (
+    V12_SUITE_ID,
+    evaluate_v12,
+    information_sufficiency_audit,
+)
 
 EXIT_OK = 0
 EXIT_INVALID = 2
@@ -47,7 +52,7 @@ def command_doctor(_args: argparse.Namespace) -> int:
     _print_json(
         {
             "version": __version__,
-            "suite": SUITE_ID,
+            "suite": V12_SUITE_ID,
             "resource_source": "repository"
             if (root / "pyproject.toml").is_file()
             else "installed-package",
@@ -55,6 +60,7 @@ def command_doctor(_args: argparse.Namespace) -> int:
             "schemas": [
                 "benchmark-result-v1.1.schema.json",
                 "decisive-suite-v1.1.schema.json",
+                "decisive-suite-v1.2.schema.json",
             ],
             "execution": {
                 "platform": "linux/x86_64 Docker engine",
@@ -74,7 +80,13 @@ def command_list_suites(_args: argparse.Namespace) -> int:
                     "release_version": "1.0.1",
                     "case_count": 25,
                     "status": "corrected-executable-reference",
-                }
+                },
+                {
+                    "suite_id": V12_SUITE_ID,
+                    "release_version": "1.1.0",
+                    "case_count": 25,
+                    "status": "candidate-release-blocked-until-gates-pass",
+                },
             ]
         }
     )
@@ -82,6 +94,10 @@ def command_list_suites(_args: argparse.Namespace) -> int:
 
 
 def command_validate(args: argparse.Namespace) -> int:
+    if args.suite == V12_SUITE_ID:
+        audit = information_sufficiency_audit(_root())
+        _print_json(audit)
+        return EXIT_OK if audit.get("status") == "PASS" else EXIT_INVALID
     audit = validate_decisive_suite(
         _root(), artifact_root=Path(args.artifact_root).resolve()
         if args.artifact_root
@@ -103,6 +119,16 @@ def command_inspect_case(args: argparse.Namespace) -> int:
 def command_evaluate(args: argparse.Namespace) -> int:
     root = _root()
     artifact_root = Path(args.artifact_root).resolve() if args.artifact_root else None
+    if args.suite == V12_SUITE_ID:
+        result = evaluate_v12(
+            root,
+            candidate_command=args.candidate_command,
+            artifact_root=artifact_root,
+        )
+        if args.output:
+            _write_json(Path(args.output).resolve(), result)
+        _print_json(result)
+        return EXIT_OK if result.get("status") == "COMPLETED" else EXIT_EXTERNAL
     result = evaluate_decisive_suite(root, artifact_root=artifact_root)
     if args.output:
         _write_json(Path(args.output).resolve(), result)
@@ -115,8 +141,26 @@ def command_artifacts(args: argparse.Namespace) -> int:
     requested_root = getattr(args, "artifact_root", None) or getattr(args, "output_root", None)
     artifact_root = Path(requested_root).resolve() if requested_root else None
     if args.action == "fetch":
+        if args.suite == V12_SUITE_ID:
+            result = {
+                "status": "BLOCKED",
+                "suite_id": V12_SUITE_ID,
+                "network_used": False,
+                "errors": ["ARTIFACT_CATALOG_PENDING_PUBLIC_RECONSTRUCTION_RECIPE"],
+            }
+            _print_json(result)
+            return EXIT_EXTERNAL
         result = fetch_artifacts(root, args.suite, artifact_root)
     else:
+        if args.suite == V12_SUITE_ID:
+            result = {
+                "status": "BLOCKED",
+                "suite_id": V12_SUITE_ID,
+                "network_used": False,
+                "errors": ["ARTIFACT_CATALOG_PENDING_PUBLIC_RECONSTRUCTION_RECIPE"],
+            }
+            _print_json(result)
+            return EXIT_EXTERNAL
         result = verify_artifacts(root, args.suite, artifact_root)
     _print_json(result)
     return EXIT_OK if result.get("status") == "READY" else EXIT_EXTERNAL
@@ -153,7 +197,7 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     validate = commands.add_parser("validate", help="validate a suite contract")
-    validate.add_argument("--suite", choices=[SUITE_ID], required=True)
+    validate.add_argument("--suite", choices=[SUITE_ID, V12_SUITE_ID], required=True)
     validate.add_argument("--artifact-root")
     validate.set_defaults(handler=command_validate)
 
@@ -162,8 +206,9 @@ def build_parser() -> argparse.ArgumentParser:
     inspect.set_defaults(handler=command_inspect_case)
 
     evaluate = commands.add_parser("evaluate", help="execute and score a suite")
-    evaluate.add_argument("--suite", choices=[SUITE_ID], required=True)
-    evaluate.add_argument("--artifact-root", required=True)
+    evaluate.add_argument("--suite", choices=[SUITE_ID, V12_SUITE_ID], required=True)
+    evaluate.add_argument("--artifact-root")
+    evaluate.add_argument("--candidate-command", nargs="+")
     evaluate.add_argument("--output")
     evaluate.set_defaults(handler=command_evaluate)
 
@@ -171,7 +216,7 @@ def build_parser() -> argparse.ArgumentParser:
     artifact_commands = artifacts.add_subparsers(dest="action", required=True)
     for action, help_text in (("fetch", "reconstruct approved wheel artifacts"), ("verify", "verify local artifact bytes and hashes")):
         child = artifact_commands.add_parser(action, help=help_text)
-        child.add_argument("--suite", choices=[SUITE_ID], required=True)
+        child.add_argument("--suite", choices=[SUITE_ID, V12_SUITE_ID], required=True)
         if action == "fetch":
             child.add_argument("--output-root", required=True)
         else:

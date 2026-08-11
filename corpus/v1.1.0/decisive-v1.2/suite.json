@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.2",
+  "suite_id": "decisive-v1.2",
+  "release_version": "1.1.0",
+  "status": "CANDIDATE_RELEASE",
+  "platform": {
+    "os": "linux",
+    "architecture": "x86_64",
+    "runtime": "docker",
+    "network": "denied"
+  },
+  "case_ids": {
+    "historical": ["RADAR-V07-A01", "RADAR-V07-A02", "RADAR-V07-A03", "RADAR-V07-A04", "RADAR-V07-A05"],
+    "safety": ["RADAR-V07-T01", "RADAR-V07-T02", "RADAR-V07-T03", "RADAR-V07-T04", "RADAR-V07-T05", "RADAR-V07-T06", "RADAR-V07-T07", "RADAR-V07-T08", "RADAR-V07-T09", "RADAR-V07-T10", "RADAR-V07-T11", "RADAR-V07-T12", "RADAR-V07-T13", "RADAR-V07-T14", "RADAR-V07-T15", "RADAR-V07-T16", "RADAR-V07-T17", "RADAR-V07-T18", "RADAR-V07-T19", "RADAR-V07-T20"]
+  },
+  "candidate_bundle": "candidate/decisive-v1.2/candidate-bundle.json",
+  "evaluator_bundle": "evaluator/decisive-v1.2/evaluator-bundle.json",
+  "protocol": {
+    "version": "1.2-jsonl",
+    "episode_ids": "cryptographically_random_per_run",
+    "candidate_order": "untrusted_and_canonicalized_by_evaluator",
+    "candidate_network": "denied",
+    "candidate_gold_visibility": false,
+    "candidate_repository_visibility": false,
+    "rerun_cache": "disabled"
+  },
+  "capabilities": ["rerun", "change_dependency_version", "freeze_dependency", "bisect_component", "toggle_environment_variable", "run_minimal_test", "inspect_dependency_graph"],
+  "metric_contract": "metric-contract-v1.2.json",
+  "baseline_contract": "baseline-freeze-v1.2.json",
+  "reference_policy": "exact-input-bound-comparison",
+  "release_state": "BLOCKED_REPRODUCIBILITY"
+}

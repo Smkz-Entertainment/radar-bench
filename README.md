@@ -21,12 +21,24 @@ It runs the immutable static v0.4 baseline, deterministic naive investigator,
 and frozen v0.5 investigator. Results are scored by evaluator-owned gold after
 candidate execution; a blocked run is never converted into a score.
 
+The v1.1.0 package adds the separately identified `decisive-v1.2` candidate
+protocol. It is a release candidate, not a public benchmark release: candidate
+evidence and evaluator gold are physically separate, episode IDs are random per
+run, and the canonical historical evaluation remains fail-closed until the
+runtime/artifact clean-room gate is independently reproduced.
+
 ## Quickstart
 
     python -m venv .venv
     python -m pip install .
     radar-bench doctor
-    radar-bench validate --suite decisive-v1.1
+    radar-bench validate --suite decisive-v1.2
+
+The v1.2 external candidate interface is deliberately boring. A candidate is
+invoked with a Docker command that explicitly includes `--network none`, and
+communicates length-bounded JSONL over stdin/stdout:
+
+    radar-bench evaluate --suite decisive-v1.2 --candidate-command docker run --network none --read-only --cap-drop ALL --memory 512m --cpus 1 --pids-limit 128 <image> <argv>
 
 Acquire and verify the external historical wheelhouses:
 
@@ -55,6 +67,9 @@ expected completed scientific result for the frozen product hypothesis.
 decisive-v1.1 is an immutable corrected-suite identity. A03's upstream
 reproducer correction is documented in docs/DECISIVE_V1_CORRECTIONS.md; the
 original v1.0.0 evidence remains preserved by the immutable v1.0.0 tag.
+
+The v1.2 correction record is under `artifacts/v1.1.0/`; it does not alter the
+decisive-v1.1 result, frozen baselines, labels, or tags.
 
 Read docs/QUICKSTART.md, docs/REPRODUCIBILITY.md, docs/THREAT_MODEL.md, and
 docs/LIMITATIONS.md before running historical code. Stop and report

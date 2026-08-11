@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "bandit": "PASS",
+    "citation_validation": "NOT_RUN",
+    "gitleaks": "NOT_RUN",
+    "mypy": "PASS",
+    "mypy_strict": "PASS",
+    "pip_audit": "PASS",
+    "ruff": "PASS",
+    "trufflehog": "NOT_RUN"
+  },
+  "hosted_ci": "PENDING_PUBLIC_VISIBILITY_OR_BILLING_RESOLUTION",
+  "private_vulnerability_reporting": "PENDING_PUBLIC_VISIBILITY",
+  "status": "BLOCKED"
+}

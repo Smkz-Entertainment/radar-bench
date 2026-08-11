@@ -1,0 +1,8 @@
+{
+  "contract_only": true,
+  "fresh_observations_required": true,
+  "historical_execution": "BLOCKED_REPRODUCIBILITY",
+  "parameter_validation_before_case_lookup": true,
+  "rerun_cache": "disabled",
+  "status": "PASS"
+}

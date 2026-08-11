@@ -1,0 +1,26 @@
+{
+  "candidate_bundle": {
+    "digest": "sha256:eb0d664ca6e89cc7d571da47ec2cf78d016ad10f0f47bfa4c2b5778fcd25affc",
+    "errors": [],
+    "valid": true
+  },
+  "case_gates": {
+    "historical_answerable_or_abstainable": true,
+    "pandas_45601_semantic_ambiguity_preserved": true,
+    "scikit_learn_30512_scipy_inferable": true
+  },
+  "evaluator_bundle": {
+    "digest": "sha256:4428b7d23fc02944ffb15b20cff7f750559dad715670d8ef4eea2ec9c593f87a",
+    "errors": [],
+    "valid": true
+  },
+  "human_packet": {
+    "candidate_only": true,
+    "status": "REQUIRED_FOR_CERTIFICATION"
+  },
+  "random_baseline": {
+    "certifying": false,
+    "method": "uniform_terminal_state"
+  },
+  "status": "PASS"
+}

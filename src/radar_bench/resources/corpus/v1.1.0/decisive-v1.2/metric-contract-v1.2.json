@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.2",
+  "suite_id": "decisive-v1.2",
+  "metrics": ["historical_attribution_resolution", "historical_correct_abstention", "semantic_ambiguity_handling", "candidate_induced_correctness", "root_cause_component_correctness", "action_owner_correctness", "cross_repository_resolution", "safety_abstention_recall", "false_owner_accusation_rate", "fresh_useful_experiment_rate", "requested_experiment_efficiency"],
+  "labels": ["expected_terminal_state", "candidate_induced", "root_cause_scored", "action_owner_scored", "semantic_intent", "scoring_eligibility_rationale", "gold_evidence_ids"],
+  "invariants": ["semantic ambiguity never receives an owner score without independent evidence", "fresh reruns cannot be cache hits", "requested experiments are counted even when unsupported", "candidate and evaluator bundles are scored after execution only"],
+  "comparison": {"scores_only": false, "input_digests_required": true, "changed_inputs_status": "DRIFT"}
+}

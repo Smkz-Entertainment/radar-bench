@@ -19,6 +19,12 @@ From a brand-new checkout with no developer caches:
     radar-bench artifacts fetch --suite decisive-v1.1 --output-root <artifact-root>
     radar-bench artifacts verify --suite decisive-v1.1 --artifact-root <artifact-root>
     radar-bench evaluate --suite decisive-v1.1 --artifact-root <artifact-root> --output result.json
+
+For the v1.1.0 release candidate, `decisive-v1.2` is a separate contract. Its
+candidate/evaluator bundle split, random episode mapping, and external protocol
+are covered by `artifacts/v1.1.0/`. Artifact reconstruction and execution
+reproducibility are distinct gates; the suite stays blocked when either the
+historical runtime or the isolated candidate adapter is unavailable.
     radar-bench verify-results result.json
 
 The evaluation machine must provide a Linux/x86-64 Docker server. Disconnect

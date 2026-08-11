@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.1.0 - release candidate
+
+### Added
+
+- new `decisive-v1.2` suite identity with candidate/evaluator bundle separation;
+- random per-run episode IDs and a fail-closed external JSONL candidate protocol;
+- corrected terminal-state, causality, root-cause, owner, semantic, and
+  experiment-accounting contracts;
+- content-addressed package-resource materialization with manifest verification,
+  atomic publication, locking, and symlink rejection.
+
+### Release status
+
+This package is not a GitHub release and no tag was created or moved. The
+canonical historical suite remains `BLOCKED_REPRODUCIBILITY` until a clean-room
+runtime and artifact reproduction is independently available.
+
 ## 1.0.1 - 2026-08-10
 
 ### Added

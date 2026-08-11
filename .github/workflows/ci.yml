@@ -76,8 +76,12 @@ jobs:
           cd "$SMOKE"
           "$SMOKE/venv/bin/radar-bench" doctor
           "$SMOKE/venv/bin/radar-bench" list-suites
-          "$SMOKE/venv/bin/radar-bench" validate --suite decisive-v1.1
-          "$SMOKE/venv/bin/radar-bench" inspect-case RADAR-V07-A02
+          set +e
+          OUTPUT=$("$SMOKE/venv/bin/radar-bench" validate --suite decisive-v1.2 2>&1)
+          CODE=$?
+          set -e
+          test "$CODE" -eq 2
+          echo "$OUTPUT" | grep -q 'BLOCKED_INFORMATION_SUFFICIENCY'
       - name: Smoke-test installed sdist from empty directory
         shell: bash
         run: |
@@ -90,8 +94,12 @@ jobs:
           "$SMOKE/venv/bin/radar-bench" --version
           "$SMOKE/venv/bin/radar-bench" doctor
           "$SMOKE/venv/bin/radar-bench" list-suites
-          "$SMOKE/venv/bin/radar-bench" validate --suite decisive-v1.1
-          "$SMOKE/venv/bin/radar-bench" inspect-case RADAR-V07-A02
+          set +e
+          OUTPUT=$("$SMOKE/venv/bin/radar-bench" validate --suite decisive-v1.2 2>&1)
+          CODE=$?
+          set -e
+          test "$CODE" -eq 2
+          echo "$OUTPUT" | grep -q 'BLOCKED_INFORMATION_SUFFICIENCY'
       - name: Verify empty artifact roots fail closed
         shell: bash
         run: |
