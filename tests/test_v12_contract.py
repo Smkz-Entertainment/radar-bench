@@ -23,7 +23,8 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_v12_candidate_and_evaluator_bundles_are_separate() -> None:
     audit = information_sufficiency_audit(ROOT)
-    assert audit["status"] == "PASS"
+    assert audit["status"] == "BLOCKED_INFORMATION_SUFFICIENCY"
+    assert audit["evaluator_loaded"] is False
     candidate = json.loads(
         (ROOT / "candidate/decisive-v1.2/candidate-bundle.json").read_text(encoding="utf-8")
     )
@@ -53,7 +54,7 @@ def test_experiment_parameters_are_checked_before_execution() -> None:
     calls: list[dict[str, object]] = []
     ledger = ExperimentLedger()
     response = ledger.run(
-        {"capability": "rerun", "parameters": {}},
+        {"capability": "rerun", "parameters": {"command": ["python", "reproducer.py"]}},
         lambda request: calls.append(dict(request)) or {"status": "COMPLETED", "result": {"useful": True}},
     )
     assert response["fresh"] is True
@@ -82,7 +83,8 @@ def test_package_resources_are_manifest_materialized(tmp_path: Path, monkeypatch
 
 def test_cli_exposes_v12_candidate_protocol() -> None:
     parsed = build_parser().parse_args(
-        ["evaluate", "--suite", V12_SUITE_ID, "--candidate-command", "docker", "run"]
+        ["evaluate", "--suite", V12_SUITE_ID, "--candidate-image", "registry/python@sha256:" + "a" * 64, "--candidate-argv", "python", "candidate.py"]
     )
-    assert parsed.candidate_command == ["docker", "run"]
+    assert parsed.candidate_image.endswith("a" * 64)
+    assert parsed.candidate_argv == ["python", "candidate.py"]
     assert main(["validate", "--suite", V12_SUITE_ID]) in {0, 2}

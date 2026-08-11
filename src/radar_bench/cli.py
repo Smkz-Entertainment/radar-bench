@@ -96,6 +96,12 @@ def command_list_suites(_args: argparse.Namespace) -> int:
 def command_validate(args: argparse.Namespace) -> int:
     if args.suite == V12_SUITE_ID:
         audit = information_sufficiency_audit(_root())
+        if args.evaluator_bundle:
+            from radar_bench.v1_2 import evaluator_bundle_audit
+
+            audit["evaluator_bundle_supplied"] = evaluator_bundle_audit(
+                _root(), Path(args.evaluator_bundle).resolve()
+            )
         _print_json(audit)
         return EXIT_OK if audit.get("status") == "PASS" else EXIT_INVALID
     audit = validate_decisive_suite(
@@ -122,7 +128,11 @@ def command_evaluate(args: argparse.Namespace) -> int:
     if args.suite == V12_SUITE_ID:
         result = evaluate_v12(
             root,
-            candidate_command=args.candidate_command,
+            candidate_image=args.candidate_image,
+            candidate_argv=args.candidate_argv,
+            evaluator_bundle_path=Path(args.evaluator_bundle).resolve()
+            if args.evaluator_bundle
+            else None,
             artifact_root=artifact_root,
         )
         if args.output:
@@ -141,26 +151,8 @@ def command_artifacts(args: argparse.Namespace) -> int:
     requested_root = getattr(args, "artifact_root", None) or getattr(args, "output_root", None)
     artifact_root = Path(requested_root).resolve() if requested_root else None
     if args.action == "fetch":
-        if args.suite == V12_SUITE_ID:
-            result = {
-                "status": "BLOCKED",
-                "suite_id": V12_SUITE_ID,
-                "network_used": False,
-                "errors": ["ARTIFACT_CATALOG_PENDING_PUBLIC_RECONSTRUCTION_RECIPE"],
-            }
-            _print_json(result)
-            return EXIT_EXTERNAL
         result = fetch_artifacts(root, args.suite, artifact_root)
     else:
-        if args.suite == V12_SUITE_ID:
-            result = {
-                "status": "BLOCKED",
-                "suite_id": V12_SUITE_ID,
-                "network_used": False,
-                "errors": ["ARTIFACT_CATALOG_PENDING_PUBLIC_RECONSTRUCTION_RECIPE"],
-            }
-            _print_json(result)
-            return EXIT_EXTERNAL
         result = verify_artifacts(root, args.suite, artifact_root)
     _print_json(result)
     return EXIT_OK if result.get("status") == "READY" else EXIT_EXTERNAL
@@ -199,6 +191,7 @@ def build_parser() -> argparse.ArgumentParser:
     validate = commands.add_parser("validate", help="validate a suite contract")
     validate.add_argument("--suite", choices=[SUITE_ID, V12_SUITE_ID], required=True)
     validate.add_argument("--artifact-root")
+    validate.add_argument("--evaluator-bundle")
     validate.set_defaults(handler=command_validate)
 
     inspect = commands.add_parser("inspect-case", help="inspect a case without loading gold")
@@ -208,7 +201,9 @@ def build_parser() -> argparse.ArgumentParser:
     evaluate = commands.add_parser("evaluate", help="execute and score a suite")
     evaluate.add_argument("--suite", choices=[SUITE_ID, V12_SUITE_ID], required=True)
     evaluate.add_argument("--artifact-root")
-    evaluate.add_argument("--candidate-command", nargs="+")
+    evaluate.add_argument("--candidate-image")
+    evaluate.add_argument("--candidate-argv", nargs="+")
+    evaluate.add_argument("--evaluator-bundle")
     evaluate.add_argument("--output")
     evaluate.set_defaults(handler=command_evaluate)
 

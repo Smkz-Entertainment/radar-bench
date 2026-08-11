@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://radar-bench.dev/schema/experiment-result-v1.2.schema.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "message", "episode_id", "request_id", "status", "observation"],
+  "properties": {"schema_version": {"const": "1.2-jsonl"}, "message": {"const": "experiment_result"}, "episode_id": {"type": "string"}, "request_id": {"type": "string"}, "status": {"type": "string"}, "observation": {"type": "object", "additionalProperties": false, "properties": {"status": {"type": "string"}, "stdout": {"type": "string", "maxLength": 65536}, "stderr": {"type": "string", "maxLength": 65536}, "exit_code": {"type": ["integer", "null"]}, "environment": {"type": "object", "additionalProperties": false}}}}
+}

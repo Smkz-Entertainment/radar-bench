@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://radar-bench.dev/schema/final-prediction-v1.2.schema.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "message", "episode_id", "prediction"],
+  "properties": {"schema_version": {"const": "1.2-jsonl"}, "message": {"const": "final_prediction"}, "episode_id": {"type": "string"}, "prediction": {"type": "object", "additionalProperties": false, "required": ["causal_component", "candidate_induced", "semantic_intent", "action_owner", "disposition", "evidence_ids"], "properties": {"causal_component": {"type": ["string", "null"]}, "candidate_induced": {"type": "boolean"}, "semantic_intent": {"enum": ["known", "ambiguous", "not-applicable"]}, "action_owner": {"type": ["string", "null"]}, "disposition": {"enum": ["ATTRIBUTED", "AMBIGUOUS", "ABSTAINED"]}, "evidence_ids": {"type": "array", "items": {"type": "string"}}}}}
+}

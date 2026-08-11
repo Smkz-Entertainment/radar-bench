@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://radar-bench.dev/schema/experiment-request-v1.2.schema.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "message", "episode_id", "request_id", "capability", "parameters"],
+  "properties": {"schema_version": {"const": "1.2-jsonl"}, "message": {"const": "experiment_request"}, "episode_id": {"type": "string"}, "request_id": {"type": "string", "minLength": 1}, "capability": {"enum": ["rerun", "inspect_environment", "inspect_dependency_graph", "run_minimal_test", "change_dependency_version"]}, "parameters": {"type": "object", "additionalProperties": true}}
+}

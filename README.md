@@ -34,17 +34,30 @@ runtime/artifact clean-room gate is independently reproduced.
     radar-bench doctor
     radar-bench validate --suite decisive-v1.2
 
-The v1.2 external candidate interface is deliberately boring. A candidate is
-invoked with a Docker command that explicitly includes `--network none`, and
-communicates length-bounded JSONL over stdin/stdout:
+The v1.2 external candidate interface is deliberately boring. Radar constructs
+the Docker sandbox itself from a full digest-pinned image; callers provide only
+the image and the candidate argv. The evaluator bundle is supplied separately
+and is never mounted into the candidate:
 
-    radar-bench evaluate --suite decisive-v1.2 --candidate-command docker run --network none --read-only --cap-drop ALL --memory 512m --cpus 1 --pids-limit 128 <image> <argv>
+    radar-bench evaluate --suite decisive-v1.2 \
+      --candidate-image registry.example/candidate@sha256:<64-hex-digest> \
+      --candidate-argv radar-agent --protocol 1.2-jsonl \
+      --evaluator-bundle <evaluator-bundle.json>
+
+The installed package contains the candidate-visible contract and schemas.
+The evaluator bundle is intentionally a separately supplied evaluator asset;
+its absence is an integrity blocker, not a reason to ship gold in the
+candidate package.
 
 Acquire and verify the external historical wheelhouses:
 
     radar-bench artifacts fetch --suite decisive-v1.1 --output-root <artifact-root>
     radar-bench artifacts verify --suite decisive-v1.1 --artifact-root <artifact-root>
     radar-bench evaluate --suite decisive-v1.1 --artifact-root <artifact-root> --output result.json
+
+For the v1.2 catalog use the same acquisition flow with
+`--suite decisive-v1.2`. Acquisition may use the network; evaluation must run
+after acquisition with network access denied.
 
 Evaluation requires a Linux/x86-64 Docker server with network denial. Docker
 Desktop on Windows or macOS is supported only when its server reports the

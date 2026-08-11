@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://radar-bench.dev/schema/candidate-evidence-v1.2.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["context", "reproducer", "failure_observation", "control_manifest", "candidate_manifest", "package_environment_diff", "dependency_graph", "source_location_evidence", "platform", "provenance_references"],
+  "properties": {
+    "context": {"type": "object", "additionalProperties": false, "required": ["project", "revision", "domain"], "properties": {"project": {"type": "string"}, "revision": {"type": "string"}, "domain": {"type": "string"}}},
+    "reproducer": {"type": "object", "additionalProperties": false, "required": ["identity", "test_identity", "invocation"], "properties": {"identity": {"type": "string"}, "test_identity": {"type": "string"}, "invocation": {"type": "string"}}},
+    "failure_observation": {"type": "object", "additionalProperties": false, "required": ["kind", "summary"], "properties": {"kind": {"type": "string"}, "summary": {"type": "string"}}},
+    "control_manifest": {"$ref": "#/$defs/manifest"},
+    "candidate_manifest": {"$ref": "#/$defs/manifest"},
+    "package_environment_diff": {"type": "object", "additionalProperties": false, "required": ["package_change", "environment_change"], "properties": {"package_change": {"type": "object", "additionalProperties": false, "required": ["component", "from", "to"], "properties": {"component": {"type": "string"}, "from": {"type": "string"}, "to": {"type": "string"}}}, "environment_change": {"type": "string"}}},
+    "dependency_graph": {"type": "object", "additionalProperties": false, "properties": {"direct_changes": {"type": "array", "items": {"type": "string"}}, "consumer": {"type": "string"}, "constraints": {"type": "array", "items": {"type": "string"}}}},
+    "source_location_evidence": {"type": "array", "items": {"type": "string"}},
+    "platform": {"type": "object", "additionalProperties": false, "required": ["os", "architecture", "runtime", "artifact_type"], "properties": {"os": {"type": "string"}, "architecture": {"type": "string"}, "runtime": {"type": "string"}, "artifact_type": {"type": "string"}}},
+    "provenance_references": {"type": "array", "items": {"type": "string"}}
+  },
+  "$defs": {"manifest": {"type": "object", "additionalProperties": false, "required": ["python", "packages"], "properties": {"python": {"type": "string"}, "packages": {"type": "object", "additionalProperties": {"type": "string"}}}}}
+}

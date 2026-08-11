@@ -1,11 +1,10 @@
 {
   "checks": {
-    "bandit": "PASS",
+    "bandit": "NOT_RUN",
     "citation_validation": "NOT_RUN",
     "gitleaks": "NOT_RUN",
-    "mypy": "PASS",
     "mypy_strict": "PASS",
-    "pip_audit": "PASS",
+    "pip_audit": "FAIL",
     "ruff": "PASS",
     "trufflehog": "NOT_RUN"
   },

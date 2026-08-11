@@ -23,9 +23,14 @@
   "suite_id": "decisive-v1.2",
   "v1_2_corrections": [
     "candidate-visible T-cut evidence is separate from evaluator-only labels and provenance",
+    "historical and safety episodes use one strict candidate-evidence schema and generic record IDs",
     "episode IDs are cryptographically random per run and mapped only by the evaluator",
+    "the evaluator owns the stateful experiment loop, ledger, executor calls, and complete-output gate",
     "experiment requests validate parameters before case lookup and reruns are always fresh",
+    "candidate Docker construction is digest-pinned, network-denied, read-only, non-root, and capability-dropped",
     "corrected labels distinguish terminal state, candidate causality, root cause eligibility, owner eligibility, and semantic intent",
+    "candidate-only information sufficiency remains blocked until a blinded solvability reference exists",
+    "artifact catalogs and historical runtime recipes are separately verified by exact digests",
     "reference comparison binds suite, evidence, labels, runtime, baseline, executor, protocol, platform, predictions, metrics, and decision"
   ]
 }

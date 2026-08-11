@@ -21,6 +21,8 @@ from urllib.request import Request, urlopen  # nosec B310 - hosts are allowliste
 
 SUITE_RELATIVE = Path("corpus/v1.0.1/decisive-v1.1/suite.json")
 CATALOG_RELATIVE = Path("corpus/v1.0.1/decisive-v1.1/artifact-catalog.json")
+V12_SUITE_RELATIVE = Path("corpus/v1.1.0/decisive-v1.2/suite.json")
+V12_CATALOG_RELATIVE = Path("corpus/v1.1.0/decisive-v1.2/artifact-catalog.json")
 DEFAULT_ARTIFACT_DIR = Path("artifacts/external")
 MAX_JSON_BYTES = 4 * 1024 * 1024
 MAX_FILE_BYTES = 512 * 1024 * 1024
@@ -83,6 +85,14 @@ def _catalog_digest(root: Path) -> str:
     return _sha256(root / CATALOG_RELATIVE)
 
 
+def _suite_paths(suite_id: str) -> tuple[Path, Path]:
+    if suite_id == "decisive-v1.1":
+        return SUITE_RELATIVE, CATALOG_RELATIVE
+    if suite_id == "decisive-v1.2":
+        return V12_SUITE_RELATIVE, V12_CATALOG_RELATIVE
+    raise ArtifactContractError(f"unsupported artifact suite: {suite_id}")
+
+
 def _safe_relative(root: Path, value: str, base: Path | None = None) -> Path:
     candidate = Path(value)
     if candidate.is_absolute():
@@ -141,10 +151,10 @@ def _validate_archive(path: Path) -> list[str]:
 
 
 def _load_bundles(root: Path, suite_id: str) -> tuple[dict[str, Any], tuple[ArtifactBundle, ...]]:
-    if suite_id != "decisive-v1.1":
-        raise ArtifactContractError(f"unsupported artifact suite: {suite_id}")
-    catalog = _read_json(root / CATALOG_RELATIVE)
-    if catalog.get("schema_version") != "1.0" or catalog.get("suite_id") != suite_id:
+    suite_relative, catalog_relative = _suite_paths(suite_id)
+    catalog = _read_json(root / catalog_relative)
+    expected_schema = "1.0" if suite_id == "decisive-v1.1" else "1.2"
+    if catalog.get("schema_version") != expected_schema or catalog.get("suite_id") != suite_id:
         raise ArtifactContractError("artifact catalog has the wrong suite identity")
     raw_bundles = catalog.get("bundles")
     if not isinstance(raw_bundles, list) or len(raw_bundles) != 5:
@@ -160,16 +170,24 @@ def _load_bundles(root: Path, suite_id: str) -> tuple[dict[str, Any], tuple[Arti
             raise ArtifactContractError(f"duplicate artifact ID: {artifact_id}")
         catalog_by_id[artifact_id] = raw
 
-    suite = _read_json(root / SUITE_RELATIVE)
+    suite = _read_json(root / suite_relative)
     entries = suite.get("historical_cases")
     if not isinstance(entries, list) or len(entries) != 5:
         raise ArtifactContractError("decisive-v1.1 does not contain five historical cases")
     bundles: list[ArtifactBundle] = []
-    suite_base = (root / SUITE_RELATIVE).parent.resolve()
+    suite_base = (root / suite_relative).parent.resolve()
     for entry in entries:
         if not isinstance(entry, Mapping):
             raise ArtifactContractError("historical suite entry is invalid")
-        manifest_path = _safe_relative(root, str(entry.get("manifest", "")), suite_base)
+        manifest_value = entry.get("manifest", "") if isinstance(entry, Mapping) else ""
+        manifest_text = str(manifest_value)
+        manifest_path = _safe_relative(root, manifest_text, suite_base)
+        if not manifest_path.is_file() and not Path(manifest_text).is_absolute():
+            # v1.2 keeps immutable v1.1 sealing records root-relative so the
+            # public catalog can refer to them without duplicating evidence.
+            root_relative = _safe_relative(root, manifest_text, root)
+            if root_relative.is_file():
+                manifest_path = root_relative
         manifest = _read_json(manifest_path)
         artifact_bundle = manifest.get("artifact_bundle")
         if not isinstance(artifact_bundle, Mapping):
@@ -254,6 +272,13 @@ def default_artifact_root(root: Path, suite_id: str = "decisive-v1.1") -> Path:
     return root / DEFAULT_ARTIFACT_DIR / suite_id
 
 
+def catalog_digest(root: Path, suite_id: str) -> str:
+    """Return the digest of the selected suite's immutable artifact catalog."""
+
+    _suite_relative, catalog_relative = _suite_paths(suite_id)
+    return _sha256(root / catalog_relative)
+
+
 def _redacted_root() -> str:
     return "external-artifact-root"
 
@@ -317,7 +342,7 @@ def verify_artifacts(root: Path, suite_id: str, artifact_root: Path | None = Non
         "status": "READY" if not errors else "BLOCKED",
         "suite_id": suite_id,
         "artifact_root": _redacted_root(),
-        "catalog_digest": _catalog_digest(root),
+        "catalog_digest": catalog_digest(root, suite_id),
         "catalog_policy": catalog.get("catalog_policy"),
         "network_used": False,
         "bundles": results,

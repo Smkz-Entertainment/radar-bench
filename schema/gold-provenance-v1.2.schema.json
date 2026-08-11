@@ -1,0 +1,6 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://radar-bench.dev/schema/gold-provenance-v1.2.schema.json",
+  "type": "array", "minItems": 25,
+  "items": {"type": "object", "additionalProperties": false, "required": ["evidence_id", "case_id", "source_url", "source_timestamp", "tcut", "immutable_digest", "archive_ref", "evidence_role", "causal_evidence", "owner_eligibility_rationale", "source_references", "fix_or_revert_reference", "post_fix_recovery_reference"], "properties": {"evidence_id": {"type": "string"}, "case_id": {"type": "string"}, "source_url": {"type": "string", "format": "uri"}, "source_timestamp": {"type": "string", "format": "date-time"}, "tcut": {"type": "string", "format": "date-time"}, "immutable_digest": {"pattern": "^sha256:[0-9a-f]{64}$"}, "archive_ref": {"type": "string"}, "evidence_role": {"type": "string"}, "causal_evidence": {"type": "string"}, "owner_eligibility_rationale": {"type": "string"}, "source_references": {"type": "array", "items": {"type": "string", "format": "uri"}}, "fix_or_revert_reference": {"type": ["string", "null"]}, "post_fix_recovery_reference": {"type": ["string", "null"]}}}
+}

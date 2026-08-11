@@ -10,8 +10,35 @@
     "network": "denied"
   },
   "case_ids": {
-    "historical": ["RADAR-V07-A01", "RADAR-V07-A02", "RADAR-V07-A03", "RADAR-V07-A04", "RADAR-V07-A05"],
-    "safety": ["RADAR-V07-T01", "RADAR-V07-T02", "RADAR-V07-T03", "RADAR-V07-T04", "RADAR-V07-T05", "RADAR-V07-T06", "RADAR-V07-T07", "RADAR-V07-T08", "RADAR-V07-T09", "RADAR-V07-T10", "RADAR-V07-T11", "RADAR-V07-T12", "RADAR-V07-T13", "RADAR-V07-T14", "RADAR-V07-T15", "RADAR-V07-T16", "RADAR-V07-T17", "RADAR-V07-T18", "RADAR-V07-T19", "RADAR-V07-T20"]
+    "historical": [
+      "RADAR-V07-A01",
+      "RADAR-V07-A02",
+      "RADAR-V07-A03",
+      "RADAR-V07-A04",
+      "RADAR-V07-A05"
+    ],
+    "safety": [
+      "RADAR-V07-T01",
+      "RADAR-V07-T02",
+      "RADAR-V07-T03",
+      "RADAR-V07-T04",
+      "RADAR-V07-T05",
+      "RADAR-V07-T06",
+      "RADAR-V07-T07",
+      "RADAR-V07-T08",
+      "RADAR-V07-T09",
+      "RADAR-V07-T10",
+      "RADAR-V07-T11",
+      "RADAR-V07-T12",
+      "RADAR-V07-T13",
+      "RADAR-V07-T14",
+      "RADAR-V07-T15",
+      "RADAR-V07-T16",
+      "RADAR-V07-T17",
+      "RADAR-V07-T18",
+      "RADAR-V07-T19",
+      "RADAR-V07-T20"
+    ]
   },
   "candidate_bundle": "candidate/decisive-v1.2/candidate-bundle.json",
   "evaluator_bundle": "evaluator/decisive-v1.2/evaluator-bundle.json",
@@ -22,11 +49,53 @@
     "candidate_network": "denied",
     "candidate_gold_visibility": false,
     "candidate_repository_visibility": false,
-    "rerun_cache": "disabled"
+    "rerun_cache": "disabled",
+    "message_schemas": {
+      "episode_start": "schema/candidate-episode-start-v1.2.schema.json",
+      "experiment_request": "schema/experiment-request-v1.2.schema.json",
+      "experiment_result": "schema/experiment-result-v1.2.schema.json",
+      "final_prediction": "schema/final-prediction-v1.2.schema.json",
+      "benchmark_result": "schema/benchmark-result-v1.2.schema.json"
+    }
   },
-  "capabilities": ["rerun", "change_dependency_version", "freeze_dependency", "bisect_component", "toggle_environment_variable", "run_minimal_test", "inspect_dependency_graph"],
+  "capabilities": [
+    "rerun",
+    "inspect_environment",
+    "inspect_dependency_graph",
+    "run_minimal_test",
+    "change_dependency_version"
+  ],
   "metric_contract": "metric-contract-v1.2.json",
   "baseline_contract": "baseline-freeze-v1.2.json",
   "reference_policy": "exact-input-bound-comparison",
-  "release_state": "BLOCKED_REPRODUCIBILITY"
+  "release_state": "BLOCKED",
+  "artifact_catalog": "artifact-catalog.json",
+  "evaluator_bundle_policy": "separately supplied evaluator bundle; never mounted into candidate",
+  "historical_cases": [
+    {
+      "case_id": "RADAR-V07-A01",
+      "manifest": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A01-pandas-55137.json"
+    },
+    {
+      "case_id": "RADAR-V07-A02",
+      "manifest": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A02-sklean-30512.json"
+    },
+    {
+      "case_id": "RADAR-V07-A03",
+      "manifest": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A03-pandas-45601.json"
+    },
+    {
+      "case_id": "RADAR-V07-A04",
+      "manifest": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A04-pandas-57124.json"
+    },
+    {
+      "case_id": "RADAR-V07-A05",
+      "manifest": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A05-pandas-66085.json"
+    }
+  ],
+  "safety_cases": {
+    "runtime_manifest": "corpus/v1.0.1/safety-twins/runtime-manifest.json",
+    "evaluator_labels": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+    "candidate_views": "candidate/decisive-v1.2/candidate-bundle.json"
+  }
 }

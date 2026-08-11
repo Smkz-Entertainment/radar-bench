@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://radar-bench.dev/schema/evaluator-labels-v1.2.schema.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "cases"],
+  "properties": {"schema_version": {"const": "1.2"}, "cases": {"type": "object", "minProperties": 25, "maxProperties": 25, "additionalProperties": {"$ref": "#/$defs/label"}}},
+  "$defs": {"label": {"type": "object", "additionalProperties": false, "required": ["disposition", "candidate_induced", "causal_component_scored", "causal_component", "semantic_intent", "action_owner_scored", "action_owner_repository", "tcut", "scoring_eligibility_rationale", "gold_evidence_ids"], "properties": {"disposition": {"enum": ["ATTRIBUTED", "AMBIGUOUS", "ABSTAINED"]}, "candidate_induced": {"type": "boolean"}, "causal_component_scored": {"type": "boolean"}, "causal_component": {"type": ["string", "null"]}, "semantic_intent": {"enum": ["known", "ambiguous", "not-applicable"]}, "action_owner_scored": {"type": "boolean"}, "action_owner_repository": {"type": ["string", "null"]}, "tcut": {"type": "string", "format": "date-time"}, "scoring_eligibility_rationale": {"type": "string", "minLength": 1}, "gold_evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string"}}}}}
+}

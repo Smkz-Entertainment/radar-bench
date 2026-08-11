@@ -22,9 +22,11 @@ From a brand-new checkout with no developer caches:
 
 For the v1.1.0 release candidate, `decisive-v1.2` is a separate contract. Its
 candidate/evaluator bundle split, random episode mapping, and external protocol
-are covered by `artifacts/v1.1.0/`. Artifact reconstruction and execution
-reproducibility are distinct gates; the suite stays blocked when either the
-historical runtime or the isolated candidate adapter is unavailable.
+are covered by `artifacts/v1.1.0/`. Supply the evaluator asset explicitly with
+`--evaluator-bundle`; it is not packaged into the candidate-visible install.
+Artifact reconstruction and execution reproducibility are distinct gates; the
+suite stays blocked when either the historical runtime or the isolated
+candidate adapter is unavailable.
     radar-bench verify-results result.json
 
 The evaluation machine must provide a Linux/x86-64 Docker server. Disconnect

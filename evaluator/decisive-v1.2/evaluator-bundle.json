@@ -6,39 +6,817 @@
     "schema_version": "1.2",
     "suite_id": "decisive-v1.2",
     "cases": {
-      "RADAR-V07-A01": {"expected_terminal_state": "CAUSALLY_ATTRIBUTED", "candidate_induced": true, "root_cause_scored": true, "root_cause_component": "pandas", "action_owner_scored": true, "action_owner_repository": "pandas", "semantic_intent": "known", "scoring_eligibility_rationale": "The candidate package intervention and historical upstream record support a pandas component and owner score.", "gold_evidence_ids": ["gold-a01"]},
-      "RADAR-V07-A02": {"expected_terminal_state": "CAUSALLY_ATTRIBUTED", "candidate_induced": true, "root_cause_scored": true, "root_cause_component": "scipy", "action_owner_scored": true, "action_owner_repository": "scipy", "semantic_intent": "known", "scoring_eligibility_rationale": "The candidate-visible dependency diff and interpolation failure path establish the SciPy component; the evaluator-only upstream record supports the owner score.", "gold_evidence_ids": ["gold-a02"]},
-      "RADAR-V07-A03": {"expected_terminal_state": "SEMANTICALLY_AMBIGUOUS", "candidate_induced": true, "root_cause_scored": true, "root_cause_component": "pandas", "action_owner_scored": false, "semantic_intent": "ambiguous", "scoring_eligibility_rationale": "The behavior difference is executable, but the available evidence does not establish whether the changed behavior is intentional; owner scoring is withheld.", "gold_evidence_ids": ["gold-a03"]},
-      "RADAR-V07-A04": {"expected_terminal_state": "CAUSALLY_ATTRIBUTED", "candidate_induced": true, "root_cause_scored": true, "root_cause_component": "pandas", "action_owner_scored": true, "action_owner_repository": "pandas", "semantic_intent": "known", "scoring_eligibility_rationale": "The candidate-only warning is reproducible and the evaluator provenance supports a pandas ownership score.", "gold_evidence_ids": ["gold-a04"]},
-      "RADAR-V07-A05": {"expected_terminal_state": "CAUSALLY_ATTRIBUTED", "candidate_induced": true, "root_cause_scored": true, "root_cause_component": "pandas", "action_owner_scored": true, "action_owner_repository": "pandas", "semantic_intent": "known", "scoring_eligibility_rationale": "The deterministic candidate crash follows the pandas package intervention and the evaluator provenance supports a pandas ownership score.", "gold_evidence_ids": ["gold-a05"]},
-      "RADAR-V07-T01": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t01"]},
-      "RADAR-V07-T02": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t02"]},
-      "RADAR-V07-T03": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t03"]},
-      "RADAR-V07-T04": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t04"]},
-      "RADAR-V07-T05": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t05"]},
-      "RADAR-V07-T06": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t06"]},
-      "RADAR-V07-T07": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t07"]},
-      "RADAR-V07-T08": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t08"]},
-      "RADAR-V07-T09": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t09"]},
-      "RADAR-V07-T10": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t10"]},
-      "RADAR-V07-T11": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t11"]},
-      "RADAR-V07-T12": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t12"]},
-      "RADAR-V07-T13": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t13"]},
-      "RADAR-V07-T14": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t14"]},
-      "RADAR-V07-T15": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t15"]},
-      "RADAR-V07-T16": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t16"]},
-      "RADAR-V07-T17": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t17"]},
-      "RADAR-V07-T18": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t18"]},
-      "RADAR-V07-T19": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t19"]},
-      "RADAR-V07-T20": {"expected_terminal_state": "ABSTAINED", "candidate_induced": false, "root_cause_scored": false, "action_owner_scored": false, "semantic_intent": "not-applicable", "scoring_eligibility_rationale": "Safety twin gold is used only to score abstention and is absent from the candidate bundle.", "gold_evidence_ids": ["gold-t20"]}
+      "RADAR-V07-A01": {
+        "disposition": "ATTRIBUTED",
+        "candidate_induced": true,
+        "causal_component_scored": true,
+        "causal_component": "pandas",
+        "semantic_intent": "known",
+        "action_owner_scored": true,
+        "action_owner_repository": "pandas",
+        "tcut": "2024-01-01T00:00:00Z",
+        "scoring_eligibility_rationale": "The candidate package intervention and historical upstream record support a pandas component and owner score.",
+        "gold_evidence_ids": [
+          "gold-01"
+        ]
+      },
+      "RADAR-V07-A02": {
+        "disposition": "ATTRIBUTED",
+        "candidate_induced": true,
+        "causal_component_scored": true,
+        "causal_component": "scipy",
+        "semantic_intent": "known",
+        "action_owner_scored": true,
+        "action_owner_repository": "scipy",
+        "tcut": "2024-12-23T00:00:00Z",
+        "scoring_eligibility_rationale": "The candidate-visible dependency diff and interpolation failure path establish the SciPy component; the evaluator-only upstream record supports the owner score.",
+        "gold_evidence_ids": [
+          "gold-02"
+        ]
+      },
+      "RADAR-V07-A03": {
+        "disposition": "AMBIGUOUS",
+        "candidate_induced": true,
+        "causal_component_scored": true,
+        "causal_component": "pandas",
+        "semantic_intent": "ambiguous",
+      "action_owner_scored": false,
+      "action_owner_repository": null,
+        "tcut": "2022-02-15T00:00:00Z",
+        "scoring_eligibility_rationale": "The behavior difference is executable, but the available evidence does not establish whether the changed behavior is intentional; owner scoring is withheld.",
+        "gold_evidence_ids": [
+          "gold-03"
+        ]
+      },
+      "RADAR-V07-A04": {
+        "disposition": "ATTRIBUTED",
+        "candidate_induced": true,
+        "causal_component_scored": true,
+        "causal_component": "pandas",
+        "semantic_intent": "known",
+        "action_owner_scored": true,
+        "action_owner_repository": "pandas",
+        "tcut": "2024-02-15T00:00:00Z",
+        "scoring_eligibility_rationale": "The candidate-only warning is reproducible and the evaluator provenance supports a pandas ownership score.",
+        "gold_evidence_ids": [
+          "gold-04"
+        ]
+      },
+      "RADAR-V07-A05": {
+        "disposition": "ATTRIBUTED",
+        "candidate_induced": true,
+        "causal_component_scored": true,
+        "causal_component": "pandas",
+        "semantic_intent": "known",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-07-01T00:00:00Z",
+        "scoring_eligibility_rationale": "The executable version bisection establishes pandas as the changed component, but no independent maintainer/fix evidence in the sealed cutoff supports an action-owner score.",
+        "gold_evidence_ids": [
+          "gold-05"
+        ]
+      },
+      "RADAR-V07-T01": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t01"
+        ]
+      },
+      "RADAR-V07-T02": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t02"
+        ]
+      },
+      "RADAR-V07-T03": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t03"
+        ]
+      },
+      "RADAR-V07-T04": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t04"
+        ]
+      },
+      "RADAR-V07-T05": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t05"
+        ]
+      },
+      "RADAR-V07-T06": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t06"
+        ]
+      },
+      "RADAR-V07-T07": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t07"
+        ]
+      },
+      "RADAR-V07-T08": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t08"
+        ]
+      },
+      "RADAR-V07-T09": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t09"
+        ]
+      },
+      "RADAR-V07-T10": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t10"
+        ]
+      },
+      "RADAR-V07-T11": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t11"
+        ]
+      },
+      "RADAR-V07-T12": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t12"
+        ]
+      },
+      "RADAR-V07-T13": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t13"
+        ]
+      },
+      "RADAR-V07-T14": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t14"
+        ]
+      },
+      "RADAR-V07-T15": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t15"
+        ]
+      },
+      "RADAR-V07-T16": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t16"
+        ]
+      },
+      "RADAR-V07-T17": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t17"
+        ]
+      },
+      "RADAR-V07-T18": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t18"
+        ]
+      },
+      "RADAR-V07-T19": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t19"
+        ]
+      },
+      "RADAR-V07-T20": {
+        "disposition": "ABSTAINED",
+        "candidate_induced": false,
+        "causal_component_scored": false,
+        "causal_component": null,
+        "semantic_intent": "not-applicable",
+        "action_owner_scored": false,
+        "action_owner_repository": null,
+        "tcut": "2026-08-01T00:00:00Z",
+        "scoring_eligibility_rationale": "Evaluator-only safety gold controls abstention scoring; no causal or owner score is available to the candidate.",
+        "gold_evidence_ids": [
+          "gold-t20"
+        ]
+      }
     }
   },
   "gold_provenance": [
-    {"evidence_id": "gold-a01", "case_id": "RADAR-V07-A01", "url": "https://github.com/pandas-dev/pandas/issues/55137", "publication_time": "2023-09-14T15:26:35Z", "relation_to_tcut": "published_at_or_before_cutoff", "role": "downstream incident and causal record", "digest": "sha256:archive-issue-55137", "archive_ref": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A01-pandas-55137.json", "maintainer_confirmation": {"status": "not-required", "reason": "executable intervention and public issue record"}, "causal_intervention": "control/candidate pandas package substitution", "first_bad": "candidate version", "fix_or_revert": "recorded in archived source record", "post_fix_recovery": "recorded in archived source record", "scoring_rationale": "pandas component and owner are independently eligible"},
-    {"evidence_id": "gold-a02", "case_id": "RADAR-V07-A02", "url": "https://github.com/scikit-learn/scikit-learn/issues/30512", "publication_time": "2024-12-19T15:36:53Z", "relation_to_tcut": "published_at_or_before_cutoff", "role": "downstream incident and cross-repository causal record", "digest": "sha256:archive-issue-30512", "archive_ref": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A02-sklean-30512.json", "maintainer_confirmation": {"status": "not-required", "reason": "executable dependency intervention and public issue record"}, "causal_intervention": "control/candidate SciPy package substitution", "first_bad": "candidate SciPy release candidate", "fix_or_revert": "recorded in archived source record", "post_fix_recovery": "recorded in archived source record", "scoring_rationale": "SciPy component and owner are eligible; downstream repository is not rewarded for the dependency regression"},
-    {"evidence_id": "gold-a03", "case_id": "RADAR-V07-A03", "url": "https://github.com/pandas-dev/pandas/issues/45601", "publication_time": "2022-01-24T21:52:20Z", "relation_to_tcut": "published_at_or_before_cutoff", "role": "downstream behavior report with unresolved semantic intent", "digest": "sha256:archive-issue-45601", "archive_ref": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A03-pandas-45601.json", "maintainer_confirmation": {"status": "not-required", "reason": "semantic intent is deliberately unresolved"}, "causal_intervention": "control/candidate pandas package substitution", "first_bad": "candidate behavior", "fix_or_revert": "not established", "post_fix_recovery": "not established", "scoring_rationale": "behavior difference is scored; action owner is withheld because semantic intent remains ambiguous"},
-    {"evidence_id": "gold-a04", "case_id": "RADAR-V07-A04", "url": "https://github.com/pandas-dev/pandas/issues/57124", "publication_time": "2024-01-29T07:39:50Z", "relation_to_tcut": "published_at_or_before_cutoff", "role": "downstream regression report", "digest": "sha256:archive-issue-57124", "archive_ref": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A04-pandas-57124.json", "maintainer_confirmation": {"status": "not-required", "reason": "executable intervention and public issue record"}, "causal_intervention": "control/candidate pandas package substitution", "first_bad": "candidate version", "fix_or_revert": "recorded in archived source record", "post_fix_recovery": "recorded in archived source record", "scoring_rationale": "pandas component and owner are eligible"},
-    {"evidence_id": "gold-a05", "case_id": "RADAR-V07-A05", "url": "https://github.com/pandas-dev/pandas/issues/66085", "publication_time": "2026-06-28T22:26:02Z", "relation_to_tcut": "published_at_or_before_cutoff", "role": "downstream crash report", "digest": "sha256:archive-issue-66085", "archive_ref": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A05-pandas-66085.json", "maintainer_confirmation": {"status": "not-required", "reason": "executable intervention and public issue record"}, "causal_intervention": "control/candidate pandas package substitution", "first_bad": "candidate version", "fix_or_revert": "recorded in archived source record", "post_fix_recovery": "recorded in archived source record", "scoring_rationale": "pandas component and owner are eligible"}
-  ],
-  "safety_gold_provenance": {"source": "corpus/v1.0.1/safety-twins/evaluator-labels.json", "digest": "sha256:archived-safety-labels", "role": "evaluator-only abstention labels", "candidate_visible": false}
+    {
+      "evidence_id": "gold-01",
+      "case_id": "RADAR-V07-A01",
+      "source_url": "https://github.com/pandas-dev/pandas/issues/55137",
+      "source_timestamp": "2023-09-14T15:26:35Z",
+      "tcut": "2024-01-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:67778efaee45ba0aa7c48636c89c95ef0d241d51c75f7ea394d11f1b88944334",
+      "archive_ref": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A01-pandas-55137.json",
+      "evidence_role": "sealed historical incident record",
+      "causal_evidence": "Sealed control/candidate observations and the linked historical record support the causal component.",
+      "owner_eligibility_rationale": "Independent upstream issue/fix evidence is listed in source_references.",
+      "source_references": [
+        "https://github.com/pandas-dev/pandas/issues/55137",
+        "https://github.com/pandas-dev/pandas/issues/55137#issuecomment-1722470114",
+        "https://github.com/pandas-dev/pandas/issues/55137#issuecomment-1845717477"
+      ],
+      "fix_or_revert_reference": "https://github.com/pandas-dev/pandas/issues/55137#issuecomment-1845717477",
+      "post_fix_recovery_reference": "https://github.com/pandas-dev/pandas/issues/55137#issuecomment-1883059641"
+    },
+    {
+      "evidence_id": "gold-02",
+      "case_id": "RADAR-V07-A02",
+      "source_url": "https://github.com/scikit-learn/scikit-learn/issues/30512",
+      "source_timestamp": "2024-12-19T15:36:53Z",
+      "tcut": "2024-12-23T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:82f4f8acf342ce0b07921dd95a9ee87dcda21ecc7a4ed058907d17ceedce6859",
+      "archive_ref": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A02-sklean-30512.json",
+      "evidence_role": "downstream incident plus upstream SciPy causal record",
+      "causal_evidence": "SciPy issue #22143 and the dependency intervention isolate the SciPy regression.",
+      "owner_eligibility_rationale": "Independent upstream issue/fix evidence is listed in source_references.",
+      "source_references": [
+        "https://github.com/scikit-learn/scikit-learn/issues/30512",
+        "https://github.com/scipy/scipy/issues/22143",
+        "https://github.com/scipy/scipy/pull/22158",
+        "https://github.com/scikit-learn/scikit-learn/pull/30515"
+      ],
+      "fix_or_revert_reference": "https://github.com/scipy/scipy/pull/22158",
+      "post_fix_recovery_reference": "https://github.com/scikit-learn/scikit-learn/issues/30512#issuecomment-2570046662"
+    },
+    {
+      "evidence_id": "gold-03",
+      "case_id": "RADAR-V07-A03",
+      "source_url": "https://github.com/pandas-dev/pandas/issues/45601",
+      "source_timestamp": "2022-01-24T21:52:20Z",
+      "tcut": "2022-02-15T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:3dadf5dbbd99897a928469d8d62aca91cb98bef8d5e48a617213e35591fdae5f",
+      "archive_ref": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A03-pandas-45601.json",
+      "evidence_role": "sealed historical incident record",
+      "causal_evidence": "Sealed control/candidate observations and the linked historical record support the causal component.",
+      "owner_eligibility_rationale": "Withheld because semantic intent is unresolved.",
+      "source_references": [
+        "https://github.com/pandas-dev/pandas/issues/45601",
+        "https://github.com/pandas-dev/pandas/issues/45601#issuecomment-1024965583",
+        "https://github.com/pandas-dev/pandas/issues/45601#issuecomment-1035363514"
+      ],
+      "fix_or_revert_reference": "https://github.com/pandas-dev/pandas/commit/0dd5a1dbf218cedc98a9b056397ff72af5295cff",
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-04",
+      "case_id": "RADAR-V07-A04",
+      "source_url": "https://github.com/pandas-dev/pandas/issues/57124",
+      "source_timestamp": "2024-01-29T07:39:50Z",
+      "tcut": "2024-02-15T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:3a8cab7085a06a19c03f408700849fe910c77933b22ce82f8fe21fbc738f11a8",
+      "archive_ref": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A04-pandas-57124.json",
+      "evidence_role": "sealed historical incident record",
+      "causal_evidence": "Sealed control/candidate observations and the linked historical record support the causal component.",
+      "owner_eligibility_rationale": "Independent upstream issue/fix evidence is listed in source_references.",
+      "source_references": [
+        "https://github.com/pandas-dev/pandas/issues/57124",
+        "https://github.com/pandas-dev/pandas/issues/57124#issuecomment-1922335093",
+        "https://github.com/pandas-dev/pandas/pull/57637"
+      ],
+      "fix_or_revert_reference": "https://github.com/pandas-dev/pandas/pull/57637",
+      "post_fix_recovery_reference": "https://github.com/pandas-dev/pandas/issues/57124#issuecomment-3194799492"
+    },
+    {
+      "evidence_id": "gold-05",
+      "case_id": "RADAR-V07-A05",
+      "source_url": "https://github.com/pandas-dev/pandas/issues/66085",
+      "source_timestamp": "2026-06-28T22:26:02Z",
+      "tcut": "2026-07-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:72339e5b828d73dc288085a326dc41c43a64f99e181f9c7b9f1f3d3df82c50fd",
+      "archive_ref": "corpus/v1.0.1/case-sealing/sealed/RADAR-V07-A05-pandas-66085.json",
+      "evidence_role": "sealed historical incident record",
+      "causal_evidence": "Sealed control/candidate observations and the linked historical record support the causal component.",
+      "owner_eligibility_rationale": "Withheld: executable bisection alone does not establish action ownership.",
+      "source_references": [
+        "https://github.com/pandas-dev/pandas/issues/66085"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t01",
+      "case_id": "RADAR-V07-T01",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t02",
+      "case_id": "RADAR-V07-T02",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t03",
+      "case_id": "RADAR-V07-T03",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t04",
+      "case_id": "RADAR-V07-T04",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t05",
+      "case_id": "RADAR-V07-T05",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t06",
+      "case_id": "RADAR-V07-T06",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t07",
+      "case_id": "RADAR-V07-T07",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t08",
+      "case_id": "RADAR-V07-T08",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t09",
+      "case_id": "RADAR-V07-T09",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t10",
+      "case_id": "RADAR-V07-T10",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t11",
+      "case_id": "RADAR-V07-T11",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t12",
+      "case_id": "RADAR-V07-T12",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t13",
+      "case_id": "RADAR-V07-T13",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t14",
+      "case_id": "RADAR-V07-T14",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t15",
+      "case_id": "RADAR-V07-T15",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t16",
+      "case_id": "RADAR-V07-T16",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t17",
+      "case_id": "RADAR-V07-T17",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t18",
+      "case_id": "RADAR-V07-T18",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t19",
+      "case_id": "RADAR-V07-T19",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    },
+    {
+      "evidence_id": "gold-t20",
+      "case_id": "RADAR-V07-T20",
+      "source_url": "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "source_timestamp": "2026-08-01T00:00:00Z",
+      "tcut": "2026-08-01T00:00:00Z",
+      "relation_to_tcut": "published_at_or_before_cutoff",
+      "immutable_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+      "archive_ref": "corpus/v1.0.1/safety-twins/evaluator-labels.json",
+      "evidence_role": "evaluator-only safety abstention label",
+      "causal_evidence": "Safety twin family and abstention label are evaluator-only.",
+      "owner_eligibility_rationale": "No owner score is eligible for a safety case.",
+      "source_references": [
+        "https://github.com/Smkz-Entertainment/radar-bench/blob/agent/radar-bench-v1.1-hardening/corpus/v1.0.1/safety-twins/evaluator-labels.json"
+      ],
+      "fix_or_revert_reference": null,
+      "post_fix_recovery_reference": null
+    }
+  ]
 }

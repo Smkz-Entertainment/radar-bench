@@ -1,8 +1,9 @@
 {
-  "contract_only": true,
+  "contract_only": false,
   "fresh_observations_required": true,
   "historical_execution": "BLOCKED_REPRODUCIBILITY",
   "parameter_validation_before_case_lookup": true,
+  "reason": "no completed external candidate session or evaluator executor receipt was supplied",
   "rerun_cache": "disabled",
-  "status": "PASS"
+  "status": "NOT_RUN"
 }

@@ -25,7 +25,7 @@ unsafe archives, or extra files.
 ## Run
 
     radar-bench validate --suite decisive-v1.2
-    radar-bench evaluate --suite decisive-v1.2 --candidate-command docker run --network none --read-only --cap-drop ALL --memory 512m --cpus 1 --pids-limit 128 <image> <argv>
+    radar-bench evaluate --suite decisive-v1.2 --candidate-image registry.example/candidate@sha256:<64-hex-digest> --candidate-argv radar-agent --protocol 1.2-jsonl --evaluator-bundle <evaluator-bundle.json>
 
 The external candidate command must prove network denial in its Docker argv.
 The evaluator creates cryptographically random episode IDs and passes only the

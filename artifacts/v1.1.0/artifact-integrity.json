@@ -1,0 +1,52 @@
+{
+  "artifact_root": "external-artifact-root",
+  "bundles": [
+    {
+      "artifact_id": "pandas-55137-wheelhouse",
+      "errors": [
+        "bundle directory is absent"
+      ],
+      "status": "BLOCKED"
+    },
+    {
+      "artifact_id": "sklearn-30512-wheelhouse",
+      "errors": [
+        "bundle directory is absent"
+      ],
+      "status": "BLOCKED"
+    },
+    {
+      "artifact_id": "pandas-45601-wheelhouse",
+      "errors": [
+        "bundle directory is absent"
+      ],
+      "status": "BLOCKED"
+    },
+    {
+      "artifact_id": "pandas-57124-wheelhouse",
+      "errors": [
+        "bundle directory is absent"
+      ],
+      "status": "BLOCKED"
+    },
+    {
+      "artifact_id": "pandas-66085-wheelhouse",
+      "errors": [
+        "bundle directory is absent"
+      ],
+      "status": "BLOCKED"
+    }
+  ],
+  "catalog_digest": "sha256:d7a889ec7d1a10b50c704ffd0e7397b00cd4ae979397b00b9ed336591049ecb6",
+  "catalog_policy": "No historical bytes are redistributed. RECONSTRUCT_ONLY files are acquired from approved PyPI source URLs and verified by filename, byte size, SHA-256, archive safety, and bundle digest before any network-denied execution.",
+  "errors": [
+    "pandas-55137-wheelhouse: bundle directory is absent",
+    "sklearn-30512-wheelhouse: bundle directory is absent",
+    "pandas-45601-wheelhouse: bundle directory is absent",
+    "pandas-57124-wheelhouse: bundle directory is absent",
+    "pandas-66085-wheelhouse: bundle directory is absent"
+  ],
+  "network_used": false,
+  "status": "BLOCKED",
+  "suite_id": "decisive-v1.2"
+}

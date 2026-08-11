@@ -1,11 +1,11 @@
 {
-  "candidate_command": "not supplied",
+  "candidate_interface": "candidate-image plus candidate-argv",
   "exact_comparison": {
     "status": "NO_REFERENCE"
   },
   "historical_runtime": "recipes present; artifact-backed execution not observed",
   "network_used": false,
   "reference_used_as_runtime_evidence": false,
-  "status": "BLOCKED_REPRODUCIBILITY",
+  "status": "NOT_RUN",
   "suite": "decisive-v1.2"
 }

@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://radar-bench.dev/schema/runtime-recipes-v1.2.schema.json",
+  "type": "object", "additionalProperties": false,
+  "required": ["schema_version", "suite_id", "artifact_catalog", "recipes"],
+  "properties": {"schema_version": {"const": "1.2"}, "suite_id": {"const": "decisive-v1.2"}, "artifact_catalog": {"type": "string"}, "recipes": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"type": "object", "additionalProperties": true, "required": ["case_id", "platform", "control", "candidate"], "properties": {"case_id": {"type": "string"}, "platform": {"type": "object", "required": ["container_image", "architecture"]}, "control": {"type": "object", "required": ["packages", "command"]}, "candidate": {"type": "object", "required": ["packages", "command"]}}}}}
+}

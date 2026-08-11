@@ -1,17 +1,22 @@
 {
   "candidate_bundle": {
-    "digest": "sha256:eb0d664ca6e89cc7d571da47ec2cf78d016ad10f0f47bfa4c2b5778fcd25affc",
+    "digest": "sha256:0c9d87058d4211e834612abbde0b1893e12f6be64a1236d025ac105b85ad8584",
     "errors": [],
+    "shape_audit": {
+      "errors": [],
+      "status": "PASS",
+      "unique_evidence_shapes": 1
+    },
     "valid": true
   },
-  "candidate_digest": "sha256:e01beb28d835836bf6b2e8d075f3dc8b1749ef7a97757a773edef0c05c09b0d4",
+  "candidate_digest": "sha256:5358b2b14dc738e904472567f288fd5ddfd538a4fcea0aee31cdd25fdbc8fc88",
   "errors": [],
   "evaluator_bundle": {
-    "digest": "sha256:4428b7d23fc02944ffb15b20cff7f750559dad715670d8ef4eea2ec9c593f87a",
+    "digest": "sha256:10ce73731135832ce8ae7b5461bcb8465cc46ef0bb45f2e7cb47e723ab1d738a",
     "errors": [],
     "valid": true
   },
-  "evaluator_digest": "sha256:ca5220ef4b12ce0419d24588113a65871d5808aefb5a8628ff56add82ca5af12",
+  "evaluator_digest": "sha256:10ce73731135832ce8ae7b5461bcb8465cc46ef0bb45f2e7cb47e723ab1d738a",
   "status": "PASS",
   "valid": true
 }
