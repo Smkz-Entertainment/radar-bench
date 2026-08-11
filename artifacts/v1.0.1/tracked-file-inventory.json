@@ -332,16 +332,16 @@
       "path": "artifacts/v1.0.1/security-audit.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:338e802d41ae170d9255c137cfbd28b2306b2171db574ece156954c84bd4e9d0"
+      "sha256": "sha256:bb6ceb2a9a5d5780075fd971c46f01017fe6e714262e687195814f1252a65c35"
     },
     {
-      "bytes": 74095,
+      "bytes": null,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "artifacts/v1.0.1/tracked-file-inventory.json",
       "purpose": "release evidence",
       "release_classification": "evidence",
-      "sha256": "sha256:249cff5050840759e5bc2b91c3b165e2b389869d87d8958f212ac1bfcd41ada0"
+      "sha256": "SELF_REFERENCE_OMITTED"
     },
     {
       "bytes": 277,
@@ -965,13 +965,13 @@
       "sha256": "sha256:7a71c98424fb8cca9d0dc0d2a78027c241fb568c44e1694db0158c6dc692aa6d"
     },
     {
-      "bytes": 25935,
+      "bytes": 26331,
       "keep_decision": "KEEP",
       "package_inclusion": "not packaged",
       "path": "scripts/verify_release.py",
       "purpose": "release and audit tooling",
       "release_classification": "tooling",
-      "sha256": "sha256:fe159b40bcd1e9d60018506295018bb7822666cb0bdea43479b5f25a4cc1b6a8"
+      "sha256": "sha256:80331ab3f51b0daa8dfc070ba6881631487742b726decfeadf7a52f3f76277bb"
     },
     {
       "bytes": 97,

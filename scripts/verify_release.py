@@ -126,12 +126,21 @@ def _inventory(root: Path) -> dict[str, Any]:
     for relative in _git_files(root):
         path = root / relative
         if path.is_file():
+            normalized = relative.replace("\\", "/")
             purpose, classification, package_inclusion, keep = _purpose(relative)
             files.append(
                 {
-                    "path": relative.replace("\\", "/"),
-                    "bytes": path.stat().st_size,
-                    "sha256": _digest(path),
+                    "path": normalized,
+                    "bytes": (
+                        None
+                        if normalized == "artifacts/v1.0.1/tracked-file-inventory.json"
+                        else path.stat().st_size
+                    ),
+                    "sha256": (
+                        "SELF_REFERENCE_OMITTED"
+                        if normalized == "artifacts/v1.0.1/tracked-file-inventory.json"
+                        else _digest(path)
+                    ),
                     "purpose": purpose,
                     "release_classification": classification,
                     "package_inclusion": package_inclusion,
