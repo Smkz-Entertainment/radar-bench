@@ -1,5 +1,5 @@
 {
-  "count": 199,
+  "count": 200,
   "files": [
     {
       "bytes": 112,
@@ -1773,6 +1773,15 @@
       "purpose": "automated tests",
       "release_classification": "test",
       "sha256": "sha256:29acbb9a646f500e6c77270a9fadb5dba4e339cf055b129e728afe2e2b71e2be"
+    },
+    {
+      "bytes": 1646,
+      "keep_decision": "KEEP",
+      "package_inclusion": "not packaged",
+      "path": "tests/test_release_tooling.py",
+      "purpose": "automated tests",
+      "release_classification": "test",
+      "sha256": "sha256:860383307eddead507b90b7d387daebbc846890bdd7665b985be731b46a3064f"
     },
     {
       "bytes": 2506,
