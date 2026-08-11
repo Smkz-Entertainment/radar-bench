@@ -12,11 +12,11 @@
   "candidate_digest": "sha256:5358b2b14dc738e904472567f288fd5ddfd538a4fcea0aee31cdd25fdbc8fc88",
   "errors": [],
   "evaluator_bundle": {
-    "digest": "sha256:10ce73731135832ce8ae7b5461bcb8465cc46ef0bb45f2e7cb47e723ab1d738a",
+    "digest": "sha256:5d962f082b809f8dd2c3349b62f30cf4777f45177783c17740d8ec93f30f6803",
     "errors": [],
     "valid": true
   },
-  "evaluator_digest": "sha256:10ce73731135832ce8ae7b5461bcb8465cc46ef0bb45f2e7cb47e723ab1d738a",
+  "evaluator_digest": "sha256:5d962f082b809f8dd2c3349b62f30cf4777f45177783c17740d8ec93f30f6803",
   "status": "PASS",
   "valid": true
 }

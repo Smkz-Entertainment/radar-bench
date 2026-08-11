@@ -8,7 +8,7 @@
     "coverage": "BLOCKED",
     "gold_separation": "PASS",
     "information_sufficiency": "BLOCKED_INFORMATION_SUFFICIENCY",
-    "package_build": "NOT_RUN",
+    "package_build": "PASS",
     "resource_integrity": "PASS",
     "security": "BLOCKED",
     "tag_integrity": "PASS"

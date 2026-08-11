@@ -41,6 +41,12 @@ radar_bench = [
   "py.typed",
   "resources/candidate/decisive-v1.2/*.json",
   "resources/corpus/v1.1.0/decisive-v1.2/*.json",
+  "resources/corpus/v1.0.1/decisive-v1.1/reproducers/*.py",
+  "resources/corpus/v1.0.1/safety-twins/*.json",
+  "resources/corpus/v1.0.1/safety-twins/runtime/*.py",
+  "resources/corpus/v1.0.1/safety-twins/runtime/*/*.py",
+  "resources/corpus/v1.0.1/safety-twins/runtime/*/*.dat",
+  "resources/corpus/v1.0.1/safety-twins/views/*.json",
   "resources/schema/*.json",
 ]
 

@@ -23,6 +23,7 @@ from radar_bench.v1_2 import (
     V12_SUITE_ID,
     evaluate_v12,
     information_sufficiency_audit,
+    validate_v12_result_document,
 )
 
 EXIT_OK = 0
@@ -165,7 +166,12 @@ def command_verify_results(args: argparse.Namespace) -> int:
         document = json.loads(path.read_text(encoding="utf-8"))
         if not isinstance(document, dict):
             raise ValueError("result must be a JSON object")
-        validate_result_document(document, root)
+        if document.get("schema_version") == "1.2-jsonl" or document.get("suite_id") == V12_SUITE_ID:
+            errors = validate_v12_result_document(document, root)
+            if errors:
+                raise ValidationError("; ".join(errors))
+        else:
+            validate_result_document(document, root)
     except (OSError, ValueError, ValidationError) as exc:
         _print_json({"valid": False, "errors": [str(exc)]})
         return EXIT_INVALID

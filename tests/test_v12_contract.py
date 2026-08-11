@@ -11,9 +11,12 @@ from radar_bench.v1_2 import (
     ExternalCandidateProtocol,
     V12_SUITE_ID,
     candidate_bundle_audit,
+    build_candidate_packets,
+    canonical_digest,
     generate_episode_ids,
     information_sufficiency_audit,
     source_package_mirror_audit,
+    validate_v12_result_document,
     validate_experiment_request,
 )
 
@@ -43,6 +46,24 @@ def test_episode_ids_are_fresh_and_case_mapping_is_not_derivable() -> None:
     assert all(case_id not in episode_id for case_id, episode_id in first.items())
 
 
+def test_evaluator_binding_survives_one_hundred_randomized_orders() -> None:
+    candidate = json.loads((ROOT / "candidate/decisive-v1.2/candidate-bundle.json").read_text(encoding="utf-8"))
+    evaluator = json.loads((ROOT / "evaluator/decisive-v1.2/evaluator-bundle.json").read_text(encoding="utf-8"))
+    expected = {item["record_id"]: canonical_digest(item["evidence"]) for item in candidate["cases"]}
+    for seed in range(100):
+        class Randomizer:
+            def shuffle(self, values):
+                import random
+                random.Random(seed).shuffle(values)
+
+        episodes = generate_episode_ids()
+        packets = build_candidate_packets(candidate, evaluator["record_case_mapping"], episodes, randomizer=Randomizer())
+        by_case = {evaluator["record_case_mapping"][record_id]: expected[record_id] for record_id in expected}
+        assert {packet.episode_id: canonical_digest(packet.evidence) for packet in packets} == {
+            episodes[case_id]: digest for case_id, digest in by_case.items()
+        }
+
+
 def test_experiment_parameters_are_checked_before_execution() -> None:
     assert validate_experiment_request({"capability": "missing"}) == [
         "UNSUPPORTED_CAPABILITY"
@@ -61,6 +82,18 @@ def test_experiment_parameters_are_checked_before_execution() -> None:
     assert response["cache_hit"] is False
     assert ledger.summary()["fresh_useful_experiment_rate"]["value"] == 1.0
     assert len(calls) == 1
+
+
+def test_experiment_budget_rejects_the_fourth_request() -> None:
+    ledger = ExperimentLedger()
+    request = {"capability": "inspect_environment", "parameters": {}, "request_id": "r"}
+    for index in range(3):
+        request["request_id"] = f"r-{index}"
+        assert ledger.run(request, lambda _request: {"status": "COMPLETED", "result": {"useful": True}})["executor_calls"] == 1
+    request["request_id"] = "r-3"
+    rejected = ledger.run(request, lambda _request: {"status": "COMPLETED"})
+    assert rejected["error_codes"] == ["EXPERIMENT_BUDGET_EXHAUSTED"]
+    assert ledger.summary()["requested"] == 4
 
 
 def test_external_protocol_fails_closed_without_container_network_proof(tmp_path: Path) -> None:
@@ -88,3 +121,16 @@ def test_cli_exposes_v12_candidate_protocol() -> None:
     assert parsed.candidate_image.endswith("a" * 64)
     assert parsed.candidate_argv == ["python", "candidate.py"]
     assert main(["validate", "--suite", V12_SUITE_ID]) in {0, 2}
+
+
+def test_v12_blocked_result_routes_through_v12_contract() -> None:
+    result = {
+        "schema_version": "1.2-jsonl",
+        "suite_id": V12_SUITE_ID,
+        "status": "BLOCKED",
+        "candidate_gold_visible": False,
+        "candidate_repository_visible": False,
+        "network_used": False,
+        "blockers": ["BLOCKED_INFORMATION_SUFFICIENCY"],
+    }
+    assert validate_v12_result_document(result) == []

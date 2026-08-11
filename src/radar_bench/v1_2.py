@@ -310,8 +310,28 @@ class ExperimentLedger:
     """Evaluator-owned accounting; no ledger facts are candidate writable."""
 
     attempts: list[dict[str, Any]] = field(default_factory=list)
+    max_experiments: int = 3
+
+    def reject(self, request: Mapping[str, Any], error_code: str) -> dict[str, Any]:
+        record: dict[str, Any] = {
+            "capability": request.get("capability"),
+            "request_id": request.get("request_id"),
+            "requested": True,
+            "valid": False,
+            "executor_calls": 0,
+            "fresh": False,
+            "cache_hit": False,
+            "reused": False,
+            "available": False,
+            "useful": False,
+            "error_codes": [error_code],
+        }
+        self.attempts.append(record)
+        return record
 
     def run(self, request: Mapping[str, Any], executor: Callable[[Mapping[str, Any]], Mapping[str, Any]]) -> dict[str, Any]:
+        if len(self.attempts) >= self.max_experiments:
+            return self.reject(request, "EXPERIMENT_BUDGET_EXHAUSTED")
         errors = validate_experiment_request(request)
         record: dict[str, Any] = {
             "capability": request.get("capability"),
@@ -364,6 +384,8 @@ class ExperimentLedger:
             "useful_fresh": useful,
             "fresh_useful_experiment_rate": _metric(useful, fresh),
             "requested_experiment_efficiency": _metric(fresh, requested),
+            "max_experiments": self.max_experiments,
+            "budget_exhausted": requested >= self.max_experiments,
         }
 
 
@@ -432,10 +454,36 @@ def validate_gold_provenance(document: Mapping[str, Any] | list[Any], root: Path
             errors.append(f"{record_id}: immutable digest is not a real SHA-256")
         if not isinstance(record.get("source_url"), str) or not str(record["source_url"]).startswith("https://"):
             errors.append(f"{record_id}: source URL is invalid")
+        source_references = record.get("source_references")
+        if not isinstance(source_references, list) or not source_references or any(
+            not isinstance(value, str) or not value.startswith("https://") for value in source_references
+        ):
+            errors.append(f"{record_id}: source references must be non-empty HTTPS URLs")
+        source_timestamps = record.get("source_reference_timestamps")
+        if source_timestamps is not None:
+            if not isinstance(source_timestamps, list) or len(source_timestamps) != len(source_references or []):
+                errors.append(f"{record_id}: source reference timestamps do not align")
+            elif any(not isinstance(value, str) or not ISO_UTC.fullmatch(value) for value in source_timestamps):
+                errors.append(f"{record_id}: source reference timestamps are invalid")
+        source_digests = record.get("source_reference_digests")
+        if source_digests is not None:
+            if not isinstance(source_digests, list) or len(source_digests) != len(source_references or []):
+                errors.append(f"{record_id}: source reference digests do not align")
+            elif any(not isinstance(value, str) or not HEX64.fullmatch(value.removeprefix("sha256:")) for value in source_digests):
+                errors.append(f"{record_id}: source reference digests are invalid")
         if not isinstance(record.get("tcut"), str) or not ISO_UTC.fullmatch(str(record.get("tcut"))):
             errors.append(f"{record_id}: tcut is invalid")
-        if not isinstance(archive_ref, str) or not (root / archive_ref).is_file():
+        archive_path: Path | None = None
+        if isinstance(archive_ref, str):
+            archive_path = (root / archive_ref).resolve()
+            try:
+                archive_path.relative_to(root.resolve())
+            except ValueError:
+                archive_path = None
+        if archive_path is None or not archive_path.is_file():
             errors.append(f"{record_id}: archive reference is absent")
+        elif isinstance(digest, str) and file_digest(archive_path) != digest:
+            errors.append(f"{record_id}: immutable digest does not match archive reference")
         if isinstance(record_id, str):
             by_id[record_id] = record
     return errors
@@ -459,7 +507,13 @@ def score_v12(labels: Mapping[str, Mapping[str, Any]], runs: Mapping[str, Mappin
         if case_id in HISTORICAL_IDS:
             if label["disposition"] == "ATTRIBUTED":
                 attribution_denominator += 1
-                hist_resolution += int(disposition == "ATTRIBUTED")
+                hist_resolution += int(
+                    disposition == "ATTRIBUTED"
+                    and (
+                        not label["causal_component_scored"]
+                        or prediction.get("causal_component") == label["causal_component"]
+                    )
+                )
             elif label["disposition"] == "ABSTAINED":
                 abstention_denominator += 1
                 hist_abstention += int(disposition == "ABSTAINED")
@@ -497,12 +551,51 @@ def score_v12(labels: Mapping[str, Mapping[str, Any]], runs: Mapping[str, Mappin
             "action_owner_correctness": _metric(owner, owner_denominator),
             "cross_repository_resolution": _metric(cross, 1),
             "safety_abstention_recall": _metric(safety_abstention, safety_denominator),
-            "false_owner_accusation_rate": _metric(false_owner, len(ALL_CASE_IDS)),
+            "false_owner_accusation_rate": _metric(
+                false_owner,
+                sum(int(not labels[case_id]["action_owner_scored"]) for case_id in ALL_CASE_IDS),
+            ),
             "fresh_useful_experiment_rate": _metric(useful, fresh),
             "requested_experiment_efficiency": _metric(fresh, requested),
         }
     )
     return {"schema_version": V12_PROTOCOL_VERSION, "metrics": metrics}
+
+
+def validate_v12_result_document(document: Mapping[str, Any], root: Path | None = None) -> list[str]:
+    """Validate the emitted v1.2 result shape, including blocked results."""
+
+    allowed = {
+        "schema_version", "suite_id", "release_version", "status", "candidate_gold_visible",
+        "candidate_repository_visible", "network_used", "episode_ids", "candidate_bundle",
+        "runtime", "artifact_root", "blockers", "information_sufficiency", "evaluator_bundle",
+        "protocol", "protocol_result", "runs", "episode_count", "mapping_digest", "metrics",
+    }
+    required = {"schema_version", "suite_id", "status", "candidate_gold_visible", "candidate_repository_visible", "network_used", "blockers"}
+    errors: list[str] = []
+    if set(document) - allowed:
+        errors.append("v1.2 result contains unexpected fields")
+    if not required.issubset(document):
+        errors.append("v1.2 result is missing required fields")
+    if document.get("schema_version") != V12_PROTOCOL_VERSION or document.get("suite_id") != V12_SUITE_ID:
+        errors.append("v1.2 result identity is invalid")
+    if document.get("status") not in {"BLOCKED", "COMPLETED"}:
+        errors.append("v1.2 result status is invalid")
+    if document.get("candidate_gold_visible") is not False or document.get("candidate_repository_visible") is not False or document.get("network_used") is not False:
+        errors.append("v1.2 result isolation flags are invalid")
+    blockers = document.get("blockers")
+    if not isinstance(blockers, list) or any(not isinstance(item, str) for item in blockers):
+        errors.append("v1.2 result blockers must be a string list")
+    if document.get("status") == "COMPLETED":
+        if document.get("episode_count") != len(ALL_CASE_IDS) or not isinstance(document.get("runs"), Mapping):
+            errors.append("completed v1.2 result must contain all 25 runs")
+        protocol = document.get("protocol")
+        if not isinstance(protocol, Mapping) or protocol.get("network_denied") is not True:
+            errors.append("completed v1.2 result lacks network-denied protocol evidence")
+        metrics = document.get("metrics")
+        if not isinstance(metrics, Mapping) or set(metrics) != set(METRICS):
+            errors.append("completed v1.2 result metrics are incomplete")
+    return errors
 
 
 @dataclass(frozen=True)
@@ -523,6 +616,56 @@ class CandidatePacket:
         }
 
 
+def validate_record_case_mapping(mapping: Mapping[str, Any]) -> list[str]:
+    expected_records = {f"record-{index:03d}" for index in range(1, 26)}
+    if set(mapping) != expected_records:
+        return ["record-to-case mapping must contain exactly record-001 through record-025"]
+    values = [mapping[key] for key in sorted(mapping)]
+    if any(not isinstance(value, str) or value not in ALL_CASE_IDS for value in values):
+        return ["record-to-case mapping contains an unknown case ID"]
+    if len(set(values)) != len(ALL_CASE_IDS):
+        return ["record-to-case mapping must be bijective"]
+    return []
+
+
+def build_candidate_packets(
+    candidate_document: Mapping[str, Any],
+    record_case_mapping: Mapping[str, Any],
+    case_to_episode: Mapping[str, str],
+    *,
+    randomizer: Any | None = None,
+) -> list[CandidatePacket]:
+    """Bind opaque records to cases on the evaluator side before shuffling.
+
+    The candidate never receives ``record_id`` or ``case_id``.  Keeping the
+    pair together before randomization prevents independent-list shuffles from
+    corrupting the evaluator's gold alignment.
+    """
+
+    errors = validate_record_case_mapping(record_case_mapping)
+    if errors:
+        raise ValueError("; ".join(errors))
+    raw_cases = candidate_document.get("cases")
+    if not isinstance(raw_cases, list) or len(raw_cases) != len(ALL_CASE_IDS):
+        raise ValueError("candidate document does not contain 25 case records")
+    bound: list[tuple[str, Mapping[str, Any]]] = []
+    for item in raw_cases:
+        if not isinstance(item, Mapping) or not isinstance(item.get("record_id"), str) or not isinstance(item.get("evidence"), Mapping):
+            raise ValueError("candidate case record is malformed")
+        record_id = str(item["record_id"])
+        case_id = record_case_mapping.get(record_id)
+        if not isinstance(case_id, str) or case_id not in case_to_episode:
+            raise ValueError(f"record has no evaluator episode binding: {record_id}")
+        bound.append((case_id, cast(Mapping[str, Any], item["evidence"])))
+    if len({case_id for case_id, _ in bound}) != len(ALL_CASE_IDS):
+        raise ValueError("candidate records do not cover all cases exactly once")
+    (randomizer or secrets.SystemRandom()).shuffle(bound)
+    return [
+        CandidatePacket(case_to_episode[case_id], evidence, tuple(sorted(CAPABILITIES)))
+        for case_id, evidence in bound
+    ]
+
+
 def build_candidate_docker_argv(image: str, candidate_argv: Sequence[str], container_name: str, resource_mount: tuple[Path, str] | None = None) -> list[str]:
     if not IMAGE_DIGEST.fullmatch(image):
         raise ValueError("candidate image must be pinned by a full sha256 digest")
@@ -530,7 +673,7 @@ def build_candidate_docker_argv(image: str, candidate_argv: Sequence[str], conta
         raise ValueError("invalid candidate container name")
     if not candidate_argv or any(not isinstance(item, str) or not item for item in candidate_argv):
         raise ValueError("candidate argv must be a non-empty string list")
-    argv = ["docker", "run", "--rm", "--name", container_name, "--network=none", "--read-only", "--cap-drop=ALL", "--security-opt=no-new-privileges", "--user=65532:65532", "--memory=512m", "--memory-swap=512m", "--cpus=1", "--pids-limit=128", "--ulimit", "nofile=1024:1024", "--ulimit", "core=0:0", "--tmpfs", "/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777"]
+    argv = ["docker", "run", "--rm", "--name", container_name, "--network=none", "--read-only", "--cap-drop=ALL", "--security-opt=no-new-privileges", "--user=65532:65532", "--memory=512m", "--memory-swap=512m", "--cpus=1", "--pids-limit=128", "--ulimit", "nofile=1024:1024", "--ulimit", "core=0:0", "--tmpfs", "/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777"]  # nosec B108 - container-local tmpfs, never a host path
     if resource_mount is not None:
         host_path, container_path = resource_mount
         if not host_path.is_absolute() or not container_path.startswith("/") or container_path == "/":
@@ -607,14 +750,38 @@ class ExternalCandidateProtocol:
     def _cleanup_container(self) -> bool:
         if self.container_name is None:
             return False
-        completed = subprocess.run(  # nosec B603 - fixed Docker cleanup argv
-            ["docker", "rm", "-f", self.container_name],
-            capture_output=True,
-            check=False,
-            shell=False,
-            timeout=5,
-        )
-        return completed.returncode == 0
+        docker = self.command[0]
+        try:
+            first = subprocess.run([docker, "inspect", self.container_name], capture_output=True, check=False, shell=False, timeout=5)  # nosec B603
+            if first.returncode != 0:
+                stderr = first.stderr.decode("utf-8", "replace").lower()
+                return "no such object" in stderr or "no such container" in stderr
+            subprocess.run([docker, "rm", "-f", self.container_name], capture_output=True, check=False, shell=False, timeout=5)  # nosec B603
+            final = subprocess.run([docker, "inspect", self.container_name], capture_output=True, check=False, shell=False, timeout=5)  # nosec B603
+            stderr = final.stderr.decode("utf-8", "replace").lower()
+            return final.returncode != 0 and ("no such object" in stderr or "no such container" in stderr)
+        except (OSError, subprocess.SubprocessError):
+            return False
+
+    def _actual_container_config(self) -> list[str]:
+        if self.container_name is None:
+            return ["candidate container name is unavailable"]
+        try:
+            completed = subprocess.run(  # nosec B603 - Docker argv is fixed
+                [self.command[0], "inspect", self.container_name],
+                capture_output=True,
+                check=False,
+                shell=False,
+                timeout=5,
+            )
+            if completed.returncode != 0:
+                return ["running candidate container could not be inspected"]
+            value = json.loads(completed.stdout.decode("utf-8"))
+            if not isinstance(value, list) or not value or not isinstance(value[0], Mapping):
+                return ["docker inspect returned no candidate container"]
+            return verify_actual_container_config(cast(Mapping[str, Any], value[0]))
+        except (OSError, subprocess.SubprocessError, ValueError, UnicodeError) as exc:
+            return [f"candidate container inspect failed: {type(exc).__name__}"]
 
     def run(self, packets: Iterable[CandidatePacket], experiment_executor: Callable[[str, Mapping[str, Any]], Mapping[str, Any]] | None = None) -> dict[str, Any]:
         packet_list = list(packets)
@@ -624,44 +791,111 @@ class ExternalCandidateProtocol:
             return {"status": "BLOCKED", "error": "CANDIDATE_ISOLATION_NOT_PROVEN", "network_denied": False}
         safe_env = {"PATH": os.environ.get("PATH", ""), "LANG": "C", "LC_ALL": "C", "RADAR_BENCH_EXTERNAL_CANDIDATE": "1"}
         try:
-            process = subprocess.Popen(list(self.command), cwd=self.working_directory, env=safe_env, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, encoding="utf-8", errors="replace")  # nosec B603
+            process = subprocess.Popen(list(self.command), cwd=self.working_directory, env=safe_env, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)  # nosec B603
         except OSError as exc:
             return {"status": "BLOCKED", "error": "CANDIDATE_PROCESS_UNAVAILABLE", "detail": type(exc).__name__}
-        lines: queue.Queue[str | None] = queue.Queue()
-        def reader() -> None:
-            assert process.stdout is not None
-            for line in process.stdout:
-                lines.put(line)
-            lines.put(None)
-        threading.Thread(target=reader, daemon=True).start()
+        frames: queue.Queue[bytes | None] = queue.Queue(maxsize=32)
+        overflow = threading.Event()
+        output_state = {"total": 0}
+        output_lock = threading.Lock()
+
+        def read_stdout() -> None:
+            if process.stdout is None:
+                overflow.set()
+                return
+            buffer = bytearray()
+            try:
+                while not overflow.is_set():
+                    chunk = process.stdout.read(64 * 1024)
+                    if not chunk:
+                        break
+                    with output_lock:
+                        output_state["total"] += len(chunk)
+                        if output_state["total"] > self.max_line_bytes * 32:
+                            overflow.set()
+                            break
+                    buffer.extend(chunk)
+                    while b"\n" in buffer:
+                        frame, _, remainder = buffer.partition(b"\n")
+                        buffer = bytearray(remainder)
+                        if len(frame) > self.max_line_bytes:
+                            overflow.set()
+                            return
+                        try:
+                            frames.put(bytes(frame), timeout=0.1)
+                        except queue.Full:
+                            overflow.set()
+                            return
+                    if len(buffer) > self.max_line_bytes:
+                        overflow.set()
+                        return
+                if buffer and not overflow.is_set():
+                    frames.put(bytes(buffer), timeout=0.1)
+            except (OSError, queue.Full):
+                overflow.set()
+            finally:
+                try:
+                    frames.put(None, timeout=0.1)
+                except queue.Full:
+                    overflow.set()
+
+        def drain_stderr() -> None:
+            if process.stderr is None:
+                overflow.set()
+                return
+            try:
+                while True:
+                    chunk = process.stderr.read(64 * 1024)
+                    if not chunk:
+                        return
+                    with output_lock:
+                        output_state["total"] += len(chunk)
+                        if output_state["total"] > self.max_line_bytes * 32:
+                            overflow.set()
+                            return
+            except OSError:
+                overflow.set()
+
+        threading.Thread(target=read_stdout, daemon=True).start()
+        threading.Thread(target=drain_stderr, daemon=True).start()
         mapping = {packet.episode_id: packet for packet in packet_list}
         finals: dict[str, dict[str, Any]] = {}
-        ledgers: dict[str, ExperimentLedger] = {packet.episode_id: ExperimentLedger() for packet in packet_list}
+        ledgers: dict[str, ExperimentLedger] = {
+            packet.episode_id: ExperimentLedger(max_experiments=max(0, int(packet.budget.get("max_experiments", 3))))
+            for packet in packet_list
+        }
+        finalized: set[str] = set()
         errors: list[str] = []
         try:
-            assert process.stdin is not None
+            inspect_errors = self._actual_container_config()
+            if inspect_errors:
+                errors.extend(["CANDIDATE_ACTUAL_CONFIG_INVALID", *inspect_errors])
+                return {"status": "BLOCKED", "network_denied": False, "predictions": {}, "ledgers": {}, "errors": errors}
+            if process.stdin is None:
+                errors.append("CANDIDATE_PROCESS_STDIN_UNAVAILABLE")
+                return {"status": "BLOCKED", "network_denied": False, "predictions": {}, "ledgers": {}, "errors": errors}
             for packet in packet_list:
-                process.stdin.write(json.dumps(packet.as_json(), sort_keys=True) + "\n")
+                process.stdin.write((json.dumps(packet.as_json(), sort_keys=True) + "\n").encode("utf-8"))
             process.stdin.flush()
             deadline = time.monotonic() + self.timeout_seconds
             ended = False
             while time.monotonic() < deadline and len(finals) < len(packet_list):
+                if overflow.is_set():
+                    errors.append("CANDIDATE_OUTPUT_LIMIT")
+                    break
                 try:
-                    line = lines.get(timeout=max(0.01, min(0.25, deadline - time.monotonic())))
+                    frame = frames.get(timeout=max(0.01, min(0.25, deadline - time.monotonic())))
                 except queue.Empty:
                     if process.poll() is not None:
                         ended = True
                         break
                     continue
-                if line is None:
+                if frame is None:
                     ended = True
                     break
-                if len(line.encode("utf-8")) > self.max_line_bytes:
-                    errors.append("CANDIDATE_LINE_LIMIT")
-                    continue
                 try:
-                    message = json.loads(line)
-                except ValueError:
+                    message = json.loads(frame.decode("utf-8"))
+                except (ValueError, UnicodeDecodeError):
                     errors.append("CANDIDATE_NON_JSON_OUTPUT")
                     continue
                 if not isinstance(message, dict):
@@ -677,24 +911,33 @@ class ExternalCandidateProtocol:
                     continue
                 if message["message"] == "experiment_request":
                     request_id = str(message["request_id"])
-                    if any(item.get("request_id") == request_id for item in ledgers[str(episode_id)].attempts):
+                    episode_key = str(episode_id)
+                    ledger = ledgers[episode_key]
+                    if any(item.get("request_id") == request_id for item in ledger.attempts):
                         errors.append("DUPLICATE_REQUEST_ID")
                         continue
-                    def execute(request: Mapping[str, Any], episode: str = str(episode_id)) -> Mapping[str, Any]:
-                        if experiment_executor is None:
-                            return {"status": "UNAVAILABLE", "observation": {"status": "executor-not-supplied"}}
-                        return dict(experiment_executor(episode, request))
-                    record = ledgers[str(episode_id)].run(message, execute)
+                    if episode_key in finalized:
+                        record = ledger.reject(message, "REQUEST_AFTER_FINAL")
+                    else:
+                        def execute(request: Mapping[str, Any], episode: str = episode_key) -> Mapping[str, Any]:
+                            if experiment_executor is None:
+                                return {"status": "UNAVAILABLE", "observation": {"status": "executor-not-supplied"}}
+                            return dict(experiment_executor(episode, request))
+                        record = ledger.run(message, execute)
                     observation = record.get("response", {}).get("observation", {"status": record.get("response", {}).get("status", "UNAVAILABLE")})
-                    result = {"schema_version": V12_PROTOCOL_VERSION, "message": "experiment_result", "episode_id": str(episode_id), "request_id": request_id, "status": record.get("response", {}).get("status", "UNAVAILABLE"), "observation": observation}
-                    assert process.stdin is not None
-                    process.stdin.write(json.dumps(result, sort_keys=True) + "\n")
+                    status = record.get("response", {}).get("status", record.get("error_codes", ["UNAVAILABLE"])[0])
+                    result = {"schema_version": V12_PROTOCOL_VERSION, "message": "experiment_result", "episode_id": episode_key, "request_id": request_id, "status": status, "observation": observation}
+                    if process.stdin is None:
+                        errors.append("CANDIDATE_PROCESS_STDIN_UNAVAILABLE")
+                        break
+                    process.stdin.write((json.dumps(result, sort_keys=True) + "\n").encode("utf-8"))
                     process.stdin.flush()
                 else:
                     if str(episode_id) in finals:
                         errors.append("DUPLICATE_TERMINAL_RESULT")
                         continue
                     finals[str(episode_id)] = cast(dict[str, Any], message["prediction"])
+                    finalized.add(str(episode_id))
             if len(finals) != len(packet_list):
                 errors.append("MISSING_TERMINAL_RESULT")
             if ended and process.poll() is None:
@@ -708,12 +951,9 @@ class ExternalCandidateProtocol:
                 process.wait(timeout=2)
             except subprocess.TimeoutExpired:
                 process.kill()
-            if process.stderr is not None:
-                stderr = process.stderr.read(self.max_line_bytes + 1)
-                if stderr:
-                    errors.append("CANDIDATE_STDERR_PRESENT")
             try:
-                self._cleanup_container()
+                if not self._cleanup_container():
+                    errors.append("CANDIDATE_CONTAINER_CLEANUP_FAILED")
             except (OSError, subprocess.SubprocessError):
                 errors.append("CANDIDATE_CONTAINER_CLEANUP_FAILED")
         return {"status": "COMPLETED" if not errors and len(finals) == len(packet_list) else "BLOCKED", "network_denied": True, "predictions": finals, "ledgers": {key: value.summary() for key, value in ledgers.items()}, "errors": errors, "exit_code": process.returncode}
@@ -749,15 +989,105 @@ def evaluator_bundle_audit(root: Path, bundle_path: Path | None = None) -> dict[
     except (OSError, ValueError) as exc:
         return {"valid": False, "errors": [f"evaluator bundle unreadable: {type(exc).__name__}"]}
     errors: list[str] = []
-    if set(document) != {"schema_version", "suite_id", "bundle_type", "labels", "gold_provenance"}:
+    if set(document) != {"schema_version", "suite_id", "bundle_type", "record_case_mapping", "labels", "gold_provenance"}:
         errors.append("evaluator bundle fields are not strict")
     if document.get("schema_version") != "1.2" or document.get("suite_id") != V12_SUITE_ID or document.get("bundle_type") != "evaluator-only":
         errors.append("evaluator bundle identity is invalid")
     labels = document.get("labels")
     errors.extend(validate_label_document(labels if isinstance(labels, Mapping) else {}))
+    record_case_mapping = document.get("record_case_mapping")
+    if not isinstance(record_case_mapping, Mapping):
+        errors.append("evaluator record-to-case mapping is absent")
+    else:
+        errors.extend(validate_record_case_mapping(record_case_mapping))
     provenance = document.get("gold_provenance")
     errors.extend(validate_gold_provenance(provenance if isinstance(provenance, (Mapping, list)) else {}, root))
     return {"valid": not errors, "errors": errors, "digest": file_digest(path)}
+
+
+def _validate_solvability_reference(root: Path, candidate: Mapping[str, Any], evidence: Mapping[str, Any]) -> list[str]:
+    """Recompute the candidate-only gate from raw receipts, never from a status claim."""
+
+    errors: list[str] = []
+    if evidence.get("review_type") != "candidate-only-reference":
+        errors.append("review type is not candidate-only")
+    predictions = evidence.get("raw_predictions")
+    receipts = evidence.get("receipts")
+    if not isinstance(predictions, list) or len(predictions) != len(HISTORICAL_IDS):
+        errors.append("raw candidate-only predictions must contain exactly five records")
+    if not isinstance(receipts, list) or len(receipts) != len(HISTORICAL_IDS):
+        errors.append("candidate-only receipts must contain exactly five records")
+    if evidence.get("evaluator_available_during_run") is not False:
+        errors.append("evaluator availability must be false during the candidate run")
+    expected_digest = candidate.get("digest")
+    if not isinstance(expected_digest, str) or evidence.get("candidate_bundle_digest") != expected_digest:
+        errors.append("solvability reference is not bound to the candidate bundle digest")
+    if isinstance(predictions, list):
+        seen: set[str] = set()
+        for item in predictions:
+            if not isinstance(item, Mapping):
+                errors.append("raw prediction is not an object")
+                continue
+            episode_id = item.get("episode_id")
+            if not isinstance(episode_id, str) or episode_id in seen:
+                errors.append("raw prediction episode IDs must be unique opaque strings")
+            seen.add(str(episode_id))
+            if item.get("disposition") not in DISPOSITIONS:
+                errors.append("raw prediction disposition is invalid")
+            if item.get("semantic_intent") not in SEMANTIC_INTENTS:
+                errors.append("raw prediction semantic intent is invalid")
+            if item.get("causal_component") is not None and not isinstance(item.get("causal_component"), str):
+                errors.append("raw prediction causal component is invalid")
+            if not isinstance(item.get("candidate_induced"), bool):
+                errors.append("raw prediction candidate-induced field is invalid")
+            if not isinstance(item.get("evidence_digest"), str) or not HEX64.fullmatch(str(item.get("evidence_digest")).removeprefix("sha256:")):
+                errors.append("raw prediction evidence digest is invalid")
+            if "case_id" in item or "gold" in item or "label" in item:
+                errors.append("raw candidate-only prediction contains evaluator identity")
+    if isinstance(receipts, list):
+        for item in receipts:
+            if (
+                not isinstance(item, Mapping)
+                or item.get("status") != "COMPLETED"
+                or not isinstance(item.get("receipt_digest"), str)
+                or not HEX64.fullmatch(str(item.get("receipt_digest")).removeprefix("sha256:"))
+                or item.get("fresh") is not True
+                or not isinstance(item.get("experiment_count"), int)
+                or not 0 <= cast(int, item.get("experiment_count")) <= 3
+            ):
+                errors.append("candidate-only experiment receipt is invalid")
+    review = evidence.get("historical_review")
+    if not isinstance(review, list) or len(review) != len(HISTORICAL_IDS):
+        errors.append("historical review must contain five opaque episode assertions")
+    else:
+        by_episode = {str(item.get("episode_id")): item for item in predictions if isinstance(item, Mapping) and isinstance(item.get("episode_id"), str)} if isinstance(predictions, list) else {}
+        roles = {str(item.get("role")) for item in review if isinstance(item, Mapping)}
+        if roles != {"A01_OR_OTHER", "A02_SCIPY", "A03_AMBIGUOUS", "A04_OR_OTHER", "A05_OR_OTHER"}:
+            errors.append("historical review roles do not cover the preregistered cross-repository and semantic gates")
+        passed = 0
+        for item in review:
+            if not isinstance(item, Mapping) or not isinstance(item.get("episode_id"), str):
+                errors.append("historical review assertion is invalid")
+                continue
+            prediction = by_episode.get(str(item["episode_id"]))
+            if not isinstance(prediction, Mapping):
+                errors.append("historical review references an unknown episode")
+                continue
+            role = item.get("role")
+            if role == "A02_SCIPY":
+                passed += int(prediction.get("disposition") == "ATTRIBUTED" and prediction.get("causal_component") == "scipy")
+            elif role == "A03_AMBIGUOUS":
+                passed += int(prediction.get("disposition") == "AMBIGUOUS" and prediction.get("semantic_intent") == "ambiguous")
+            else:
+                passed += int(prediction.get("disposition") in {"ATTRIBUTED", "AMBIGUOUS"})
+        if passed < 4:
+            errors.append("raw candidate-only predictions do not meet the four-of-five historical disposition gate")
+    metadata = evidence.get("metadata_only")
+    if not isinstance(metadata, Mapping) or metadata.get("case_type_signal") not in {"NONE", "NO_SIGNAL"}:
+        errors.append("metadata-only lane has not demonstrated no case-type signal")
+    elif not isinstance(metadata.get("classifier_advantage"), (int, float)) or not 0 <= float(metadata["classifier_advantage"]) <= 0.2:
+        errors.append("metadata-only lane exceeds the preregistered predictive bound")
+    return errors
 
 
 def information_sufficiency_audit(root: Path) -> dict[str, Any]:
@@ -770,8 +1100,7 @@ def information_sufficiency_audit(root: Path) -> dict[str, Any]:
     if reference_path.is_file():
         try:
             evidence = _read_json(reference_path)
-            if evidence.get("status") != "PASS" or evidence.get("review_type") != "candidate-only-reference":
-                errors.append("candidate-only solvability reference is not an approved PASS")
+            errors.extend(_validate_solvability_reference(root, candidate, evidence))
         except (OSError, ValueError) as exc:
             errors.append(f"candidate-only solvability reference unreadable: {type(exc).__name__}")
     else:
@@ -849,17 +1178,22 @@ def evaluate_v12(root: Path, *, candidate_image: str | None = None, candidate_ar
     if result["blockers"]:
         return result
     candidate_document = _read_json(root / V12_CANDIDATE_BUNDLE_RELATIVE)
+    evaluator_document = _read_json(evaluator_bundle_path or root / V12_EVALUATOR_BUNDLE_RELATIVE)
+    record_case_mapping = cast(Mapping[str, Any], evaluator_document["record_case_mapping"])
     mapping = generate_episode_ids(ALL_CASE_IDS)
-    cases = {str(item["record_id"]): cast(Mapping[str, Any], item["evidence"]) for item in cast(list[Mapping[str, Any]], candidate_document["cases"])}
-    ordered = list(cases)
-    secrets.SystemRandom().shuffle(ordered)
-    packets = [CandidatePacket(mapping[ALL_CASE_IDS[index]], cases[record_id], tuple(sorted(CAPABILITIES))) for index, record_id in enumerate(ordered)]
+    packets = build_candidate_packets(candidate_document, record_case_mapping, mapping)
     workspace = root / ".candidate-workspace-v1.2"
     workspace.mkdir(mode=0o700, exist_ok=True)
     try:
-        assert isinstance(candidate_image, str) and candidate_argv is not None
+        if not isinstance(candidate_image, str) or candidate_argv is None:
+            result["blockers"].append("CANDIDATE_IMAGE_AND_ARGV_REQUIRED")
+            return result
         protocol = ExternalCandidateProtocol(candidate_image, candidate_argv, working_directory=workspace)
-        protocol_result = protocol.run(packets)
+        from radar_bench.v12_executor import V12ExperimentExecutor
+
+        inverse = {episode: case for case, episode in mapping.items()}
+        executor = V12ExperimentExecutor(root, episode_to_case=inverse, artifact_root=artifact_root)
+        protocol_result = protocol.run(packets, experiment_executor=executor)
     finally:
         try:
             workspace.rmdir()
@@ -875,11 +1209,11 @@ def evaluate_v12(root: Path, *, candidate_image: str | None = None, candidate_ar
     runs: dict[str, Mapping[str, Any]] = {}
     for episode, prediction in predictions.items():
         runs[inverse[episode]] = {"prediction": prediction, "ledger": protocol_result.get("ledgers", {}).get(episode, {})}
-    labels = cast(Mapping[str, Mapping[str, Any]], cast(Mapping[str, Any], _read_json((evaluator_bundle_path or root / V12_EVALUATOR_BUNDLE_RELATIVE))) ["labels"])["cases"]
+    labels = cast(Mapping[str, Mapping[str, Any]], cast(Mapping[str, Any], evaluator_document["labels"])["cases"])
     result["runs"] = runs
     result["episode_count"] = len(predictions)
     result["mapping_digest"] = canonical_digest(sorted(mapping.items()))
-    result["metrics"] = score_v12(cast(Mapping[str, Mapping[str, Any]], labels), runs)["metrics"]
+    result["metrics"] = score_v12(labels, runs)["metrics"]
     result["status"] = "COMPLETED"
     return result
 

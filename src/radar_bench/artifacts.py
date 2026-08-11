@@ -150,7 +150,7 @@ def _validate_archive(path: Path) -> list[str]:
     return errors
 
 
-def _load_bundles(root: Path, suite_id: str) -> tuple[dict[str, Any], tuple[ArtifactBundle, ...]]:
+def _load_v11_bundles(root: Path, suite_id: str) -> tuple[dict[str, Any], tuple[ArtifactBundle, ...]]:
     suite_relative, catalog_relative = _suite_paths(suite_id)
     catalog = _read_json(root / catalog_relative)
     expected_schema = "1.0" if suite_id == "decisive-v1.1" else "1.2"
@@ -264,6 +264,79 @@ def _load_bundles(root: Path, suite_id: str) -> tuple[dict[str, Any], tuple[Arti
     if len({bundle.artifact_id for bundle in bundles}) != 5:
         raise ArtifactContractError("historical cases do not map to five distinct bundles")
     return catalog, tuple(bundles)
+
+
+def _load_v12_bundles(root: Path) -> tuple[dict[str, Any], tuple[ArtifactBundle, ...]]:
+    """Load v1.2 from its public catalog and recipes only.
+
+    The old v1.1 sealing manifests are provenance records, not an installed
+    wheel dependency.  This is intentionally self-contained for wheel users.
+    """
+
+    catalog = _read_json(root / V12_CATALOG_RELATIVE)
+    if catalog.get("schema_version") != "1.2" or catalog.get("suite_id") != "decisive-v1.2":
+        raise ArtifactContractError("artifact catalog has the wrong v1.2 identity")
+    raw_bundles = catalog.get("bundles")
+    if not isinstance(raw_bundles, list) or len(raw_bundles) != 5:
+        raise ArtifactContractError("v1.2 artifact catalog must contain five bundles")
+    by_id: dict[str, Mapping[str, Any]] = {}
+    for item in raw_bundles:
+        if not isinstance(item, Mapping) or not isinstance(item.get("artifact_id"), str):
+            raise ArtifactContractError("v1.2 artifact catalog contains an invalid bundle")
+        artifact_id = str(item["artifact_id"])
+        if not _safe_name(artifact_id) or artifact_id in by_id:
+            raise ArtifactContractError(f"invalid or duplicate v1.2 artifact ID: {artifact_id}")
+        by_id[artifact_id] = item
+    recipes = _read_json(root / V12_SUITE_RELATIVE.parent / "runtime-recipes.json").get("recipes")
+    if not isinstance(recipes, list) or len(recipes) != 5:
+        raise ArtifactContractError("v1.2 runtime recipes must contain five cases")
+    case_to_bundle: dict[str, str] = {}
+    for recipe in recipes:
+        if not isinstance(recipe, Mapping) or not isinstance(recipe.get("case_id"), str):
+            raise ArtifactContractError("v1.2 runtime recipe is invalid")
+        artifacts = recipe.get("artifacts")
+        if not isinstance(artifacts, list) or len(artifacts) != 1 or not isinstance(artifacts[0], str):
+            raise ArtifactContractError(f"{recipe['case_id']}: exactly one artifact bundle is required")
+        artifact_id = str(artifacts[0])
+        if artifact_id not in by_id or str(recipe["case_id"]) in case_to_bundle:
+            raise ArtifactContractError(f"v1.2 recipe references an unknown or duplicate bundle: {recipe['case_id']}")
+        case_to_bundle[str(recipe["case_id"])] = artifact_id
+    bundles: list[ArtifactBundle] = []
+    for case_id, artifact_id in case_to_bundle.items():
+        raw = by_id[artifact_id]
+        raw_files = raw.get("files")
+        if not isinstance(raw_files, list):
+            raise ArtifactContractError(f"invalid v1.2 file inventory: {artifact_id}")
+        files_by_name: dict[str, ArtifactFile] = {}
+        for item in raw_files:
+            if not isinstance(item, Mapping) or not isinstance(item.get("name"), str) or not _safe_name(str(item["name"])):
+                raise ArtifactContractError(f"invalid v1.2 file metadata: {artifact_id}")
+            name, digest, size = str(item["name"]), item.get("sha256"), item.get("size")
+            if not _valid_digest(digest) or type(size) is not int or size < 0 or name in files_by_name:
+                raise ArtifactContractError(f"invalid v1.2 file metadata: {artifact_id}/{name}")
+            files_by_name[name] = ArtifactFile(name, str(digest), size)
+        files = tuple(files_by_name[name] for name in sorted(files_by_name))
+        total_bytes, bundle_digest = raw.get("total_bytes"), raw.get("bundle_digest")
+        if type(total_bytes) is not int or total_bytes < 0 or not _valid_digest(bundle_digest):
+            raise ArtifactContractError(f"invalid v1.2 bundle metadata: {artifact_id}")
+        if sum(item.size for item in files) != total_bytes or _bundle_digest({item.name: (item.digest, item.size) for item in files}) != bundle_digest:
+            raise ArtifactContractError(f"v1.2 bundle digest or size differs: {artifact_id}")
+        case_ids = tuple(str(value) for value in raw.get("case_ids", []))
+        if case_id not in case_ids:
+            raise ArtifactContractError(f"v1.2 catalog does not map case to bundle: {case_id}")
+        status = raw.get("redistribution_status")
+        if status not in {"RECONSTRUCT_ONLY", "REDISTRIBUTABLE", "UNCLEAR_DO_NOT_PUBLISH"}:
+            raise ArtifactContractError(f"invalid redistribution status: {artifact_id}")
+        bundles.append(ArtifactBundle(artifact_id, case_ids, tuple(str(value) for value in raw.get("incidents", [])), str(raw.get("format")), str(raw.get("supported_architecture")), str(raw.get("python")), total_bytes, str(bundle_digest), str(status), tuple(str(value) for value in raw.get("upstream_provenance", [])), files))
+    if len({bundle.artifact_id for bundle in bundles}) != 5:
+        raise ArtifactContractError("v1.2 runtime recipes do not map five distinct bundles")
+    return catalog, tuple(bundles)
+
+
+def _load_bundles(root: Path, suite_id: str) -> tuple[dict[str, Any], tuple[ArtifactBundle, ...]]:
+    if suite_id == "decisive-v1.2":
+        return _load_v12_bundles(root)
+    return _load_v11_bundles(root, suite_id)
 
 
 def default_artifact_root(root: Path, suite_id: str = "decisive-v1.1") -> Path:

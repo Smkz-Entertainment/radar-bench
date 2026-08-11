@@ -3,6 +3,14 @@ prune src/radar_bench/resources/baselines
 prune src/radar_bench/resources/reference
 prune src/radar_bench/resources/corpus/v1.0.1
 
+# The v1.2 runtime bridge needs only sealed reproducers and safety runtime
+# fixtures.  Historical sealing records, evaluator labels, and old suite
+# manifests remain evaluator/provenance material and are not shipped in the
+# public source archive.
+recursive-include src/radar_bench/resources/corpus/v1.0.1/decisive-v1.1/reproducers *.py
+include src/radar_bench/resources/corpus/v1.0.1/safety-twins/runtime-manifest.json
+recursive-include src/radar_bench/resources/corpus/v1.0.1/safety-twins/runtime *.py *.dat
+
 global-exclude __pycache__
 global-exclude *.py[cod]
 global-exclude .coverage

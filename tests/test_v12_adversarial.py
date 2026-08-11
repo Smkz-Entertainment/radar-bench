@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import json
+import shutil
 from pathlib import Path
 
 import pytest
 
-from radar_bench.artifacts import verify_artifacts
+from radar_bench.artifacts import _load_bundles, verify_artifacts
 from radar_bench.v1_2 import (
     ALL_CASE_IDS,
     SAFETY_IDS,
@@ -15,6 +16,7 @@ from radar_bench.v1_2 import (
     metadata_shape_classifier_audit,
     score_v12,
     validate_prediction,
+    validate_gold_provenance,
     validate_protocol_message,
     verify_actual_container_config,
 )
@@ -67,6 +69,10 @@ def test_v12_score_uses_terminal_fields_and_unsupported_owner_claims() -> None:
     assert metrics["cross_repository_resolution"]["value"] == 1.0
     assert metrics["semantic_ambiguity_handling"]["value"] == 1.0
     assert metrics["false_owner_accusation_rate"]["numerator"] == 1
+    assert metrics["false_owner_accusation_rate"]["denominator"] == 22
+
+    runs["RADAR-V07-A01"]["prediction"]["causal_component"] = "numpy"
+    assert score_v12(labels, runs)["metrics"]["historical_attribution_resolution"]["numerator"] == 3
 
 
 def test_historical_gold_and_frozen_git_source_are_observable() -> None:
@@ -74,3 +80,21 @@ def test_historical_gold_and_frozen_git_source_are_observable() -> None:
     artifacts = verify_artifacts(ROOT, "decisive-v1.2", ROOT / "artifacts" / "external" / "decisive-v1.2")
     assert artifacts["status"] == "BLOCKED"
     assert artifacts["network_used"] is False
+
+
+def test_v12_catalog_loader_does_not_require_old_sealed_manifests(tmp_path: Path) -> None:
+    source = ROOT / "corpus/v1.1.0/decisive-v1.2"
+    target = tmp_path / "corpus/v1.1.0/decisive-v1.2"
+    target.mkdir(parents=True)
+    for name in ("suite.json", "artifact-catalog.json", "runtime-recipes.json"):
+        shutil.copy2(source / name, target / name)
+    catalog, bundles = _load_bundles(tmp_path, "decisive-v1.2")
+    assert catalog["suite_id"] == "decisive-v1.2"
+    assert len(bundles) == 5
+
+
+def test_gold_provenance_is_bound_to_archive_bytes() -> None:
+    document = json.loads((ROOT / "evaluator/decisive-v1.2/evaluator-bundle.json").read_text(encoding="utf-8"))
+    record = dict(document["gold_provenance"][0])
+    record["immutable_digest"] = "sha256:" + "0" * 64
+    assert any("immutable digest does not match" in error for error in validate_gold_provenance([record], ROOT))

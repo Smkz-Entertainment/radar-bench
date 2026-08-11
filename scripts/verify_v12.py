@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import argparse
 import json
-import shutil
 import subprocess  # nosec B404 - fixed git argv and shell disabled
+import sys
 import tempfile
 from pathlib import Path
 from typing import Any
@@ -57,7 +57,7 @@ def _coverage_audit(root: Path) -> dict[str, Any]:
         output = Path(handle.name)
     try:
         subprocess.run(  # nosec B603 - fixed module and argv
-            ["python", "-m", "coverage", "json", "-o", str(output)],
+            [sys.executable, "-m", "coverage", "json", "-o", str(output)],
             cwd=root,
             capture_output=True,
             text=True,
@@ -85,11 +85,10 @@ def _coverage_audit(root: Path) -> dict[str, Any]:
         output.unlink(missing_ok=True)
 
 
-def _tool_audit(root: Path, executable: str, arguments: list[str]) -> str:
-    if shutil.which(executable) is None:
-        return "NOT_RUN"
-    completed = subprocess.run(  # nosec B603 - executable is resolved and argv is fixed
-        [executable, *arguments],
+def _package_build_audit(root: Path) -> dict[str, Any]:
+    command = [sys.executable, "-m", "build", "--wheel", "--sdist"]
+    completed = subprocess.run(  # nosec B603 - fixed module and argv
+        command,
         cwd=root,
         capture_output=True,
         text=True,
@@ -98,7 +97,31 @@ def _tool_audit(root: Path, executable: str, arguments: list[str]) -> str:
         check=False,
         shell=False,
     )
-    return "PASS" if completed.returncode == 0 else "FAIL"
+    if completed.returncode == 0:
+        status = "PASS"
+    elif "No module named" in completed.stderr:
+        status = "BLOCKED_TOOL_UNAVAILABLE"
+    else:
+        status = "FAIL_FINDINGS"
+    return {"status": status, "command": " ".join(command)}
+
+
+def _tool_audit(root: Path, module: str, arguments: list[str]) -> str:
+    completed = subprocess.run(  # nosec B603 - executable is resolved and argv is fixed
+        [sys.executable, "-m", module, *arguments],
+        cwd=root,
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        check=False,
+        shell=False,
+    )
+    if completed.returncode == 0:
+        return "PASS"
+    if "No module named" in completed.stderr:
+        return "BLOCKED_TOOL_UNAVAILABLE"
+    return "FAIL_FINDINGS"
 
 
 def main() -> int:
@@ -115,11 +138,12 @@ def main() -> int:
     evaluator = evaluator_bundle_audit(root)
     artifacts = verify_artifacts(root, V12_SUITE_ID)
     coverage = _coverage_audit(root)
+    package_build = _package_build_audit(root)
     security_checks = {
         "ruff": _tool_audit(root, "ruff", ["check", "src", "tests", "scripts"]),
         "mypy_strict": _tool_audit(root, "mypy", ["--strict", "src/radar_bench"]),
         "bandit": _tool_audit(root, "bandit", ["-q", "-r", "src/radar_bench"]),
-        "pip_audit": _tool_audit(root, "pip-audit", ["--strict"]),
+        "pip_audit": _tool_audit(root, "pip_audit", ["--strict", "."]),
         "gitleaks": "NOT_RUN",
         "trufflehog": "NOT_RUN",
         "citation_validation": "NOT_RUN",
@@ -141,6 +165,7 @@ def main() -> int:
     _write(evidence / "baseline-freeze.json", baseline)
     _write(evidence / "resource-integrity.json", {"status": "PASS" if mirror["status"] == "PASS" else "BLOCKED_BENCHMARK_INTEGRITY", "content_addressed_package_materialization": True, "manifest_verified": True, "source_to_package_mirror": mirror, "symlink_rejection": True, "atomic_publish": True, "interprocess_lock": True})
     _write(evidence / "coverage.json", {"required": {"line": ">=90%", "branch": ">=80%"}, "observed_local_run": coverage, "reason": "full production-source coverage must include every production module; no omit list is permitted"})
+    _write(evidence / "package-build.json", package_build)
     _write(evidence / "security-audit.json", {"status": "PASS" if all(value == "PASS" for value in security_checks.values()) else "BLOCKED", "checks": security_checks, "private_vulnerability_reporting": "PENDING_PUBLIC_VISIBILITY", "hosted_ci": "PENDING_PUBLIC_VISIBILITY_OR_BILLING_RESOLUTION"})
     _write(evidence / "secret-scan.json", {"status": "BLOCKED_EXTERNAL_TOOLING", "gitleaks": "NOT_RUN", "trufflehog": "NOT_RUN", "local_private_path_scan": "PASS", "secret_values_emitted": False})
     _write(evidence / "artifact-integrity.json", artifacts)
@@ -155,7 +180,7 @@ def main() -> int:
             "suite": V12_SUITE_ID,
             "final_state": final_state,
             "gates": {
-                "package_build": "NOT_RUN",
+                "package_build": package_build["status"],
                 "candidate_bundle": "PASS" if candidate["valid"] else "FAIL",
                 "gold_separation": "PASS" if separation["valid"] else "FAIL",
                 "information_sufficiency": info["status"],

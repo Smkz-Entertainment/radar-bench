@@ -3,5 +3,16 @@
   "$id": "https://radar-bench.dev/schema/benchmark-result-v1.2.schema.json",
   "type": "object", "additionalProperties": false,
   "required": ["schema_version", "suite_id", "status", "candidate_gold_visible", "candidate_repository_visible", "network_used", "blockers"],
-  "properties": {"schema_version": {"const": "1.2-jsonl"}, "suite_id": {"const": "decisive-v1.2"}, "status": {"enum": ["BLOCKED", "COMPLETED"]}, "candidate_gold_visible": {"const": false}, "candidate_repository_visible": {"const": false}, "network_used": {"const": false}, "blockers": {"type": "array", "items": {"type": "string"}}, "metrics": {"type": "object", "additionalProperties": {"type": "object", "additionalProperties": false, "required": ["value", "numerator", "denominator", "status"], "properties": {"value": {"type": ["number", "null"]}, "numerator": {"type": "integer"}, "denominator": {"type": "integer"}, "status": {"enum": ["evaluable", "not_evaluable"]}}}}}
+  "properties": {
+    "schema_version": {"const": "1.2-jsonl"}, "suite_id": {"const": "decisive-v1.2"},
+    "release_version": {"type": "string"}, "status": {"enum": ["BLOCKED", "COMPLETED"]},
+    "candidate_gold_visible": {"const": false}, "candidate_repository_visible": {"const": false}, "network_used": {"const": false},
+    "episode_ids": {"type": "string"}, "artifact_root": {"type": ["string", "null"]},
+    "blockers": {"type": "array", "items": {"type": "string"}}, "episode_count": {"type": "integer"},
+    "mapping_digest": {"type": "string", "pattern": "^sha256:[0-9a-f]{64}$"},
+    "candidate_bundle": {"type": "object"}, "runtime": {"type": "object"}, "information_sufficiency": {"type": "object"},
+    "evaluator_bundle": {"type": "object"}, "protocol": {"type": "object"}, "protocol_result": {"type": "object"},
+    "runs": {"type": "object"},
+    "metrics": {"type": "object", "additionalProperties": {"type": "object", "additionalProperties": false, "required": ["value", "numerator", "denominator", "status"], "properties": {"value": {"type": ["number", "null"]}, "numerator": {"type": "integer"}, "denominator": {"type": "integer"}, "status": {"enum": ["evaluable", "not_evaluable"]}}}}
+  }
 }

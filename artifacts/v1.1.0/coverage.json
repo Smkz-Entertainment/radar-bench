@@ -1,9 +1,9 @@
 {
   "observed_local_run": {
-    "branch_percent": 46.49,
-    "branches": 1622,
-    "line_percent": 54.92,
-    "statements": 3902,
+    "branch_percent": 38.34,
+    "branches": 1818,
+    "line_percent": 49.78,
+    "statements": 4223,
     "status": "BLOCKED"
   },
   "reason": "full production-source coverage must include every production module; no omit list is permitted",
