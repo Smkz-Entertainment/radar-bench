@@ -52,7 +52,10 @@ jobs:
           test "$(python -c 'import tomllib; print(tomllib.load(open("pyproject.toml","rb"))["project"]["version"])')" = "${RELEASE_TAG#v}"
       - name: Run release verification gates
         run: |
-          python -m pytest -q --cov=radar_bench --cov-fail-under=90
+          python -m coverage erase
+          python -m coverage run --branch -m pytest -q
+          python -m coverage json -o "$RUNNER_TEMP/coverage.json"
+          python scripts/check_coverage.py "$RUNNER_TEMP/coverage.json"
           python -m ruff check .
           python -m mypy --strict src
           python -m bandit -q -r src scripts
@@ -62,6 +65,8 @@ jobs:
           python -m radar_bench.cli validate --suite decisive-v1.1
           python -m radar_bench.cli validate --suite decisive-v1.2
           python -m radar_bench.cli verify-results reference/decisive-v1.1-result.json
+      - name: Run real external protocol experiment smoke
+        run: python scripts/run_protocol_smoke.py --output "$RUNNER_TEMP/protocol-smoke.json"
       - name: Build wheel and sdist
         run: python -m build --wheel --sdist --outdir "$RUNNER_TEMP/radar-dist"
       - name: Write exact source provenance
@@ -104,7 +109,19 @@ jobs:
           import zipfile
 
           dist = pathlib.Path(os.environ["RUNNER_TEMP"]) / "radar-dist"
-          forbidden = ("evaluator", "resources/reference", "resources/baselines", "resources/corpus/v1.0.1")
+          forbidden = (
+              "/resources/reference/",
+              "/resources/baselines/",
+              "/resources/evaluator/",
+              "/evaluator/decisive-v1.2/",
+              "/evaluator-bundle.json/",
+              "/evaluator-labels.json/",
+              "/safety-twins/views/",
+          )
+          required_public = (
+              "/resources/corpus/v1.0.1/decisive-v1.1/reproducers/",
+              "/resources/corpus/v1.0.1/safety-twins/runtime/",
+          )
           for archive in dist.iterdir():
               if archive.suffix == ".whl":
                   with zipfile.ZipFile(archive) as handle:
@@ -114,8 +131,9 @@ jobs:
                       names = handle.getnames()
               else:
                   continue
-              lowered = [name.lower() for name in names]
+              lowered = ["/" + name.lower().replace("\\", "/") + "/" for name in names]
               assert not any(any(token in name for token in forbidden) for name in lowered), archive
+              assert all(any(token in name for name in lowered) for token in required_public), archive
               assert any("decisive-v1.2" in name for name in lowered), archive
           PY
       - name: Verify package checksums and provenance

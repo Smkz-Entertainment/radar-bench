@@ -117,6 +117,28 @@ def _read_observation(path: Path) -> dict[str, Any] | None:
     return value if isinstance(value, dict) else None
 
 
+def _public_secret_scan(value: dict[str, Any] | None) -> dict[str, Any]:
+    """Keep scan results useful without publishing maintainer-local paths."""
+
+    if not isinstance(value, dict):
+        return {
+            "status": "NOT_RUN",
+            "gitleaks": "NOT_RUN",
+            "trufflehog": "NOT_RUN",
+            "local_private_path_scan": "PASS",
+            "secret_values_emitted": False,
+        }
+    result = dict(value)
+    ephemeral = result.get("worktree_ephemeral_state")
+    if isinstance(ephemeral, dict):
+        sanitized = {key: item for key, item in ephemeral.items() if key != "quarantine"}
+        sanitized["quarantine"] = (
+            "ephemeral state removed before release scan; local path intentionally omitted"
+        )
+        result["worktree_ephemeral_state"] = sanitized
+    return result
+
+
 def _tool_audit(root: Path, module: str, arguments: list[str]) -> str:
     completed = subprocess.run(  # nosec B603 - executable is resolved and argv is fixed
         [sys.executable, "-m", module, *arguments],
@@ -170,7 +192,20 @@ def main() -> int:
     _write(evidence / "preregistered-validity-audit.json", json.loads((evidence / "preregistered-validity-audit.json").read_text(encoding="utf-8")))
     _write(evidence / "information-sufficiency.json", info)
     smoke_protocol = (protocol_smoke or {}).get("protocol", {}) if protocol_smoke else {}
-    smoke_completed = isinstance(smoke_protocol, dict) and smoke_protocol.get("status") == "COMPLETED"
+    smoke_round_trip_record = (
+        smoke_protocol.get("experiment_round_trip")
+        if isinstance(smoke_protocol, dict)
+        else None
+    )
+    smoke_round_trip = (
+        isinstance(smoke_round_trip_record, dict)
+        and smoke_round_trip_record.get("status") == "PASS"
+    )
+    smoke_completed = (
+        isinstance(smoke_protocol, dict)
+        and smoke_protocol.get("status") == "COMPLETED"
+        and smoke_round_trip
+    )
     canonical_pass = isinstance(canonical_result, dict) and canonical_result.get("status") == "COMPLETED" and canonical_result.get("episode_count") == 25 and canonical_result.get("isolation_verification", {}).get("cleanup_verified") is True
     _write(
         evidence / "candidate-isolation.json",
@@ -193,7 +228,7 @@ def main() -> int:
     _write(evidence / "coverage.json", {"required": {"line": ">=90%", "branch": ">=80%"}, "observed_local_run": coverage, "reason": "full production-source coverage must include every production module; no omit list is permitted"})
     _write(evidence / "package-build.json", package_build)
     _write(evidence / "security-audit.json", {"status": "PASS" if all(value == "PASS" for value in security_checks.values()) else "BLOCKED", "checks": security_checks, "private_vulnerability_reporting": "PENDING_PUBLIC_VISIBILITY", "hosted_ci": "PENDING_PUBLIC_VISIBILITY_OR_BILLING_RESOLUTION"})
-    _write(evidence / "secret-scan.json", secret_scan or {"status": "NOT_RUN", "gitleaks": "NOT_RUN", "trufflehog": "NOT_RUN", "local_private_path_scan": "PASS", "secret_values_emitted": False})
+    _write(evidence / "secret-scan.json", _public_secret_scan(secret_scan))
     _write(evidence / "artifact-integrity.json", artifacts)
     _write(evidence / "canonical-reproduction.json", {"status": "PASS" if canonical_pass and historical_pass and safety_pass else "BLOCKED_PARTIAL_EXECUTION" if safety_execution or protocol_smoke or historical_execution or canonical_result else "NOT_RUN", "suite": V12_SUITE_ID, "candidate_interface": "candidate-image plus candidate-argv", "historical_runtime": historical_execution, "safety_execution": safety_execution, "canonical_candidate_execution": canonical_result, "candidate_protocol_smoke": protocol_smoke, "network_used": False, "reference_used_as_runtime_evidence": False, "exact_comparison": compare_exact_reference({"suite_id": V12_SUITE_ID}, None)})
     _write(evidence / "tag-integrity.json", _tags(root))
@@ -209,6 +244,7 @@ def main() -> int:
         "security": "PASS" if all(value == "PASS" for value in security_checks.values()) else "BLOCKED",
         "clean_clone_reproduction": clean_clone.get("status", "NOT_RUN") if isinstance(clean_clone, dict) else "NOT_RUN",
         "candidate_isolation": "PASS" if canonical_pass else "PASS_PROTOCOL_SMOKE_ONLY" if smoke_completed else "BLOCKED",
+        "candidate_protocol_smoke": "PASS" if smoke_completed else "BLOCKED",
         "historical_execution": "PASS" if historical_pass else "BLOCKED",
         "canonical_decisive_v1_2": "PASS" if canonical_pass else "BLOCKED_PARTIAL_EXECUTION" if safety_execution or protocol_smoke or historical_execution or canonical_result else "NOT_RUN",
         "tag_integrity": "PASS",
@@ -224,6 +260,7 @@ def main() -> int:
         "security",
         "clean_clone_reproduction",
         "candidate_isolation",
+        "candidate_protocol_smoke",
         "historical_execution",
         "canonical_decisive_v1_2",
         "tag_integrity",

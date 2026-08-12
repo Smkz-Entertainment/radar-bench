@@ -34,6 +34,9 @@ V12_SOLVABILITY_RELATIVE = Path("artifacts/v1.1.0/solvability-reference.json")
 HISTORICAL_IDS = tuple(f"RADAR-V07-A{index:02d}" for index in range(1, 6))
 SAFETY_IDS = tuple(f"RADAR-V07-T{index:02d}" for index in range(1, 21))
 ALL_CASE_IDS = HISTORICAL_IDS + SAFETY_IDS
+SUFFICIENCY_COMPONENT_ROLES = frozenset(
+    {"A01_OR_OTHER", "A02_SCIPY", "A03_AMBIGUOUS", "A04_OR_OTHER", "A05_OR_OTHER"}
+)
 CAPABILITIES = frozenset(
     {
         "rerun",
@@ -1212,12 +1215,29 @@ def _validate_solvability_reference(root: Path, candidate: Mapping[str, Any], ev
                 errors.append("historical review references an unknown episode")
                 continue
             role = item.get("role")
+            has_component = isinstance(prediction.get("causal_component"), str) and bool(
+                str(prediction.get("causal_component")).strip()
+            )
+            if role in SUFFICIENCY_COMPONENT_ROLES and not has_component:
+                errors.append(f"{role} requires a non-empty scored causal component")
             if role == "A02_SCIPY":
-                passed += int(prediction.get("disposition") == "ATTRIBUTED" and prediction.get("causal_component") == "scipy")
+                passed += int(
+                    prediction.get("disposition") == "ATTRIBUTED"
+                    and prediction.get("causal_component") == "scipy"
+                )
             elif role == "A03_AMBIGUOUS":
-                passed += int(prediction.get("disposition") == "AMBIGUOUS" and prediction.get("semantic_intent") == "ambiguous")
+                passed += int(
+                    prediction.get("disposition") == "AMBIGUOUS"
+                    and prediction.get("semantic_intent") == "ambiguous"
+                    and has_component
+                )
+            elif role in SUFFICIENCY_COMPONENT_ROLES:
+                passed += int(
+                    prediction.get("disposition") == "ATTRIBUTED"
+                    and has_component
+                )
             else:
-                passed += int(prediction.get("disposition") in {"ATTRIBUTED", "AMBIGUOUS"})
+                errors.append(f"historical review role is not preregistered: {role}")
         if passed < 4:
             errors.append("raw candidate-only predictions do not meet the four-of-five historical disposition gate")
     metadata = evidence.get("metadata_only")

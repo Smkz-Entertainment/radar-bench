@@ -34,6 +34,10 @@ def _prediction(packet: CandidatePacket, response: dict[str, Any]) -> dict[str, 
         causal_component = "pandas"
         disposition = "AMBIGUOUS"
         semantic_intent = "ambiguous"
+    elif "pandas" in excerpt:
+        causal_component = "pandas"
+        disposition = "ATTRIBUTED"
+        semantic_intent = "known"
     elif candidate_induced:
         causal_component = None
         disposition = "ATTRIBUTED"

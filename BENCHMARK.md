@@ -51,5 +51,7 @@ and protocol contract. The candidate bundle contains only T-cut evidence and
 runtime capabilities. Gold labels, provenance, scoring eligibility, and case
 mapping are evaluator-only. Each invocation receives fresh random episode IDs;
 the evaluator canonicalizes returned order and rejects case IDs or gold fields
-from candidate output. The suite remains blocked until historical runtimes and
-the external candidate harness reproduce the evidence in a clean clone.
+from candidate output. The current release-candidate evidence records the
+historical runtimes and external candidate harness reproduced in two clean
+clones; publication remains held until the independent release audit is
+complete.

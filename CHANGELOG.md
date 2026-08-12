@@ -14,8 +14,9 @@
 ### Release status
 
 This package is not a GitHub release and no tag was created or moved. The
-canonical historical suite remains `BLOCKED_REPRODUCIBILITY` until a clean-room
-runtime and artifact reproduction is independently available.
+release-candidate evidence records completed artifact/runtime reproduction and
+two clean-clone runs. The exact candidate tree remains withheld from
+publication until the independent release audit approves it.
 
 ## 1.0.1 - 2026-08-10
 

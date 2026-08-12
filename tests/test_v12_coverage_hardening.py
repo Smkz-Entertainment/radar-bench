@@ -2423,6 +2423,21 @@ def test_v12_reference_protocol_and_package_audit_matrix(
     candidate_audit = v12.candidate_bundle_audit(ROOT)
     reference = json.loads((ROOT / v12.V12_SOLVABILITY_RELATIVE).read_text(encoding="utf-8"))
     assert not v12._validate_solvability_reference(ROOT, {"digest": candidate_audit["digest"]}, reference)
+    missing_scored_component = copy.deepcopy(reference)
+    episode = next(
+        item["episode_id"]
+        for item in missing_scored_component["historical_review"]
+        if item["role"] == "A01_OR_OTHER"
+    )
+    next(item for item in missing_scored_component["raw_predictions"] if item["episode_id"] == episode)["causal_component"] = None
+    assert v12._validate_solvability_reference(
+        ROOT, {"digest": candidate_audit["digest"]}, missing_scored_component
+    )
+    unknown_role = copy.deepcopy(reference)
+    unknown_role["historical_review"][0]["role"] = "UNKNOWN_ROLE"
+    assert v12._validate_solvability_reference(
+        ROOT, {"digest": candidate_audit["digest"]}, unknown_role
+    )
     mutations: list[dict[str, Any]] = [
         {"review_type": "wrong"},
         {"raw_predictions": []},

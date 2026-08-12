@@ -24,8 +24,10 @@ candidate execution; a blocked run is never converted into a score.
 The v1.1.0 package adds the separately identified `decisive-v1.2` candidate
 protocol. It is a release candidate, not a public benchmark release: candidate
 evidence and evaluator gold are physically separate, episode IDs are random per
-run, and the canonical historical evaluation remains fail-closed until the
-runtime/artifact clean-room gate is independently reproduced.
+run, and the tracked release-candidate evidence records completed historical,
+safety, canonical, and two clean-clone reproductions. These records do not
+replace the independent release audit; publication remains held until that
+audit is complete.
 
 ## Quickstart
 
