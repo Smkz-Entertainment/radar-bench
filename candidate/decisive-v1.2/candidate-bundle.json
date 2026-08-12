@@ -5,11 +5,11 @@
   "evidence_schema": "candidate-evidence-v1.2",
   "cutoff_policy": "only evidence available at the sealed investigation cutoff",
   "capabilities": [
-    "rerun",
-    "inspect_environment",
+    "change_dependency_version",
     "inspect_dependency_graph",
-    "run_minimal_test",
-    "change_dependency_version"
+    "inspect_environment",
+    "rerun",
+    "run_minimal_test"
   ],
   "resource_policy": {
     "network": "denied",
@@ -27,49 +27,50 @@
       "record_id": "record-001",
       "evidence": {
         "context": {
-          "project": "pandas",
-          "revision": "sealed-revision-01",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "pickle-compatibility",
-          "test_identity": "pickle compatibility loading fails after an internal placement-shape change",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "TypeError",
-          "summary": "pickle compatibility loading fails after an internal placement-shape change"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.10.12",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "1.3.4",
-            "numpy": "1.25.2"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.10.12",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.1.0",
-            "numpy": "1.25.2"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "pandas",
-            "from": "1.3.4",
-            "to": "2.1.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "pandas"
+            "sealed-component"
+          ],
+          "constraints": [
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "pandas/core/internals/blocks.py",
-          "pandas/core/internals/managers.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -78,8 +79,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-01",
-          "runtime-manifest-01"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -87,52 +88,50 @@
       "record_id": "record-002",
       "evidence": {
         "context": {
-          "project": "scikit-learn",
-          "revision": "sealed-revision-02",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "spline-pickle",
-          "test_identity": "estimator pickle check fails through the interpolation evaluation path",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "ValueError",
-          "summary": "estimator pickle check fails through the interpolation evaluation path"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.10.12",
+          "python": "sealed-python",
           "packages": {
-            "scikit-learn": "1.6.0",
-            "numpy": "2.2.0",
-            "scipy": "1.14.1"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.10.12",
+          "python": "sealed-python",
           "packages": {
-            "scikit-learn": "1.6.0",
-            "numpy": "2.2.0",
-            "scipy": "1.15.0rc1"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "scipy",
-            "from": "1.14.1",
-            "to": "1.15.0rc1"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "scipy"
+            "sealed-component"
           ],
-          "consumer": "scikit-learn"
+          "constraints": [
+            "sealed-graph"
+          ]
         },
         "source_location_evidence": [
-          "scipy/interpolate/_bsplines.py",
-          "scipy/interpolate/_dierckx.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -141,8 +140,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-02",
-          "runtime-manifest-02"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -150,49 +149,50 @@
       "record_id": "record-003",
       "evidence": {
         "context": {
-          "project": "pandas",
-          "revision": "sealed-revision-03",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "nullable-replace",
-          "test_identity": "nullable replacement preserves a missing-value sentinel in the candidate",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "behavior-difference",
-          "summary": "nullable replacement preserves a missing-value sentinel in the candidate"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.10.12",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "1.3.5",
-            "numpy": "1.21.5"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.10.12",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "1.4.0",
-            "numpy": "1.21.5"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "pandas",
-            "from": "1.3.5",
-            "to": "1.4.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "pandas"
+            "sealed-component"
+          ],
+          "constraints": [
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "pandas/core/missing.py",
-          "pandas/core/series.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -201,8 +201,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-03",
-          "runtime-manifest-03"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -210,49 +210,50 @@
       "record_id": "record-004",
       "evidence": {
         "context": {
-          "project": "pandas",
-          "revision": "sealed-revision-04",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "update-warning",
-          "test_identity": "the candidate emits a deprecation warning during an update operation",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "warning-difference",
-          "summary": "the candidate emits a deprecation warning during an update operation"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.10.12",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.1.4",
-            "numpy": "1.25.2"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.10.12",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.2.0",
-            "numpy": "1.25.2"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "pandas",
-            "from": "2.1.4",
-            "to": "2.2.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "pandas"
+            "sealed-component"
+          ],
+          "constraints": [
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "pandas/core/frame.py",
-          "pandas/core/indexing.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -261,8 +262,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-04",
-          "runtime-manifest-04"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -270,49 +271,50 @@
       "record_id": "record-005",
       "evidence": {
         "context": {
-          "project": "pandas",
-          "revision": "sealed-revision-05",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "datetime-segmentation",
-          "test_identity": "the candidate process terminates while constructing a datetime index",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "segmentation-fault",
-          "summary": "the candidate process terminates while constructing a datetime index"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.13.0",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "3.0.3",
-            "numpy": "2.4.6"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.13.0",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "3.0.4",
-            "numpy": "2.4.6"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "pandas",
-            "from": "3.0.3",
-            "to": "3.0.4"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "pandas"
+            "sealed-component"
+          ],
+          "constraints": [
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "pandas/core/arrays/datetimes.py",
-          "pandas/_libs/tslibs"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -321,8 +323,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-05",
-          "runtime-manifest-05"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -330,52 +332,50 @@
       "record_id": "record-006",
       "evidence": {
         "context": {
-          "project": "xarray",
-          "revision": "sealed-revision-01",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "behavior-difference",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "numpy": "1.26.4",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "numpy": "2.0.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "numpy",
-            "from": "1.26.4",
-            "to": "2.0.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "numpy"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "xarray/tests/fixtures.py",
-          "xarray/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -384,8 +384,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-01",
-          "runtime-manifest-01"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -393,52 +393,50 @@
       "record_id": "record-007",
       "evidence": {
         "context": {
-          "project": "scikit-learn",
-          "revision": "sealed-revision-02",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "behavior-difference",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.1.4",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.2.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "pandas",
-            "from": "2.1.4",
-            "to": "2.2.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "pandas"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "scikit-learn/tests/fixtures.py",
-          "scikit-learn/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -447,8 +445,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-02",
-          "runtime-manifest-02"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -456,52 +454,50 @@
       "record_id": "record-008",
       "evidence": {
         "context": {
-          "project": "pandas",
-          "revision": "sealed-revision-03",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "behavior-difference",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "scipy": "1.14.1",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "scipy": "1.15.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "scipy",
-            "from": "1.14.1",
-            "to": "1.15.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "scipy"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "pandas/tests/fixtures.py",
-          "pandas/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -510,8 +506,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-03",
-          "runtime-manifest-03"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -519,52 +515,50 @@
       "record_id": "record-009",
       "evidence": {
         "context": {
-          "project": "numpy",
-          "revision": "sealed-revision-04",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "behavior-difference",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "joblib": "1.4.2",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "joblib": "1.5.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "joblib",
-            "from": "1.4.2",
-            "to": "1.5.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "joblib"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "numpy/tests/fixtures.py",
-          "numpy/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -573,8 +567,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-04",
-          "runtime-manifest-04"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -582,52 +576,50 @@
       "record_id": "record-010",
       "evidence": {
         "context": {
-          "project": "xarray",
-          "revision": "sealed-revision-05",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "behavior-difference",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "numpy": "1.26.4",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "numpy": "2.0.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "numpy",
-            "from": "1.26.4",
-            "to": "2.0.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "numpy"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "xarray/tests/fixtures.py",
-          "xarray/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -636,8 +628,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-05",
-          "runtime-manifest-05"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -645,52 +637,50 @@
       "record_id": "record-011",
       "evidence": {
         "context": {
-          "project": "xarray",
-          "revision": "sealed-revision-06",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "behavior-difference",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.1.4",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.2.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "pandas",
-            "from": "2.1.4",
-            "to": "2.2.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "pandas"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "xarray/tests/fixtures.py",
-          "xarray/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -699,8 +689,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-06",
-          "runtime-manifest-06"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -708,52 +698,50 @@
       "record_id": "record-012",
       "evidence": {
         "context": {
-          "project": "scikit-learn",
-          "revision": "sealed-revision-07",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "behavior-difference",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "scipy": "1.14.1",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "scipy": "1.15.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "scipy",
-            "from": "1.14.1",
-            "to": "1.15.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "scipy"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "scikit-learn/tests/fixtures.py",
-          "scikit-learn/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -762,8 +750,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-07",
-          "runtime-manifest-07"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -771,52 +759,50 @@
       "record_id": "record-013",
       "evidence": {
         "context": {
-          "project": "pandas",
-          "revision": "sealed-revision-08",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "behavior-difference",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "joblib": "1.4.2",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "joblib": "1.5.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "joblib",
-            "from": "1.4.2",
-            "to": "1.5.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "joblib"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "pandas/tests/fixtures.py",
-          "pandas/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -825,8 +811,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-08",
-          "runtime-manifest-08"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -834,52 +820,50 @@
       "record_id": "record-014",
       "evidence": {
         "context": {
-          "project": "numpy",
-          "revision": "sealed-revision-09",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "required-wheel-unavailable",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "numpy": "1.26.4",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "numpy": "2.0.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "numpy",
-            "from": "1.26.4",
-            "to": "2.0.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "numpy"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "numpy/tests/fixtures.py",
-          "numpy/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -888,8 +872,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-09",
-          "runtime-manifest-09"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -897,52 +881,50 @@
       "record_id": "record-015",
       "evidence": {
         "context": {
-          "project": "xarray",
-          "revision": "sealed-revision-10",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "required-wheel-unavailable",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.1.4",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.2.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "pandas",
-            "from": "2.1.4",
-            "to": "2.2.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "pandas"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "xarray/tests/fixtures.py",
-          "xarray/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -951,8 +933,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-10",
-          "runtime-manifest-10"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -960,52 +942,50 @@
       "record_id": "record-016",
       "evidence": {
         "context": {
-          "project": "xarray",
-          "revision": "sealed-revision-11",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "required-wheel-unavailable",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "scipy": "1.14.1",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "scipy": "1.15.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "scipy",
-            "from": "1.14.1",
-            "to": "1.15.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "scipy"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "xarray/tests/fixtures.py",
-          "xarray/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -1014,8 +994,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-11",
-          "runtime-manifest-11"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -1023,52 +1003,50 @@
       "record_id": "record-017",
       "evidence": {
         "context": {
-          "project": "scikit-learn",
-          "revision": "sealed-revision-12",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "required-wheel-unavailable",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "joblib": "1.4.2",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "joblib": "1.5.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "joblib",
-            "from": "1.4.2",
-            "to": "1.5.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "joblib"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "scikit-learn/tests/fixtures.py",
-          "scikit-learn/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -1077,8 +1055,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-12",
-          "runtime-manifest-12"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -1086,52 +1064,50 @@
       "record_id": "record-018",
       "evidence": {
         "context": {
-          "project": "pandas",
-          "revision": "sealed-revision-13",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "resolution-selected-different-transitive-set",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "numpy": "1.26.4",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "numpy": "2.0.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "numpy",
-            "from": "1.26.4",
-            "to": "2.0.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "numpy"
+            "sealed-component"
           ],
           "constraints": [
-            "transitive-version-range"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "pandas/tests/fixtures.py",
-          "pandas/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -1140,8 +1116,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-13",
-          "runtime-manifest-13"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -1149,52 +1125,50 @@
       "record_id": "record-019",
       "evidence": {
         "context": {
-          "project": "numpy",
-          "revision": "sealed-revision-14",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "resolution-selected-different-transitive-set",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.1.4",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.2.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "pandas",
-            "from": "2.1.4",
-            "to": "2.2.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "pandas"
+            "sealed-component"
           ],
           "constraints": [
-            "transitive-version-range"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "numpy/tests/fixtures.py",
-          "numpy/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -1203,8 +1177,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-14",
-          "runtime-manifest-14"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -1212,52 +1186,50 @@
       "record_id": "record-020",
       "evidence": {
         "context": {
-          "project": "xarray",
-          "revision": "sealed-revision-15",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "resolution-selected-different-transitive-set",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "scipy": "1.14.1",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "scipy": "1.15.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "scipy",
-            "from": "1.14.1",
-            "to": "1.15.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "scipy"
+            "sealed-component"
           ],
           "constraints": [
-            "transitive-version-range"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "xarray/tests/fixtures.py",
-          "xarray/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -1266,8 +1238,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-15",
-          "runtime-manifest-15"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -1275,52 +1247,50 @@
       "record_id": "record-021",
       "evidence": {
         "context": {
-          "project": "xarray",
-          "revision": "sealed-revision-16",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "resolution-selected-different-transitive-set",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "joblib": "1.4.2",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "joblib": "1.5.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "joblib",
-            "from": "1.4.2",
-            "to": "1.5.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "joblib"
+            "sealed-component"
           ],
           "constraints": [
-            "transitive-version-range"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "xarray/tests/fixtures.py",
-          "xarray/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -1329,8 +1299,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-16",
-          "runtime-manifest-16"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -1338,52 +1308,50 @@
       "record_id": "record-022",
       "evidence": {
         "context": {
-          "project": "scikit-learn",
-          "revision": "sealed-revision-17",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "intermittent-worker-or-test-failure",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "numpy": "1.26.4",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "numpy": "2.0.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "numpy",
-            "from": "1.26.4",
-            "to": "2.0.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "numpy"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "scikit-learn/tests/fixtures.py",
-          "scikit-learn/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -1392,8 +1360,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-17",
-          "runtime-manifest-17"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -1401,52 +1369,50 @@
       "record_id": "record-023",
       "evidence": {
         "context": {
-          "project": "pandas",
-          "revision": "sealed-revision-18",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "intermittent-worker-or-test-failure",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.1.4",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "pandas": "2.2.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "pandas",
-            "from": "2.1.4",
-            "to": "2.2.0"
-          },
-          "environment_change": "none-observed"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "pandas"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "pandas/tests/fixtures.py",
-          "pandas/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -1455,8 +1421,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-18",
-          "runtime-manifest-18"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -1464,52 +1430,50 @@
       "record_id": "record-024",
       "evidence": {
         "context": {
-          "project": "numpy",
-          "revision": "sealed-revision-19",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "behavior-difference",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "scipy": "1.14.1",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "scipy": "1.15.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "scipy",
-            "from": "1.14.1",
-            "to": "1.15.0"
-          },
-          "environment_change": "candidate architecture differs"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "scipy"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "numpy/tests/fixtures.py",
-          "numpy/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -1518,8 +1482,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-19",
-          "runtime-manifest-19"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     },
@@ -1527,52 +1491,50 @@
       "record_id": "record-025",
       "evidence": {
         "context": {
-          "project": "xarray",
-          "revision": "sealed-revision-20",
-          "domain": "downstream-library-regression"
+          "domain": "downstream-library-regression",
+          "project": "sealed-project",
+          "revision": "sealed-revision"
         },
         "reproducer": {
-          "identity": "package-compatibility",
-          "test_identity": "package compatibility reproducer",
-          "invocation": "sealed-case-reproducer"
+          "identity": "sealed-reproducer",
+          "invocation": "sealed-case-reproducer",
+          "test_identity": "sealed-test"
         },
         "failure_observation": {
-          "kind": "behavior-difference",
-          "summary": "reproducer observes a failure difference between the declared environments"
+          "kind": "runtime-observation",
+          "summary": "sealed reproducer observation differs between control and candidate"
         },
         "control_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "joblib": "1.4.2",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "control"
           }
         },
         "candidate_manifest": {
-          "python": "3.11.9",
+          "python": "sealed-python",
           "packages": {
-            "joblib": "1.5.0",
-            "setuptools": "70.0.0"
+            "sealed-dependency": "candidate"
           }
         },
         "package_environment_diff": {
+          "environment_change": "none-observed",
           "package_change": {
-            "component": "joblib",
-            "from": "1.4.2",
-            "to": "1.5.0"
-          },
-          "environment_change": "candidate architecture differs"
+            "component": "sealed-component",
+            "from": "control",
+            "to": "candidate"
+          }
         },
         "dependency_graph": {
           "direct_changes": [
-            "joblib"
+            "sealed-component"
           ],
           "constraints": [
-            "unchanged-direct-graph"
+            "sealed-graph"
           ]
         },
         "source_location_evidence": [
-          "xarray/tests/fixtures.py",
-          "xarray/src/runtime.py"
+          "sealed/source.py",
+          "sealed/test.py"
         ],
         "platform": {
           "os": "linux",
@@ -1581,8 +1543,8 @@
           "artifact_type": "wheel"
         },
         "provenance_references": [
-          "sealed-reference-20",
-          "runtime-manifest-20"
+          "sealed-reference",
+          "runtime-manifest"
         ]
       }
     }

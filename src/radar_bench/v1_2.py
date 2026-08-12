@@ -244,17 +244,31 @@ def validate_experiment_request(request: Mapping[str, Any]) -> list[str]:
     if not isinstance(parameters, Mapping):
         return ["PARAMETERS_NOT_OBJECT"]
     required: dict[str, tuple[str, ...]] = {
-        "rerun": ("command",),
+        "rerun": (),
         "inspect_environment": (),
         "inspect_dependency_graph": (),
-        "run_minimal_test": ("command",),
+        "run_minimal_test": ("test_id",),
         "change_dependency_version": ("target_component", "version"),
     }
+    allowed_parameters: dict[str, set[str]] = {
+        "rerun": set(),
+        "inspect_environment": set(),
+        "inspect_dependency_graph": set(),
+        "run_minimal_test": {"test_id"},
+        "change_dependency_version": {"target_component", "version"},
+    }
+    errors.extend(f"UNEXPECTED_PARAMETER:{name}" for name in sorted(set(parameters) - allowed_parameters[str(capability)]))
     for name in required[str(capability)]:
         if name not in parameters or not isinstance(parameters[name], (str, int, float, bool, list)):
             errors.append(f"MISSING_PARAMETER:{name}")
     if "command" in parameters and not isinstance(parameters["command"], (str, list, tuple)):
         errors.append("INVALID_PARAMETER:command")
+    if "test_id" in parameters and parameters["test_id"] != "sealed-reproducer":
+        errors.append("UNSUPPORTED_TEST_ID")
+    if "target_component" in parameters and not isinstance(parameters["target_component"], str):
+        errors.append("INVALID_PARAMETER:target_component")
+    if "version" in parameters and not isinstance(parameters["version"], str):
+        errors.append("INVALID_PARAMETER:version")
     if capability == "rerun" and parameters.get("cache") is True:
         errors.append("RERUN_MUST_BE_FRESH")
     return errors
@@ -267,13 +281,19 @@ def validate_protocol_message(message: Mapping[str, Any], expected: str | None =
     if kind == "experiment_request":
         required = {"schema_version", "message", "episode_id", "request_id", "capability", "parameters"}
         errors = _exact_keys(message, required, "experiment_request")
+        if message.get("schema_version") != V12_PROTOCOL_VERSION:
+            errors.append("experiment_request schema version is invalid")
         errors.extend(validate_experiment_request(message))
-        if not isinstance(message.get("episode_id"), str) or not isinstance(message.get("request_id"), str):
+        if not isinstance(message.get("episode_id"), str) or not isinstance(message.get("request_id"), str) or not message.get("request_id"):
             errors.append("experiment request IDs must be strings")
         return errors
     if kind == "final_prediction":
         required = {"schema_version", "message", "episode_id", "prediction"}
         errors = _exact_keys(message, required, "final_prediction")
+        if message.get("schema_version") != V12_PROTOCOL_VERSION:
+            errors.append("final_prediction schema version is invalid")
+        if not isinstance(message.get("episode_id"), str) or not message.get("episode_id"):
+            errors.append("final prediction episode ID must be a non-empty string")
         prediction = message.get("prediction")
         if not isinstance(prediction, Mapping):
             errors.append("prediction must be an object")
@@ -324,6 +344,8 @@ class ExperimentLedger:
             "reused": False,
             "available": False,
             "useful": False,
+            "unsupported": error_code == "UNSUPPORTED_EXPERIMENT",
+            "cleanup_verified": False,
             "error_codes": [error_code],
         }
         self.attempts.append(record)
@@ -344,6 +366,8 @@ class ExperimentLedger:
             "reused": False,
             "available": False,
             "useful": False,
+            "unsupported": False,
+            "cleanup_verified": False,
             "error_codes": errors,
         }
         if errors:
@@ -357,11 +381,17 @@ class ExperimentLedger:
             response = {"status": "EXECUTION_ERROR", "error_codes": [type(exc).__name__]}
         record["duration_ms"] = round((time.monotonic() - started) * 1000, 3)
         record["response"] = response
-        record["available"] = response.get("status") not in {"UNSUPPORTED_EXPERIMENT", "INVALID_REQUEST", "EXECUTION_ERROR", "UNAVAILABLE"}
-        record["fresh"] = bool(record["available"])
-        result = response.get("result")
-        record["useful"] = bool(record["fresh"] and isinstance(result, Mapping) and result.get("useful"))
-        if response.get("cache_hit") or response.get("reused"):
+        receipt = response.get("evaluator_receipt")
+        if not isinstance(receipt, Mapping):
+            receipt = {}
+        record["available"] = bool(receipt.get("available", False))
+        record["fresh"] = bool(receipt.get("fresh", False))
+        record["useful"] = bool(record["fresh"] and receipt.get("useful", False))
+        record["cache_hit"] = bool(receipt.get("cache_hit", False))
+        record["reused"] = bool(receipt.get("reused", False))
+        record["cleanup_verified"] = bool(receipt.get("cleanup_verified", False))
+        record["unsupported"] = response.get("status") == "UNSUPPORTED_EXPERIMENT"
+        if record["cache_hit"] or record["reused"]:
             raise ValueError("executor cannot report a cached or reused rerun")
         self.attempts.append(record)
         return record
@@ -381,6 +411,8 @@ class ExperimentLedger:
             "reused": sum(int(item["reused"]) for item in self.attempts),
             "unavailable": unavailable,
             "available": sum(int(item["available"]) for item in self.attempts),
+            "unsupported": sum(int(item["unsupported"]) for item in self.attempts),
+            "cleanup_verified": sum(int(item["cleanup_verified"]) for item in self.attempts),
             "useful_fresh": useful,
             "fresh_useful_experiment_rate": _metric(useful, fresh),
             "requested_experiment_efficiency": _metric(fresh, requested),
@@ -570,8 +602,12 @@ def validate_v12_result_document(document: Mapping[str, Any], root: Path | None 
         "candidate_repository_visible", "network_used", "episode_ids", "candidate_bundle",
         "runtime", "artifact_root", "blockers", "information_sufficiency", "evaluator_bundle",
         "protocol", "protocol_result", "runs", "episode_count", "mapping_digest", "metrics",
+        "candidate_bundle_digest", "evaluator_bundle_digest", "runtime_digest", "artifact_catalog_digest",
+        "baseline_digests", "protocol_version", "executor_capability_version", "platform_contract",
+        "isolation_verification", "experiment_receipts", "predictions", "source_provenance",
+        "cleanup_status", "decision", "scientific_classification",
     }
-    required = {"schema_version", "suite_id", "status", "candidate_gold_visible", "candidate_repository_visible", "network_used", "blockers"}
+    required = {"schema_version", "suite_id", "release_version", "status", "candidate_gold_visible", "candidate_repository_visible", "network_used", "blockers"}
     errors: list[str] = []
     if set(document) - allowed:
         errors.append("v1.2 result contains unexpected fields")
@@ -579,6 +615,8 @@ def validate_v12_result_document(document: Mapping[str, Any], root: Path | None 
         errors.append("v1.2 result is missing required fields")
     if document.get("schema_version") != V12_PROTOCOL_VERSION or document.get("suite_id") != V12_SUITE_ID:
         errors.append("v1.2 result identity is invalid")
+    if document.get("release_version") != V12_RELEASE_VERSION:
+        errors.append("v1.2 result release version is invalid")
     if document.get("status") not in {"BLOCKED", "COMPLETED"}:
         errors.append("v1.2 result status is invalid")
     if document.get("candidate_gold_visible") is not False or document.get("candidate_repository_visible") is not False or document.get("network_used") is not False:
@@ -587,14 +625,61 @@ def validate_v12_result_document(document: Mapping[str, Any], root: Path | None 
     if not isinstance(blockers, list) or any(not isinstance(item, str) for item in blockers):
         errors.append("v1.2 result blockers must be a string list")
     if document.get("status") == "COMPLETED":
+        required_completed = {
+            "candidate_bundle_digest", "evaluator_bundle_digest", "runtime_digest", "artifact_catalog_digest",
+            "baseline_digests", "protocol_version", "executor_capability_version", "platform_contract",
+            "isolation_verification", "experiment_receipts", "predictions", "source_provenance",
+            "cleanup_status", "decision", "scientific_classification",
+        }
+        if not required_completed.issubset(document):
+            errors.append("completed v1.2 result is missing provenance or execution fields")
+        if blockers != []:
+            errors.append("completed v1.2 result cannot contain blockers")
         if document.get("episode_count") != len(ALL_CASE_IDS) or not isinstance(document.get("runs"), Mapping):
             errors.append("completed v1.2 result must contain all 25 runs")
+        else:
+            runs = cast(Mapping[str, Any], document["runs"])
+            if set(runs) != set(ALL_CASE_IDS):
+                errors.append("completed v1.2 result runs are not exactly the canonical 25 cases")
+            for case_id, run in runs.items():
+                if not isinstance(run, Mapping) or not isinstance(run.get("prediction"), Mapping):
+                    errors.append(f"completed run is malformed: {case_id}")
+                elif validate_prediction(cast(Mapping[str, Any], run["prediction"])):
+                    errors.append(f"completed prediction is invalid: {case_id}")
         protocol = document.get("protocol")
-        if not isinstance(protocol, Mapping) or protocol.get("network_denied") is not True:
+        if not isinstance(protocol, Mapping) or protocol.get("version") != V12_PROTOCOL_VERSION or protocol.get("network_denied") is not True or protocol.get("docker_isolated") is not True:
             errors.append("completed v1.2 result lacks network-denied protocol evidence")
         metrics = document.get("metrics")
         if not isinstance(metrics, Mapping) or set(metrics) != set(METRICS):
             errors.append("completed v1.2 result metrics are incomplete")
+        predictions = document.get("predictions")
+        if not isinstance(predictions, Mapping) or set(predictions) != set(ALL_CASE_IDS):
+            errors.append("completed v1.2 result predictions are not exactly the canonical 25 cases")
+        else:
+            for case_id, prediction in predictions.items():
+                if not isinstance(prediction, Mapping) or validate_prediction(cast(Mapping[str, Any], prediction)):
+                    errors.append(f"completed prediction map is malformed: {case_id}")
+        receipts = document.get("experiment_receipts")
+        if not isinstance(receipts, Mapping) or set(receipts) != set(ALL_CASE_IDS) or any(not isinstance(value, Mapping) for value in receipts.values()):
+            errors.append("completed v1.2 result experiment receipts are incomplete")
+        for field in ("candidate_bundle_digest", "evaluator_bundle_digest", "runtime_digest", "artifact_catalog_digest", "mapping_digest"):
+            if not isinstance(document.get(field), str) or not HEX64.fullmatch(str(document[field]).removeprefix("sha256:")):
+                errors.append(f"completed v1.2 result digest is invalid: {field}")
+        baseline_digests = document.get("baseline_digests")
+        if not isinstance(baseline_digests, Mapping) or not baseline_digests or any(not isinstance(value, str) or not HEX64.fullmatch(value.removeprefix("sha256:")) for value in baseline_digests.values()):
+            errors.append("completed v1.2 result baseline digests are invalid")
+        platform = document.get("platform_contract")
+        if not isinstance(platform, Mapping) or set(platform) != {"os", "architecture", "runtime", "network"} or platform.get("network") != "none":
+            errors.append("completed v1.2 result platform contract is invalid")
+        isolation = document.get("isolation_verification")
+        if not isinstance(isolation, Mapping) or any(isolation.get(key) is not True for key in ("candidate_gold_hidden", "candidate_repository_hidden", "network_denied", "cleanup_verified")):
+            errors.append("completed v1.2 result isolation verification is incomplete")
+        provenance = document.get("source_provenance")
+        if not isinstance(provenance, Mapping) or any(not isinstance(provenance.get(key), str) for key in ("suite", "candidate_bundle", "evaluator_bundle", "runtime", "artifact_catalog", "baseline")):
+            errors.append("completed v1.2 result source provenance is incomplete")
+        cleanup = document.get("cleanup_status")
+        if not isinstance(cleanup, Mapping) or any(cleanup.get(key) != "VERIFIED" for key in ("candidate_container", "experiment_containers", "preparation_volumes")):
+            errors.append("completed v1.2 result cleanup status is not verified")
     return errors
 
 
@@ -673,7 +758,7 @@ def build_candidate_docker_argv(image: str, candidate_argv: Sequence[str], conta
         raise ValueError("invalid candidate container name")
     if not candidate_argv or any(not isinstance(item, str) or not item for item in candidate_argv):
         raise ValueError("candidate argv must be a non-empty string list")
-    argv = ["docker", "run", "--rm", "--name", container_name, "--network=none", "--read-only", "--cap-drop=ALL", "--security-opt=no-new-privileges", "--user=65532:65532", "--memory=512m", "--memory-swap=512m", "--cpus=1", "--pids-limit=128", "--ulimit", "nofile=1024:1024", "--ulimit", "core=0:0", "--tmpfs", "/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777"]  # nosec B108 - container-local tmpfs, never a host path
+    argv = ["docker", "run", "-i", "--rm", "--name", container_name, "--network=none", "--read-only", "--cap-drop=ALL", "--security-opt=no-new-privileges", "--user=65532:65532", "--memory=512m", "--memory-swap=512m", "--cpus=1", "--pids-limit=128", "--ulimit", "nofile=1024:1024", "--ulimit", "core=0:0", "--tmpfs", "/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777"]  # nosec B108 - container-local tmpfs, never a host path
     if resource_mount is not None:
         host_path, container_path = resource_mount
         if not host_path.is_absolute() or not container_path.startswith("/") or container_path == "/":
@@ -713,16 +798,43 @@ def verify_actual_container_config(inspect_document: Mapping[str, Any]) -> list[
         errors.append("no-new-privileges is not proven")
     if str(config.get("User", "")) not in {"65532", "65532:65532"}:
         errors.append("non-root user is not proven")
+    if host.get("Memory") != 512 * 1024 * 1024:
+        errors.append("memory limit is not 512 MiB")
+    if host.get("MemorySwap") != 512 * 1024 * 1024:
+        errors.append("memory swap limit is not 512 MiB")
+    if host.get("PidsLimit") != 128:
+        errors.append("PID limit is not 128")
+    if host.get("NanoCpus") != 1_000_000_000 and host.get("CpuQuota") != 100_000:
+        errors.append("CPU limit is not one CPU")
+    if host.get("PidMode") not in (None, "", False) or host.get("UTSMode") not in (None, "", False) or host.get("UsernsMode") not in (None, "", False) or host.get("IpcMode") not in (None, "", False, "private"):
+        errors.append("host namespaces are not permitted")
+    if host.get("Devices") not in (None, []):
+        errors.append("devices are not permitted")
+    mounts = inspect_document.get("Mounts", [])
+    if not isinstance(mounts, list):
+        errors.append("mount inspection is incomplete")
+    else:
+        for mount in mounts:
+            if not isinstance(mount, Mapping):
+                errors.append("mount inspection contains an invalid entry")
+                continue
+            if mount.get("Type") in {"bind", "volume"}:
+                errors.append("host or named-volume mounts are not permitted")
+            if str(mount.get("Source", "")).lower().endswith(("docker.sock", "docker_engine")):
+                errors.append("Docker socket mount is not permitted")
     return errors
 
 
 class ExternalCandidateProtocol:
     """Stateful JSONL protocol executed only through the hardened Docker argv."""
 
-    def __init__(self, candidate_image: str | Sequence[str], candidate_argv: Sequence[str] | None = None, *, working_directory: Path, timeout_seconds: float = 30.0, max_line_bytes: int = 256 * 1024) -> None:
+    def __init__(self, candidate_image: str | Sequence[str], candidate_argv: Sequence[str] | None = None, *, working_directory: Path, timeout_seconds: float = 30.0, max_line_bytes: int = 256 * 1024, max_stdout_bytes: int = 4 * 1024 * 1024, max_stderr_bytes: int = 4 * 1024 * 1024, max_total_output_bytes: int = 8 * 1024 * 1024) -> None:
         self.working_directory = working_directory.resolve()
         self.timeout_seconds = timeout_seconds
         self.max_line_bytes = max_line_bytes
+        self.max_stdout_bytes = max_stdout_bytes
+        self.max_stderr_bytes = max_stderr_bytes
+        self.max_total_output_bytes = max_total_output_bytes
         self.legacy_command = isinstance(candidate_image, Sequence) and not isinstance(candidate_image, str) and candidate_argv is None
         if self.legacy_command:
             self.command = tuple(str(item) for item in candidate_image)
@@ -756,7 +868,9 @@ class ExternalCandidateProtocol:
             if first.returncode != 0:
                 stderr = first.stderr.decode("utf-8", "replace").lower()
                 return "no such object" in stderr or "no such container" in stderr
-            subprocess.run([docker, "rm", "-f", self.container_name], capture_output=True, check=False, shell=False, timeout=5)  # nosec B603
+            removed = subprocess.run([docker, "rm", "-f", self.container_name], capture_output=True, check=False, shell=False, timeout=5)  # nosec B603
+            if removed.returncode != 0:
+                return False
             final = subprocess.run([docker, "inspect", self.container_name], capture_output=True, check=False, shell=False, timeout=5)  # nosec B603
             stderr = final.stderr.decode("utf-8", "replace").lower()
             return final.returncode != 0 and ("no such object" in stderr or "no such container" in stderr)
@@ -767,19 +881,22 @@ class ExternalCandidateProtocol:
         if self.container_name is None:
             return ["candidate container name is unavailable"]
         try:
-            completed = subprocess.run(  # nosec B603 - Docker argv is fixed
-                [self.command[0], "inspect", self.container_name],
-                capture_output=True,
-                check=False,
-                shell=False,
-                timeout=5,
-            )
-            if completed.returncode != 0:
-                return ["running candidate container could not be inspected"]
-            value = json.loads(completed.stdout.decode("utf-8"))
-            if not isinstance(value, list) or not value or not isinstance(value[0], Mapping):
-                return ["docker inspect returned no candidate container"]
-            return verify_actual_container_config(cast(Mapping[str, Any], value[0]))
+            last_error = "running candidate container could not be inspected"
+            for _ in range(20):
+                completed = subprocess.run(  # nosec B603 - Docker argv is fixed
+                    [self.command[0], "inspect", self.container_name],
+                    capture_output=True,
+                    check=False,
+                    shell=False,
+                    timeout=5,
+                )
+                if completed.returncode == 0:
+                    value = json.loads(completed.stdout.decode("utf-8"))
+                    if not isinstance(value, list) or not value or not isinstance(value[0], Mapping):
+                        return ["docker inspect returned no candidate container"]
+                    return verify_actual_container_config(cast(Mapping[str, Any], value[0]))
+                time.sleep(0.05)
+            return [last_error]
         except (OSError, subprocess.SubprocessError, ValueError, UnicodeError) as exc:
             return [f"candidate container inspect failed: {type(exc).__name__}"]
 
@@ -789,6 +906,8 @@ class ExternalCandidateProtocol:
             return {"status": "BLOCKED", "error": "CANDIDATE_WORKSPACE_ABSENT"}
         if not self.docker_isolated:
             return {"status": "BLOCKED", "error": "CANDIDATE_ISOLATION_NOT_PROVEN", "network_denied": False}
+        if len(packet_list) != len(ALL_CASE_IDS) or len({packet.episode_id for packet in packet_list}) != len(packet_list):
+            return {"status": "BLOCKED", "error": "CANDIDATE_CASE_SET_INVALID", "network_denied": False}
         safe_env = {"PATH": os.environ.get("PATH", ""), "LANG": "C", "LC_ALL": "C", "RADAR_BENCH_EXTERNAL_CANDIDATE": "1"}
         try:
             process = subprocess.Popen(list(self.command), cwd=self.working_directory, env=safe_env, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)  # nosec B603
@@ -796,8 +915,9 @@ class ExternalCandidateProtocol:
             return {"status": "BLOCKED", "error": "CANDIDATE_PROCESS_UNAVAILABLE", "detail": type(exc).__name__}
         frames: queue.Queue[bytes | None] = queue.Queue(maxsize=32)
         overflow = threading.Event()
-        output_state = {"total": 0}
+        output_state = {"total": 0, "stdout": 0, "stderr": 0}
         output_lock = threading.Lock()
+        partial_frame = threading.Event()
 
         def read_stdout() -> None:
             if process.stdout is None:
@@ -806,12 +926,13 @@ class ExternalCandidateProtocol:
             buffer = bytearray()
             try:
                 while not overflow.is_set():
-                    chunk = process.stdout.read(64 * 1024)
+                    chunk = os.read(process.stdout.fileno(), 64 * 1024)
                     if not chunk:
                         break
                     with output_lock:
                         output_state["total"] += len(chunk)
-                        if output_state["total"] > self.max_line_bytes * 32:
+                        output_state["stdout"] += len(chunk)
+                        if output_state["stdout"] > self.max_stdout_bytes or output_state["total"] > self.max_total_output_bytes:
                             overflow.set()
                             break
                     buffer.extend(chunk)
@@ -830,7 +951,7 @@ class ExternalCandidateProtocol:
                         overflow.set()
                         return
                 if buffer and not overflow.is_set():
-                    frames.put(bytes(buffer), timeout=0.1)
+                    partial_frame.set()
             except (OSError, queue.Full):
                 overflow.set()
             finally:
@@ -845,12 +966,13 @@ class ExternalCandidateProtocol:
                 return
             try:
                 while True:
-                    chunk = process.stderr.read(64 * 1024)
+                    chunk = os.read(process.stderr.fileno(), 64 * 1024)
                     if not chunk:
                         return
                     with output_lock:
                         output_state["total"] += len(chunk)
-                        if output_state["total"] > self.max_line_bytes * 32:
+                        output_state["stderr"] += len(chunk)
+                        if output_state["stderr"] > self.max_stderr_bytes or output_state["total"] > self.max_total_output_bytes:
                             overflow.set()
                             return
             except OSError:
@@ -940,8 +1062,21 @@ class ExternalCandidateProtocol:
                     finalized.add(str(episode_id))
             if len(finals) != len(packet_list):
                 errors.append("MISSING_TERMINAL_RESULT")
+            if partial_frame.is_set():
+                errors.append("CANDIDATE_PARTIAL_JSONL_FRAME")
             if ended and process.poll() is None:
                 errors.append("CANDIDATE_PROTOCOL_EOF")
+            if time.monotonic() >= deadline and len(finals) < len(packet_list):
+                errors.append("CANDIDATE_TIMEOUT")
+            if len(finals) == len(packet_list) and process.poll() is None:
+                try:
+                    if process.stdin is not None:
+                        process.stdin.close()
+                    process.wait(timeout=2)
+                except (BrokenPipeError, OSError, subprocess.TimeoutExpired):
+                    errors.append("CANDIDATE_PROCESS_DID_NOT_EXIT_AFTER_FINAL")
+            if process.returncode not in (None, 0):
+                errors.append("CANDIDATE_NONZERO_EXIT")
         except (BrokenPipeError, OSError):
             errors.append("CANDIDATE_PROCESS_IO_ERROR")
         finally:
@@ -1166,6 +1301,12 @@ def evaluate_v12(root: Path, *, candidate_image: str | None = None, candidate_ar
         return result
     if runtime_audit["status"] != "READY":
         result["blockers"].append("BLOCKED_REPRODUCIBILITY")
+    artifact_catalog = root / V12_SUITE_RELATIVE.parent / "artifact-catalog.json"
+    baseline_audit = baseline_freeze_audit(root)
+    if not artifact_catalog.is_file():
+        result["blockers"].append("BLOCKED_ARTIFACT_CATALOG")
+    if baseline_audit["status"] != "PASS":
+        result["blockers"].append("BLOCKED_BASELINE_PROVENANCE")
     if candidate_image is None or candidate_argv is None:
         if candidate_command is not None:
             result["blockers"].append("CANDIDATE_COMMAND_DEPRECATED_USE_IMAGE_AND_ARGV")
@@ -1214,6 +1355,41 @@ def evaluate_v12(root: Path, *, candidate_image: str | None = None, candidate_ar
     result["episode_count"] = len(predictions)
     result["mapping_digest"] = canonical_digest(sorted(mapping.items()))
     result["metrics"] = score_v12(labels, runs)["metrics"]
+    ledgers = cast(Mapping[str, Mapping[str, Any]], protocol_result.get("ledgers", {}))
+    case_receipts = {inverse[episode]: receipt for episode, receipt in ledgers.items() if episode in inverse}
+    result["candidate_bundle_digest"] = candidate_audit.get("digest")
+    result["evaluator_bundle_digest"] = evaluator_audit.get("digest")
+    result["runtime_digest"] = runtime_audit.get("recipe_digest")
+    result["artifact_catalog_digest"] = file_digest(artifact_catalog)
+    result["baseline_digests"] = {"baseline-freeze-v1.2": baseline_audit.get("manifest_digest")}
+    result["protocol_version"] = V12_PROTOCOL_VERSION
+    result["executor_capability_version"] = "radar-v12-executor-receipt-1"
+    result["platform_contract"] = {"os": "linux", "architecture": "x86_64", "runtime": "docker", "network": "none"}
+    cleanup_errors = list(cast(Sequence[str], protocol_result.get("errors", [])))
+    experiment_cleanup_verified = all(
+        int(receipt.get("cleanup_verified", 0)) == int(receipt.get("executor_calls", 0))
+        for receipt in ledgers.values()
+    )
+    cleanup_verified = not cleanup_errors and experiment_cleanup_verified
+    result["isolation_verification"] = {"candidate_gold_hidden": True, "candidate_repository_hidden": True, "network_denied": bool(protocol_result.get("network_denied")), "cleanup_verified": cleanup_verified}
+    result["experiment_receipts"] = case_receipts
+    result["predictions"] = {inverse[episode]: prediction for episode, prediction in predictions.items() if episode in inverse}
+    result["source_provenance"] = {
+        "suite": file_digest(root / V12_SUITE_RELATIVE),
+        "candidate_bundle": result["candidate_bundle_digest"],
+        "evaluator_bundle": result["evaluator_bundle_digest"],
+        "runtime": result["runtime_digest"],
+        "artifact_catalog": result["artifact_catalog_digest"],
+        "baseline": baseline_audit.get("manifest_digest"),
+    }
+    result["cleanup_status"] = {
+        "candidate_container": "VERIFIED" if not any(error == "CANDIDATE_CONTAINER_CLEANUP_FAILED" for error in cleanup_errors) else "FAILED",
+        "experiment_containers": "VERIFIED" if experiment_cleanup_verified else "FAILED",
+        "preparation_volumes": "VERIFIED" if experiment_cleanup_verified else "FAILED",
+        "errors": cleanup_errors,
+    }
+    result["decision"] = "COMPLETED"
+    result["scientific_classification"] = "SCIENTIFICALLY_EVALUABLE"
     result["status"] = "COMPLETED"
     return result
 

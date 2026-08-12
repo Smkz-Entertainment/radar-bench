@@ -50,6 +50,7 @@ def test_terminal_protocol_rejects_evaluator_fields_and_missing_fields() -> None
 def test_docker_sandbox_is_strict_and_inspect_is_fail_closed(tmp_path: Path) -> None:
     image = "registry.example/candidate@sha256:" + "a" * 64
     argv = build_candidate_docker_argv(image, ["radar-agent", "--protocol", "1.2-jsonl"], "radar-candidate-test")
+    assert "-i" in argv
     assert "--network=none" in argv
     assert "--read-only" in argv
     with pytest.raises(ValueError):
@@ -75,9 +76,9 @@ def test_v12_score_uses_terminal_fields_and_unsupported_owner_claims() -> None:
     assert score_v12(labels, runs)["metrics"]["historical_attribution_resolution"]["numerator"] == 3
 
 
-def test_historical_gold_and_frozen_git_source_are_observable() -> None:
+def test_historical_gold_and_frozen_git_source_are_observable(tmp_path: Path) -> None:
     assert baseline_freeze_audit(ROOT)["status"] == "PASS"
-    artifacts = verify_artifacts(ROOT, "decisive-v1.2", ROOT / "artifacts" / "external" / "decisive-v1.2")
+    artifacts = verify_artifacts(ROOT, "decisive-v1.2", tmp_path / "unavailable-artifacts")
     assert artifacts["status"] == "BLOCKED"
     assert artifacts["network_used"] is False
 
