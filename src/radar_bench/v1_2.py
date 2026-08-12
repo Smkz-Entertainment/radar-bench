@@ -1047,7 +1047,10 @@ class ExternalCandidateProtocol:
                             return dict(experiment_executor(episode, request))
                         record = ledger.run(message, execute)
                     observation = record.get("response", {}).get("observation", {"status": record.get("response", {}).get("status", "UNAVAILABLE")})
-                    status = record.get("response", {}).get("status", record.get("error_codes", ["UNAVAILABLE"])[0])
+                    response = record.get("response", {})
+                    error_codes = record.get("error_codes", [])
+                    fallback_status = error_codes[0] if error_codes else "UNAVAILABLE"
+                    status = response.get("status", fallback_status)
                     result = {"schema_version": V12_PROTOCOL_VERSION, "message": "experiment_result", "episode_id": episode_key, "request_id": request_id, "status": status, "observation": observation}
                     if process.stdin is None:
                         errors.append("CANDIDATE_PROCESS_STDIN_UNAVAILABLE")
