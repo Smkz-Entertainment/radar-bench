@@ -198,28 +198,44 @@ def main() -> int:
     _write(evidence / "canonical-reproduction.json", {"status": "PASS" if canonical_pass and historical_pass and safety_pass else "BLOCKED_PARTIAL_EXECUTION" if safety_execution or protocol_smoke or historical_execution or canonical_result else "NOT_RUN", "suite": V12_SUITE_ID, "candidate_interface": "candidate-image plus candidate-argv", "historical_runtime": historical_execution, "safety_execution": safety_execution, "canonical_candidate_execution": canonical_result, "candidate_protocol_smoke": protocol_smoke, "network_used": False, "reference_used_as_runtime_evidence": False, "exact_comparison": compare_exact_reference({"suite_id": V12_SUITE_ID}, None)})
     _write(evidence / "tag-integrity.json", _tags(root))
     _write(evidence / "publication-sequence.json", {"status": "PENDING_EXTERNAL_PUBLICATION", "repository_visibility": "PRIVATE", "github_release_created": False, "tag_created_or_moved": False, "private_vulnerability_reporting": "PENDING_PUBLIC_VISIBILITY", "hosted_ci": "PENDING_PUBLIC_VISIBILITY_OR_BILLING_RESOLUTION", "next_approved_step": "independent clean-room harness and artifact/runtime reproduction"})
-    final_state = "BLOCKED"
+    gates = {
+        "package_build": package_build["status"],
+        "candidate_bundle": "PASS" if candidate["valid"] else "FAIL",
+        "gold_separation": "PASS" if separation["valid"] else "FAIL",
+        "information_sufficiency": info["status"],
+        "baseline_freeze": baseline["status"],
+        "resource_integrity": mirror["status"],
+        "coverage": coverage["status"],
+        "security": "PASS" if all(value == "PASS" for value in security_checks.values()) else "BLOCKED",
+        "clean_clone_reproduction": clean_clone.get("status", "NOT_RUN") if isinstance(clean_clone, dict) else "NOT_RUN",
+        "candidate_isolation": "PASS" if canonical_pass else "PASS_PROTOCOL_SMOKE_ONLY" if smoke_completed else "BLOCKED",
+        "historical_execution": "PASS" if historical_pass else "BLOCKED",
+        "canonical_decisive_v1_2": "PASS" if canonical_pass else "BLOCKED_PARTIAL_EXECUTION" if safety_execution or protocol_smoke or historical_execution or canonical_result else "NOT_RUN",
+        "tag_integrity": "PASS",
+    }
+    required_release_gates = (
+        "package_build",
+        "candidate_bundle",
+        "gold_separation",
+        "information_sufficiency",
+        "baseline_freeze",
+        "resource_integrity",
+        "coverage",
+        "security",
+        "clean_clone_reproduction",
+        "candidate_isolation",
+        "historical_execution",
+        "canonical_decisive_v1_2",
+        "tag_integrity",
+    )
+    final_state = "READY_FOR_INDEPENDENT_RELEASE_AUDIT" if all(gates[name] == "PASS" for name in required_release_gates) else "BLOCKED"
     _write(
         evidence / "release-gates.json",
         {
             "release": V12_RELEASE_VERSION,
             "suite": V12_SUITE_ID,
             "final_state": final_state,
-            "gates": {
-                "package_build": package_build["status"],
-                "candidate_bundle": "PASS" if candidate["valid"] else "FAIL",
-                "gold_separation": "PASS" if separation["valid"] else "FAIL",
-                "information_sufficiency": info["status"],
-                "baseline_freeze": baseline["status"],
-                "resource_integrity": mirror["status"],
-                "coverage": coverage["status"],
-                "security": "PASS" if all(value == "PASS" for value in security_checks.values()) else "BLOCKED",
-                "clean_clone_reproduction": clean_clone.get("status", "NOT_RUN") if isinstance(clean_clone, dict) else "NOT_RUN",
-                "candidate_isolation": "PASS" if canonical_pass else "PASS_PROTOCOL_SMOKE_ONLY" if smoke_completed else "BLOCKED",
-                "historical_execution": "PASS" if historical_pass else "BLOCKED",
-                "canonical_decisive_v1_2": "PASS" if canonical_pass else "BLOCKED_PARTIAL_EXECUTION" if safety_execution or protocol_smoke or historical_execution or canonical_result else "NOT_RUN",
-                "tag_integrity": "PASS",
-            },
+            "gates": gates,
             "immutable_refs": ["v1.0.0", "v1.0.1", "decisive-v1.1", "reference/decisive-v1.1-result.json"],
             "release_created": False,
         },
@@ -227,7 +243,7 @@ def main() -> int:
     (evidence / "final-report.md").write_text(
         "# Radar Bench v1.1.0 release-candidate evidence\n\n"
         "The v1.2 contract is implemented additively. Candidate-visible T-cut evidence, evaluator-only labels and provenance, randomized episode IDs, fresh experiment accounting, content-addressed resource materialization, and an isolated Docker JSONL adapter are present.\n\n"
-        "The final state is `BLOCKED`. Exact artifact reconstruction and five historical executions are now observed, and the candidate-only information sufficiency gate recomputes to `PASS` from fresh raw receipts. A bounded 20-case safety execution and a 25-terminal-prediction Docker protocol smoke are recorded separately; neither is promoted to a certifying canonical score. Full production-source coverage remains below the preregistered threshold, clean-clone reproduction is intentionally deferred while the candidate is uncommitted, and the full-worktree TruffleHog scan is blocked by a generated-cache URI fixture despite zero verified secrets. Gitleaks, scoped TruffleHog package/runtime/history scans, and CFF validation completed successfully. This record does not rewrite decisive-v1.1, does not move v1.0.0/v1.0.1, and does not create a GitHub Release.\n",
+        f"The final state is `{final_state}`. Historical execution is `{gates['historical_execution']}`, safety execution is `{'PASS' if safety_pass else 'BLOCKED'}`, candidate-only information sufficiency is `{gates['information_sufficiency']}`, canonical candidate execution is `{gates['canonical_decisive_v1_2']}`, and clean-clone reproduction is `{gates['clean_clone_reproduction']}`. Coverage is `{coverage.get('line_percent', 'NOT_RUN')}%` line and `{coverage.get('branch_percent', 'NOT_RUN')}%` branch. Security scans and citation validation are `{gates['security']}`. This record does not rewrite decisive-v1.1, does not move v1.0.0/v1.0.1, and does not create a GitHub Release; independent release audit remains required before merge or publication.\n",
         encoding="utf-8",
         newline="\n",
     )
