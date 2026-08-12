@@ -4,7 +4,7 @@
   "cases": [
     {
       "case_id": "RADAR-V07-T01",
-      "elapsed_ms": 4382.6,
+      "elapsed_ms": 4116.3,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -44,7 +44,7 @@
     },
     {
       "case_id": "RADAR-V07-T02",
-      "elapsed_ms": 3485.6,
+      "elapsed_ms": 3851.9,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -84,7 +84,7 @@
     },
     {
       "case_id": "RADAR-V07-T03",
-      "elapsed_ms": 3256.4,
+      "elapsed_ms": 3340.9,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -124,7 +124,7 @@
     },
     {
       "case_id": "RADAR-V07-T04",
-      "elapsed_ms": 3414.5,
+      "elapsed_ms": 3496.1,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -164,7 +164,7 @@
     },
     {
       "case_id": "RADAR-V07-T05",
-      "elapsed_ms": 4033.3,
+      "elapsed_ms": 3618.3,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -204,7 +204,7 @@
     },
     {
       "case_id": "RADAR-V07-T06",
-      "elapsed_ms": 3539.8,
+      "elapsed_ms": 3871.0,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -244,7 +244,7 @@
     },
     {
       "case_id": "RADAR-V07-T07",
-      "elapsed_ms": 3433.3,
+      "elapsed_ms": 3401.8,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -284,7 +284,7 @@
     },
     {
       "case_id": "RADAR-V07-T08",
-      "elapsed_ms": 3374.3,
+      "elapsed_ms": 3787.3,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -324,7 +324,7 @@
     },
     {
       "case_id": "RADAR-V07-T09",
-      "elapsed_ms": 3200.9,
+      "elapsed_ms": 3533.0,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -364,7 +364,7 @@
     },
     {
       "case_id": "RADAR-V07-T10",
-      "elapsed_ms": 3368.1,
+      "elapsed_ms": 3880.6,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -404,7 +404,7 @@
     },
     {
       "case_id": "RADAR-V07-T11",
-      "elapsed_ms": 2893.9,
+      "elapsed_ms": 3730.3,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -444,7 +444,7 @@
     },
     {
       "case_id": "RADAR-V07-T12",
-      "elapsed_ms": 2531.9,
+      "elapsed_ms": 3744.6,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -484,7 +484,7 @@
     },
     {
       "case_id": "RADAR-V07-T13",
-      "elapsed_ms": 3139.8,
+      "elapsed_ms": 4150.3,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -524,7 +524,7 @@
     },
     {
       "case_id": "RADAR-V07-T14",
-      "elapsed_ms": 4092.5,
+      "elapsed_ms": 3512.9,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -564,7 +564,7 @@
     },
     {
       "case_id": "RADAR-V07-T15",
-      "elapsed_ms": 3018.0,
+      "elapsed_ms": 4355.0,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -604,7 +604,7 @@
     },
     {
       "case_id": "RADAR-V07-T16",
-      "elapsed_ms": 3342.5,
+      "elapsed_ms": 3646.6,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -644,7 +644,7 @@
     },
     {
       "case_id": "RADAR-V07-T17",
-      "elapsed_ms": 2980.5,
+      "elapsed_ms": 3819.2,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -684,7 +684,7 @@
     },
     {
       "case_id": "RADAR-V07-T18",
-      "elapsed_ms": 5005.9,
+      "elapsed_ms": 3479.9,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -724,7 +724,7 @@
     },
     {
       "case_id": "RADAR-V07-T19",
-      "elapsed_ms": 6747.9,
+      "elapsed_ms": 3613.4,
       "pass": true,
       "result": {
         "evaluator_receipt": {
@@ -764,7 +764,7 @@
     },
     {
       "case_id": "RADAR-V07-T20",
-      "elapsed_ms": 2894.9,
+      "elapsed_ms": 3564.5,
       "pass": true,
       "result": {
         "evaluator_receipt": {

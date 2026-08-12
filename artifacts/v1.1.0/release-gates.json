@@ -4,6 +4,7 @@
     "baseline_freeze": "PASS",
     "candidate_bundle": "PASS",
     "candidate_isolation": "PASS",
+    "candidate_protocol_smoke": "PASS",
     "canonical_decisive_v1_2": "PASS",
     "clean_clone_reproduction": "PASS",
     "coverage": "PASS",

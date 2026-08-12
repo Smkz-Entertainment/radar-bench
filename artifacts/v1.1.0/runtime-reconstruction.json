@@ -17,7 +17,7 @@
     {
       "case_id": "RADAR-V07-A01",
       "contract_pass": true,
-      "elapsed_ms": 42883.2,
+      "elapsed_ms": 57044.6,
       "request": {
         "capability": "rerun",
         "parameters": {}
@@ -60,7 +60,7 @@
     {
       "case_id": "RADAR-V07-A02",
       "contract_pass": true,
-      "elapsed_ms": 35428.9,
+      "elapsed_ms": 35534.3,
       "request": {
         "capability": "rerun",
         "parameters": {}
@@ -103,7 +103,7 @@
     {
       "case_id": "RADAR-V07-A03",
       "contract_pass": true,
-      "elapsed_ms": 24700.0,
+      "elapsed_ms": 22214.0,
       "request": {
         "capability": "rerun",
         "parameters": {}
@@ -146,7 +146,7 @@
     {
       "case_id": "RADAR-V07-A04",
       "contract_pass": true,
-      "elapsed_ms": 38589.1,
+      "elapsed_ms": 27367.7,
       "request": {
         "capability": "rerun",
         "parameters": {}
@@ -189,7 +189,7 @@
     {
       "case_id": "RADAR-V07-A05",
       "contract_pass": true,
-      "elapsed_ms": 44420.0,
+      "elapsed_ms": 36769.5,
       "request": {
         "capability": "rerun",
         "parameters": {}
@@ -208,9 +208,9 @@
         "observation": {
           "candidate": {
             "cleanup_error": null,
-            "excerpt": "Processing /artifact/numpy-2.4.6-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl\nProcessing /artifact/pandas-3.0.4-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl\nProcessing /artifact/python_dateutil-2.9.0.post0-py2.py3-none-any.whl\nProcessing /artifact/six-1.17.0-py2.py3-none-any.whl\nProcessing /artifact/tzdata-2025.2-py2.py3-none-any.whl\nInstalling collected packages: tzdata, six, python-dateutil, pandas, numpy\n\nSuccessfully installed numpy-2.4.6 pandas-3.0.4 python-dateutil-2.9.0.post0 six-1.17.0 tzdata-2025.2\nFatal Python error: Segmentation fault\n\nCurrent thread 0x0000742a6b83a380 (most recent call first):\n  File \"/opt/radar/site/pandas/core/dtypes/cast.py\", line 474 in maybe_promote\n  File \"/opt/radar/site/pandas/core/array_algos/take.py\", line 96 in take_nd\n  File \"/opt/radar/site/pandas/core/algorithms.py\", line 1210 in take\n  File \"/opt/radar/site/pandas/core/arrays/_mixins.py\", line 172 in take\n  File \"/opt/radar/site/pandas/core/arrays/datetimelike.py\", line 2584 in take\n  File \"/opt/radar/site/pandas/core/array_algos/take.py\", line 108 in take_nd\n  File \"/opt/radar/site/pandas/core/algorithms.py\", line 1705 in map_array\n  File \"/opt/radar/site/pandas/core/arrays/base.py\", line 2745 in map\n  File \"/opt/radar/site/pandas/core/base.py\", line 1020 in _map_values\n  File \"/opt/radar/site/pandas/core/series.py\", line 4675 in map\n  File \"/opt/radar/site/pandas/core/tools/datetimes.py\", line 1038 in to_datetime\n  File \"/reproducer/a05_datetime_segmentation.py\", line 10 in <module>\n\nExtension modules: numpy._core._multiarray_umath, numpy.linalg._umath_linalg, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._pcg64, numpy.random._generator, numpy.random._mt19937, numpy.random._philox, numpy.random._sfc64, numpy.random.mtrand, _cyutility, pandas._libs._cyutility, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.properties, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing (total: 53)\n",
+            "excerpt": "Processing /artifact/numpy-2.4.6-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl\nProcessing /artifact/pandas-3.0.4-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl\nProcessing /artifact/python_dateutil-2.9.0.post0-py2.py3-none-any.whl\nProcessing /artifact/six-1.17.0-py2.py3-none-any.whl\nProcessing /artifact/tzdata-2025.2-py2.py3-none-any.whl\nInstalling collected packages: tzdata, six, python-dateutil, pandas, numpy\n\nSuccessfully installed numpy-2.4.6 pandas-3.0.4 python-dateutil-2.9.0.post0 six-1.17.0 tzdata-2025.2\nFatal Python error: Segmentation fault\n\nCurrent thread 0x000077c0b89e4380 (most recent call first):\n  File \"/opt/radar/site/pandas/core/dtypes/cast.py\", line 474 in maybe_promote\n  File \"/opt/radar/site/pandas/core/array_algos/take.py\", line 96 in take_nd\n  File \"/opt/radar/site/pandas/core/algorithms.py\", line 1210 in take\n  File \"/opt/radar/site/pandas/core/arrays/_mixins.py\", line 172 in take\n  File \"/opt/radar/site/pandas/core/arrays/datetimelike.py\", line 2584 in take\n  File \"/opt/radar/site/pandas/core/array_algos/take.py\", line 108 in take_nd\n  File \"/opt/radar/site/pandas/core/algorithms.py\", line 1705 in map_array\n  File \"/opt/radar/site/pandas/core/arrays/base.py\", line 2745 in map\n  File \"/opt/radar/site/pandas/core/base.py\", line 1020 in _map_values\n  File \"/opt/radar/site/pandas/core/series.py\", line 4675 in map\n  File \"/opt/radar/site/pandas/core/tools/datetimes.py\", line 1038 in to_datetime\n  File \"/reproducer/a05_datetime_segmentation.py\", line 10 in <module>\n\nExtension modules: numpy._core._multiarray_umath, numpy.linalg._umath_linalg, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._pcg64, numpy.random._generator, numpy.random._mt19937, numpy.random._philox, numpy.random._sfc64, numpy.random.mtrand, _cyutility, pandas._libs._cyutility, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.properties, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing (total: 53)\n",
             "output_bytes": 2899,
-            "output_digest": "sha256:6f1562397ae9eb152adb1705b38f90fb060e2ff6a5592ce5c4d9fe84b2cd89d6",
+            "output_digest": "sha256:89bb990cae42b888d595b020032eb0ff51f252ef8dca06a59a0a380b892eb337",
             "output_limit_exceeded": false,
             "returncode": 139,
             "timed_out": false

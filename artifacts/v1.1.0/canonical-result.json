@@ -743,7 +743,7 @@
     "cleanup_verified": true,
     "network_denied": true
   },
-  "mapping_digest": "sha256:7fbdeb50852c478896b1a714b48d60bb19cc01adcd3473f1dedd5ffafccbb9e7",
+  "mapping_digest": "sha256:989895444a490e27519b03c01c88d79f63c743928d9610c48937fd9f11163211",
   "metrics": {
     "action_owner_correctness": {
       "denominator": 3,

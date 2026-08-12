@@ -1,11 +1,31 @@
 {
+  "candidate": {
+    "candidate_argv": [
+      "python",
+      "-u",
+      "-c",
+      "<smoke-program>"
+    ],
+    "gold_visible": false,
+    "repository_visible": false
+  },
   "image": "mirror.gcr.io/library/python@sha256:63669fd2563fa90b0442fa7b568e66e3667755636cda086d7bcaaa895f66fe39",
   "packet_count": 25,
   "protocol": {
     "errors": [],
     "exit_code": 0,
+    "experiment_round_trip": {
+      "required": "at least one fresh available experiment with verified cleanup",
+      "status": "PASS",
+      "totals": {
+        "available": 1,
+        "cleanup_verified": 1,
+        "executor_calls": 1,
+        "fresh": 1
+      }
+    },
     "ledgers": {
-      "ep_-TTW-61AHIb_vB2DDo94mW2vepMQCMd8": {
+      "ep_0UMTQHy6tGDkdehAGtcOLtSd4RLC2vtG": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -32,7 +52,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_0a5Xe3BFjIWlExQgNLxO5CpZ2kT9NDaE": {
+      "ep_0lQpeTuaHMfRNkXLJKJG6Tdg3XDSulBl": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -59,7 +79,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_0zbZwBDfK6CslweGXGohMtiORyakJucc": {
+      "ep_2lOvpuDsxUzX3m8ZC4uUt7r4iKjqrff3": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -86,7 +106,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_1RNqdpRqVFk79ItXWl_IprgA5Jk7hbfU": {
+      "ep_AsKCmW3zeLvVxMAL2H_qyJntMNuy65Bm": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -113,7 +133,34 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_2vwT9G6j8cU4wK1Mt1K755eXMNQqBysj": {
+      "ep_AuZs-ztbxP25Km5vbur2inzF1iDdBzKN": {
+        "available": 1,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 1,
+        "executor_calls": 1,
+        "fresh": 1,
+        "fresh_useful_experiment_rate": {
+          "denominator": 1,
+          "numerator": 1,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "max_experiments": 3,
+        "requested": 1,
+        "requested_experiment_efficiency": {
+          "denominator": 1,
+          "numerator": 1,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 1,
+        "valid": 1
+      },
+      "ep_B8IKRBiAblZnQfjOaTyKJy5uBT-C71nr": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -140,7 +187,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_38tbB-nJvbLZ8DuGRGT8kTALisSNGdh6": {
+      "ep_C2M-MEOlA_Qrb7HPHvkIBokaBC8ycuxT": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -167,7 +214,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_6rgV7iaCTRI1Z2X5mwZPPKljmfsvRr2r": {
+      "ep_DZUAC4R6UnSCdOiPeoR9EhemeAkYk7Om": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -194,7 +241,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_7EY6VBjPYoRH7Yd7OVtrmfChvanqGxuU": {
+      "ep_F5-Su0VIEH_L0pEfxEYdy91vzXAzfH0D": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -221,7 +268,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_9yG9pAYYsdYc81CeJ84nX-1-EOANiUiG": {
+      "ep_GspDOywb-FbWTbrAew8tKn5QB8isLlYE": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -248,7 +295,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_AuDxLXQj0UzVrlRcE-roSYlaBmO5o1oI": {
+      "ep_MI2-JwJzLC-tRY9-UnlCnP-oYMpqGNIb": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -275,7 +322,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_D-xNd_YPRdspNPp3yH-yhU7MJsxXG0a9": {
+      "ep_OxQlrt35XOCvgYoLsRod2JypQsPqniSx": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -302,7 +349,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_EEoL8eZQ017-nT4jiC2Zh7ocuDrwnfvx": {
+      "ep_PM0KrxHD00_MGCw9ZSQRWrCTSCpKToQr": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -329,7 +376,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_EL-UnFcCEtQHwya_OrW3xPfR8rg44LJ5": {
+      "ep_YQZX2i4rDr-QCxBlb2mWzp8JHrCLDU_X": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -356,7 +403,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_HBzROaTHBtRUxHhJcpI_eRBcD-YvLIZZ": {
+      "ep_c1CyjQ3CObsF8P4SYfSWLVky8KPFdvau": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -383,7 +430,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_ItC3BzV-g32GfVTWvSm7ZaATw_irXkdQ": {
+      "ep_dAXN1bDmtJe7XESH2FJyphVBHotfaEl7": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -410,7 +457,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_KHyy7CeM4ihtdYCWeGal2-B3rCeW7pSV": {
+      "ep_elGRZpNpx1to8cp6aUUUemgBJDCrV88b": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -437,7 +484,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_KStlaBc9kjOHU3NGpvypwmg35WTyRX44": {
+      "ep_etwK7hHqWxe1d71e7kEXuAsU0dlwU9lN": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -464,7 +511,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_MpWvNBS4U-Tk-0DYTAg_jl-IQO1R-4mT": {
+      "ep_fM22e-8cW3SUhEPfHBau0-SNmc4jR7zj": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -491,7 +538,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_PljnAfr3v9C93iysmJqy3tuu-eTUrQdE": {
+      "ep_h4JcumlkV6ZzmnEaiXxSbxM3ngxaiFJw": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -518,7 +565,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_UKD5lTGQmY9UQm0M43204JZn7wh5gasK": {
+      "ep_m7iitl6QLKKT93jRujrlXhYJpEQWjjbA": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -545,7 +592,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_VgUe2V3Y_xxjYA-x3-V01cLqDXOKIigA": {
+      "ep_slrBbqmEz5O4xij41fVmmbH0QF8vbx9N": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -572,7 +619,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep__ty_lxgPfZe7ZqgzcK7V7WMtdE9iA_X2": {
+      "ep_thXww_hw_1hhxxM2eGorkyo7qMJnbD53": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -599,7 +646,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_tLaIzUbk-5QAL9qqlljSDACNjfUye1JP": {
+      "ep_vkPZKpqKz_YokbCLC5Ykr3lNhmXukMuN": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -626,34 +673,7 @@
         "useful_fresh": 0,
         "valid": 0
       },
-      "ep_xpX59zZnpASxrA_imoDkojAlRoSq4v4U": {
-        "available": 0,
-        "budget_exhausted": false,
-        "cache_hits": 0,
-        "cleanup_verified": 0,
-        "executor_calls": 0,
-        "fresh": 0,
-        "fresh_useful_experiment_rate": {
-          "denominator": 0,
-          "numerator": 0,
-          "status": "not_evaluable",
-          "value": null
-        },
-        "max_experiments": 3,
-        "requested": 0,
-        "requested_experiment_efficiency": {
-          "denominator": 0,
-          "numerator": 0,
-          "status": "not_evaluable",
-          "value": null
-        },
-        "reused": 0,
-        "unavailable": 0,
-        "unsupported": 0,
-        "useful_fresh": 0,
-        "valid": 0
-      },
-      "ep_y2k0u3K0DOCBK5-mA9cbemOkTTTwX8Qv": {
+      "ep_xWl8A33Ve6GohOLUVkdeJx0etQg0e-Xy": {
         "available": 0,
         "budget_exhausted": false,
         "cache_hits": 0,
@@ -682,208 +702,7 @@
       }
     },
     "network_denied": true,
-    "predictions": {
-      "ep_-TTW-61AHIb_vB2DDo94mW2vepMQCMd8": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_0a5Xe3BFjIWlExQgNLxO5CpZ2kT9NDaE": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_0zbZwBDfK6CslweGXGohMtiORyakJucc": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_1RNqdpRqVFk79ItXWl_IprgA5Jk7hbfU": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_2vwT9G6j8cU4wK1Mt1K755eXMNQqBysj": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_38tbB-nJvbLZ8DuGRGT8kTALisSNGdh6": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_6rgV7iaCTRI1Z2X5mwZPPKljmfsvRr2r": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_7EY6VBjPYoRH7Yd7OVtrmfChvanqGxuU": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_9yG9pAYYsdYc81CeJ84nX-1-EOANiUiG": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_AuDxLXQj0UzVrlRcE-roSYlaBmO5o1oI": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_D-xNd_YPRdspNPp3yH-yhU7MJsxXG0a9": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_EEoL8eZQ017-nT4jiC2Zh7ocuDrwnfvx": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_EL-UnFcCEtQHwya_OrW3xPfR8rg44LJ5": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_HBzROaTHBtRUxHhJcpI_eRBcD-YvLIZZ": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_ItC3BzV-g32GfVTWvSm7ZaATw_irXkdQ": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_KHyy7CeM4ihtdYCWeGal2-B3rCeW7pSV": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_KStlaBc9kjOHU3NGpvypwmg35WTyRX44": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_MpWvNBS4U-Tk-0DYTAg_jl-IQO1R-4mT": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_PljnAfr3v9C93iysmJqy3tuu-eTUrQdE": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_UKD5lTGQmY9UQm0M43204JZn7wh5gasK": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_VgUe2V3Y_xxjYA-x3-V01cLqDXOKIigA": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep__ty_lxgPfZe7ZqgzcK7V7WMtdE9iA_X2": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_tLaIzUbk-5QAL9qqlljSDACNjfUye1JP": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_xpX59zZnpASxrA_imoDkojAlRoSq4v4U": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      },
-      "ep_y2k0u3K0DOCBK5-mA9cbemOkTTTwX8Qv": {
-        "action_owner": null,
-        "candidate_induced": false,
-        "causal_component": null,
-        "disposition": "ABSTAINED",
-        "evidence_ids": [],
-        "semantic_intent": "not-applicable"
-      }
-    },
     "status": "COMPLETED"
-  }
+  },
+  "status": "PASS"
 }

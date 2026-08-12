@@ -7,17 +7,22 @@
   },
   "schema_version": "1",
   "sdist": {
+    "candidate_v12_present": true,
     "evaluator_runtime_leaks": [],
+    "forbidden_hits": [],
     "members": 130,
     "name": "radar_bench-1.1.0.tar.gz",
-    "sha256": "sha256:bcde61920bbb894875439f52d14475378e5ff1cbc95f8973e157c7995fc8e228"
+    "required_public_missing": [],
+    "sha256": "sha256:97aa55ec03eefa3a93794410303ce5914b47cfbd30638e5db10cc83777a0a7a7"
   },
   "status": "PASS",
   "wheel": {
-    "candidate_bundle_present": true,
+    "candidate_v12_present": true,
     "evaluator_runtime_leaks": [],
+    "forbidden_hits": [],
     "members": 84,
     "name": "radar_bench-1.1.0-py3-none-any.whl",
-    "sha256": "sha256:ddb209e5d0d911fab6ba2dd1104ebcd094b29f993c9e546650d7ce0338b03832"
+    "required_public_missing": [],
+    "sha256": "sha256:7cea8826d4ffb24d3c001f4074569a47fb8aaaf7bb81e8df1c68f5b58bc28480"
   }
 }
