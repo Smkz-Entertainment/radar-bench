@@ -1,0 +1,889 @@
+{
+  "image": "mirror.gcr.io/library/python@sha256:63669fd2563fa90b0442fa7b568e66e3667755636cda086d7bcaaa895f66fe39",
+  "packet_count": 25,
+  "protocol": {
+    "errors": [],
+    "exit_code": 0,
+    "ledgers": {
+      "ep_-TTW-61AHIb_vB2DDo94mW2vepMQCMd8": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_0a5Xe3BFjIWlExQgNLxO5CpZ2kT9NDaE": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_0zbZwBDfK6CslweGXGohMtiORyakJucc": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_1RNqdpRqVFk79ItXWl_IprgA5Jk7hbfU": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_2vwT9G6j8cU4wK1Mt1K755eXMNQqBysj": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_38tbB-nJvbLZ8DuGRGT8kTALisSNGdh6": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_6rgV7iaCTRI1Z2X5mwZPPKljmfsvRr2r": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_7EY6VBjPYoRH7Yd7OVtrmfChvanqGxuU": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_9yG9pAYYsdYc81CeJ84nX-1-EOANiUiG": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_AuDxLXQj0UzVrlRcE-roSYlaBmO5o1oI": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_D-xNd_YPRdspNPp3yH-yhU7MJsxXG0a9": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_EEoL8eZQ017-nT4jiC2Zh7ocuDrwnfvx": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_EL-UnFcCEtQHwya_OrW3xPfR8rg44LJ5": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_HBzROaTHBtRUxHhJcpI_eRBcD-YvLIZZ": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_ItC3BzV-g32GfVTWvSm7ZaATw_irXkdQ": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_KHyy7CeM4ihtdYCWeGal2-B3rCeW7pSV": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_KStlaBc9kjOHU3NGpvypwmg35WTyRX44": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_MpWvNBS4U-Tk-0DYTAg_jl-IQO1R-4mT": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_PljnAfr3v9C93iysmJqy3tuu-eTUrQdE": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_UKD5lTGQmY9UQm0M43204JZn7wh5gasK": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_VgUe2V3Y_xxjYA-x3-V01cLqDXOKIigA": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep__ty_lxgPfZe7ZqgzcK7V7WMtdE9iA_X2": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_tLaIzUbk-5QAL9qqlljSDACNjfUye1JP": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_xpX59zZnpASxrA_imoDkojAlRoSq4v4U": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "ep_y2k0u3K0DOCBK5-mA9cbemOkTTTwX8Qv": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      }
+    },
+    "network_denied": true,
+    "predictions": {
+      "ep_-TTW-61AHIb_vB2DDo94mW2vepMQCMd8": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_0a5Xe3BFjIWlExQgNLxO5CpZ2kT9NDaE": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_0zbZwBDfK6CslweGXGohMtiORyakJucc": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_1RNqdpRqVFk79ItXWl_IprgA5Jk7hbfU": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_2vwT9G6j8cU4wK1Mt1K755eXMNQqBysj": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_38tbB-nJvbLZ8DuGRGT8kTALisSNGdh6": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_6rgV7iaCTRI1Z2X5mwZPPKljmfsvRr2r": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_7EY6VBjPYoRH7Yd7OVtrmfChvanqGxuU": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_9yG9pAYYsdYc81CeJ84nX-1-EOANiUiG": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_AuDxLXQj0UzVrlRcE-roSYlaBmO5o1oI": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_D-xNd_YPRdspNPp3yH-yhU7MJsxXG0a9": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_EEoL8eZQ017-nT4jiC2Zh7ocuDrwnfvx": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_EL-UnFcCEtQHwya_OrW3xPfR8rg44LJ5": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_HBzROaTHBtRUxHhJcpI_eRBcD-YvLIZZ": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_ItC3BzV-g32GfVTWvSm7ZaATw_irXkdQ": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_KHyy7CeM4ihtdYCWeGal2-B3rCeW7pSV": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_KStlaBc9kjOHU3NGpvypwmg35WTyRX44": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_MpWvNBS4U-Tk-0DYTAg_jl-IQO1R-4mT": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_PljnAfr3v9C93iysmJqy3tuu-eTUrQdE": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_UKD5lTGQmY9UQm0M43204JZn7wh5gasK": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_VgUe2V3Y_xxjYA-x3-V01cLqDXOKIigA": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep__ty_lxgPfZe7ZqgzcK7V7WMtdE9iA_X2": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_tLaIzUbk-5QAL9qqlljSDACNjfUye1JP": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_xpX59zZnpASxrA_imoDkojAlRoSq4v4U": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "ep_y2k0u3K0DOCBK5-mA9cbemOkTTTwX8Qv": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "status": "COMPLETED"
+  }
+}

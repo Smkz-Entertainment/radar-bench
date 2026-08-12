@@ -1,0 +1,1982 @@
+{
+  "artifact_catalog_digest": "sha256:d7a889ec7d1a10b50c704ffd0e7397b00cd4ae979397b00b9ed336591049ecb6",
+  "artifact_root": "external-artifact-root",
+  "baseline_digests": {
+    "baseline-freeze-v1.2": "sha256:510e36da0c723fe44879397e9ca86feeeb4fb34b9f27c0ab3480ada59a85613e"
+  },
+  "blockers": [],
+  "candidate_bundle": {
+    "digest": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
+    "errors": [],
+    "shape_audit": {
+      "errors": [],
+      "status": "PASS",
+      "unique_evidence_shapes": 1
+    },
+    "valid": true
+  },
+  "candidate_bundle_digest": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
+  "candidate_gold_visible": false,
+  "candidate_repository_visible": false,
+  "cleanup_status": {
+    "candidate_container": "VERIFIED",
+    "errors": [],
+    "experiment_containers": "VERIFIED",
+    "preparation_volumes": "VERIFIED"
+  },
+  "decision": "COMPLETED",
+  "episode_count": 25,
+  "episode_ids": "evaluator-only-random-per-run",
+  "evaluator_bundle": {
+    "digest": "sha256:5d962f082b809f8dd2c3349b62f30cf4777f45177783c17740d8ec93f30f6803",
+    "errors": [],
+    "valid": true
+  },
+  "evaluator_bundle_digest": "sha256:5d962f082b809f8dd2c3349b62f30cf4777f45177783c17740d8ec93f30f6803",
+  "executor_capability_version": "radar-v12-executor-receipt-1",
+  "experiment_receipts": {
+    "RADAR-V07-A01": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-A02": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-A03": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-A04": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-A05": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T01": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T02": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T03": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T04": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T05": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T06": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T07": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T08": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T09": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T10": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T11": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T12": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T13": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T14": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T15": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T16": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T17": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T18": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T19": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    },
+    "RADAR-V07-T20": {
+      "available": 0,
+      "budget_exhausted": false,
+      "cache_hits": 0,
+      "cleanup_verified": 0,
+      "executor_calls": 0,
+      "fresh": 0,
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "max_experiments": 3,
+      "requested": 0,
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "reused": 0,
+      "unavailable": 0,
+      "unsupported": 0,
+      "useful_fresh": 0,
+      "valid": 0
+    }
+  },
+  "information_sufficiency": {
+    "candidate_bundle": {
+      "digest": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
+      "errors": [],
+      "shape_audit": {
+        "errors": [],
+        "status": "PASS",
+        "unique_evidence_shapes": 1
+      },
+      "valid": true
+    },
+    "certifying": true,
+    "evaluator_loaded": false,
+    "preregistered_gates": {
+      "historical_causal_or_semantic_disposition": ">=4/5",
+      "pandas_45601": "semantic ambiguity must remain unresolved if unsupported",
+      "safety_case_type_inference": "must not be inferable from IDs, order, or evidence shape",
+      "scikit_learn_30512_component": "SciPy"
+    },
+    "solvability_reference": {
+      "errors": [],
+      "path": "artifacts\\v1.1.0\\solvability-reference.json",
+      "present": true
+    },
+    "status": "PASS"
+  },
+  "isolation_verification": {
+    "candidate_gold_hidden": true,
+    "candidate_repository_hidden": true,
+    "cleanup_verified": true,
+    "network_denied": true
+  },
+  "mapping_digest": "sha256:7fbdeb50852c478896b1a714b48d60bb19cc01adcd3473f1dedd5ffafccbb9e7",
+  "metrics": {
+    "action_owner_correctness": {
+      "denominator": 3,
+      "numerator": 0,
+      "status": "evaluable",
+      "value": 0.0
+    },
+    "candidate_induced_correctness": {
+      "denominator": 5,
+      "numerator": 0,
+      "status": "evaluable",
+      "value": 0.0
+    },
+    "cross_repository_resolution": {
+      "denominator": 1,
+      "numerator": 0,
+      "status": "evaluable",
+      "value": 0.0
+    },
+    "false_owner_accusation_rate": {
+      "denominator": 22,
+      "numerator": 0,
+      "status": "evaluable",
+      "value": 0.0
+    },
+    "fresh_useful_experiment_rate": {
+      "denominator": 0,
+      "numerator": 0,
+      "status": "not_evaluable",
+      "value": null
+    },
+    "historical_attribution_resolution": {
+      "denominator": 4,
+      "numerator": 0,
+      "status": "evaluable",
+      "value": 0.0
+    },
+    "historical_correct_abstention": {
+      "denominator": 0,
+      "numerator": 0,
+      "status": "not_evaluable",
+      "value": null
+    },
+    "requested_experiment_efficiency": {
+      "denominator": 0,
+      "numerator": 0,
+      "status": "not_evaluable",
+      "value": null
+    },
+    "root_cause_component_correctness": {
+      "denominator": 5,
+      "numerator": 0,
+      "status": "evaluable",
+      "value": 0.0
+    },
+    "safety_abstention_recall": {
+      "denominator": 20,
+      "numerator": 20,
+      "status": "evaluable",
+      "value": 1.0
+    },
+    "semantic_ambiguity_handling": {
+      "denominator": 1,
+      "numerator": 0,
+      "status": "evaluable",
+      "value": 0.0
+    }
+  },
+  "network_used": false,
+  "platform_contract": {
+    "architecture": "x86_64",
+    "network": "none",
+    "os": "linux",
+    "runtime": "docker"
+  },
+  "predictions": {
+    "RADAR-V07-A01": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-A02": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-A03": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-A04": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-A05": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T01": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T02": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T03": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T04": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T05": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T06": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T07": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T08": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T09": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T10": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T11": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T12": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T13": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T14": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T15": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T16": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T17": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T18": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T19": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    },
+    "RADAR-V07-T20": {
+      "action_owner": null,
+      "candidate_induced": false,
+      "causal_component": null,
+      "disposition": "ABSTAINED",
+      "evidence_ids": [],
+      "semantic_intent": "not-applicable"
+    }
+  },
+  "protocol": {
+    "docker_isolated": true,
+    "network_denied": true,
+    "version": "1.2-jsonl"
+  },
+  "protocol_result": {
+    "errors": [],
+    "exit_code": 0,
+    "network_denied": true,
+    "status": "COMPLETED"
+  },
+  "protocol_version": "1.2-jsonl",
+  "release_version": "1.1.0",
+  "runs": {
+    "RADAR-V07-A01": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-A02": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-A03": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-A04": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-A05": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T01": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T02": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T03": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T04": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T05": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T06": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T07": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T08": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T09": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T10": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T11": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T12": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T13": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T14": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T15": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T16": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T17": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T18": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T19": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "RADAR-V07-T20": {
+      "ledger": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "prediction": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    }
+  },
+  "runtime": {
+    "errors": [],
+    "recipe_digest": "sha256:aedac753812636b51e0216988ceacefb352913f42d8e3d8d26eee1d9ed2ecab1",
+    "status": "READY"
+  },
+  "runtime_digest": "sha256:aedac753812636b51e0216988ceacefb352913f42d8e3d8d26eee1d9ed2ecab1",
+  "schema_version": "1.2-jsonl",
+  "scientific_classification": "SCIENTIFICALLY_EVALUABLE",
+  "source_provenance": {
+    "artifact_catalog": "sha256:d7a889ec7d1a10b50c704ffd0e7397b00cd4ae979397b00b9ed336591049ecb6",
+    "baseline": "sha256:510e36da0c723fe44879397e9ca86feeeb4fb34b9f27c0ab3480ada59a85613e",
+    "candidate_bundle": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
+    "evaluator_bundle": "sha256:5d962f082b809f8dd2c3349b62f30cf4777f45177783c17740d8ec93f30f6803",
+    "runtime": "sha256:aedac753812636b51e0216988ceacefb352913f42d8e3d8d26eee1d9ed2ecab1",
+    "suite": "sha256:c310d32920e5c574a74b03c4fb96ce8218f128fff1a974f52546997b74f98f6a"
+  },
+  "status": "COMPLETED",
+  "suite_id": "decisive-v1.2"
+}

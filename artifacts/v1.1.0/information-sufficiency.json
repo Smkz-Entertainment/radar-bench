@@ -1,6 +1,6 @@
 {
   "candidate_bundle": {
-    "digest": "sha256:0c9d87058d4211e834612abbde0b1893e12f6be64a1236d025ac105b85ad8584",
+    "digest": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
     "errors": [],
     "shape_audit": {
       "errors": [],
@@ -9,7 +9,7 @@
     },
     "valid": true
   },
-  "certifying": false,
+  "certifying": true,
   "evaluator_loaded": false,
   "preregistered_gates": {
     "historical_causal_or_semantic_disposition": ">=4/5",
@@ -18,11 +18,9 @@
     "scikit_learn_30512_component": "SciPy"
   },
   "solvability_reference": {
-    "errors": [
-      "no blinded candidate-only solvability reference exists"
-    ],
+    "errors": [],
     "path": "artifacts\\v1.1.0\\solvability-reference.json",
-    "present": false
+    "present": true
   },
-  "status": "BLOCKED_INFORMATION_SUFFICIENCY"
+  "status": "PASS"
 }

@@ -3,50 +3,59 @@
   "bundles": [
     {
       "artifact_id": "pandas-55137-wheelhouse",
-      "errors": [
-        "bundle directory is absent"
+      "bundle_digest": "sha256:862e1a1087f82c0879871ece3270958451eb56762fc5911fbcbffb81cf645b44",
+      "bytes": 43525981,
+      "case_ids": [
+        "RADAR-V07-A01"
       ],
-      "status": "BLOCKED"
+      "errors": [],
+      "status": "READY"
     },
     {
       "artifact_id": "sklearn-30512-wheelhouse",
-      "errors": [
-        "bundle directory is absent"
+      "bundle_digest": "sha256:de1f378316813b8e81e5df0f8cc696e21512ee2c99173ca44384a2b24390fee0",
+      "bytes": 111962505,
+      "case_ids": [
+        "RADAR-V07-A02"
       ],
-      "status": "BLOCKED"
+      "errors": [],
+      "status": "READY"
     },
     {
       "artifact_id": "pandas-45601-wheelhouse",
-      "errors": [
-        "bundle directory is absent"
+      "bundle_digest": "sha256:c07029f0bddb1fab4982a76bb0385fecb7accad8427a043ee76a8b923a4bbfb5",
+      "bytes": 39910630,
+      "case_ids": [
+        "RADAR-V07-A03"
       ],
-      "status": "BLOCKED"
+      "errors": [],
+      "status": "READY"
     },
     {
       "artifact_id": "pandas-57124-wheelhouse",
-      "errors": [
-        "bundle directory is absent"
+      "bundle_digest": "sha256:f4b2c69a454b066f8b02e032d2ae11d9724e6d70447296e588a6071e79e0b1d6",
+      "bytes": 44598862,
+      "case_ids": [
+        "RADAR-V07-A04"
       ],
-      "status": "BLOCKED"
+      "errors": [],
+      "status": "READY"
     },
     {
       "artifact_id": "pandas-66085-wheelhouse",
-      "errors": [
-        "bundle directory is absent"
+      "bundle_digest": "sha256:8a5a5fdcae415ff17989835e49cf7741f5eade8624fd0befb503d58607b31791",
+      "bytes": 38875252,
+      "case_ids": [
+        "RADAR-V07-A05"
       ],
-      "status": "BLOCKED"
+      "errors": [],
+      "status": "READY"
     }
   ],
   "catalog_digest": "sha256:d7a889ec7d1a10b50c704ffd0e7397b00cd4ae979397b00b9ed336591049ecb6",
   "catalog_policy": "No historical bytes are redistributed. RECONSTRUCT_ONLY files are acquired from approved PyPI source URLs and verified by filename, byte size, SHA-256, archive safety, and bundle digest before any network-denied execution.",
-  "errors": [
-    "pandas-55137-wheelhouse: bundle directory is absent",
-    "sklearn-30512-wheelhouse: bundle directory is absent",
-    "pandas-45601-wheelhouse: bundle directory is absent",
-    "pandas-57124-wheelhouse: bundle directory is absent",
-    "pandas-66085-wheelhouse: bundle directory is absent"
-  ],
+  "errors": [],
   "network_used": false,
-  "status": "BLOCKED",
+  "status": "READY",
   "suite_id": "decisive-v1.2"
 }

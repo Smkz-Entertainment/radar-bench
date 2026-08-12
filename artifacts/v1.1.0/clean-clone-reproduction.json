@@ -1,0 +1,47 @@
+{
+  "status": "PASS",
+  "required_runs": 2,
+  "completed_runs": 2,
+  "repository_head": "36eedf6fdf6c92ea2898fa13ff6c6d60dd31100e",
+  "working_tree_candidate": false,
+  "shared_artifact_cache_used": false,
+  "release_action_taken": false,
+  "candidate_interface": {
+    "image": "mirror.gcr.io/library/python@sha256:63669fd2563fa90b0442fa7b568e66e3667755636cda086d7bcaaa895f66fe39",
+    "protocol": "1.2-jsonl",
+    "prediction_contract": "strict terminal fields"
+  },
+  "artifact_reconstruction": {
+    "status": "READY",
+    "network_used_during_acquisition": true,
+    "execution_network": "none",
+    "catalog_digest": "sha256:d7a889ec7d1a10b50c704ffd0e7397b00cd4ae979397b00b9ed336591049ecb6",
+    "bundle_digests_match": true
+  },
+  "runs": [
+    {
+      "clone": "clone-1",
+      "head": "36eedf6fdf6c92ea2898fa13ff6c6d60dd31100e",
+      "package_install": "PASS",
+      "historical": {"status": "PASS", "executed": 5, "contract_pass": 5},
+      "safety": {"case_count": 20, "contract_pass": 20, "all_cleanup_verified": true, "fresh_receipts": 20},
+      "information_sufficiency": {"status": "PASS", "reference_certifying": true, "evaluator_available": false, "metadata_case_type_signal": "NONE"},
+      "candidate_protocol": {"status": "COMPLETED", "episode_count": 25, "network_denied": true, "cleanup_verified": true},
+      "canonical_result_validation": "PASS",
+      "artifact_verification": "PASS",
+      "cli_doctor": "PASS"
+    },
+    {
+      "clone": "clone-2",
+      "head": "36eedf6fdf6c92ea2898fa13ff6c6d60dd31100e",
+      "package_install": "PASS",
+      "historical": {"status": "PASS", "executed": 5, "contract_pass": 5},
+      "safety": {"case_count": 20, "contract_pass": 20, "all_cleanup_verified": true, "fresh_receipts": 20},
+      "information_sufficiency": {"status": "PASS", "reference_certifying": true, "evaluator_available": false, "metadata_case_type_signal": "NONE"},
+      "candidate_protocol": {"status": "COMPLETED", "episode_count": 25, "network_denied": true, "cleanup_verified": true},
+      "canonical_result_validation": "PASS",
+      "artifact_verification": "PASS",
+      "cli_doctor": "PASS"
+    }
+  ]
+}

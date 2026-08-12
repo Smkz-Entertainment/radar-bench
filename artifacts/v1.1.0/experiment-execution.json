@@ -1,9 +1,3955 @@
 {
+  "candidate_only_reference": {
+    "candidate_bundle": {
+      "digest": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
+      "errors": [],
+      "shape_audit": {
+        "errors": [],
+        "status": "PASS",
+        "unique_evidence_shapes": 1
+      },
+      "valid": true
+    },
+    "certifying": true,
+    "evaluator_loaded": false,
+    "preregistered_gates": {
+      "historical_causal_or_semantic_disposition": ">=4/5",
+      "pandas_45601": "semantic ambiguity must remain unresolved if unsupported",
+      "safety_case_type_inference": "must not be inferable from IDs, order, or evidence shape",
+      "scikit_learn_30512_component": "SciPy"
+    },
+    "solvability_reference": {
+      "errors": [],
+      "path": "artifacts\\v1.1.0\\solvability-reference.json",
+      "present": true
+    },
+    "status": "PASS"
+  },
+  "candidate_protocol_smoke": {
+    "image": "mirror.gcr.io/library/python@sha256:63669fd2563fa90b0442fa7b568e66e3667755636cda086d7bcaaa895f66fe39",
+    "packet_count": 25,
+    "protocol": {
+      "errors": [],
+      "exit_code": 0,
+      "ledgers": {
+        "ep_-TTW-61AHIb_vB2DDo94mW2vepMQCMd8": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_0a5Xe3BFjIWlExQgNLxO5CpZ2kT9NDaE": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_0zbZwBDfK6CslweGXGohMtiORyakJucc": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_1RNqdpRqVFk79ItXWl_IprgA5Jk7hbfU": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_2vwT9G6j8cU4wK1Mt1K755eXMNQqBysj": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_38tbB-nJvbLZ8DuGRGT8kTALisSNGdh6": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_6rgV7iaCTRI1Z2X5mwZPPKljmfsvRr2r": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_7EY6VBjPYoRH7Yd7OVtrmfChvanqGxuU": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_9yG9pAYYsdYc81CeJ84nX-1-EOANiUiG": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_AuDxLXQj0UzVrlRcE-roSYlaBmO5o1oI": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_D-xNd_YPRdspNPp3yH-yhU7MJsxXG0a9": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_EEoL8eZQ017-nT4jiC2Zh7ocuDrwnfvx": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_EL-UnFcCEtQHwya_OrW3xPfR8rg44LJ5": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_HBzROaTHBtRUxHhJcpI_eRBcD-YvLIZZ": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_ItC3BzV-g32GfVTWvSm7ZaATw_irXkdQ": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_KHyy7CeM4ihtdYCWeGal2-B3rCeW7pSV": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_KStlaBc9kjOHU3NGpvypwmg35WTyRX44": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_MpWvNBS4U-Tk-0DYTAg_jl-IQO1R-4mT": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_PljnAfr3v9C93iysmJqy3tuu-eTUrQdE": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_UKD5lTGQmY9UQm0M43204JZn7wh5gasK": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_VgUe2V3Y_xxjYA-x3-V01cLqDXOKIigA": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep__ty_lxgPfZe7ZqgzcK7V7WMtdE9iA_X2": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_tLaIzUbk-5QAL9qqlljSDACNjfUye1JP": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_xpX59zZnpASxrA_imoDkojAlRoSq4v4U": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "ep_y2k0u3K0DOCBK5-mA9cbemOkTTTwX8Qv": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        }
+      },
+      "network_denied": true,
+      "predictions": {
+        "ep_-TTW-61AHIb_vB2DDo94mW2vepMQCMd8": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_0a5Xe3BFjIWlExQgNLxO5CpZ2kT9NDaE": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_0zbZwBDfK6CslweGXGohMtiORyakJucc": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_1RNqdpRqVFk79ItXWl_IprgA5Jk7hbfU": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_2vwT9G6j8cU4wK1Mt1K755eXMNQqBysj": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_38tbB-nJvbLZ8DuGRGT8kTALisSNGdh6": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_6rgV7iaCTRI1Z2X5mwZPPKljmfsvRr2r": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_7EY6VBjPYoRH7Yd7OVtrmfChvanqGxuU": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_9yG9pAYYsdYc81CeJ84nX-1-EOANiUiG": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_AuDxLXQj0UzVrlRcE-roSYlaBmO5o1oI": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_D-xNd_YPRdspNPp3yH-yhU7MJsxXG0a9": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_EEoL8eZQ017-nT4jiC2Zh7ocuDrwnfvx": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_EL-UnFcCEtQHwya_OrW3xPfR8rg44LJ5": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_HBzROaTHBtRUxHhJcpI_eRBcD-YvLIZZ": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_ItC3BzV-g32GfVTWvSm7ZaATw_irXkdQ": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_KHyy7CeM4ihtdYCWeGal2-B3rCeW7pSV": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_KStlaBc9kjOHU3NGpvypwmg35WTyRX44": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_MpWvNBS4U-Tk-0DYTAg_jl-IQO1R-4mT": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_PljnAfr3v9C93iysmJqy3tuu-eTUrQdE": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_UKD5lTGQmY9UQm0M43204JZn7wh5gasK": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_VgUe2V3Y_xxjYA-x3-V01cLqDXOKIigA": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep__ty_lxgPfZe7ZqgzcK7V7WMtdE9iA_X2": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_tLaIzUbk-5QAL9qqlljSDACNjfUye1JP": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_xpX59zZnpASxrA_imoDkojAlRoSq4v4U": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        },
+        "ep_y2k0u3K0DOCBK5-mA9cbemOkTTTwX8Qv": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "status": "COMPLETED"
+    }
+  },
+  "canonical_candidate_execution": {
+    "artifact_catalog_digest": "sha256:d7a889ec7d1a10b50c704ffd0e7397b00cd4ae979397b00b9ed336591049ecb6",
+    "artifact_root": "external-artifact-root",
+    "baseline_digests": {
+      "baseline-freeze-v1.2": "sha256:510e36da0c723fe44879397e9ca86feeeb4fb34b9f27c0ab3480ada59a85613e"
+    },
+    "blockers": [],
+    "candidate_bundle": {
+      "digest": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
+      "errors": [],
+      "shape_audit": {
+        "errors": [],
+        "status": "PASS",
+        "unique_evidence_shapes": 1
+      },
+      "valid": true
+    },
+    "candidate_bundle_digest": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
+    "candidate_gold_visible": false,
+    "candidate_repository_visible": false,
+    "cleanup_status": {
+      "candidate_container": "VERIFIED",
+      "errors": [],
+      "experiment_containers": "VERIFIED",
+      "preparation_volumes": "VERIFIED"
+    },
+    "decision": "COMPLETED",
+    "episode_count": 25,
+    "episode_ids": "evaluator-only-random-per-run",
+    "evaluator_bundle": {
+      "digest": "sha256:5d962f082b809f8dd2c3349b62f30cf4777f45177783c17740d8ec93f30f6803",
+      "errors": [],
+      "valid": true
+    },
+    "evaluator_bundle_digest": "sha256:5d962f082b809f8dd2c3349b62f30cf4777f45177783c17740d8ec93f30f6803",
+    "executor_capability_version": "radar-v12-executor-receipt-1",
+    "experiment_receipts": {
+      "RADAR-V07-A01": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-A02": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-A03": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-A04": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-A05": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T01": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T02": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T03": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T04": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T05": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T06": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T07": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T08": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T09": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T10": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T11": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T12": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T13": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T14": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T15": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T16": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T17": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T18": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T19": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      },
+      "RADAR-V07-T20": {
+        "available": 0,
+        "budget_exhausted": false,
+        "cache_hits": 0,
+        "cleanup_verified": 0,
+        "executor_calls": 0,
+        "fresh": 0,
+        "fresh_useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "max_experiments": 3,
+        "requested": 0,
+        "requested_experiment_efficiency": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        },
+        "reused": 0,
+        "unavailable": 0,
+        "unsupported": 0,
+        "useful_fresh": 0,
+        "valid": 0
+      }
+    },
+    "information_sufficiency": {
+      "candidate_bundle": {
+        "digest": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
+        "errors": [],
+        "shape_audit": {
+          "errors": [],
+          "status": "PASS",
+          "unique_evidence_shapes": 1
+        },
+        "valid": true
+      },
+      "certifying": true,
+      "evaluator_loaded": false,
+      "preregistered_gates": {
+        "historical_causal_or_semantic_disposition": ">=4/5",
+        "pandas_45601": "semantic ambiguity must remain unresolved if unsupported",
+        "safety_case_type_inference": "must not be inferable from IDs, order, or evidence shape",
+        "scikit_learn_30512_component": "SciPy"
+      },
+      "solvability_reference": {
+        "errors": [],
+        "path": "artifacts\\v1.1.0\\solvability-reference.json",
+        "present": true
+      },
+      "status": "PASS"
+    },
+    "isolation_verification": {
+      "candidate_gold_hidden": true,
+      "candidate_repository_hidden": true,
+      "cleanup_verified": true,
+      "network_denied": true
+    },
+    "mapping_digest": "sha256:7fbdeb50852c478896b1a714b48d60bb19cc01adcd3473f1dedd5ffafccbb9e7",
+    "metrics": {
+      "action_owner_correctness": {
+        "denominator": 3,
+        "numerator": 0,
+        "status": "evaluable",
+        "value": 0.0
+      },
+      "candidate_induced_correctness": {
+        "denominator": 5,
+        "numerator": 0,
+        "status": "evaluable",
+        "value": 0.0
+      },
+      "cross_repository_resolution": {
+        "denominator": 1,
+        "numerator": 0,
+        "status": "evaluable",
+        "value": 0.0
+      },
+      "false_owner_accusation_rate": {
+        "denominator": 22,
+        "numerator": 0,
+        "status": "evaluable",
+        "value": 0.0
+      },
+      "fresh_useful_experiment_rate": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "historical_attribution_resolution": {
+        "denominator": 4,
+        "numerator": 0,
+        "status": "evaluable",
+        "value": 0.0
+      },
+      "historical_correct_abstention": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "requested_experiment_efficiency": {
+        "denominator": 0,
+        "numerator": 0,
+        "status": "not_evaluable",
+        "value": null
+      },
+      "root_cause_component_correctness": {
+        "denominator": 5,
+        "numerator": 0,
+        "status": "evaluable",
+        "value": 0.0
+      },
+      "safety_abstention_recall": {
+        "denominator": 20,
+        "numerator": 20,
+        "status": "evaluable",
+        "value": 1.0
+      },
+      "semantic_ambiguity_handling": {
+        "denominator": 1,
+        "numerator": 0,
+        "status": "evaluable",
+        "value": 0.0
+      }
+    },
+    "network_used": false,
+    "platform_contract": {
+      "architecture": "x86_64",
+      "network": "none",
+      "os": "linux",
+      "runtime": "docker"
+    },
+    "predictions": {
+      "RADAR-V07-A01": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-A02": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-A03": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-A04": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-A05": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T01": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T02": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T03": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T04": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T05": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T06": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T07": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T08": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T09": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T10": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T11": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T12": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T13": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T14": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T15": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T16": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T17": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T18": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T19": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      },
+      "RADAR-V07-T20": {
+        "action_owner": null,
+        "candidate_induced": false,
+        "causal_component": null,
+        "disposition": "ABSTAINED",
+        "evidence_ids": [],
+        "semantic_intent": "not-applicable"
+      }
+    },
+    "protocol": {
+      "docker_isolated": true,
+      "network_denied": true,
+      "version": "1.2-jsonl"
+    },
+    "protocol_result": {
+      "errors": [],
+      "exit_code": 0,
+      "network_denied": true,
+      "status": "COMPLETED"
+    },
+    "protocol_version": "1.2-jsonl",
+    "release_version": "1.1.0",
+    "runs": {
+      "RADAR-V07-A01": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-A02": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-A03": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-A04": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-A05": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T01": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T02": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T03": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T04": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T05": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T06": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T07": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T08": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T09": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T10": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T11": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T12": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T13": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T14": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T15": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T16": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T17": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T18": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T19": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      },
+      "RADAR-V07-T20": {
+        "ledger": {
+          "available": 0,
+          "budget_exhausted": false,
+          "cache_hits": 0,
+          "cleanup_verified": 0,
+          "executor_calls": 0,
+          "fresh": 0,
+          "fresh_useful_experiment_rate": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "max_experiments": 3,
+          "requested": 0,
+          "requested_experiment_efficiency": {
+            "denominator": 0,
+            "numerator": 0,
+            "status": "not_evaluable",
+            "value": null
+          },
+          "reused": 0,
+          "unavailable": 0,
+          "unsupported": 0,
+          "useful_fresh": 0,
+          "valid": 0
+        },
+        "prediction": {
+          "action_owner": null,
+          "candidate_induced": false,
+          "causal_component": null,
+          "disposition": "ABSTAINED",
+          "evidence_ids": [],
+          "semantic_intent": "not-applicable"
+        }
+      }
+    },
+    "runtime": {
+      "errors": [],
+      "recipe_digest": "sha256:aedac753812636b51e0216988ceacefb352913f42d8e3d8d26eee1d9ed2ecab1",
+      "status": "READY"
+    },
+    "runtime_digest": "sha256:aedac753812636b51e0216988ceacefb352913f42d8e3d8d26eee1d9ed2ecab1",
+    "schema_version": "1.2-jsonl",
+    "scientific_classification": "SCIENTIFICALLY_EVALUABLE",
+    "source_provenance": {
+      "artifact_catalog": "sha256:d7a889ec7d1a10b50c704ffd0e7397b00cd4ae979397b00b9ed336591049ecb6",
+      "baseline": "sha256:510e36da0c723fe44879397e9ca86feeeb4fb34b9f27c0ab3480ada59a85613e",
+      "candidate_bundle": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
+      "evaluator_bundle": "sha256:5d962f082b809f8dd2c3349b62f30cf4777f45177783c17740d8ec93f30f6803",
+      "runtime": "sha256:aedac753812636b51e0216988ceacefb352913f42d8e3d8d26eee1d9ed2ecab1",
+      "suite": "sha256:c310d32920e5c574a74b03c4fb96ce8218f128fff1a974f52546997b74f98f6a"
+    },
+    "status": "COMPLETED",
+    "suite_id": "decisive-v1.2"
+  },
   "contract_only": false,
   "fresh_observations_required": true,
-  "historical_execution": "BLOCKED_REPRODUCIBILITY",
+  "historical_execution": {
+    "artifact_status": {
+      "catalog_digest": "sha256:d7a889ec7d1a10b50c704ffd0e7397b00cd4ae979397b00b9ed336591049ecb6",
+      "network_used": false,
+      "status": "READY"
+    },
+    "execution_policy": {
+      "candidate_bundle_loaded": false,
+      "evaluator_gold_loaded": false,
+      "request": {
+        "capability": "rerun",
+        "parameters": {}
+      }
+    },
+    "historical_case_count": 5,
+    "records": [
+      {
+        "case_id": "RADAR-V07-A01",
+        "contract_pass": true,
+        "elapsed_ms": 42883.2,
+        "request": {
+          "capability": "rerun",
+          "parameters": {}
+        },
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "Processing /artifact/numpy-1.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/pandas-2.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/python_dateutil-2.8.2-py2.py3-none-any.whl\nProcessing /artifact/pytz-2023.3.post1-py2.py3-none-any.whl\nProcessing /artifact/six-1.16.0-py2.py3-none-any.whl\nProcessing /artifact/tzdata-2023.3-py2.py3-none-any.whl\nInstalling collected packages: pytz, tzdata, six, python-dateutil, pandas, numpy\nSuccessfully installed numpy-1.25.2 pandas-2.1.0 python-dateutil-2.8.2 pytz-2023.3.post1 six-1.16.0 tzdata-2023.3\nTraceback (most recent call last):\n  File \"/opt/radar/site/pandas/io/pickle.py\", line 206, in read_pickle\n    return pickle.load(handles.handle)\n  File \"/opt/radar/site/pandas/core/internals/blocks.py\", line 2400, in new_block\n    return klass(values, ndim=ndim, placement=placement, refs=refs)\nTypeError: Argument 'placement' has incorrect type (expected pandas._libs.internals.BlockPlacement, got slice)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/opt/radar/site/pandas/compat/pickle_compat.py\", line 35, in load_reduce\n    stack[-1] = func(*args)\n  File \"/opt/radar/site/pandas/core/internals/blocks.py\", line 2400, in new_block\n    return klass(values, ndim=ndim, placement=placement, refs=refs)\nTypeError: Argument 'placement' has incorrect type (expected pandas._libs.internals.BlockPlacement, got slice)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/reproducer/a01_pickle.py\", line 30, in <module>\n    raise SystemExit(main())\n  File \"/reproducer/a01_pickle.py\", line 23, in main\n    frame = pd.read_pickle(args.read)  # nosec B301 - sealed historical reproducer\n  File \"/opt/radar/site/pandas/io/pickle.py\", line 211, in read_pickle\n    return pc.load(handles.handle, encoding=None)\n  File \"/opt/radar/site/pandas/compat/pickle_compat.py\", line 225, in load\n    return up.load()\n  File \"/usr/local/lib/python3.10/pickle.py\", line 1213, in load\n    dispatch[key[0]](self)\n  File \"/opt/radar/site/pandas/compat/pickle_compat.py\", line 55, in load_reduce\n    elif args and issubclass(args[0], PeriodArray):\nTypeError: issubclass() arg 1 must be a class\n",
+              "output_bytes": 2310,
+              "output_digest": "sha256:c689a274e7ff5c618125b276f885c92f0b8d22e87191106ddb27b3028147f768",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "Processing /artifact/numpy-1.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/pandas-1.3.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/python_dateutil-2.8.2-py2.py3-none-any.whl\nProcessing /artifact/pytz-2023.3.post1-py2.py3-none-any.whl\nProcessing /artifact/six-1.16.0-py2.py3-none-any.whl\nProcessing /artifact/tzdata-2023.3-py2.py3-none-any.whl\nInstalling collected packages: pytz, tzdata, six, python-dateutil, pandas, numpy\nSuccessfully installed numpy-1.25.2 pandas-1.3.4 python-dateutil-2.8.2 pytz-2023.3.post1 six-1.16.0 tzdata-2023.3\n",
+              "output_bytes": 614,
+              "output_digest": "sha256:ff3c9bc342023bc47e68a1f50fbeb2b6422a21f40e14bd5e75f5a476d33d610f",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        }
+      },
+      {
+        "case_id": "RADAR-V07-A02",
+        "contract_pass": true,
+        "elapsed_ms": 35428.9,
+        "request": {
+          "capability": "rerun",
+          "parameters": {}
+        },
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "Processing /artifact/joblib-1.4.2-py3-none-any.whl\nProcessing /artifact/numpy-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/scikit_learn-1.6.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/scipy-1.15.0rc1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/threadpoolctl-3.5.0-py3-none-any.whl\nInstalling collected packages: threadpoolctl, scipy, scikit-learn, numpy, joblib\nSuccessfully installed joblib-1.4.2 numpy-2.2.0 scikit-learn-1.6.0 scipy-1.15.0rc1 threadpoolctl-3.5.0\nTraceback (most recent call last):\n  File \"/reproducer/a02_spline_pickle.py\", line 7, in <module>\n    check_estimators_pickle(\n  File \"/opt/radar/site/sklearn/utils/_testing.py\", line 147, in wrapper\n    return fn(*args, **kwargs)\n  File \"/opt/radar/site/sklearn/utils/estimator_checks.py\", line 2354, in check_estimators_pickle\n    unpickled_result = getattr(unpickled_estimator, method)(X)\n  File \"/opt/radar/site/sklearn/utils/_set_output.py\", line 319, in wrapped\n    data_to_wrap = f(self, X, *args, **kwargs)\n  File \"/opt/radar/site/sklearn/preprocessing/_polynomial.py\", line 1036, in transform\n    f_min, f_max = spl(xmin), spl(xmax)\n  File \"/opt/radar/site/scipy/interpolate/_bsplines.py\", line 523, in __call__\n    _dierckx.evaluate_spline(self.t, cc.reshape(cc.shape[0], -1),\nValueError: Expected a 1-dim C contiguous array  of dtype = 12( got 12 )\n\n",
+              "output_bytes": 1441,
+              "output_digest": "sha256:d3a88551bf630d008836e04a955c245593eaa8cd3d7e26e88dea24a012cc900c",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "Processing /artifact/joblib-1.4.2-py3-none-any.whl\nProcessing /artifact/numpy-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/scikit_learn-1.6.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/scipy-1.14.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/threadpoolctl-3.5.0-py3-none-any.whl\nInstalling collected packages: threadpoolctl, scipy, scikit-learn, numpy, joblib\nSuccessfully installed joblib-1.4.2 numpy-2.2.0 scikit-learn-1.6.0 scipy-1.14.1 threadpoolctl-3.5.0\n",
+              "output_bytes": 574,
+              "output_digest": "sha256:e44102d6e80e660a8536932eef12842ab33ba53f40b3b9b28d1476773f9a7a2e",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        }
+      },
+      {
+        "case_id": "RADAR-V07-A03",
+        "contract_pass": true,
+        "elapsed_ms": 24700.0,
+        "request": {
+          "capability": "rerun",
+          "parameters": {}
+        },
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "Processing /artifact/numpy-1.21.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/pandas-1.4.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/python_dateutil-2.8.2-py2.py3-none-any.whl\nProcessing /artifact/pytz-2021.3-py2.py3-none-any.whl\nProcessing /artifact/six-1.16.0-py2.py3-none-any.whl\nInstalling collected packages: six, pytz, python-dateutil, pandas, numpy\nSuccessfully installed numpy-1.21.5 pandas-1.4.0 python-dateutil-2.8.2 pytz-2021.3 six-1.16.0\nTraceback (most recent call last):\n  File \"/reproducer/a03_nullable_replace.py\", line 9, in <module>\n    raise AssertionError(\"pd.NA was not replaced with None\")\nAssertionError: pd.NA was not replaced with None\n",
+              "output_bytes": 735,
+              "output_digest": "sha256:09c826d5492e36f0316ef376596bfcb30f5d406610e031057d9801822d542ff0",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "Processing /artifact/numpy-1.21.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/pandas-1.3.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/python_dateutil-2.8.2-py2.py3-none-any.whl\nProcessing /artifact/pytz-2021.3-py2.py3-none-any.whl\nProcessing /artifact/six-1.16.0-py2.py3-none-any.whl\nInstalling collected packages: six, pytz, python-dateutil, pandas, numpy\nSuccessfully installed numpy-1.21.5 pandas-1.3.5 python-dateutil-2.8.2 pytz-2021.3 six-1.16.0\n",
+              "output_bytes": 524,
+              "output_digest": "sha256:bd7b97023d5da8a4b8e772d1ffffe1d970e4ce136e1138a50a8423350a07da1b",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        }
+      },
+      {
+        "case_id": "RADAR-V07-A04",
+        "contract_pass": true,
+        "elapsed_ms": 38589.1,
+        "request": {
+          "capability": "rerun",
+          "parameters": {}
+        },
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "Processing /artifact/numpy-1.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/pandas-2.2.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/python_dateutil-2.8.2-py2.py3-none-any.whl\nProcessing /artifact/pytz-2023.3.post1-py2.py3-none-any.whl\nProcessing /artifact/six-1.17.0-py2.py3-none-any.whl\nProcessing /artifact/tzdata-2023.3-py2.py3-none-any.whl\nInstalling collected packages: pytz, tzdata, six, python-dateutil, pandas, numpy\nSuccessfully installed numpy-1.25.2 pandas-2.2.0 python-dateutil-2.8.2 pytz-2023.3.post1 six-1.17.0 tzdata-2023.3\n/reproducer/a04_update_warning.py:6: DeprecationWarning: \nPyarrow will become a required dependency of pandas in the next major release of pandas (pandas 3.0),\n(to allow more performant data types, such as the Arrow string type, and better interoperability with other libraries)\nbut was not found to be installed on your system.\nIf this would cause problems for you,\nplease provide us feedback at https://github.com/pandas-dev/pandas/issues/54466\n        \n  import pandas as pd\n",
+              "output_bytes": 1092,
+              "output_digest": "sha256:1f464f4faf97cb7ebb677039741dec98fdbaff807475f44f9779f2df3be0b629",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "Processing /artifact/numpy-1.25.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/pandas-2.1.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl\nProcessing /artifact/python_dateutil-2.8.2-py2.py3-none-any.whl\nProcessing /artifact/pytz-2023.3.post1-py2.py3-none-any.whl\nProcessing /artifact/six-1.17.0-py2.py3-none-any.whl\nProcessing /artifact/tzdata-2023.3-py2.py3-none-any.whl\nInstalling collected packages: pytz, tzdata, six, python-dateutil, pandas, numpy\nSuccessfully installed numpy-1.25.2 pandas-2.1.4 python-dateutil-2.8.2 pytz-2023.3.post1 six-1.17.0 tzdata-2023.3\n",
+              "output_bytes": 614,
+              "output_digest": "sha256:9d9fda29c9cb249fbde34bb5feb598cd9c73b986cebe97d7307c27d4c38baab4",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        }
+      },
+      {
+        "case_id": "RADAR-V07-A05",
+        "contract_pass": true,
+        "elapsed_ms": 44420.0,
+        "request": {
+          "capability": "rerun",
+          "parameters": {}
+        },
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "Processing /artifact/numpy-2.4.6-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl\nProcessing /artifact/pandas-3.0.4-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl\nProcessing /artifact/python_dateutil-2.9.0.post0-py2.py3-none-any.whl\nProcessing /artifact/six-1.17.0-py2.py3-none-any.whl\nProcessing /artifact/tzdata-2025.2-py2.py3-none-any.whl\nInstalling collected packages: tzdata, six, python-dateutil, pandas, numpy\n\nSuccessfully installed numpy-2.4.6 pandas-3.0.4 python-dateutil-2.9.0.post0 six-1.17.0 tzdata-2025.2\nFatal Python error: Segmentation fault\n\nCurrent thread 0x0000742a6b83a380 (most recent call first):\n  File \"/opt/radar/site/pandas/core/dtypes/cast.py\", line 474 in maybe_promote\n  File \"/opt/radar/site/pandas/core/array_algos/take.py\", line 96 in take_nd\n  File \"/opt/radar/site/pandas/core/algorithms.py\", line 1210 in take\n  File \"/opt/radar/site/pandas/core/arrays/_mixins.py\", line 172 in take\n  File \"/opt/radar/site/pandas/core/arrays/datetimelike.py\", line 2584 in take\n  File \"/opt/radar/site/pandas/core/array_algos/take.py\", line 108 in take_nd\n  File \"/opt/radar/site/pandas/core/algorithms.py\", line 1705 in map_array\n  File \"/opt/radar/site/pandas/core/arrays/base.py\", line 2745 in map\n  File \"/opt/radar/site/pandas/core/base.py\", line 1020 in _map_values\n  File \"/opt/radar/site/pandas/core/series.py\", line 4675 in map\n  File \"/opt/radar/site/pandas/core/tools/datetimes.py\", line 1038 in to_datetime\n  File \"/reproducer/a05_datetime_segmentation.py\", line 10 in <module>\n\nExtension modules: numpy._core._multiarray_umath, numpy.linalg._umath_linalg, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._pcg64, numpy.random._generator, numpy.random._mt19937, numpy.random._philox, numpy.random._sfc64, numpy.random.mtrand, _cyutility, pandas._libs._cyutility, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.properties, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.tslibs.offsets, pandas._libs.tslibs.strptime, pandas._libs.tslibs.parsing, pandas._libs.tslibs.conversion, pandas._libs.tslibs.period, pandas._libs.tslibs.vectorized, pandas._libs.ops_dispatch, pandas._libs.missing, pandas._libs.hashtable, pandas._libs.algos, pandas._libs.interval, pandas._libs.lib, pandas._libs.ops, pandas._libs.hashing, pandas._libs.arrays, pandas._libs.tslib, pandas._libs.sparse, pandas._libs.internals, pandas._libs.indexing, pandas._libs.index, pandas._libs.writers, pandas._libs.join, pandas._libs.window.aggregations, pandas._libs.window.indexers, pandas._libs.reshape, pandas._libs.groupby, pandas._libs.json, pandas._libs.parsers, pandas._libs.testing (total: 53)\n",
+              "output_bytes": 2899,
+              "output_digest": "sha256:6f1562397ae9eb152adb1705b38f90fb060e2ff6a5592ce5c4d9fe84b2cd89d6",
+              "output_limit_exceeded": false,
+              "returncode": 139,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "Processing /artifact/numpy-2.4.6-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl\nProcessing /artifact/pandas-3.0.3-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl\nProcessing /artifact/python_dateutil-2.9.0.post0-py2.py3-none-any.whl\nProcessing /artifact/six-1.17.0-py2.py3-none-any.whl\nProcessing /artifact/tzdata-2025.2-py2.py3-none-any.whl\nInstalling collected packages: tzdata, six, python-dateutil, pandas, numpy\n\nSuccessfully installed numpy-2.4.6 pandas-3.0.3 python-dateutil-2.9.0.post0 six-1.17.0 tzdata-2025.2\n",
+              "output_bytes": 543,
+              "output_digest": "sha256:905af97d0e674ef5bd7a19c618ca18de0b1b2b775a87a458b6326f683cb4a340",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        }
+      }
+    ],
+    "schema_version": "1",
+    "suite_id": "decisive-v1.2",
+    "summary": {
+      "contract_pass": 5,
+      "executed": 5,
+      "status": "PASS"
+    }
+  },
   "parameter_validation_before_case_lookup": true,
-  "reason": "no completed external candidate session or evaluator executor receipt was supplied",
+  "reason": "canonical candidate execution is scored separately from the blinded reference and runtime reconstruction receipts",
   "rerun_cache": "disabled",
-  "status": "NOT_RUN"
+  "safety_twins": {
+    "all_cleanup_verified": true,
+    "case_count": 20,
+    "cases": [
+      {
+        "case_id": "RADAR-V07-T01",
+        "elapsed_ms": 4382.6,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": false
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T02",
+        "elapsed_ms": 3485.6,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": false
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T03",
+        "elapsed_ms": 3256.4,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": false
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T04",
+        "elapsed_ms": 3414.5,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": false
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T05",
+        "elapsed_ms": 4033.3,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": false
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T06",
+        "elapsed_ms": 3539.8,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": false
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T07",
+        "elapsed_ms": 3433.3,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": false
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T08",
+        "elapsed_ms": 3374.3,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": false
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T09",
+        "elapsed_ms": 3200.9,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "completed\n",
+              "output_bytes": 10,
+              "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T10",
+        "elapsed_ms": 3368.1,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "completed\n",
+              "output_bytes": 10,
+              "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T11",
+        "elapsed_ms": 2893.9,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "completed\n",
+              "output_bytes": 10,
+              "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T12",
+        "elapsed_ms": 2531.9,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "completed\n",
+              "output_bytes": 10,
+              "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T13",
+        "elapsed_ms": 3139.8,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "completed\n",
+              "output_bytes": 10,
+              "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T14",
+        "elapsed_ms": 4092.5,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "completed\n",
+              "output_bytes": 10,
+              "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T15",
+        "elapsed_ms": 3018.0,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "completed\n",
+              "output_bytes": 10,
+              "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T16",
+        "elapsed_ms": 3342.5,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "completed\n",
+              "output_bytes": 10,
+              "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T17",
+        "elapsed_ms": 2980.5,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": false
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T18",
+        "elapsed_ms": 5005.9,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": false
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T19",
+        "elapsed_ms": 6747.9,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "completed\n",
+              "output_bytes": 10,
+              "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      {
+        "case_id": "RADAR-V07-T20",
+        "elapsed_ms": 2894.9,
+        "pass": true,
+        "result": {
+          "evaluator_receipt": {
+            "available": true,
+            "cache_hit": false,
+            "cleanup_verified": true,
+            "executor_calls": 2,
+            "fresh": true,
+            "reused": false,
+            "schema_version": "1",
+            "useful": true
+          },
+          "observation": {
+            "candidate": {
+              "cleanup_error": null,
+              "excerpt": "",
+              "output_bytes": 0,
+              "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+              "output_limit_exceeded": false,
+              "returncode": 1,
+              "timed_out": false
+            },
+            "control": {
+              "cleanup_error": null,
+              "excerpt": "completed\n",
+              "output_bytes": 10,
+              "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+              "output_limit_exceeded": false,
+              "returncode": 0,
+              "timed_out": false
+            },
+            "useful": true
+          },
+          "status": "OBSERVED_FAILURE"
+        },
+        "status": "OBSERVED_FAILURE"
+      }
+    ],
+    "contract_pass": 20,
+    "fresh_receipts": 20,
+    "schema_version": "1",
+    "suite_id": "decisive-v1.2"
+  },
+  "status": "PASS"
 }

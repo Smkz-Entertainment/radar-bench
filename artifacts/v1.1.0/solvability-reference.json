@@ -1,0 +1,124 @@
+{
+  "candidate_bundle_digest": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
+  "certifying": true,
+  "evaluator_available_during_run": false,
+  "historical_review": [
+    {
+      "derived_from": "sha256:98e980a7a4a226f906a1cce7e8f2af1cfcbfce801334e6a033d38887950e1ba9",
+      "episode_id": "ep_ref__g2eHPH28TgiBQVsUaFE6t5o",
+      "role": "A02_SCIPY"
+    },
+    {
+      "derived_from": "sha256:070b07a52b52b854d24fc7d0111e63d864ce2314fbe55eef1c061bae1eb57eb5",
+      "episode_id": "ep_ref_pHP0OAlKOv0jdJ2-4IQnL3VU",
+      "role": "A03_AMBIGUOUS"
+    },
+    {
+      "derived_from": "sha256:0ceb45655ee619f738974adc68d6af212dfa0fa1f191f35b83f425f98e8ea9a4",
+      "episode_id": "ep_ref_2TrCZ8dlPu804hBsdzoXDtDR",
+      "role": "A01_OR_OTHER"
+    },
+    {
+      "derived_from": "sha256:869ed8200a96e43848e72ccbd237a4510dad67e14027f7f3198d1498b230120e",
+      "episode_id": "ep_ref_9J5nOOLkJjndGCJnQgKCgv8x",
+      "role": "A04_OR_OTHER"
+    },
+    {
+      "derived_from": "sha256:b9ca95d7abbc27d29371ec14ded317987252581f71d0161aaab04210def08eea",
+      "episode_id": "ep_ref_HRlpWtZfnHXZmwlcm9jbkY5D",
+      "role": "A05_OR_OTHER"
+    }
+  ],
+  "metadata_only": {
+    "case_type_signal": "NONE",
+    "classifier_advantage": 0.0,
+    "feature_source": "candidate evidence only"
+  },
+  "raw_predictions": [
+    {
+      "candidate_induced": true,
+      "causal_component": null,
+      "disposition": "ATTRIBUTED",
+      "episode_id": "ep_ref_2TrCZ8dlPu804hBsdzoXDtDR",
+      "evidence_digest": "sha256:41ec80dcb129e811bcf57894503467f51bedadaab15691b78fb66330180eae3c",
+      "experiment_response_digest": "sha256:0ceb45655ee619f738974adc68d6af212dfa0fa1f191f35b83f425f98e8ea9a4",
+      "semantic_intent": "known"
+    },
+    {
+      "candidate_induced": true,
+      "causal_component": "scipy",
+      "disposition": "ATTRIBUTED",
+      "episode_id": "ep_ref__g2eHPH28TgiBQVsUaFE6t5o",
+      "evidence_digest": "sha256:41ec80dcb129e811bcf57894503467f51bedadaab15691b78fb66330180eae3c",
+      "experiment_response_digest": "sha256:98e980a7a4a226f906a1cce7e8f2af1cfcbfce801334e6a033d38887950e1ba9",
+      "semantic_intent": "known"
+    },
+    {
+      "candidate_induced": true,
+      "causal_component": "pandas",
+      "disposition": "AMBIGUOUS",
+      "episode_id": "ep_ref_pHP0OAlKOv0jdJ2-4IQnL3VU",
+      "evidence_digest": "sha256:41ec80dcb129e811bcf57894503467f51bedadaab15691b78fb66330180eae3c",
+      "experiment_response_digest": "sha256:070b07a52b52b854d24fc7d0111e63d864ce2314fbe55eef1c061bae1eb57eb5",
+      "semantic_intent": "ambiguous"
+    },
+    {
+      "candidate_induced": true,
+      "causal_component": null,
+      "disposition": "ATTRIBUTED",
+      "episode_id": "ep_ref_9J5nOOLkJjndGCJnQgKCgv8x",
+      "evidence_digest": "sha256:41ec80dcb129e811bcf57894503467f51bedadaab15691b78fb66330180eae3c",
+      "experiment_response_digest": "sha256:869ed8200a96e43848e72ccbd237a4510dad67e14027f7f3198d1498b230120e",
+      "semantic_intent": "known"
+    },
+    {
+      "candidate_induced": true,
+      "causal_component": null,
+      "disposition": "ATTRIBUTED",
+      "episode_id": "ep_ref_HRlpWtZfnHXZmwlcm9jbkY5D",
+      "evidence_digest": "sha256:41ec80dcb129e811bcf57894503467f51bedadaab15691b78fb66330180eae3c",
+      "experiment_response_digest": "sha256:b9ca95d7abbc27d29371ec14ded317987252581f71d0161aaab04210def08eea",
+      "semantic_intent": "known"
+    }
+  ],
+  "receipts": [
+    {
+      "episode_id": "ep_ref_2TrCZ8dlPu804hBsdzoXDtDR",
+      "experiment_count": 1,
+      "fresh": true,
+      "receipt_digest": "sha256:3db8307a70404df0e4b923c4bb9f41886ec92fb51441aa8dcba7cf4f5a6db72b",
+      "status": "COMPLETED"
+    },
+    {
+      "episode_id": "ep_ref__g2eHPH28TgiBQVsUaFE6t5o",
+      "experiment_count": 1,
+      "fresh": true,
+      "receipt_digest": "sha256:6afa4eea27df55ddd6cc8d67489d8f85302f96ea17f910a911423d846b422e3b",
+      "status": "COMPLETED"
+    },
+    {
+      "episode_id": "ep_ref_pHP0OAlKOv0jdJ2-4IQnL3VU",
+      "experiment_count": 1,
+      "fresh": true,
+      "receipt_digest": "sha256:5f3f4331af13ca90214df93a36c6a7246dbb875c58791fb12a81ec76f56a563d",
+      "status": "COMPLETED"
+    },
+    {
+      "episode_id": "ep_ref_9J5nOOLkJjndGCJnQgKCgv8x",
+      "experiment_count": 1,
+      "fresh": true,
+      "receipt_digest": "sha256:f9253145fc7a6e96dcfe9b0c9535817c251f5ba8a289a07092eb74a6a3904ff0",
+      "status": "COMPLETED"
+    },
+    {
+      "episode_id": "ep_ref_HRlpWtZfnHXZmwlcm9jbkY5D",
+      "experiment_count": 1,
+      "fresh": true,
+      "receipt_digest": "sha256:997ef18bb026cf04e4890a5430aa0a7ad6d9061eb5689786387a160264cf63c0",
+      "status": "COMPLETED"
+    }
+  ],
+  "reference_method": "fresh blinded rerun observations with no evaluator labels",
+  "review_type": "candidate-only-reference",
+  "schema_version": "1"
+}

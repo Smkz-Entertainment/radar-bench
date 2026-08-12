@@ -1,0 +1,810 @@
+{
+  "all_cleanup_verified": true,
+  "case_count": 20,
+  "cases": [
+    {
+      "case_id": "RADAR-V07-T01",
+      "elapsed_ms": 4382.6,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": false
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T02",
+      "elapsed_ms": 3485.6,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": false
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T03",
+      "elapsed_ms": 3256.4,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": false
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T04",
+      "elapsed_ms": 3414.5,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": false
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T05",
+      "elapsed_ms": 4033.3,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": false
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T06",
+      "elapsed_ms": 3539.8,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": false
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T07",
+      "elapsed_ms": 3433.3,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": false
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T08",
+      "elapsed_ms": 3374.3,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": false
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T09",
+      "elapsed_ms": 3200.9,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": true
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "completed\n",
+            "output_bytes": 10,
+            "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+            "output_limit_exceeded": false,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T10",
+      "elapsed_ms": 3368.1,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": true
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "completed\n",
+            "output_bytes": 10,
+            "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+            "output_limit_exceeded": false,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T11",
+      "elapsed_ms": 2893.9,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": true
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "completed\n",
+            "output_bytes": 10,
+            "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+            "output_limit_exceeded": false,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T12",
+      "elapsed_ms": 2531.9,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": true
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "completed\n",
+            "output_bytes": 10,
+            "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+            "output_limit_exceeded": false,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T13",
+      "elapsed_ms": 3139.8,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": true
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "completed\n",
+            "output_bytes": 10,
+            "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+            "output_limit_exceeded": false,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T14",
+      "elapsed_ms": 4092.5,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": true
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "completed\n",
+            "output_bytes": 10,
+            "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+            "output_limit_exceeded": false,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T15",
+      "elapsed_ms": 3018.0,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": true
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "completed\n",
+            "output_bytes": 10,
+            "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+            "output_limit_exceeded": false,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T16",
+      "elapsed_ms": 3342.5,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": true
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "completed\n",
+            "output_bytes": 10,
+            "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+            "output_limit_exceeded": false,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T17",
+      "elapsed_ms": 2980.5,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": false
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T18",
+      "elapsed_ms": 5005.9,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": false
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T19",
+      "elapsed_ms": 6747.9,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": true
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "completed\n",
+            "output_bytes": 10,
+            "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+            "output_limit_exceeded": false,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    },
+    {
+      "case_id": "RADAR-V07-T20",
+      "elapsed_ms": 2894.9,
+      "pass": true,
+      "result": {
+        "evaluator_receipt": {
+          "available": true,
+          "cache_hit": false,
+          "cleanup_verified": true,
+          "executor_calls": 2,
+          "fresh": true,
+          "reused": false,
+          "schema_version": "1",
+          "useful": true
+        },
+        "observation": {
+          "candidate": {
+            "cleanup_error": null,
+            "excerpt": "",
+            "output_bytes": 0,
+            "output_digest": "sha256:4e4396ec965e054a0acb770fb72eafcfa6bae37e352e510535fbe0aea6b7fe94",
+            "output_limit_exceeded": false,
+            "returncode": 1,
+            "timed_out": false
+          },
+          "control": {
+            "cleanup_error": null,
+            "excerpt": "completed\n",
+            "output_bytes": 10,
+            "output_digest": "sha256:5cb5dd565a5e468c5779d025dcf4cdbff7be7a98d51c6b46e796dd237c57345a",
+            "output_limit_exceeded": false,
+            "returncode": 0,
+            "timed_out": false
+          },
+          "useful": true
+        },
+        "status": "OBSERVED_FAILURE"
+      },
+      "status": "OBSERVED_FAILURE"
+    }
+  ],
+  "contract_pass": 20,
+  "fresh_receipts": 20,
+  "schema_version": "1",
+  "suite_id": "decisive-v1.2"
+}

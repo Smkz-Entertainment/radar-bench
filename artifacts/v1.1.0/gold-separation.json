@@ -1,6 +1,6 @@
 {
   "candidate_bundle": {
-    "digest": "sha256:0c9d87058d4211e834612abbde0b1893e12f6be64a1236d025ac105b85ad8584",
+    "digest": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
     "errors": [],
     "shape_audit": {
       "errors": [],
@@ -9,7 +9,7 @@
     },
     "valid": true
   },
-  "candidate_digest": "sha256:5358b2b14dc738e904472567f288fd5ddfd538a4fcea0aee31cdd25fdbc8fc88",
+  "candidate_digest": "sha256:bbd8ad0d651735585126ecaffd0b99d9ede2112cd61b227f2354ee982b2dac59",
   "errors": [],
   "evaluator_bundle": {
     "digest": "sha256:5d962f082b809f8dd2c3349b62f30cf4777f45177783c17740d8ec93f30f6803",

@@ -1,16 +1,18 @@
 {
-  "final_state": "BLOCKED",
+  "final_state": "READY_FOR_INDEPENDENT_RELEASE_AUDIT",
   "gates": {
     "baseline_freeze": "PASS",
     "candidate_bundle": "PASS",
-    "candidate_isolation": "NOT_RUN",
-    "canonical_decisive_v1_2": "NOT_RUN",
-    "coverage": "BLOCKED",
+    "candidate_isolation": "PASS",
+    "canonical_decisive_v1_2": "PASS",
+    "clean_clone_reproduction": "PASS",
+    "coverage": "PASS",
     "gold_separation": "PASS",
-    "information_sufficiency": "BLOCKED_INFORMATION_SUFFICIENCY",
+    "historical_execution": "PASS",
+    "information_sufficiency": "PASS",
     "package_build": "PASS",
     "resource_integrity": "PASS",
-    "security": "BLOCKED",
+    "security": "PASS",
     "tag_integrity": "PASS"
   },
   "immutable_refs": [

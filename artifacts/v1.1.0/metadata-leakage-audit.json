@@ -1,0 +1,267 @@
+{
+  "balanced_accuracy": 0.5,
+  "balanced_accuracy_excess_over_chance": 0.0,
+  "candidate_bundle_digest": "sha256:c18b245ef69deed0e04c560ae39f25033496b1e7dd2247268667994eb9aa7d00",
+  "case_count": 25,
+  "evaluator_mapping_digest": "sha256:68eaef5c284fc4745fdf8805ac1a2a76beb48739c03773d8e71a3a4baebd265e",
+  "historical_accuracy": 0.0,
+  "historical_count": 5,
+  "max_group_mean_advantage": 0.0,
+  "method": "Leave-one-out nearest-neighbor group-mean similarity over candidate-visible content tokens; evaluator mapping is used only to score the attack.",
+  "outcomes": [
+    {
+      "actual_historical": true,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-A01",
+      "correct": false,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-001",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": true,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-A02",
+      "correct": false,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-002",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": true,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-A03",
+      "correct": false,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-003",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": true,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-A04",
+      "correct": false,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-004",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": true,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-A05",
+      "correct": false,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-005",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T01",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-006",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T02",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-007",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T03",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-008",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T04",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-009",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T05",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-010",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T06",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-011",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T07",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-012",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T08",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-013",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T09",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-014",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T10",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-015",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T11",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-016",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T12",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-017",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T13",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-018",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T14",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-019",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T15",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-020",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T16",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-021",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T17",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-022",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T18",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-023",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T19",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-024",
+      "safety_similarity": 1.0
+    },
+    {
+      "actual_historical": false,
+      "advantage": 0.0,
+      "case_id": "RADAR-V07-T20",
+      "correct": true,
+      "historical_similarity": 1.0,
+      "predicted_historical": false,
+      "record_id": "record-025",
+      "safety_similarity": 1.0
+    }
+  ],
+  "preregistered_advantage_threshold": 0.2,
+  "safety_accuracy": 1.0,
+  "safety_count": 20,
+  "status": "PASS"
+}
