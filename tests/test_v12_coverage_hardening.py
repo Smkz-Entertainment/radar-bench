@@ -2775,6 +2775,16 @@ def test_external_protocol_docker_inspection_and_cleanup_failures(
         lambda *_args, **_kwargs: subprocess.CompletedProcess(["docker"], 0, b"not-json", b""),
     )
     assert protocol._actual_container_config()[0].startswith("candidate container inspect failed")
+    monkeypatch.setattr(
+        v12.subprocess,
+        "run",
+        lambda argv, **_kwargs: subprocess.CompletedProcess(argv, 1, b"", b"no such object"),
+    )
+    protocol._candidate_process = SimpleNamespace(returncode=17, poll=lambda: 17)  # type: ignore[assignment]
+    assert protocol._actual_container_config()[0].startswith(
+        "candidate container process exited before inspection"
+    )
+    protocol._candidate_process = None
 
 
 def test_external_protocol_stream_absence_and_cleanup_exception(

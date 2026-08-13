@@ -62,7 +62,11 @@ def run_bounded(
 
     if not argv or timeout <= 0 or max_output_bytes <= 0:
         raise ValueError("bounded process arguments and limits must be positive")
-    creationflags = subprocess.CREATE_NEW_PROCESS_GROUP if os.name == "nt" else 0
+    creationflags = (
+        int(getattr(subprocess, "CREATE_NEW_PROCESS_GROUP", 0))
+        if os.name == "nt"
+        else 0
+    )
     process = subprocess.Popen(  # nosec B603 - shell is explicitly disabled
         list(argv),
         cwd=str(cwd) if cwd is not None else None,
