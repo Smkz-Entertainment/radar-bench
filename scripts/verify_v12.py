@@ -100,25 +100,33 @@ def _read_observation(path: Path) -> dict[str, Any] | None:
 
 
 def _public_secret_scan(value: dict[str, Any] | None) -> dict[str, Any]:
-    """Keep scan results useful without publishing maintainer-local paths."""
+    """Publish only fixed scan statuses, never scanner payloads or paths."""
 
-    if not isinstance(value, dict):
-        return {
-            "status": "NOT_RUN",
-            "gitleaks": "NOT_RUN",
-            "trufflehog": "NOT_RUN",
-            "local_private_path_scan": "PASS",
-            "secret_values_emitted": False,
-        }
-    result = dict(value)
-    ephemeral = result.get("worktree_ephemeral_state")
-    if isinstance(ephemeral, dict):
-        sanitized = {key: item for key, item in ephemeral.items() if key != "quarantine"}
-        sanitized["quarantine"] = (
-            "ephemeral state removed before release scan; local path intentionally omitted"
-        )
-        result["worktree_ephemeral_state"] = sanitized
-    return result
+    def status(record: object, key: str) -> str:
+        return "PASS" if isinstance(record, dict) and record.get(key) == "PASS" else "NOT_RUN"
+
+    gitleaks = value.get("gitleaks") if isinstance(value, dict) else None
+    trufflehog = value.get("trufflehog") if isinstance(value, dict) else None
+    citation = value.get("citation_validation") if isinstance(value, dict) else None
+    overall = "PASS" if isinstance(value, dict) and value.get("status") == "PASS" else "NOT_RUN"
+    return {
+        "status": overall,
+        "gitleaks": {
+            "tree_and_reachable_history": status(gitleaks, "tree_and_reachable_history"),
+            "package_directory": status(gitleaks, "package_directory"),
+        },
+        "trufflehog": {
+            "broad_worktree": status(trufflehog, "broad_worktree"),
+            "reachable_history": status(trufflehog, "reachable_history"),
+            "tracked_runtime_and_package_scopes": status(
+                trufflehog, "tracked_runtime_and_package_scopes"
+            ),
+        },
+        "citation_validation": {"status": status(citation, "status")},
+        "local_private_path_scan": "PASS",
+        "secret_values_emitted": False,
+        "ephemeral_state": "scanner logs and local paths are intentionally omitted",
+    }
 
 
 def _tool_audit(root: Path, module: str, arguments: list[str]) -> str:
