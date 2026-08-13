@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main, master]
+    branches: [main]
   pull_request:
 
 permissions:
@@ -26,12 +26,12 @@ jobs:
         python-version: ["3.11", "3.12", "3.13"]
     steps:
       - name: Check out source
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: ${{ matrix.python-version }}
           cache: pip
@@ -57,12 +57,12 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Check out source
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.13"
           cache: pip
@@ -139,7 +139,7 @@ jobs:
         run: python scripts/run_protocol_smoke.py --artifact-root "$RUNNER_TEMP/radar-artifacts" --output "$RUNNER_TEMP/protocol-smoke.json"
       - name: Upload protocol smoke receipt
         if: always()
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: protocol-smoke-${{ github.run_id }}
           path: ${{ runner.temp }}/protocol-smoke.json
@@ -155,21 +155,23 @@ jobs:
       contents: read
     steps:
       - name: Check out source
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
       - name: Set up Python
-        uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.13"
-      - name: Install and validate citation metadata
+      - name: Install locked security dependencies
         run: |
-          python -m pip install --disable-pip-version-check cffconvert==2.0.0
+          python -m pip install --disable-pip-version-check -r requirements-dev.lock
+
+      - name: Validate citation metadata
+        run: |
           cffconvert --validate -i CITATION.cff
       - name: Build package archives for security scanning
         run: |
-          python -m pip install --disable-pip-version-check -r requirements-dev.lock
           python -m build --wheel --sdist --outdir "$RUNNER_TEMP/radar-dist"
           python scripts/prepare_release_assets.py --dist "$RUNNER_TEMP/radar-dist" --release-tag v1.1.1
           python scripts/audit_release_assets.py "$RUNNER_TEMP/radar-dist"

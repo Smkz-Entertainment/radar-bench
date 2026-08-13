@@ -21,6 +21,9 @@ OBSOLETE_PHRASES = (
     "candidate-release-blocked-until-gates-pass",
     "decisive-v1.2 is blocked pending",
     "clean-clone reproduction remains pending",
+    "this branch prepares",
+    "planned `v1.1.1` names",
+    "release body draft:",
 )
 
 ROOT_FILES = (

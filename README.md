@@ -47,9 +47,9 @@ digest, and then install it:
     .venv/bin/radar-bench list-suites
 
 On Windows, use `.venv\\Scripts\\python.exe` and
-`.venv\\Scripts\\radar-bench.exe`. The public `v1.1.0` release is available
-now; this branch prepares the `v1.1.1` patch assets and provenance for its
-separate publication. Each published release lists its exact source provenance.
+`.venv\\Scripts\\radar-bench.exe`. Published releases in the v1.1 line list
+their exact source provenance; use the matching version tag and release assets
+when verifying a release.
 
 ## v1.2 quickstart
 

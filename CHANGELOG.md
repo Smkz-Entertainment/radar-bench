@@ -1,8 +1,6 @@
 # Changelog
 
-## 1.1.1 - public launch hygiene patch
-
-Release body draft:
+## 1.1.1 - 2026-08-13
 
 Radar Bench is an evidence-first executable benchmark for testing whether an
 investigator can diagnose downstream dependency and version regressions without

@@ -12,9 +12,9 @@ solvability receipt.
 Use a clean checkout of the exact release tag so the candidate-only solvability
 receipt and runtime manifests are available without putting them in the wheel.
 Choose a disposable working directory and download these four release assets
-from the published release you are verifying. The commands below use the
-planned `v1.1.1` names; use the matching published tag and filenames when
-verifying another release:
+from the published release you are verifying. The commands below illustrate
+the `v1.1.1` release names; substitute the matching published tag and filenames
+when verifying another release:
 
     git clone --depth 1 --branch v1.1.1 https://github.com/Smkz-Entertainment/radar-bench.git radar-bench-source
     cd radar-bench-source

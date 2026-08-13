@@ -21,10 +21,10 @@ separate host/evaluator release asset and is not included in either package.
 3. Write `SOURCE-PROVENANCE.json` containing the release tag, package version,
    source commit, source tree, suite, protocol, and all three distributable
    artifacts.
-4. Write and verify `SHA256SUMS` for the three distributable artifacts: wheel,
-   sdist, and evaluator asset. `SOURCE-PROVENANCE.json` carries the source
-   identity separately because hashing the manifest itself would be circular.
-   Generate artifact attestations for the wheel, sdist, and evaluator.
+4. Write and verify `SHA256SUMS` for the wheel, sdist, evaluator asset, and
+   `SOURCE-PROVENANCE.json`. The checksum manifest is written last and excludes
+   itself to avoid circularity. Generate artifact attestations for the wheel,
+   sdist, and evaluator.
 5. Run `python scripts/audit_release_assets.py <dist>` and inspect package
    contents for evaluator/reference/gold leakage.
 6. Create the annotated tag only after the exact source commit is approved.
