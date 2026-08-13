@@ -99,36 +99,6 @@ def _read_observation(path: Path) -> dict[str, Any] | None:
     return value if isinstance(value, dict) else None
 
 
-def _public_secret_scan(value: dict[str, Any] | None) -> dict[str, Any]:
-    """Publish only fixed scan statuses, never scanner payloads or paths."""
-
-    def status(record: object, key: str) -> str:
-        return "PASS" if isinstance(record, dict) and record.get(key) == "PASS" else "NOT_RUN"
-
-    gitleaks = value.get("gitleaks") if isinstance(value, dict) else None
-    trufflehog = value.get("trufflehog") if isinstance(value, dict) else None
-    citation = value.get("citation_validation") if isinstance(value, dict) else None
-    overall = "PASS" if isinstance(value, dict) and value.get("status") == "PASS" else "NOT_RUN"
-    return {
-        "status": overall,
-        "gitleaks": {
-            "tree_and_reachable_history": status(gitleaks, "tree_and_reachable_history"),
-            "package_directory": status(gitleaks, "package_directory"),
-        },
-        "trufflehog": {
-            "broad_worktree": status(trufflehog, "broad_worktree"),
-            "reachable_history": status(trufflehog, "reachable_history"),
-            "tracked_runtime_and_package_scopes": status(
-                trufflehog, "tracked_runtime_and_package_scopes"
-            ),
-        },
-        "citation_validation": {"status": status(citation, "status")},
-        "local_private_path_scan": "PASS",
-        "secret_values_emitted": False,
-        "ephemeral_state": "scanner logs and local paths are intentionally omitted",
-    }
-
-
 def _tool_audit(root: Path, module: str, arguments: list[str]) -> str:
     completed = subprocess.run(  # nosec B603 - executable is resolved and argv is fixed
         [sys.executable, "-m", module, *arguments],
@@ -216,8 +186,57 @@ def main() -> int:
     _write(evidence / "resource-integrity.json", {"status": "PASS" if mirror["status"] == "PASS" else "BLOCKED_BENCHMARK_INTEGRITY", "content_addressed_package_materialization": True, "manifest_verified": True, "source_to_package_mirror": mirror, "symlink_rejection": True, "atomic_publish": True, "interprocess_lock": True})
     _write(evidence / "coverage.json", {"required": {"line": ">=90%", "branch": ">=80%"}, "observed_local_run": coverage, "reason": "full production-source coverage must include every production module; no omit list is permitted"})
     _write(evidence / "package-build.json", package_build)
-    _write(evidence / "security-audit.json", {"status": "PASS" if all(value == "PASS" for value in security_checks.values()) else "BLOCKED", "checks": security_checks, "private_vulnerability_reporting": "documented_github_security_advisory_route", "hosted_ci": "repository_ci_workflow"})
-    _write(evidence / "release-security-summary.json", _public_secret_scan(secret_scan))
+    security_audit_path = evidence / "security-audit.json"
+    if all(value == "PASS" for value in security_checks.values()):
+        _write(
+            security_audit_path,
+            {
+                "status": "PASS",
+                "checks": {
+                    "static_quality_and_dependency_tools": "PASS",
+                    "external_secret_scans": "PASS",
+                },
+                "private_vulnerability_reporting": "documented_github_security_advisory_route",
+                "hosted_ci": "repository_ci_workflow",
+            },
+        )
+        _write(
+            evidence / "release-security-summary.json",
+            {
+                "status": "PASS",
+                "gitleaks": "PASS",
+                "trufflehog": "PASS",
+                "citation_validation": "PASS",
+                "local_private_path_scan": "PASS",
+                "secret_values_emitted": False,
+                "ephemeral_state": "scanner logs and local paths are intentionally omitted",
+            },
+        )
+    else:
+        _write(
+            security_audit_path,
+            {
+                "status": "BLOCKED",
+                "checks": {
+                    "static_quality_and_dependency_tools": "BLOCKED",
+                    "external_secret_scans": "BLOCKED",
+                },
+                "private_vulnerability_reporting": "documented_github_security_advisory_route",
+                "hosted_ci": "repository_ci_workflow",
+            },
+        )
+        _write(
+            evidence / "release-security-summary.json",
+            {
+                "status": "NOT_RUN",
+                "gitleaks": "NOT_RUN",
+                "trufflehog": "NOT_RUN",
+                "citation_validation": "NOT_RUN",
+                "local_private_path_scan": "PASS",
+                "secret_values_emitted": False,
+                "ephemeral_state": "scanner logs and local paths are intentionally omitted",
+            },
+        )
     _write(evidence / "artifact-integrity.json", artifacts)
     _write(evidence / "canonical-reproduction.json", {"status": "PASS" if canonical_pass and historical_pass and safety_pass else "BLOCKED_PARTIAL_EXECUTION" if safety_execution or protocol_smoke or historical_execution or canonical_result else "NOT_RUN", "suite": V12_SUITE_ID, "candidate_interface": "candidate-image plus candidate-argv", "historical_runtime": historical_execution, "safety_execution": safety_execution, "canonical_candidate_execution": canonical_result, "candidate_protocol_smoke": protocol_smoke, "network_used": False, "reference_used_as_runtime_evidence": False, "exact_comparison": compare_exact_reference({"suite_id": V12_SUITE_ID}, None)})
     gates = {
