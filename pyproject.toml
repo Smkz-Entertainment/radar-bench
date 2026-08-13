@@ -38,7 +38,7 @@ Documentation = "https://github.com/Smkz-Entertainment/radar-bench/tree/main/doc
 Security = "https://github.com/Smkz-Entertainment/radar-bench/security/advisories/new"
 
 [project.optional-dependencies]
-dev = ["pytest>=8", "pytest-cov>=5", "hypothesis>=6", "ruff>=0.6", "mypy>=1.11", "bandit>=1.7", "pip-audit>=2.7", "build>=1.2"]
+dev = ["pytest>=8", "pytest-cov>=5", "hypothesis>=6", "ruff>=0.6", "mypy>=2.3.0", "bandit>=1.7", "pip-audit>=2.7", "build>=1.2"]
 
 [project.scripts]
 radar-bench = "radar_bench.cli:main"
