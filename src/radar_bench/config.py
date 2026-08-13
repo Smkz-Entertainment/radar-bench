@@ -25,9 +25,11 @@ def cache_root(root: Path | None = None) -> Path:
     if value := os.environ.get("RADAR_BENCH_CACHE"):
         return Path(value).expanduser().resolve()
     if os.name == "nt":
-        base = Path(os.environ.get("LOCALAPPDATA", Path.home() / "AppData/Local"))
+        local_appdata = os.environ.get("LOCALAPPDATA")
+        base = Path(local_appdata) if local_appdata else Path.home() / "AppData/Local"
     else:
-        base = Path(os.environ.get("XDG_CACHE_HOME", Path.home() / ".cache"))
+        xdg_cache = os.environ.get("XDG_CACHE_HOME")
+        base = Path(xdg_cache) if xdg_cache else Path.home() / ".cache"
     return (base / "radar-bench").resolve()
 
 

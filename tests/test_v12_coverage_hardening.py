@@ -1491,10 +1491,12 @@ def test_v12_executor_recipe_argv_and_cleanup_lanes(
         "python",
         "script.py",
     ]
+    artifact_root = tmp_path / "external" / "decisive-v1.2"
+    (artifact_root / "pandas-55137-wheelhouse").mkdir(parents=True)
     executor = executor_module.V12ExperimentExecutor(
         ROOT,
         episode_to_case={"episode": "RADAR-V07-A01", "safety": "RADAR-V07-T01"},
-        artifact_root=ROOT / "artifacts/external/decisive-v1.2",
+        artifact_root=artifact_root,
     )
     runtime = executor.recipes["RADAR-V07-A01"]
     assert executor._workspace(runtime, "control") is not None
@@ -1585,10 +1587,12 @@ def test_v12_executor_call_preparation_and_observation_paths(
     unsupported = executor("episode", {"capability": "change_dependency_version", "parameters": {}})
     assert unsupported["status"] == "UNSUPPORTED_EXPERIMENT"
 
+    historical_artifact_root = tmp_path / "external-historical" / "decisive-v1.2"
+    (historical_artifact_root / "pandas-55137-wheelhouse").mkdir(parents=True)
     historical_executor = executor_module.V12ExperimentExecutor(
         ROOT,
         episode_to_case={"historical": "RADAR-V07-A01"},
-        artifact_root=ROOT / "artifacts/external/decisive-v1.2",
+        artifact_root=historical_artifact_root,
     )
     historical_executor.artifact_status = {"status": "READY"}
     monkeypatch.setattr(executor_module, "run_bounded", lambda *_args, **_kwargs: capture)

@@ -65,8 +65,21 @@ jobs:
           python -m radar_bench.cli validate --suite decisive-v1.1
           python -m radar_bench.cli validate --suite decisive-v1.2
           python -m radar_bench.cli verify-results reference/decisive-v1.1-result.json
+      - name: Reconstruct and verify decisive v1.2 artifacts
+        shell: bash
+        run: |
+          python -m radar_bench.cli artifacts fetch --suite decisive-v1.2 --output-root "$RUNNER_TEMP/radar-artifacts"
+          python -m radar_bench.cli artifacts verify --suite decisive-v1.2 --artifact-root "$RUNNER_TEMP/radar-artifacts"
       - name: Run real external protocol experiment smoke
-        run: python scripts/run_protocol_smoke.py --output "$RUNNER_TEMP/protocol-smoke.json"
+        run: python scripts/run_protocol_smoke.py --artifact-root "$RUNNER_TEMP/radar-artifacts" --output "$RUNNER_TEMP/protocol-smoke.json"
+      - name: Upload protocol smoke receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: protocol-smoke-${{ github.run_id }}
+          path: ${{ runner.temp }}/protocol-smoke.json
+          if-no-files-found: warn
+          retention-days: 7
       - name: Build wheel and sdist
         run: python -m build --wheel --sdist --outdir "$RUNNER_TEMP/radar-dist"
       - name: Write exact source provenance

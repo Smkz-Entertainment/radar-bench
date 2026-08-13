@@ -86,8 +86,10 @@ def main() -> int:
     )
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--image", default=DEFAULT_IMAGE)
+    parser.add_argument("--artifact-root", type=Path)
     args = parser.parse_args()
     root = args.root.resolve()
+    artifact_root = args.artifact_root.resolve() if args.artifact_root is not None else None
     candidate = json.loads(
         (root / "candidate/decisive-v1.2/candidate-bundle.json").read_text(
             encoding="utf-8"
@@ -108,6 +110,7 @@ def main() -> int:
     executor = V12ExperimentExecutor(
         root,
         episode_to_case={packet.episode_id: "RADAR-V07-T01" for packet in packets},
+        artifact_root=artifact_root,
     )
     with tempfile.TemporaryDirectory(prefix="radar-protocol-smoke-") as workspace:
         protocol = ExternalCandidateProtocol(
@@ -158,12 +161,7 @@ def main() -> int:
     args.output.write_text(
         json.dumps(document, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
-    print(
-        json.dumps(
-            {"status": document["status"], "experiment_round_trip": round_trip},
-            sort_keys=True,
-        )
-    )
+    print(json.dumps({"status": document["status"], "protocol": document["protocol"]}, sort_keys=True))
     return 0 if document["status"] == "PASS" else 2
 
 

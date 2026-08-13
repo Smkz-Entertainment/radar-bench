@@ -265,10 +265,17 @@ def test_v12_mapping_packets_sandbox_and_manifest_helpers(tmp_path: Path) -> Non
 
 
 def test_v12_executor_command_and_cleanup_failure_lanes(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> None:
+    artifact_root = tmp_path / "external" / "decisive-v1.2"
+    (artifact_root / "pandas-55137-wheelhouse").mkdir(parents=True)
+    monkeypatch.setattr(
+        v12_executor_module,
+        "verify_artifacts",
+        lambda *_args, **_kwargs: {"status": "READY", "errors": [], "bundles": []},
+    )
     executor = v12_executor_module.V12ExperimentExecutor(
         ROOT,
         episode_to_case={"episode": "RADAR-V07-A01"},
-        artifact_root=ROOT / "artifacts/external/decisive-v1.2",
+        artifact_root=artifact_root,
     )
     runtime = executor.recipes["RADAR-V07-A01"]
     request = {"capability": "rerun", "parameters": {}}

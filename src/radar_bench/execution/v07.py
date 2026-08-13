@@ -14,7 +14,7 @@ import shutil
 import statistics
 import time
 from collections import Counter
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 from typing import Any, Mapping, Sequence, cast
 
 from radar_bench.execution.docker_runtime import inspect_docker_runtime
@@ -150,7 +150,14 @@ def _relative_path(root: Path, value: Any, field: str) -> tuple[Path | None, lis
     if not isinstance(value, str) or not value:
         return None, [f"{field} must be a non-empty relative path"]
     candidate = Path(value)
-    if candidate.is_absolute() or ".." in candidate.parts:
+    windows_candidate = PureWindowsPath(value)
+    if (
+        candidate.is_absolute()
+        or windows_candidate.is_absolute()
+        or windows_candidate.drive
+        or ".." in candidate.parts
+        or ".." in windows_candidate.parts
+    ):
         return None, [f"{field} must stay inside the sealed corpus"]
     resolved = (root / candidate).resolve()
     try:
