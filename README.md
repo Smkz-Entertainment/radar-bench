@@ -5,6 +5,20 @@ failure investigation. Its differentiator is the execution boundary: controls,
 candidate observations, evaluator-owned labels, and reproducibility receipts are
 separate artifacts, and missing or unsafe inputs fail closed.
 
+## Repository layout
+
+Radar keeps versioned benchmark material visible so that historical results and
+current releases remain reproducible:
+
+- `candidate/decisive-v1.2/` — the current candidate-visible contract.
+- `evaluator/decisive-v1.2/` — the current evaluator-only source.
+- `corpus/v1.1.0/decisive-v1.2/` — the immutable current suite definition.
+- `corpus/v1.0.1/` — historical reproducers and runtime fixtures still used by
+  the current benchmark.
+- `baselines/` and `reference/` — frozen historical reference material and
+  negative results.
+- `evidence/` — retained scientific and provenance receipts.
+
 ## What it measures
 
 Radar measures whether an investigator can distinguish candidate-induced failure

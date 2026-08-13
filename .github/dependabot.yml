@@ -11,3 +11,8 @@ updates:
       interval: weekly
     open-pull-requests-limit: 5
     versioning-strategy: increase
+    groups:
+      routine-minor-patch:
+        update-types:
+          - "minor"
+          - "patch"
