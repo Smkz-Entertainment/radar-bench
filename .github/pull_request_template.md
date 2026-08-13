@@ -9,7 +9,7 @@
 - [ ] `python -m ruff check .`
 - [ ] `python -m mypy --strict src`
 - [ ] `python -m bandit -q -r src scripts`
-- [ ] `python -m pip_audit .`
+- [ ] `python -m pip_audit --require-hashes -r requirements-dev.lock`
 - [ ] `python -m radar_bench.cli validate --suite decisive-v1.1`
 - [ ] `python -m radar_bench.cli validate --suite decisive-v1.2`
 - [ ] package audit passed for wheel, sdist, and evaluator asset

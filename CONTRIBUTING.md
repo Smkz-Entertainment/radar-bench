@@ -15,7 +15,7 @@ repository CI equivalent:
     python -m ruff check .
     python -m mypy --strict src
     python -m bandit -q -r src scripts
-    python -m pip_audit .
+    python -m pip_audit --require-hashes -r requirements-dev.lock
     cffconvert --validate -i CITATION.cff
     python scripts/check_public_state.py
     python scripts/check_links.py

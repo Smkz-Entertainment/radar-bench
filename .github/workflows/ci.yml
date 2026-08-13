@@ -50,7 +50,7 @@ jobs:
       - name: Run security lint
         run: python -m bandit -q -r src scripts
       - name: Run dependency audit
-        run: python -m pip_audit .
+        run: python -m pip_audit --require-hashes -r requirements-dev.lock
 
   contract:
     name: Strict contract and package smoke
