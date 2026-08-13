@@ -28,8 +28,8 @@ V12_PROTOCOL_VERSION = "1.2-jsonl"
 V12_SUITE_RELATIVE = Path("corpus/v1.1.0/decisive-v1.2/suite.json")
 V12_CANDIDATE_BUNDLE_RELATIVE = Path("candidate/decisive-v1.2/candidate-bundle.json")
 V12_EVALUATOR_BUNDLE_RELATIVE = Path("evaluator/decisive-v1.2/evaluator-bundle.json")
-V12_EVIDENCE_RELATIVE = Path("artifacts/v1.1.0")
-V12_SOLVABILITY_RELATIVE = Path("artifacts/v1.1.0/solvability-reference.json")
+V12_EVIDENCE_RELATIVE = Path("evidence/decisive-v1.2")
+V12_SOLVABILITY_RELATIVE = V12_EVIDENCE_RELATIVE / "solvability-reference.json"
 
 HISTORICAL_IDS = tuple(f"RADAR-V07-A{index:02d}" for index in range(1, 6))
 SAFETY_IDS = tuple(f"RADAR-V07-T{index:02d}" for index in range(1, 21))

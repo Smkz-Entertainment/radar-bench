@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "radar-bench"
-version = "1.1.0"
+version = "1.1.1"
 description = "Evidence-first executable benchmark for downstream failure investigation"
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
@@ -12,6 +12,15 @@ license = "Apache-2.0"
 license-files = ["LICENSE", "NOTICE", "DATA_LICENSE.md", "LICENSES.md"]
 authors = [{ name = "Smkz-Entertainment" }]
 dependencies = []
+keywords = [
+  "benchmark",
+  "causal-inference",
+  "dependency-management",
+  "regression-testing",
+  "reproducible-research",
+  "security",
+  "software-engineering",
+]
 classifiers = [
   "Development Status :: 4 - Beta",
   "Programming Language :: Python :: 3",
@@ -20,6 +29,13 @@ classifiers = [
   "Programming Language :: Python :: 3.13",
   "Topic :: Software Development :: Testing",
 ]
+[project.urls]
+Homepage = "https://github.com/Smkz-Entertainment/radar-bench"
+Repository = "https://github.com/Smkz-Entertainment/radar-bench"
+Issues = "https://github.com/Smkz-Entertainment/radar-bench/issues"
+Changelog = "https://github.com/Smkz-Entertainment/radar-bench/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/Smkz-Entertainment/radar-bench/tree/main/docs"
+Security = "https://github.com/Smkz-Entertainment/radar-bench/security/advisories/new"
 
 [project.optional-dependencies]
 dev = ["pytest>=8", "pytest-cov>=5", "hypothesis>=6", "ruff>=0.6", "mypy>=1.11", "bandit>=1.7", "pip-audit>=2.7", "build>=1.2"]

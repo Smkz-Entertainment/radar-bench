@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "scope": "working-tree, reachable-history, and release-asset validation",
+  "gitleaks": {
+    "version": "8.30.1",
+    "tree_and_reachable_history": "PASS",
+    "package_directory": "PASS",
+    "verified_findings": 0
+  },
+  "trufflehog": {
+    "version": "3.96.0",
+    "broad_worktree": "PASS",
+    "reachable_history": "PASS",
+    "tracked_runtime_and_package_scopes": "PASS",
+    "verified_secrets": 0
+  },
+  "citation_validation": {
+    "tool": "cffconvert 2.0.0",
+    "status": "PASS"
+  },
+  "local_private_path_scan": "PASS",
+  "secret_values_emitted": false,
+  "ephemeral_state": "scanner logs and quarantine paths are retained outside the repository"
+}

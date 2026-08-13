@@ -283,7 +283,7 @@ def main() -> int:
             and all(item["status"] == "COMPLETED" for item in receipts)
         ),
     }
-    output = root / "artifacts" / "v1.1.0" / "solvability-reference.json"
+    output = root / "evidence" / "decisive-v1.2" / "solvability-reference.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(document, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps({"status": document["certifying"], "protocol": document["protocol_receipt"]}, sort_keys=True))

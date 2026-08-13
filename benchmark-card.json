@@ -1,7 +1,8 @@
 {
   "name": "Radar Bench",
-  "version": "1.0.1",
-  "suite": "decisive-v1.1",
+  "version": "1.1.1",
+  "suite": "decisive-v1.2",
+  "historical_reference_suite": "decisive-v1.1",
   "task": "executable downstream failure investigation",
   "cases": {
     "historical_attribution": 5,
@@ -26,5 +27,7 @@
     "AUTONOMOUS_ATTRIBUTION_MVP=DO_NOT_BUILD"
   ],
   "population_claim": false,
-  "production_validation": false
+  "production_validation": false,
+  "public_gold": true,
+  "hidden_tests": false
 }

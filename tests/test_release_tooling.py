@@ -50,3 +50,18 @@ def test_tracked_inventory_omits_self_reference_without_drift(
     )
     assert self_entry["bytes"] is None
     assert self_entry["sha256"] == "SELF_REFERENCE_OMITTED"
+
+
+def test_public_evaluator_asset_is_an_exact_host_only_copy() -> None:
+    canonical = ROOT / "evaluator" / "decisive-v1.2" / "evaluator-bundle.json"
+    release_asset = (
+        ROOT
+        / "evaluator"
+        / "decisive-v1.2"
+        / "radar-bench-decisive-v1.2-evaluator.json"
+    )
+    assert release_asset.read_bytes() == canonical.read_bytes()
+    document = json.loads(release_asset.read_text(encoding="utf-8"))
+    assert document["bundle_type"] == "evaluator-only"
+    assert len(document["record_case_mapping"]) == 25
+    assert len(document["labels"]["cases"]) == 25

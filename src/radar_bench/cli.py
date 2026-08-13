@@ -78,15 +78,17 @@ def command_list_suites(_args: argparse.Namespace) -> int:
             "suites": [
                 {
                     "suite_id": SUITE_ID,
-                    "release_version": "1.0.1",
+                    "package_version": __version__,
+                    "suite_contract_version": "1.0.1",
                     "case_count": 25,
-                    "status": "corrected-executable-reference",
+                    "status": "preserved-historical-reference",
                 },
                 {
                     "suite_id": V12_SUITE_ID,
-                    "release_version": "1.1.0",
+                    "package_version": __version__,
+                    "suite_contract_version": "1.1.0",
                     "case_count": 25,
-                    "status": "candidate-release-blocked-until-gates-pass",
+                    "status": "current-package-suite",
                 },
             ]
         }
@@ -182,7 +184,7 @@ def command_verify_results(args: argparse.Namespace) -> int:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="radar-bench",
-        description="Validate and execute the fail-closed Radar Bench v1.0.1 suite.",
+        description="Validate and execute the fail-closed Radar Bench suites.",
     )
     parser.add_argument("--version", action="version", version=__version__)
     commands = parser.add_subparsers(dest="command", required=True)
@@ -190,7 +192,7 @@ def build_parser() -> argparse.ArgumentParser:
     commands.add_parser("doctor", help="show installation and runtime requirements").set_defaults(
         handler=command_doctor
     )
-    commands.add_parser("list-suites", help="list immutable public suites").set_defaults(
+    commands.add_parser("list-suites", help="list the current and preserved public suites").set_defaults(
         handler=command_list_suites
     )
 

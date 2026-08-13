@@ -1,26 +1,23 @@
-# Historical artifacts
+# Artifact inventory
 
-The five decisive historical bundles are RECONSTRUCT_ONLY. The repository
-publishes their manifests, expected internal filenames, sizes, SHA-256 digests,
-bundle digests, upstream provenance, supported architecture, and reconstruction
-recipe. It does not redistribute third-party wheel bytes.
+The default branch stores manifests, small indexed evidence, schemas, and
+candidate-visible runtime fixtures. It does not store historical wheel bytes,
+release wheel/sdist binaries, raw CI logs, or scanner logs.
 
-The acquisition pipeline is:
+## Public inputs
 
-    approved metadata
-      -> final-URL host validation
-      -> exact filename selection
-      -> bounded download
-      -> size and SHA-256 verification
-      -> archive traversal and CRC validation
-      -> exact bundle inventory validation
-      -> runtime reconstruction
+- `src/radar_bench/resources/candidate/` contains candidate-visible v1.2
+  contract data;
+- `src/radar_bench/resources/corpus/v1.0.1/.../reproducers/` and safety runtime
+  fixtures are the intentionally shipped public runtime inputs;
+- `corpus/v1.0.1/` and `corpus/v1.1.0/` contain manifests and suite contracts;
+- the evaluator bundle is released separately as
+  `radar-bench-decisive-v1.2-evaluator.json` and is excluded from wheel/sdist;
+- historical wheelhouses are acquired into an external artifact root and checked
+  by `radar-bench artifacts verify`.
 
-Only the artifact acquisition phase may use the network. Historical evaluation
-is a separate network-denied Docker phase. Artifact reproducibility therefore
-does not imply execution reproducibility, and execution reproducibility does
-not imply that the frozen investigator succeeded scientifically.
+## Indexed evidence
 
-If redistribution rights are unclear, publish a deterministic reconstruction
-recipe and hashes instead of uploading bytes. The catalog keeps the
-redistribution status explicit.
+`evidence/README.md` indexes the retained scientific and provenance records.
+Evidence is concise enough to review in the repository; raw CI and scanner
+output belongs in GitHub Actions artifacts or release assets.

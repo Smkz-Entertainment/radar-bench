@@ -11,6 +11,9 @@ dist/
 coverage.xml
 .coverage
 artifacts/release-evidence/generated/
+release-dist/
+release-download/
+*.attestation.json
 # Historical wheelhouses are external, locally staged inputs and must never be committed.
 artifacts/external/
 artifacts/historical/

@@ -1,0 +1,882 @@
+{
+  "baselines": {
+    "agentic-v0.5-frozen": {
+      "metrics": {
+        "action_owner_correctness": {
+          "denominator": 2,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "advantage_over_naive_positive_resolution": {
+          "denominator": 5,
+          "numerator": 1,
+          "status": "evaluable",
+          "value": 0.2
+        },
+        "candidate_induced_correctness": {
+          "denominator": 5,
+          "numerator": 5,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "cross_repository_resolution": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "false_owner_accusation_rate": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "historical_positive_resolution": {
+          "denominator": 5,
+          "numerator": 1,
+          "status": "evaluable",
+          "value": 0.2
+        },
+        "median_substantive_experiments": {
+          "denominator": 1,
+          "numerator": 2,
+          "status": "evaluable",
+          "value": 2.0
+        },
+        "premature_owner_accusations": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "safety_abstention_recall": {
+          "denominator": 20,
+          "numerator": 20,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "semantic_ambiguity_handling": {
+          "denominator": 1,
+          "numerator": 1,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "useful_experiment_rate": {
+          "denominator": 40,
+          "numerator": 30,
+          "status": "evaluable",
+          "value": 0.75
+        }
+      },
+      "status": "EXECUTED"
+    },
+    "naive-deterministic": {
+      "metrics": {
+        "action_owner_correctness": {
+          "denominator": 2,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "advantage_over_naive_positive_resolution": {
+          "denominator": 5,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "candidate_induced_correctness": {
+          "denominator": 5,
+          "numerator": 5,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "cross_repository_resolution": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "false_owner_accusation_rate": {
+          "denominator": 20,
+          "numerator": 10,
+          "status": "evaluable",
+          "value": 0.5
+        },
+        "historical_positive_resolution": {
+          "denominator": 5,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "median_substantive_experiments": {
+          "denominator": 1,
+          "numerator": 2,
+          "status": "evaluable",
+          "value": 2.0
+        },
+        "premature_owner_accusations": {
+          "denominator": 20,
+          "numerator": 10,
+          "status": "evaluable",
+          "value": 0.5
+        },
+        "safety_abstention_recall": {
+          "denominator": 20,
+          "numerator": 10,
+          "status": "evaluable",
+          "value": 0.5
+        },
+        "semantic_ambiguity_handling": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "useful_experiment_rate": {
+          "denominator": 50,
+          "numerator": 30,
+          "status": "evaluable",
+          "value": 0.6
+        }
+      },
+      "status": "EXECUTED"
+    },
+    "static-v0.4": {
+      "metrics": {
+        "action_owner_correctness": {
+          "denominator": 2,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "advantage_over_naive_positive_resolution": {
+          "denominator": 5,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "candidate_induced_correctness": {
+          "denominator": 5,
+          "numerator": 5,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "cross_repository_resolution": {
+          "denominator": 1,
+          "numerator": 1,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "false_owner_accusation_rate": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "historical_positive_resolution": {
+          "denominator": 5,
+          "numerator": 4,
+          "status": "evaluable",
+          "value": 0.8
+        },
+        "median_substantive_experiments": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "premature_owner_accusations": {
+          "denominator": 20,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "safety_abstention_recall": {
+          "denominator": 20,
+          "numerator": 20,
+          "status": "evaluable",
+          "value": 1.0
+        },
+        "semantic_ambiguity_handling": {
+          "denominator": 1,
+          "numerator": 0,
+          "status": "evaluable",
+          "value": 0.0
+        },
+        "useful_experiment_rate": {
+          "denominator": 0,
+          "numerator": 0,
+          "status": "not_evaluable",
+          "value": null
+        }
+      },
+      "status": "EXECUTED"
+    }
+  },
+  "candidate_gold_separation": {
+    "gold_visible_to_candidate": false,
+    "historical_evidence_visible_to_candidate": false,
+    "labels_loaded_after_execution": true,
+    "reference_used_as_runtime_evidence": false
+  },
+  "canonical_reproduction": {
+    "reference_used_as_runtime_evidence": false,
+    "status": "NOT_EVALUABLE"
+  },
+  "case_predictions": {
+    "agentic-v0.5-frozen": [
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A01",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A02",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A03",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A04",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A05",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T01",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 1
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T02",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 1
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T03",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 1
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T04",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 1
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T05",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 1
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T06",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 1
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T07",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 1
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T08",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 1
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T09",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T10",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T11",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T12",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T13",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T14",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T15",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T16",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T17",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 1
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T18",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 1
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T19",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T20",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      }
+    ],
+    "naive-deterministic": [
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A01",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A02",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A03",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A04",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A05",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T01",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T02",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T03",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T04",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T05",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T06",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T07",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T08",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T09",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T10",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T11",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T12",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T13",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T14",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T15",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T16",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T17",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T18",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T19",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      },
+      {
+        "action_owner_repository": "upstream_component",
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-T20",
+        "root_cause_component": "upstream_component",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 2
+      }
+    ],
+    "static-v0.4": [
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A01",
+        "root_cause_component": "https://github.com/pandas-dev/pandas",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A02",
+        "root_cause_component": "https://github.com/scipy/scipy",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A03",
+        "root_cause_component": "https://github.com/pandas-dev/pandas",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A04",
+        "root_cause_component": "https://github.com/pandas-dev/pandas",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": true,
+        "case_id": "RADAR-V07-A05",
+        "root_cause_component": "https://github.com/pandas-dev/pandas",
+        "state": "CAUSALLY_ATTRIBUTED",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T01",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T02",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T03",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T04",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T05",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T06",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T07",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T08",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T09",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T10",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T11",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T12",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T13",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T14",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T15",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T16",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T17",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T18",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T19",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      },
+      {
+        "action_owner_repository": null,
+        "candidate_induced": null,
+        "case_id": "RADAR-V07-T20",
+        "root_cause_component": null,
+        "state": "BOUNDED_INCONCLUSIVE",
+        "substantive_experiments": 0
+      }
+    ]
+  },
+  "cases": {
+    "blocked": 0,
+    "blocked_cases": [],
+    "executed": 25,
+    "historical": 5,
+    "requested": 25,
+    "safety": 20
+  },
+  "certification": "UNSAFE",
+  "decision": {
+    "agentic_causal_investigation": "FAILED_DECISIVE_TEST",
+    "cross_repository_generalization": "FAILED_DECISIVE_TEST",
+    "executable_causal_safety": "VALIDATED_SMALL_N",
+    "historical_attribution_executability": "VALIDATED_SMALL_N",
+    "product_implementation": "BLOCKED"
+  },
+  "mandatory_case_gates": {
+    "pandas-45601-keeps-semantic-ambiguity-open": true,
+    "scikit-learn-30512-resolves-to-scipy": false
+  },
+  "provenance": {
+    "baseline_digests": {
+      "agentic-v0.5-frozen": "sha256:11098270d0f4ab26277ad2b63208dccf20b0c3300d9a1c54838092b0f9759297",
+      "naive-deterministic": "sha256:2ea67775eef2aacc073644acec43f73619698e6dad4a7003935fe249972732eb",
+      "static-v0.4": "sha256:2a6be06efcd053ed36e1c78623e36881069296bb32e2b9d7091b5a9a6ceba9a7"
+    },
+    "execution_network": "none",
+    "historical_labels_digest": "sha256:b3100b9b9f7410e3a705ee5f5854b296a4e1eee29753671a12c8754f66db13a7",
+    "network_used": false,
+    "platform": {
+      "engine_architecture": "x86_64",
+      "engine_os": "linux"
+    },
+    "runtime_recipe_digest": "sha256:ddae0b59d9fb1e63a055bcb39c4b3060c6c0516ebb3f073e1ac36ec200d583f9",
+    "runtime_reference_used": false,
+    "safety_labels_digest": "sha256:ebfb195be4471d76799fe9959019808c81b2239cb39dbdf5e628484516854e2a",
+    "suite_digest": "sha256:80576ccc346c0098877189c6eaa86521db69e51886df68d3abc04a0496b1fecb"
+  },
+  "reference_comparison": {
+    "mismatch_paths": [],
+    "reference_digest": null,
+    "status": "NOT_AVAILABLE"
+  },
+  "release_version": "1.0.1",
+  "schema_version": "1.1",
+  "status": "COMPLETED",
+  "suite_id": "decisive-v1.1"
+}

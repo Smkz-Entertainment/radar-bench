@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "package_version": "1.1.1",
+  "suite": "decisive-v1.2",
+  "release_assets": [
+    "radar_bench-1.1.1-py3-none-any.whl",
+    "radar_bench-1.1.1.tar.gz",
+    "radar-bench-decisive-v1.2-evaluator.json"
+  ],
+  "manifests": ["SOURCE-PROVENANCE.json", "SHA256SUMS"],
+  "wheel_and_sdist": {
+    "required_public_runtime_fixtures": true,
+    "decisive_v1_2_resources_present": true,
+    "evaluator_reference_and_gold_material_absent": true,
+    "release_binaries_tracked_in_git": false
+  },
+  "evaluator_asset": {
+    "host_only": true,
+    "record_case_mapping_count": 25,
+    "label_count": 25,
+    "gold_provenance_count": 25
+  },
+  "clean_install_smoke": {
+    "wheel": "PASS",
+    "sdist": "PASS"
+  }
+}

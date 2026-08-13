@@ -2,55 +2,53 @@
 
 ## Purpose
 
-Radar Bench measures executable safety and bounded causal-investigation
-behavior under a sealed, temporally blind interface. It distinguishes
-candidate-induced failures from baseline, dependency, packaging, platform,
-resolver, nondeterministic, and external-resource failures.
+Radar Bench measures executable safety and bounded causal-investigation behavior
+under a temporally blind interface. It distinguishes candidate-induced failures
+from baseline, dependency, packaging, platform, resolver, nondeterministic, and
+external-resource failures.
 
-## Canonical suite
+## Current package suite
 
-decisive-v1.1 contains five historical executable attribution cases and twenty
-constructed executable safety twins. The required engine is Docker Linux/x86-64
-with evaluation networking denied. Historical wheelhouses are external
-RECONSTRUCT_ONLY inputs.
+The current package suite is `decisive-v1.2`: five historical executable cases
+and twenty constructed executable safety twins. It uses Docker Linux/x86-64 with
+evaluation networking denied. Historical wheelhouses are external,
+`RECONSTRUCT_ONLY` inputs. The package version is `1.1.1`; the v1.2 suite
+contract remains the immutable `1.1.0` contract so this patch changes no cases,
+labels, scoring, or evidence semantics.
+
+`decisive-v1.1` is the preserved corrected historical reference suite. It keeps
+the five sealed cases, frozen `v0.4`/`v0.5` baselines, and the canonical negative
+result available for regression verification.
 
 ## Lanes and scoring
 
-The suite runs three immutable lanes:
+The reference suite runs three immutable lanes:
 
-1. static-v0.4
-2. naive-deterministic
-3. agentic-v0.5-frozen
+1. `static-v0.4`
+2. `naive-deterministic`
+3. `agentic-v0.5-frozen`
 
-The strict result schema records every numerator and denominator. Action-owner
-metrics use eligible labels only. Useful-experiment rate uses executed
-attempts. The SciPy-side resolution for scikit-learn #30512 and the semantic
-ambiguity gate for pandas #45601 are mandatory case-level gates.
+The strict result schema records each numerator, denominator, and evaluability
+status. Action-owner metrics use eligible labels only. Useful-experiment rate
+uses executed attempts. The mandatory case gates are the SciPy-side resolution
+for scikit-learn #30512 and unresolved semantic intent for pandas #45601.
 
-An evaluator-side metadata-only audit projects candidate-visible safety-view
-fields while removing case identity, paths, digests, and gold labels. All
-twenty projections are identical; the resulting family inference is prior-only
-(20% majority prior versus 16.67% six-way uniform chance).
+The v1.2 evaluator loads gold only after candidate execution. Candidate output
+cannot provide case identity, evaluator labels, or post-cutoff evidence. Each run
+uses fresh opaque episode IDs and records experiment receipts, cleanup, and
+network denial.
 
-## Claims
+## Scientific result and boundary
 
-The small executable safety and historical-runtime evidence is preserved.
-The frozen agentic attribution hypothesis failed validation, including the
-cross-repository requirement. This is not a population estimate, a production
-readiness claim, or evidence to build an autonomous attribution service.
+The preserved small-N evidence validates executable safety and historical runtime
+reproduction while rejecting the frozen agentic attribution hypothesis, including
+the cross-repository requirement. This is not a population estimate, a hidden
+test, a production-readiness claim, or evidence to build an autonomous
+attribution service.
 
 ## Reproduction
 
-See docs/QUICKSTART.md and docs/REPRODUCIBILITY.md. The reference result is
-evaluator evidence only and can never substitute for live execution.
-
-## v1.2 release-candidate contract
-
-`decisive-v1.2` is a new immutable suite identity for the corrected information
-and protocol contract. The candidate bundle contains only T-cut evidence and
-runtime capabilities. Gold labels, provenance, scoring eligibility, and case
-mapping are evaluator-only. Each invocation receives fresh random episode IDs;
-the evaluator canonicalizes returned order and rejects case IDs or gold fields
-from candidate output. Release-candidate evidence can record the historical
-runtimes and external candidate harness reproduced in clean clones. Public
-publication requires an independent release audit of the exact candidate tree.
+Follow [docs/QUICKSTART.md](docs/QUICKSTART.md) for the release-wheel v1.2
+workflow and [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md) for clean-clone
+and regression procedures. Missing inputs remain blocked; live execution is
+never replaced by the canonical reference result.

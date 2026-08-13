@@ -1,0 +1,70 @@
+{
+  "candidates": {
+    "artifacts/v1.0.1/final-report.md": [
+      "artifacts/v1.0.1/tracked-file-inventory.json",
+      "scripts/verify_release.py",
+      "scripts/verify_v12.py"
+    ],
+    "artifacts/v1.0.1/pruning-report.md": [
+      "artifacts/v1.0.1/tracked-file-inventory.json",
+      "scripts/verify_release.py"
+    ],
+    "artifacts/v1.0.1/release-gates.json": [
+      "artifacts/v1.0.1/tracked-file-inventory.json",
+      "scripts/verify_release.py",
+      "scripts/verify_v12.py"
+    ],
+    "artifacts/v1.0.1/remote-verification.json": [
+      "artifacts/v1.0.1/tracked-file-inventory.json"
+    ],
+    "artifacts/v1.0.1/secret-scan.json": [
+      "artifacts/v1.0.1/tracked-file-inventory.json",
+      "scripts/verify_release.py",
+      "scripts/verify_v12.py"
+    ],
+    "artifacts/v1.0.1/security-audit.json": [
+      "artifacts/v1.0.1/tracked-file-inventory.json",
+      "scripts/verify_release.py",
+      "scripts/verify_v12.py"
+    ],
+    "artifacts/v1.0.1/tracked-file-inventory.json": [
+      "scripts/verify_release.py",
+      "tests/test_release_tooling.py"
+    ],
+    "artifacts/v1.1.0/coverage-integration.json": [],
+    "artifacts/v1.1.0/experiment-execution.json": [
+      "scripts/verify_v12.py"
+    ],
+    "artifacts/v1.1.0/final-report.md": [
+      "artifacts/v1.0.1/tracked-file-inventory.json",
+      "scripts/verify_release.py",
+      "scripts/verify_v12.py"
+    ],
+    "artifacts/v1.1.0/gitleaks-history.json": [
+      ".github/workflows/ci.yml",
+      "artifacts/v1.1.0/secret-scan.json"
+    ],
+    "artifacts/v1.1.0/gitleaks-packages.json": [
+      "artifacts/v1.1.0/secret-scan.json"
+    ],
+    "artifacts/v1.1.0/gitleaks-tree.json": [
+      "artifacts/v1.1.0/secret-scan.json"
+    ],
+    "artifacts/v1.1.0/package-build-final/radar_bench-1.1.0-py3-none-any.whl": [
+      "artifacts/v1.1.0/package-audit.json",
+      "artifacts/v1.1.0/package-build.json"
+    ],
+    "artifacts/v1.1.0/package-build-final/radar_bench-1.1.0.tar.gz": [
+      "artifacts/v1.1.0/package-audit.json",
+      "artifacts/v1.1.0/package-build.json"
+    ],
+    "artifacts/v1.1.0/publication-sequence.json": [
+      "scripts/verify_v12.py"
+    ],
+    "artifacts/v1.1.0/tag-integrity.json": [
+      "scripts/verify_v12.py"
+    ]
+  },
+  "status": "BEFORE_PRUNE",
+  "tracked_file_count": 277
+}

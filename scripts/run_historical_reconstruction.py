@@ -30,7 +30,7 @@ def _contract_pass(runtime: dict[str, Any], result: dict[str, Any]) -> bool:
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
     artifact_root = root / "artifacts" / "external" / "decisive-v1.2"
-    output = root / "artifacts" / "v1.1.0" / "runtime-reconstruction.json"
+    output = root / "evidence" / "decisive-v1.2" / "runtime-reconstruction.json"
     executor = V12ExperimentExecutor(
         root,
         episode_to_case={f"historical-{index:02d}": f"RADAR-V07-A{index:02d}" for index in range(1, 6)},

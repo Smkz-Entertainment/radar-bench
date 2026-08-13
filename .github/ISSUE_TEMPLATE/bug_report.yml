@@ -1,7 +1,7 @@
 name: Bug report
 description: Report a reproducible benchmark, CLI, or documentation defect.
 title: "bug: "
-labels: ["bug"]
+labels: ["bug", "integrity"]
 body:
   - type: markdown
     attributes:
@@ -10,7 +10,7 @@ body:
     id: version
     attributes:
       label: Version
-      placeholder: 1.0.0
+      placeholder: 1.1.1
     validations:
       required: true
   - type: textarea

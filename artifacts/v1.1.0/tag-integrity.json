@@ -1,9 +1,0 @@
-{
-  "immutable_tags_present": {
-    "v1.0.0": true,
-    "v1.0.1": true
-  },
-  "migration_action": "deferred; no tag was created or moved",
-  "new_v1.1.0_tag_created": false,
-  "status": "PASS"
-}

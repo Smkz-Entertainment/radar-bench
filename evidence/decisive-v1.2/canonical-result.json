@@ -732,7 +732,7 @@
     },
     "solvability_reference": {
       "errors": [],
-      "path": "artifacts\\v1.1.0\\solvability-reference.json",
+      "path": "evidence\\decisive-v1.2\\solvability-reference.json",
       "present": true
     },
     "status": "PASS"

@@ -1,4 +1,4 @@
-name: Release candidate verification
+name: Release verification
 
 on:
   workflow_dispatch:
@@ -6,11 +6,13 @@ on:
       release_tag:
         description: "Existing immutable tag to verify; no tag is created or moved"
         required: true
-        default: "v1.1.0"
+        default: "v1.1.1"
         type: string
 
 permissions:
   contents: read
+  id-token: write
+  attestations: write
 
 concurrency:
   group: release-${{ github.workflow }}-${{ inputs.release_tag }}
@@ -30,12 +32,14 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ inputs.release_tag }}
+          persist-credentials: false
       - name: Require the exact existing tag target
         shell: bash
         env:
           RELEASE_TAG: ${{ inputs.release_tag }}
         run: |
           test -n "$RELEASE_TAG"
+          test "$RELEASE_TAG" = "v1.1.1"
           test "$(git rev-parse "refs/tags/$RELEASE_TAG^{commit}")" = "$(git rev-parse HEAD)"
       - name: Set up Python
         uses: actions/setup-python@42375524e23c412d93fb67b49958b491fce71c38 # v5.4.0
@@ -82,36 +86,12 @@ jobs:
           retention-days: 7
       - name: Build wheel and sdist
         run: python -m build --wheel --sdist --outdir "$RUNNER_TEMP/radar-dist"
-      - name: Write exact source provenance
-        shell: bash
-        env:
-          RELEASE_TAG: ${{ inputs.release_tag }}
+      - name: Prepare and audit release assets
         run: |
-          python - <<'PY'
-          import json
-          import os
-          import pathlib
-          import subprocess
-          import tomllib
-
-          root = pathlib.Path.cwd()
-          dist = pathlib.Path(os.environ["RUNNER_TEMP"]) / "radar-dist"
-          version = tomllib.loads((root / "pyproject.toml").read_text(encoding="utf-8"))["project"]["version"]
-          provenance = {
-              "schema_version": "1",
-              "release_tag": os.environ["RELEASE_TAG"],
-              "package_version": version,
-              "source_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
-              "source_tree": subprocess.check_output(["git", "rev-parse", "HEAD^{tree}"], text=True).strip(),
-              "suite": "decisive-v1.2",
-              "protocol": "1.2-jsonl",
-              "artifacts": sorted(path.name for path in dist.iterdir() if path.is_file()),
-          }
-          (dist / "SOURCE-PROVENANCE.json").write_text(
-              json.dumps(provenance, indent=2, sort_keys=True) + "\n",
-              encoding="utf-8",
-          )
-          PY
+          python scripts/prepare_release_assets.py --dist "$RUNNER_TEMP/radar-dist" --release-tag "${{ inputs.release_tag }}"
+          python scripts/audit_release_assets.py "$RUNNER_TEMP/radar-dist"
+      - name: Verify prepared provenance and evaluator asset
+        run: python scripts/audit_release_assets.py "$RUNNER_TEMP/radar-dist"
       - name: Verify public package contents
         shell: bash
         run: |
@@ -169,7 +149,25 @@ jobs:
           assert len(provenance["source_commit"]) == 40
           assert len(provenance["source_tree"]) == 40
           PY
-          sha256sum ./* > SHA256SUMS
           sha256sum --check SHA256SUMS
+      - name: Attest wheel
+        uses: actions/attest-build-provenance@43d14bc2b83dec42d39ecae14e916627a18bb661 # v3.0.0
+        with:
+          subject-path: ${{ runner.temp }}/radar-dist/radar_bench-1.1.1-py3-none-any.whl
+      - name: Attest sdist
+        uses: actions/attest-build-provenance@43d14bc2b83dec42d39ecae14e916627a18bb661 # v3.0.0
+        with:
+          subject-path: ${{ runner.temp }}/radar-dist/radar_bench-1.1.1.tar.gz
+      - name: Attest evaluator asset
+        uses: actions/attest-build-provenance@43d14bc2b83dec42d39ecae14e916627a18bb661 # v3.0.0
+        with:
+          subject-path: ${{ runner.temp }}/radar-dist/radar-bench-decisive-v1.2-evaluator.json
+      - name: Upload verified release assets
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: radar-bench-v1.1.1-release-assets
+          path: ${{ runner.temp }}/radar-dist/*
+          if-no-files-found: error
+          retention-days: 14
       - name: Require a clean checkout after verification
         run: git diff --exit-code && test -z "$(git status --porcelain)"

@@ -33,7 +33,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def test_v12_candidate_and_evaluator_bundles_are_separate() -> None:
     audit = information_sufficiency_audit(ROOT)
-    expected_status = "PASS" if (ROOT / "artifacts/v1.1.0/solvability-reference.json").is_file() else "BLOCKED_INFORMATION_SUFFICIENCY"
+    expected_status = "PASS" if (ROOT / v12.V12_SOLVABILITY_RELATIVE).is_file() else "BLOCKED_INFORMATION_SUFFICIENCY"
     assert audit["status"] == expected_status
     assert audit["evaluator_loaded"] is False
     candidate = json.loads(

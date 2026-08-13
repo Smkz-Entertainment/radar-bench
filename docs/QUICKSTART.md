@@ -1,62 +1,86 @@
 # Quickstart
 
-## Install
+This is the complete executable `decisive-v1.2` workflow. It uses a published
+wheel, the matching public source checkout for candidate-only solvability
+evidence, external artifact acquisition, the separately downloadable evaluator
+asset, a digest-pinned candidate image, and the strict result verifier. The
+wheel intentionally does not contain evaluator material or the candidate-only
+solvability receipt.
 
-Use a fresh virtual environment and install the wheel or sdist you intend to
-test:
+## 1. Prepare the matching source checkout and release assets
 
+Use a clean checkout of the exact release tag so the candidate-only solvability
+receipt and runtime manifests are available without putting them in the wheel.
+Choose a disposable working directory and download these four release assets
+from the published release you are verifying. The commands below use the
+planned `v1.1.1` names; use the matching published tag and filenames when
+verifying another release:
+
+    git clone --depth 1 --branch v1.1.1 https://github.com/Smkz-Entertainment/radar-bench.git radar-bench-source
+    cd radar-bench-source
     python -m venv .venv
-    python -m pip install .
-    radar-bench doctor
-    radar-bench list-suites
+    .venv/bin/python -m pip install --upgrade pip
+    curl --fail --location --remote-name https://github.com/Smkz-Entertainment/radar-bench/releases/download/v1.1.1/radar_bench-1.1.1-py3-none-any.whl
+    curl --fail --location --remote-name https://github.com/Smkz-Entertainment/radar-bench/releases/download/v1.1.1/radar-bench-decisive-v1.2-evaluator.json
+    curl --fail --location --remote-name https://github.com/Smkz-Entertainment/radar-bench/releases/download/v1.1.1/SHA256SUMS
+    curl --fail --location --remote-name https://github.com/Smkz-Entertainment/radar-bench/releases/download/v1.1.1/SOURCE-PROVENANCE.json
+    grep -E 'radar_bench-1.1.1-py3-none-any.whl|radar-bench-decisive-v1.2-evaluator.json' SHA256SUMS | sha256sum --check
+    .venv/bin/python -m pip install --no-deps radar_bench-1.1.1-py3-none-any.whl
+    .venv/bin/radar-bench doctor
+    .venv/bin/radar-bench list-suites
 
-## Acquire and verify inputs
+On Windows, use `.venv\\Scripts\\python.exe` and
+`.venv\\Scripts\\radar-bench.exe`; use a trusted SHA-256 verifier if
+`sha256sum` is unavailable.
 
-The five historical wheelhouses are not committed. Acquire them into an
-external directory:
+The evaluator asset is not part of the wheel or sdist. Its digest is checked
+before it is used, and it remains outside the candidate container. The source
+checkout and installed wheel must report the same release version and tag-bound
+provenance before evaluation.
 
-    radar-bench artifacts fetch --suite decisive-v1.1 --output-root <artifact-root>
-    radar-bench artifacts verify --suite decisive-v1.1 --artifact-root <artifact-root>
+## 2. Fetch and verify artifacts
 
-fetch may use the network. verify is local-only. Both commands fail closed on
-missing files, unexpected hosts, redirects, size changes, digest changes,
-unsafe archives, or extra files.
+Acquisition is the only phase that may use the network. Store artifacts outside
+the repository checkout when possible:
 
-## Run
+    .venv/bin/radar-bench artifacts fetch --suite decisive-v1.2 --output-root /tmp/radar-artifacts
+    .venv/bin/radar-bench artifacts verify --suite decisive-v1.2 --artifact-root /tmp/radar-artifacts
 
-    radar-bench validate --suite decisive-v1.2
-    radar-bench evaluate --suite decisive-v1.2 --candidate-image registry.example/candidate@sha256:<64-hex-digest> --candidate-argv radar-agent --protocol 1.2-jsonl --evaluator-bundle <evaluator-bundle.json>
+Verification is local-only and fails closed on missing files, changed sizes or
+digests, unexpected hosts, unsafe archives, redirects, and extra files.
 
-The external candidate command must prove network denial in its Docker argv.
-The evaluator creates cryptographically random episode IDs and passes only the
-candidate evidence bundle. It never mounts the repository, labels, reference,
-credentials, or evaluator mapping.
+## 3. Validate the evaluator asset and candidate contract
 
-The immutable v1.1 historical reference remains available for archival checks:
+The evaluator bundle is a host-side input. Validate its structure and the
+candidate-visible package contract before starting Docker:
 
-    radar-bench evaluate --suite decisive-v1.1 --artifact-root <artifact-root> --output result.json
-    radar-bench verify-results result.json
+    .venv/bin/radar-bench validate --suite decisive-v1.2 --evaluator-bundle radar-bench-decisive-v1.2-evaluator.json
 
-The evaluate command requires a Linux/x86-64 Docker server. The candidate
-execution phase has no network and cannot see evaluator gold. COMPLETED with
-certification UNSAFE is the expected scientific result; BLOCKED is an honest
-result when Docker, artifacts, or a historical runtime is unavailable.
+The command must report a passing bundle audit. Do not copy the file into the
+candidate image, candidate working directory, or a Docker mount.
 
-## Resources and cleanup
+## 4. Invoke the candidate image
 
-Expect about 277 MB of external downloads plus multiple gigabytes of temporary
-Docker storage and build layers. A practical minimum is 8 GB RAM, 4 CPU cores,
-10 GB free Docker storage, and about 10 minutes for a cold run. Linux/x86-64
-is required; Docker Desktop is acceptable only when its Linux engine reports
-that architecture.
-Do not run historical code on a host containing secrets or a Docker socket
-mounted into the case. Remove the externally acquired artifact directory and
-unused Docker images only after retaining any evidence required for the
-reproduction record. Never disable network denial to repair a case. If the
-run is `BLOCKED`, preserve that state and inspect the reported rejection reason
-instead of treating it as a score.
+Use a full digest-pinned Linux image and the candidate's JSONL protocol command:
 
-For cleanup, remove the external artifact root after exporting the result and
-verification record, then remove only Radar Bench-created containers/images.
-Do not run historical code with host secrets mounted and do not expose the
-Docker socket to a case.
+    .venv/bin/radar-bench evaluate --suite decisive-v1.2 \
+      --artifact-root /tmp/radar-artifacts \
+      --candidate-image registry.example/candidate@sha256:<64-hex-digest> \
+      --candidate-argv radar-agent --protocol 1.2-jsonl \
+      --evaluator-bundle radar-bench-decisive-v1.2-evaluator.json \
+      --output result.json
+
+The executor creates fresh opaque episode IDs, runs declared experiment round
+trips, denies evaluation networking, bounds resources and output, and checks
+cleanup. Candidate output cannot provide case IDs, evaluator labels, gold, or
+post-cutoff evidence.
+
+## 5. Verify the result
+
+Always validate the raw result receipt after evaluation:
+
+    .venv/bin/radar-bench verify-results result.json
+
+`COMPLETED` is meaningful only when the receipt contains the required execution
+and isolation evidence. Missing artifacts, Docker, platform support, or a
+reproducible runtime remains `BLOCKED`; it is not converted into a score.

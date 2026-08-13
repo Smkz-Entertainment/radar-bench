@@ -1,0 +1,29 @@
+name: Question or support
+description: Ask a sanitized usage, reproducibility, or documentation question.
+title: "support: "
+labels: ["benchmark"]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include secrets, private artifact bundles, evaluator-only gold, or unsanitized host paths.
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      placeholder: 1.1.1 or a 40-character commit
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: Describe the usage or reproducibility question.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Sanitized context
+      description: Include platform, exact command, and relevant redacted output.
+    validations:
+      required: true
