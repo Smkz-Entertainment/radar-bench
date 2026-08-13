@@ -1,11 +1,11 @@
 # Direct development inputs. requirements-dev.lock is generated with
 # transitive pins and SHA-256 hashes for the supported Python 3.11-3.13 line.
-bandit==1.8.6
+bandit==1.9.4
 build==1.5.0
 cffconvert==2.0.0
-hypothesis==6.155.7
+hypothesis==6.165.2
 mypy==1.19.1
 pip-audit==2.10.1
-pytest==9.0.3
+pytest==9.1.1
 pytest-cov==7.1.0
-ruff==0.12.11
+ruff==0.16.2
