@@ -2438,6 +2438,24 @@ def test_v12_reference_protocol_and_package_audit_matrix(
     assert v12._validate_solvability_reference(
         ROOT, {"digest": candidate_audit["digest"]}, unknown_role
     )
+    exact_component_mutations = {
+        "A01_OR_OTHER": "numpy",
+        "A03_AMBIGUOUS": "scipy",
+        "A04_OR_OTHER": "numpy",
+        "A05_OR_OTHER": "numpy",
+    }
+    for role, wrong_component in exact_component_mutations.items():
+        variant = copy.deepcopy(reference)
+        episode = next(item["episode_id"] for item in variant["historical_review"] if item["role"] == role)
+        prediction = next(item for item in variant["raw_predictions"] if item["episode_id"] == episode)
+        prediction["causal_component"] = wrong_component
+        assert v12._validate_solvability_reference(ROOT, {"digest": candidate_audit["digest"]}, variant)
+    evaluator_visible = copy.deepcopy(reference)
+    evaluator_visible["sandbox_receipt"]["evaluator_mount_count"] = 1
+    evaluator_visible["evaluator_available_during_run"] = True
+    assert v12._validate_solvability_reference(
+        ROOT, {"digest": candidate_audit["digest"]}, evaluator_visible
+    )
     mutations: list[dict[str, Any]] = [
         {"review_type": "wrong"},
         {"raw_predictions": []},

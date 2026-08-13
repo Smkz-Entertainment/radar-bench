@@ -21,13 +21,12 @@ It runs the immutable static v0.4 baseline, deterministic naive investigator,
 and frozen v0.5 investigator. Results are scored by evaluator-owned gold after
 candidate execution; a blocked run is never converted into a score.
 
-The v1.1.0 package adds the separately identified `decisive-v1.2` candidate
-protocol. It is a release candidate, not a public benchmark release: candidate
-evidence and evaluator gold are physically separate, episode IDs are random per
-run, and the tracked release-candidate evidence records completed historical,
-safety, canonical, and two clean-clone reproductions. These records do not
-replace the independent release audit; publication remains held until that
-audit is complete.
+The v1.1.0 package defines the separately identified `decisive-v1.2` candidate
+protocol. Candidate evidence and evaluator gold are physically separate, episode
+IDs are random per run, and release evidence records the historical, safety,
+canonical, and clean-clone reproduction gates. Such evidence does not replace
+an independent release audit of the exact candidate tree, which is required
+before public publication.
 
 ## Quickstart
 

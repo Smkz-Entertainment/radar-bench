@@ -34,9 +34,14 @@ V12_SOLVABILITY_RELATIVE = Path("artifacts/v1.1.0/solvability-reference.json")
 HISTORICAL_IDS = tuple(f"RADAR-V07-A{index:02d}" for index in range(1, 6))
 SAFETY_IDS = tuple(f"RADAR-V07-T{index:02d}" for index in range(1, 21))
 ALL_CASE_IDS = HISTORICAL_IDS + SAFETY_IDS
-SUFFICIENCY_COMPONENT_ROLES = frozenset(
-    {"A01_OR_OTHER", "A02_SCIPY", "A03_AMBIGUOUS", "A04_OR_OTHER", "A05_OR_OTHER"}
-)
+SUFFICIENCY_ROLE_EXPECTATIONS = {
+    "A01_OR_OTHER": ("ATTRIBUTED", "known", "pandas"),
+    "A02_SCIPY": ("ATTRIBUTED", "known", "scipy"),
+    "A03_AMBIGUOUS": ("AMBIGUOUS", "ambiguous", "pandas"),
+    "A04_OR_OTHER": ("ATTRIBUTED", "known", "pandas"),
+    "A05_OR_OTHER": ("ATTRIBUTED", "known", "pandas"),
+}
+SUFFICIENCY_COMPONENT_ROLES = frozenset(SUFFICIENCY_ROLE_EXPECTATIONS)
 CAPABILITIES = frozenset(
     {
         "rerun",
@@ -1160,6 +1165,34 @@ def _validate_solvability_reference(root: Path, candidate: Mapping[str, Any], ev
         errors.append("candidate-only receipts must contain exactly five records")
     if evidence.get("evaluator_available_during_run") is not False:
         errors.append("evaluator availability must be false during the candidate run")
+    sandbox = evidence.get("sandbox_receipt")
+    if not isinstance(sandbox, Mapping):
+        errors.append("candidate-only sandbox receipt is absent")
+    else:
+        for key in ("docker_isolated", "network_denied", "actual_config_verified"):
+            if sandbox.get(key) is not True:
+                errors.append(f"candidate-only sandbox receipt does not prove {key}")
+        count_keys = (
+            "declared_mount_count",
+            "repository_mount_count",
+            "evaluator_mount_count",
+            "reference_mount_count",
+        )
+        valid_counts: dict[str, int] = {}
+        for key in count_keys:
+            value = sandbox.get(key)
+            if not isinstance(value, int) or isinstance(value, bool) or value < 0:
+                errors.append(f"candidate-only sandbox receipt has an invalid {key}")
+            else:
+                valid_counts[key] = value
+        if len(valid_counts) == len(count_keys):
+            if any(
+                valid_counts[key] != 0
+                for key in count_keys
+            ):
+                errors.append("candidate-only sandbox must have no host, repository, evaluator, or reference mounts")
+            if evidence.get("evaluator_available_during_run") is not (valid_counts["evaluator_mount_count"] > 0):
+                errors.append("evaluator availability is not derived from the sandbox receipt")
     expected_digest = candidate.get("digest")
     if not isinstance(expected_digest, str) or evidence.get("candidate_bundle_digest") != expected_digest:
         errors.append("solvability reference is not bound to the candidate bundle digest")
@@ -1193,8 +1226,11 @@ def _validate_solvability_reference(root: Path, candidate: Mapping[str, Any], ev
                 or not isinstance(item.get("receipt_digest"), str)
                 or not HEX64.fullmatch(str(item.get("receipt_digest")).removeprefix("sha256:"))
                 or item.get("fresh") is not True
+                or item.get("available") is not True
+                or item.get("cleanup_verified") is not True
                 or not isinstance(item.get("experiment_count"), int)
-                or not 0 <= cast(int, item.get("experiment_count")) <= 3
+                or isinstance(item.get("experiment_count"), bool)
+                or cast(int, item.get("experiment_count")) != 1
             ):
                 errors.append("candidate-only experiment receipt is invalid")
     review = evidence.get("historical_review")
@@ -1215,29 +1251,21 @@ def _validate_solvability_reference(root: Path, candidate: Mapping[str, Any], ev
                 errors.append("historical review references an unknown episode")
                 continue
             role = item.get("role")
-            has_component = isinstance(prediction.get("causal_component"), str) and bool(
-                str(prediction.get("causal_component")).strip()
-            )
-            if role in SUFFICIENCY_COMPONENT_ROLES and not has_component:
-                errors.append(f"{role} requires a non-empty scored causal component")
-            if role == "A02_SCIPY":
-                passed += int(
-                    prediction.get("disposition") == "ATTRIBUTED"
-                    and prediction.get("causal_component") == "scipy"
-                )
-            elif role == "A03_AMBIGUOUS":
-                passed += int(
-                    prediction.get("disposition") == "AMBIGUOUS"
-                    and prediction.get("semantic_intent") == "ambiguous"
-                    and has_component
-                )
-            elif role in SUFFICIENCY_COMPONENT_ROLES:
-                passed += int(
-                    prediction.get("disposition") == "ATTRIBUTED"
-                    and has_component
-                )
-            else:
+            expected = SUFFICIENCY_ROLE_EXPECTATIONS.get(str(role))
+            if expected is None:
                 errors.append(f"historical review role is not preregistered: {role}")
+                continue
+            expected_disposition, expected_semantic_intent, expected_component = expected
+            matches = (
+                prediction.get("disposition") == expected_disposition
+                and prediction.get("semantic_intent") == expected_semantic_intent
+                and prediction.get("causal_component") == expected_component
+            )
+            passed += int(matches)
+            if not matches:
+                errors.append(
+                    f"{role} does not match the exact preregistered disposition, semantic intent, and causal component"
+                )
         if passed < 4:
             errors.append("raw candidate-only predictions do not meet the four-of-five historical disposition gate")
     metadata = evidence.get("metadata_only")
@@ -1264,6 +1292,13 @@ def information_sufficiency_audit(root: Path) -> dict[str, Any]:
     else:
         errors.append("no blinded candidate-only solvability reference exists")
     status = "PASS" if candidate["valid"] and evidence is not None and not errors else "BLOCKED_INFORMATION_SUFFICIENCY"
+    sandbox = evidence.get("sandbox_receipt") if isinstance(evidence, Mapping) else None
+    evaluator_mount_count = sandbox.get("evaluator_mount_count") if isinstance(sandbox, Mapping) else None
+    evaluator_loaded = (
+        isinstance(evaluator_mount_count, int)
+        and not isinstance(evaluator_mount_count, bool)
+        and evaluator_mount_count > 0
+    )
     return {
         "status": status,
         "candidate_bundle": candidate,
@@ -1274,7 +1309,7 @@ def information_sufficiency_audit(root: Path) -> dict[str, Any]:
             "pandas_45601": "semantic ambiguity must remain unresolved if unsupported",
             "safety_case_type_inference": "must not be inferable from IDs, order, or evidence shape",
         },
-        "evaluator_loaded": False,
+        "evaluator_loaded": evaluator_loaded,
         "certifying": False if status != "PASS" else bool(evidence and evidence.get("certifying")),
     }
 

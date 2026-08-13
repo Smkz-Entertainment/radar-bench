@@ -300,7 +300,8 @@ def validate_runtime_recipes(root: Path) -> dict[str, Any]:
                     continue
                 _valid_command(item.get("command"), f"{label} preparation", errors)
                 writes = item.get("writes")
-                input_files = filesystem.get("input_files", []) if isinstance(filesystem, Mapping) else []
+                input_files_value = filesystem.get("input_files", []) if isinstance(filesystem, Mapping) else []
+                input_files = input_files_value if isinstance(input_files_value, list) else []
                 if not isinstance(writes, list) or any(item not in input_files for item in writes):
                     errors.append(f"{label}: preparation writes undeclared input files")
         _validate_side(raw, "control", catalog_files, errors)

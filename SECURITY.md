@@ -10,14 +10,15 @@ argument arrays, bounded process cleanup, exact artifact inventories, and
 evaluator-only gold separation. These controls are defense in depth and are
 not a guarantee of multi-tenant isolation.
 
-The current v1.1.0 release-candidate evidence includes fresh historical and
-safety execution, a completed isolated candidate protocol, and two clean-clone
+Release-candidate evidence for v1.1.0 may include fresh historical and safety
+execution, a completed isolated candidate protocol, and clean-clone
 reproductions. Those records establish reproducibility evidence but do not
 constitute independent release approval or public publication.
 
-At the time of this release-candidate audit, this repository has no verified
+Before public publication, the repository owner must establish and verify a
 private vulnerability-reporting channel. Do not put secrets, credentials, or
-working exploit details in a public issue. Until the repository owner enables
-and verifies a private intake route, open only a minimal public issue asking
-the maintainer to establish private follow-up. The release remains blocked on
-that external security-channel configuration.
+working exploit details in a public issue. If a private intake route is not
+available, open only a minimal public issue asking the maintainer to establish
+private follow-up; a state with no verified private channel is not
+publication-ready, and a release remains blocked until that channel and the
+independent release audit are complete.

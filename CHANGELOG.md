@@ -13,10 +13,10 @@
 
 ### Release status
 
-This package is not a GitHub release and no tag was created or moved. The
-release-candidate evidence records completed artifact/runtime reproduction and
-two clean-clone runs. The exact candidate tree remains withheld from
-publication until the independent release audit approves it.
+This entry describes the v1.1.0 release-candidate contract. Release-candidate
+evidence records artifact/runtime reproduction and clean-clone runs. A public
+release requires an independent release audit of the exact candidate tree and
+is a separate approved publication operation.
 
 ## 1.0.1 - 2026-08-10
 
