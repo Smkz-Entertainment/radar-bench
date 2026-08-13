@@ -852,6 +852,7 @@ class ExternalCandidateProtocol:
             container_name = "radar-candidate-" + secrets.token_hex(8)
             self.command = tuple(build_candidate_docker_argv(candidate_image, candidate_argv, container_name))
         self.container_name = self._container_name()
+        self._candidate_process: subprocess.Popen[bytes] | None = None
         if not self.command:
             raise ValueError("candidate command is empty")
 
@@ -890,7 +891,14 @@ class ExternalCandidateProtocol:
             return ["candidate container name is unavailable"]
         try:
             last_error = "running candidate container could not be inspected"
-            for _ in range(20):
+            process = self._candidate_process
+            inspection_seconds = (
+                max(1.0, min(self.timeout_seconds, 30.0))
+                if process is not None
+                else 1.0
+            )
+            deadline = time.monotonic() + inspection_seconds
+            while True:
                 completed = subprocess.run(  # nosec B603 - Docker argv is fixed
                     [self.command[0], "inspect", self.container_name],
                     capture_output=True,
@@ -903,8 +911,14 @@ class ExternalCandidateProtocol:
                     if not isinstance(value, list) or not value or not isinstance(value[0], Mapping):
                         return ["docker inspect returned no candidate container"]
                     return verify_actual_container_config(cast(Mapping[str, Any], value[0]))
+                if process is not None and process.poll() is not None:
+                    return [
+                        "candidate container process exited before inspection"
+                        f" (exit code {process.returncode})"
+                    ]
+                if time.monotonic() >= deadline:
+                    return [last_error]
                 time.sleep(0.05)
-            return [last_error]
         except (OSError, subprocess.SubprocessError, ValueError, UnicodeError) as exc:
             return [f"candidate container inspect failed: {type(exc).__name__}"]
 
@@ -921,6 +935,7 @@ class ExternalCandidateProtocol:
             process = subprocess.Popen(list(self.command), cwd=self.working_directory, env=safe_env, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)  # nosec B603
         except OSError as exc:
             return {"status": "BLOCKED", "error": "CANDIDATE_PROCESS_UNAVAILABLE", "detail": type(exc).__name__}
+        self._candidate_process = process
         frames: queue.Queue[bytes | None] = queue.Queue(maxsize=32)
         overflow = threading.Event()
         output_state = {"total": 0, "stdout": 0, "stderr": 0}
@@ -1102,6 +1117,7 @@ class ExternalCandidateProtocol:
                     errors.append("CANDIDATE_CONTAINER_CLEANUP_FAILED")
             except (OSError, subprocess.SubprocessError):
                 errors.append("CANDIDATE_CONTAINER_CLEANUP_FAILED")
+            self._candidate_process = None
         return {"status": "COMPLETED" if not errors and len(finals) == len(packet_list) else "BLOCKED", "network_denied": True, "predictions": finals, "ledgers": {key: value.summary() for key, value in ledgers.items()}, "errors": errors, "exit_code": process.returncode}
 
 

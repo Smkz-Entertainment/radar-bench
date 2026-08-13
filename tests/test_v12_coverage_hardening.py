@@ -1736,7 +1736,13 @@ def test_config_materialization_revalidates_corrupt_destinations(
         config.package_resource_root()
     monkeypatch.setenv("LOCALAPPDATA", str(tmp_path / "local"))
     monkeypatch.delenv("RADAR_BENCH_CACHE")
-    monkeypatch.setattr(config.os, "name", "nt")
+    # Simulate the Windows branch without mutating the process-wide os module;
+    # pathlib uses that same module to select its host path implementation.
+    monkeypatch.setattr(
+        config,
+        "os",
+        SimpleNamespace(name="nt", environ=os.environ, urandom=os.urandom),
+    )
     assert config.cache_root().parent == (tmp_path / "local")
     assert config.secrets_token()
 
