@@ -13,7 +13,7 @@
   },
   "completed_runs": 2,
   "release_action_taken": false,
-  "repository_head": "998615afcf74e3fce3b6388d67ea473cd8d0ca45",
+  "repository_head": "1b80efae7285f5c0438f9036aad028e242bbe3ed",
   "required_runs": 2,
   "runs": [
     {
@@ -27,7 +27,7 @@
       "canonical_result_validation": "PASS",
       "cli_doctor": "PASS",
       "clone": "clone-1",
-      "head": "998615afcf74e3fce3b6388d67ea473cd8d0ca45",
+      "head": "1b80efae7285f5c0438f9036aad028e242bbe3ed",
       "historical": {
         "contract_pass": 5,
         "executed": 5,
@@ -37,7 +37,17 @@
         "evaluator_available": false,
         "metadata_case_type_signal": "NONE",
         "reference_certifying": true,
-        "status": "PASS"
+        "status": "PASS",
+        "reference_method": "isolated ExternalCandidateProtocol with opaque episodes and real experiment_request to experiment_result round trips",
+        "reference_protocol": {
+          "actual_config_verified": true,
+          "evaluator_mount_count": 0,
+          "fresh_experiment_calls": 25,
+          "available_experiments": 25,
+          "cleanup_verified_experiments": 25,
+          "network_denied": true,
+          "status": "COMPLETED"
+        }
       },
       "package_install": "PASS",
       "safety": {
@@ -60,7 +70,7 @@
       "canonical_result_validation": "PASS",
       "cli_doctor": "PASS",
       "clone": "clone-2",
-      "head": "998615afcf74e3fce3b6388d67ea473cd8d0ca45",
+      "head": "1b80efae7285f5c0438f9036aad028e242bbe3ed",
       "historical": {
         "contract_pass": 5,
         "executed": 5,
@@ -70,7 +80,17 @@
         "evaluator_available": false,
         "metadata_case_type_signal": "NONE",
         "reference_certifying": true,
-        "status": "PASS"
+        "status": "PASS",
+        "reference_method": "isolated ExternalCandidateProtocol with opaque episodes and real experiment_request to experiment_result round trips",
+        "reference_protocol": {
+          "actual_config_verified": true,
+          "evaluator_mount_count": 0,
+          "fresh_experiment_calls": 25,
+          "available_experiments": 25,
+          "cleanup_verified_experiments": 25,
+          "network_denied": true,
+          "status": "COMPLETED"
+        }
       },
       "package_install": "PASS",
       "safety": {

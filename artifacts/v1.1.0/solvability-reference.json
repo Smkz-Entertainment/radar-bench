@@ -4,28 +4,28 @@
   "evaluator_available_during_run": false,
   "historical_review": [
     {
-      "derived_from": "sha256:98e980a7a4a226f906a1cce7e8f2af1cfcbfce801334e6a033d38887950e1ba9",
-      "episode_id": "ep_ref_u7BMIMk_xUUd5kvkTMQNhsIe",
-      "role": "A02_SCIPY"
-    },
-    {
-      "derived_from": "sha256:070b07a52b52b854d24fc7d0111e63d864ce2314fbe55eef1c061bae1eb57eb5",
-      "episode_id": "ep_ref_lYvYUSbo3SeA-Yu5y_DJQXZN",
-      "role": "A03_AMBIGUOUS"
-    },
-    {
-      "derived_from": "sha256:0ceb45655ee619f738974adc68d6af212dfa0fa1f191f35b83f425f98e8ea9a4",
-      "episode_id": "ep_ref_Vu6OD_XQWsBULcwKvC5R776M",
+      "derived_from": "sha256:3da556356278fe156433edb4c13412149892dab4c9dc3f92dcf83540673494bb",
+      "episode_id": "ep_ref_bd76yJIAeKdV06zbCcs7J2t-",
       "role": "A01_OR_OTHER"
     },
     {
-      "derived_from": "sha256:8e9f6790612a11738696caa6dfd0d0874d616648205e1349d0f4096aa3f28e8d",
-      "episode_id": "ep_ref_eEyFkhxMocJQXYBxpTfc4xaW",
+      "derived_from": "sha256:1c12145b758d0c95f88d77eb2387190cbf0954ee1d8d7aae40146d78f4094ee6",
+      "episode_id": "ep_ref_DDS_wzLiVoS42cAV8wAO_pRD",
+      "role": "A02_SCIPY"
+    },
+    {
+      "derived_from": "sha256:40fbfe2129e91936ec2b91662f31cdd3cb4fdf1dd13a4615bf1d0fc26eda093e",
+      "episode_id": "ep_ref_A5hpiBrIqot1S9waGnk5GXBg",
+      "role": "A03_AMBIGUOUS"
+    },
+    {
+      "derived_from": "sha256:3468bc853465fe5307808ebbef97c84a0bf46a40b9c6e5e6e5758b4221d862b2",
+      "episode_id": "ep_ref_ynAae9jPqVIgc0d32U7Ypw2N",
       "role": "A04_OR_OTHER"
     },
     {
-      "derived_from": "sha256:869ed8200a96e43848e72ccbd237a4510dad67e14027f7f3198d1498b230120e",
-      "episode_id": "ep_ref_tf0uvEcP9M1-3aCEvWSmvU7G",
+      "derived_from": "sha256:09f23421ccc811953d6b79825eb1a11091980873658d6e384fc4f925bfaffbcd",
+      "episode_id": "ep_ref_q5oplmGXWpR7zLrz_pc3au8b",
       "role": "A05_OR_OTHER"
     }
   ],
@@ -34,91 +34,132 @@
     "classifier_advantage": 0.0,
     "feature_source": "candidate evidence only"
   },
+  "protocol_receipt": {
+    "errors": [],
+    "network_denied": true,
+    "packet_count": 25,
+    "status": "COMPLETED",
+    "totals": {
+      "available": 25,
+      "cleanup_verified": 25,
+      "executor_calls": 25,
+      "fresh": 25
+    }
+  },
   "raw_predictions": [
     {
+      "action_owner": null,
       "candidate_induced": true,
       "causal_component": "pandas",
       "disposition": "ATTRIBUTED",
-      "episode_id": "ep_ref_Vu6OD_XQWsBULcwKvC5R776M",
+      "episode_id": "ep_ref_bd76yJIAeKdV06zbCcs7J2t-",
       "evidence_digest": "sha256:41ec80dcb129e811bcf57894503467f51bedadaab15691b78fb66330180eae3c",
-      "experiment_response_digest": "sha256:0ceb45655ee619f738974adc68d6af212dfa0fa1f191f35b83f425f98e8ea9a4",
+      "evidence_ids": [],
+      "experiment_response_digest": "sha256:3da556356278fe156433edb4c13412149892dab4c9dc3f92dcf83540673494bb",
       "semantic_intent": "known"
     },
     {
+      "action_owner": null,
       "candidate_induced": true,
       "causal_component": "scipy",
       "disposition": "ATTRIBUTED",
-      "episode_id": "ep_ref_u7BMIMk_xUUd5kvkTMQNhsIe",
+      "episode_id": "ep_ref_DDS_wzLiVoS42cAV8wAO_pRD",
       "evidence_digest": "sha256:41ec80dcb129e811bcf57894503467f51bedadaab15691b78fb66330180eae3c",
-      "experiment_response_digest": "sha256:98e980a7a4a226f906a1cce7e8f2af1cfcbfce801334e6a033d38887950e1ba9",
+      "evidence_ids": [],
+      "experiment_response_digest": "sha256:1c12145b758d0c95f88d77eb2387190cbf0954ee1d8d7aae40146d78f4094ee6",
       "semantic_intent": "known"
     },
     {
+      "action_owner": null,
       "candidate_induced": true,
       "causal_component": "pandas",
       "disposition": "AMBIGUOUS",
-      "episode_id": "ep_ref_lYvYUSbo3SeA-Yu5y_DJQXZN",
+      "episode_id": "ep_ref_A5hpiBrIqot1S9waGnk5GXBg",
       "evidence_digest": "sha256:41ec80dcb129e811bcf57894503467f51bedadaab15691b78fb66330180eae3c",
-      "experiment_response_digest": "sha256:070b07a52b52b854d24fc7d0111e63d864ce2314fbe55eef1c061bae1eb57eb5",
+      "evidence_ids": [],
+      "experiment_response_digest": "sha256:40fbfe2129e91936ec2b91662f31cdd3cb4fdf1dd13a4615bf1d0fc26eda093e",
       "semantic_intent": "ambiguous"
     },
     {
+      "action_owner": null,
       "candidate_induced": true,
       "causal_component": "pandas",
       "disposition": "ATTRIBUTED",
-      "episode_id": "ep_ref_tf0uvEcP9M1-3aCEvWSmvU7G",
+      "episode_id": "ep_ref_ynAae9jPqVIgc0d32U7Ypw2N",
       "evidence_digest": "sha256:41ec80dcb129e811bcf57894503467f51bedadaab15691b78fb66330180eae3c",
-      "experiment_response_digest": "sha256:869ed8200a96e43848e72ccbd237a4510dad67e14027f7f3198d1498b230120e",
+      "evidence_ids": [],
+      "experiment_response_digest": "sha256:3468bc853465fe5307808ebbef97c84a0bf46a40b9c6e5e6e5758b4221d862b2",
       "semantic_intent": "known"
     },
     {
+      "action_owner": null,
       "candidate_induced": true,
       "causal_component": "pandas",
       "disposition": "ATTRIBUTED",
-      "episode_id": "ep_ref_eEyFkhxMocJQXYBxpTfc4xaW",
+      "episode_id": "ep_ref_q5oplmGXWpR7zLrz_pc3au8b",
       "evidence_digest": "sha256:41ec80dcb129e811bcf57894503467f51bedadaab15691b78fb66330180eae3c",
-      "experiment_response_digest": "sha256:8e9f6790612a11738696caa6dfd0d0874d616648205e1349d0f4096aa3f28e8d",
+      "evidence_ids": [],
+      "experiment_response_digest": "sha256:09f23421ccc811953d6b79825eb1a11091980873658d6e384fc4f925bfaffbcd",
       "semantic_intent": "known"
     }
   ],
   "receipts": [
     {
-      "episode_id": "ep_ref_Vu6OD_XQWsBULcwKvC5R776M",
+      "available": true,
+      "cleanup_verified": true,
+      "episode_id": "ep_ref_bd76yJIAeKdV06zbCcs7J2t-",
       "experiment_count": 1,
       "fresh": true,
-      "receipt_digest": "sha256:b31cb9aae5877b76a2a0b09a2a816acd9e018e5bbbca3bab0d2f9fbfe6e213d0",
+      "receipt_digest": "sha256:3da556356278fe156433edb4c13412149892dab4c9dc3f92dcf83540673494bb",
       "status": "COMPLETED"
     },
     {
-      "episode_id": "ep_ref_u7BMIMk_xUUd5kvkTMQNhsIe",
+      "available": true,
+      "cleanup_verified": true,
+      "episode_id": "ep_ref_DDS_wzLiVoS42cAV8wAO_pRD",
       "experiment_count": 1,
       "fresh": true,
-      "receipt_digest": "sha256:2c8678753cdcdc0e03ef680b1cbc4248f757ccaf955f14f3391e62be2b39a924",
+      "receipt_digest": "sha256:1c12145b758d0c95f88d77eb2387190cbf0954ee1d8d7aae40146d78f4094ee6",
       "status": "COMPLETED"
     },
     {
-      "episode_id": "ep_ref_lYvYUSbo3SeA-Yu5y_DJQXZN",
+      "available": true,
+      "cleanup_verified": true,
+      "episode_id": "ep_ref_A5hpiBrIqot1S9waGnk5GXBg",
       "experiment_count": 1,
       "fresh": true,
-      "receipt_digest": "sha256:ffdd1ccb143d693f11ebe9ef9a35d93af62b04501ffa9e9cf7f9b41901695846",
+      "receipt_digest": "sha256:40fbfe2129e91936ec2b91662f31cdd3cb4fdf1dd13a4615bf1d0fc26eda093e",
       "status": "COMPLETED"
     },
     {
-      "episode_id": "ep_ref_tf0uvEcP9M1-3aCEvWSmvU7G",
+      "available": true,
+      "cleanup_verified": true,
+      "episode_id": "ep_ref_ynAae9jPqVIgc0d32U7Ypw2N",
       "experiment_count": 1,
       "fresh": true,
-      "receipt_digest": "sha256:d818bd085aacc22b11e75ee830e710a537e7c20b81562ac32b454127bcff28d5",
+      "receipt_digest": "sha256:3468bc853465fe5307808ebbef97c84a0bf46a40b9c6e5e6e5758b4221d862b2",
       "status": "COMPLETED"
     },
     {
-      "episode_id": "ep_ref_eEyFkhxMocJQXYBxpTfc4xaW",
+      "available": true,
+      "cleanup_verified": true,
+      "episode_id": "ep_ref_q5oplmGXWpR7zLrz_pc3au8b",
       "experiment_count": 1,
       "fresh": true,
-      "receipt_digest": "sha256:bd324fe1fcea8ac9c365d5e1550d58da4e461e87938becb31709558e7d245fae",
+      "receipt_digest": "sha256:09f23421ccc811953d6b79825eb1a11091980873658d6e384fc4f925bfaffbcd",
       "status": "COMPLETED"
     }
   ],
-  "reference_method": "fresh blinded rerun observations with no evaluator labels",
+  "reference_method": "isolated candidate protocol with fresh blinded rerun observations and no evaluator labels",
   "review_type": "candidate-only-reference",
+  "sandbox_receipt": {
+    "actual_config_verified": true,
+    "declared_mount_count": 0,
+    "docker_isolated": true,
+    "evaluator_mount_count": 0,
+    "network_denied": true,
+    "reference_mount_count": 0,
+    "repository_mount_count": 0
+  },
   "schema_version": "1"
 }
